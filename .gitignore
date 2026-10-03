@@ -7,3 +7,4 @@ __pycache__/
 *.npy
 *.npz
 Target_Journal_Submission/code/cache/
+Target_Journal_Submission/results/jobs/*.parquet
