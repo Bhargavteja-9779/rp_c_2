@@ -297,3 +297,4 @@
 2026-10-03 21:45:41,326 INFO kincp.run: running 162 jobs (full) with 3 workers
 2026-10-03 21:48:08,758 INFO kincp.run: running 21 jobs (full) with 1 workers
 2026-10-03 21:59:08,953 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R1__main__12345 660.0s
+2026-10-03 22:07:10,605 INFO kincp.run: done LightGBM__barley__BaMMV__R2__main__1 1286.9s
