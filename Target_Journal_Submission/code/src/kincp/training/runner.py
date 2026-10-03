@@ -23,7 +23,9 @@ from ..data.prepare import prepare
 from ..models.base import GBLUPPredictor, LightGBMPredictor, RKHSPredictor
 from ..models.kernel_blup import KernelBLUP, reml
 
-SEEDS = (11, 22, 33, 44, 55)
+from ..utils import STUDY
+
+SEEDS = tuple(STUDY["seeds"])
 
 
 @dataclass
@@ -33,9 +35,9 @@ class Job:
     regime: str          # R1 | R2 | R3
     base: str            # GBLUP | RKHS | LightGBM
     repeats: tuple       # R1/R3: EasyGeSe repeats (1..5); R2: seed indices
-    alphas: tuple = (0.05, 0.10, 0.20)
-    inner_k: int = 5
-    scp_frac: float = 0.2
+    alphas: tuple = tuple(STUDY["alphas"])
+    inner_k: int = STUDY["inner_cross_fitting"]["k"]
+    scp_frac: float = STUDY["inner_cross_fitting"]["scp_calibration_fraction"]
     y_override: np.ndarray | None = None   # simulation study: phenotypes supplied directly
     g_true: np.ndarray | None = None       # simulation study: true genetic values
     tag: str = ""

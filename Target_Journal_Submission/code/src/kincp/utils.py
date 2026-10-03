@@ -26,6 +26,9 @@ def load_config(path: str | Path) -> dict:
         return yaml.safe_load(fh)
 
 
+STUDY = load_config(Path(os.environ.get("KINCP_CONFIG", CODE_ROOT / "config" / "study.yaml")))
+
+
 def set_seed(seed: int) -> np.random.Generator:
     random.seed(seed)
     np.random.seed(seed % (2**32 - 1))

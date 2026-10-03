@@ -154,10 +154,13 @@ def localization_weights(diff: np.ndarray, h0: float, n_min: float | None, grow:
     return W
 
 
-N_MIN_DEFAULT = 50
+from ..utils import STUDY  # noqa: E402
+
+N_MIN_DEFAULT = STUDY["kincp"]["mass_floor_n_min"]
+H_MULT_DEFAULT = STUDY["kincp"]["bandwidth_multiplier"]
 
 
-def kincp(fd: FoldData, alpha: float, A: bool = True, B: bool = True, C: bool = True, h_mult: float = 0.5,
+def kincp(fd: FoldData, alpha: float, A: bool = True, B: bool = True, C: bool = True, h_mult: float = H_MULT_DEFAULT,
           return_q: bool = False, n_min: float | None = N_MIN_DEFAULT):
     """KinCP and its ablations (A: relatedness-diverse pool, B: PEV-normalised score, C: localisation)."""
     which = ("rand", "clus") if A else ("rand",)

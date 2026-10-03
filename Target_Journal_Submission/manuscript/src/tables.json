@@ -1,0 +1,22 @@
+[
+ {"label": "Table 1", "file": "Table1_datasets.csv", "font": 7,
+  "caption": "Datasets and traits. The traits were chosen by a rule fixed in advance (at least 200 records and 30 distinct values; up to three per dataset). Near-duplicate pairs are distinct individuals whose standardised genomic relationship exceeds 0.95. REML h² and GBLUP predictive ability r are means over the random cross-validation folds."},
+ {"label": "Table 2", "file": "Table2_main_GBLUP.csv", "font": 7,
+  "caption": "Calibration of 90% prediction intervals with the GBLUP base predictor. Values are mean ± SD over dataset × trait units. Cond. error is the mean over quintiles of relatedness of |coverage − 0.90| (primary endpoint). Width is in phenotypic SD units. Lower interval scores are better."},
+ {"label": "Table 3", "file": "Table3_statistics_GBLUP.csv", "font": 6.5,
+  "query": "family == 'baseline' and endpoint in ['cond_err', 'cov_dev']",
+  "columns": ["regime", "endpoint", "competitor", "n_units", "ref_median", "comp_median", "median_diff", "ci_low", "ci_high", "rank_biserial", "p_value", "p_holm"],
+  "caption": "Paired comparisons of KinCP with each alternative (GBLUP). The endpoints are the relatedness-conditional coverage error (cond_err) and the marginal coverage deviation (cov_dev). median_diff is the median paired difference (competitor − KinCP; positive favours KinCP), with its 95% bootstrap confidence interval. P-values are from two-sided Wilcoxon signed-rank tests, with Holm adjustment within each endpoint family. Interval scores and all ablation comparisons are in File S2."},
+ {"label": "Table 4", "file": "Table4_ablation.csv", "font": 7,
+  "caption": "Ablation of KinCP (GBLUP). A: relatedness-diverse calibration pool. B: PEV-normalised scores. C: localisation in log d. The row label lists the components that are kept. Mean ± SD over units."},
+ {"label": "Table 5", "file": "Table5_base_predictors.csv", "font": 7,
+  "caption": "Calibration with three base predictors under random (R1) and cluster-out (R2) validation. Mean ± SD over units. LightGBM was not run on maize (deviation D5)."},
+ {"label": "Table 6", "file": "Table6_simulation.csv", "font": 6.5,
+  "caption": "Simulation on real genotypes (loblolly pine, pig, maize) with additive genetic values. Mean ± SD over genotype sets × replicates."},
+ {"label": "Table 7", "file": "Table7_runtime.csv", "font": 6.5,
+  "caption": "Wall time per outer fold on one CPU thread (random cross-validation). Overhead is the time to build both calibration pools divided by the time of one model fit."},
+ {"label": "Table 8", "file": "Table8_sensitivity.csv", "font": 6.5,
+  "caption": "Sensitivity of KinCP to the bandwidth multiplier h, the mass floor n_min and the nominal level, compared with alternatives (GBLUP). Mean ± SD over units."},
+ {"label": "Table 9", "file": "Table9_selection.csv", "font": 6.5,
+  "caption": "Interval validity among the top 10% of candidates selected by predicted value (GBLUP). The columns give medians over units of: coverage among the selected; the share of selected candidates below the lower bound; the mean standardised phenotype of candidates selected by point prediction versus by lower bound, and the median difference between the two with its Wilcoxon P-value; and the overlap between the two selected sets."}
+]

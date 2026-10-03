@@ -1,0 +1,22 @@
+# Study configuration (mirrors supplementary/S0_preregistered_design.md).
+# seeds, alphas, inner_cross_fitting and kincp are read by the code (kincp.utils.STUDY);
+# the other entries document constants set in the modules named in the comments.
+data:
+  source: EasyGeSe (Zenodo 15348871, CC-BY 4.0)
+  datasets: [barley, bean, lentil, pine, oyster, maize, pig, rice, soybean, wheatG]
+  trait_rule: {min_n: 200, min_unique: 30, max_traits: 3}         # kincp.data.easygese.eligible_traits
+genomic:
+  grm: VanRaden method 1                                           # kincp.preprocessing.genomic.grm_vanraden
+  clusters: {k: 5, n_pcs: 10, seed: 2026, n_init: 10}              # kincp.data.prepare.prepare
+regimes:
+  R1: EasyGeSe 5x5-fold CV
+  R2: leave-one-genomic-cluster-out, 5 seeds
+  R3: R1 with 50% training subsample
+seeds: [11, 22, 33, 44, 55]                                        # kincp.training.runner.SEEDS
+inner_cross_fitting: {k: 5, scp_calibration_fraction: 0.2}         # kincp.training.runner.Job
+alphas: [0.05, 0.10, 0.20]
+kincp:
+  bandwidth_multiplier: 0.5        # h = 0.5 * SD(log d_pool)
+  mass_floor_n_min: 50             # widen h by 1.25 until sum of weights >= 50
+lightgbm: {n_estimators: 500, learning_rate: 0.05, num_leaves: 31, colsample_bytree: 0.3, subsample: 0.8, min_child_samples: 10, max_markers: 10000}
+simulation: {genotypes: [pine, pig, maize], h2: [0.2, 0.5, 0.8], n_qtl: [10, 1000], replicates: 5}

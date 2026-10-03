@@ -35,11 +35,28 @@ def load(mode: str = "full"):
     return s, t, missing
 
 
+def null_floor(n_unique: int, target: float = 0.90, n_bins: int = 5, n_sim: int = 20000, seed: int = 7):
+    """Expected conditional coverage error and worst-quintile coverage of a *perfectly calibrated* method,
+    due only to binomial sampling of n_unique/5 individuals per quintile (noise floor)."""
+    rng = np.random.default_rng(seed)
+    m = max(int(n_unique // n_bins), 1)
+    c = rng.binomial(m, target, size=(n_sim, n_bins)) / m
+    return float(np.abs(c - target).mean()), float(c.min(axis=1).mean())
+
+
 def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else "full"
     s, t, missing = load(mode)
     dump_json(dict(mode=mode, n_jobs_loaded=int(s["job_id"].nunique()), missing_jobs=missing),
               RESULTS_DIR / "aggregation_manifest.json")
+    import json as _json
+    audit = {r["dataset"]: r for r in _json.load(open(RESULTS_DIR / "data_audit.json"))}
+    floors = {}
+    for (ds, tr) in s[["dataset", "trait"]].drop_duplicates().itertuples(index=False):
+        n_u = audit[ds]["traits"][tr]["n"] if tr in audit[ds]["traits"] else audit[ds]["n"]
+        floors[(ds, tr)] = null_floor(n_u)
+    s["null_cond_err"] = [floors[(d, t)][0] for d, t in zip(s.dataset, s.trait)]
+    s["null_worst_bin_cov"] = [floors[(d, t)][1] for d, t in zip(s.dataset, s.trait)]
     s.to_csv(RESULTS_DIR / "raw_results.csv", index=False)
     t.to_csv(RESULTS_DIR / "timings.csv", index=False)
     real = s[(s["tag"] == "main")]

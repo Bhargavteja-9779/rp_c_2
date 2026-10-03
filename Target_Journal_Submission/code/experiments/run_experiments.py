@@ -50,8 +50,9 @@ def job_specs(mode: str) -> list[dict]:
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R3", base="GBLUP", repeats=(1, 2, 3, 4, 5), tag="main"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="RKHS", repeats=(1,), tag="main"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2", base="RKHS", repeats=(1, 2), tag="main"))
-            specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="LightGBM", repeats=(1,), tag="main"))
-            specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2", base="LightGBM", repeats=(1,), tag="main"))
+            if ds != "maize":   # deviation D5: LightGBM on maize (n = 4,421) exceeds the CPU budget
+                specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="LightGBM", repeats=(1,), tag="main"))
+                specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2", base="LightGBM", repeats=(1,), tag="main"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="GBLUP", repeats=(1,), tag="dedup"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2", base="GBLUP", repeats=(1,), tag="dedup"))
     for g in SIM_GENOS:
