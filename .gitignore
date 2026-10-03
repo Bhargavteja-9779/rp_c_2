@@ -1,0 +1,9 @@
+data/
+**/data/raw/
+**/data/processed/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.npy
+*.npz
+Target_Journal_Submission/code/cache/

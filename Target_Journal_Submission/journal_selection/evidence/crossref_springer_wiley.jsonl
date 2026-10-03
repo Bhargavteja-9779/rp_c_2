@@ -1,0 +1,7 @@
+{"issn": "2213-1248", "name": "Journal of King Saud University Computer and Information Sciences", "total": 1175, "n": 599, "median": 73, "p25": 56, "p75": 98, "frac_le72": 0.49}
+{"issn": "2196-1115", "name": "Journal of Big Data", "total": 338, "n": 335, "median": 229, "p25": 166, "p75": 342, "frac_le72": 0.02}
+{"issn": "2198-6053", "name": "Complex &amp; Intelligent Systems", "total": 505, "n": 503, "median": 147, "p25": 104, "p75": 225, "frac_le72": 0.06}
+{"issn": "2045-2322", "name": "Scientific Reports", "total": 66112, "n": 590, "median": 135.0, "p25": 89, "p75": 195, "frac_le72": 0.14}
+{"issn": "1573-7462", "name": "Artificial Intelligence Review", "total": 437, "n": 335, "median": 195, "p25": 139, "p75": 277, "frac_le72": 0.03}
+{"issn": "2731-0809", "name": "Discover Artificial Intelligence", "total": 1809, "n": 597, "median": 126, "p25": 94, "p75": 172, "frac_le72": 0.11}
+{"issn": "2468-2322", "name": "CAAI Transactions on Intelligence Technology", "total": 154, "n": 154, "median": 172.0, "p25": 111, "p75": 242, "frac_le72": 0.09}

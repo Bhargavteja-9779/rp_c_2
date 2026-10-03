@@ -1,0 +1,15 @@
+{"journal": "Genetics", "cohort": "received 2025-01..2025-06", "n": 137, "median": 69, "p25": 41, "p75": 112, "le72": 0.547, "le60": 0.409, "le30": 0.109}
+{"journal": "G3 (Bethesda)", "cohort": "received 2025-01..2025-06", "n": 140, "median": 73.0, "p25": 43, "p75": 104, "le72": 0.493, "le60": 0.35, "le30": 0.136}
+{"journal": "Bioinformatics", "cohort": "received 2025-01..2025-06", "n": 309, "median": 156, "p25": 117, "p75": 214, "le72": 0.061, "le60": 0.019, "le30": 0.0}
+{"journal": "Brief Bioinform", "cohort": "received 2025-01..2025-06", "n": 392, "median": 119.5, "p25": 89, "p75": 164, "le72": 0.122, "le60": 0.048, "le30": 0.005}
+{"journal": "J Am Med Inform Assoc", "cohort": "received 2025-01..2025-06", "n": 111, "median": 128, "p25": 100, "p75": 166, "le72": 0.108, "le60": 0.081, "le30": 0.045}
+{"journal": "Mol Biol Evol", "cohort": "received 2025-01..2025-06", "n": 175, "median": 149, "p25": 109, "p75": 207, "le72": 0.063, "le60": 0.034, "le30": 0.006}
+{"journal": "Hum Mol Genet", "cohort": "received 2025-01..2025-06", "n": 88, "median": 86.0, "p25": 59, "p75": 141, "le72": 0.375, "le60": 0.273, "le30": 0.08}
+{"journal": "Theor Appl Genet", "cohort": "received 2025-01..2025-06", "n": 168, "median": 139.0, "p25": 105, "p75": 202, "le72": 0.107, "le60": 0.077, "le30": 0.0}
+{"journal": "Plant Methods", "cohort": "received 2025-01..2025-06", "n": 78, "median": 96.0, "p25": 70, "p75": 136, "le72": 0.282, "le60": 0.167, "le30": 0.013}
+{"journal": "PLoS Genet", "cohort": "received 2025-01..2025-06", "n": 202, "median": 161.5, "p25": 117, "p75": 227, "le72": 0.079, "le60": 0.059, "le30": 0.0}
+{"journal": "Genet Sel Evol", "cohort": "received 2025-01..2025-06", "n": 40, "median": 232.0, "p25": 182, "p75": 306, "le72": 0.0, "le60": 0.0, "le30": 0.0}
+{"journal": "Heredity (Edinb)", "cohort": "received 2025-01..2025-06", "n": 35, "median": 144, "p25": 109, "p75": 224, "le72": 0.114, "le60": 0.086, "le30": 0.057}
+{"journal": "Precis Clin Med", "cohort": "received 2025-01..2025-06", "n": 16, "median": 56.5, "p25": 32, "p75": 68, "le72": 0.812, "le60": 0.5, "le30": 0.188}
+{"journal": "Comput Biol Med", "cohort": "received 2025-01..2025-06", "n": 581, "median": 136, "p25": 95, "p75": 193, "le72": 0.112, "le60": 0.071, "le30": 0.007}
+{"journal": "Sci Rep", "cohort": "received 2025-01..2025-06", "n": 217, "median": 395, "p25": 360, "p75": 455, "le72": 0.0, "le60": 0.0, "le30": 0.0}
