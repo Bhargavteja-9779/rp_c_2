@@ -1,0 +1,122 @@
+{
+  "R1|CV+": {
+    "n_units": 21,
+    "median_sel_coverage": 0.8914285714285713,
+    "median_sel_below_lower": 0.043571428571428567,
+    "median_gain_point": 0.9936882853507996,
+    "median_gain_lower": 1.002631664276123,
+    "median_gain_diff": 0.0016149282455444336,
+    "wilcoxon_p": 0.6332969665527344,
+    "median_overlap": 0.9128571428571428
+  },
+  "R1|CalPred-style": {
+    "n_units": 21,
+    "median_sel_coverage": 0.9022222222222223,
+    "median_sel_below_lower": 0.05555555555555555,
+    "median_gain_point": 0.9936882853507996,
+    "median_gain_lower": 0.9882789850234985,
+    "median_gain_diff": -0.005409300327301025,
+    "wilcoxon_p": 0.042079925537109375,
+    "median_overlap": 0.8742857142857143
+  },
+  "R1|Gauss-PEV": {
+    "n_units": 21,
+    "median_sel_coverage": 0.8857142857142857,
+    "median_sel_below_lower": 0.045882352941176464,
+    "median_gain_point": 0.9936882853507996,
+    "median_gain_lower": 0.9898777008056641,
+    "median_gain_diff": -0.0047141313552856445,
+    "wilcoxon_p": 0.1789875030517578,
+    "median_overlap": 0.8979310344827586
+  },
+  "R1|KinCP": {
+    "n_units": 21,
+    "median_sel_coverage": 0.8914285714285713,
+    "median_sel_below_lower": 0.05333333333333333,
+    "median_gain_point": 0.9936882853507996,
+    "median_gain_lower": 0.9285231232643127,
+    "median_gain_diff": -0.012791931629180908,
+    "wilcoxon_p": 0.009016036987304688,
+    "median_overlap": 0.8689655172413794
+  },
+  "R1|KinCP-ABC": {
+    "n_units": 21,
+    "median_sel_coverage": 0.8914285714285713,
+    "median_sel_below_lower": 0.04666666666666666,
+    "median_gain_point": 0.9936882853507996,
+    "median_gain_lower": 0.9936882853507996,
+    "median_gain_diff": 0.0,
+    "wilcoxon_p": NaN,
+    "median_overlap": 1.0
+  },
+  "R1|SCP": {
+    "n_units": 21,
+    "median_sel_coverage": 0.8842857142857143,
+    "median_sel_below_lower": 0.045714285714285714,
+    "median_gain_point": 0.9936882853507996,
+    "median_gain_lower": 0.9661165475845337,
+    "median_gain_diff": -0.0015971660614013672,
+    "wilcoxon_p": 0.4319114685058594,
+    "median_overlap": 0.8444444444444444
+  },
+  "R2|CV+": {
+    "n_units": 21,
+    "median_sel_coverage": 0.8648888888888889,
+    "median_sel_below_lower": 0.040522875816993466,
+    "median_gain_point": 0.40839698910713196,
+    "median_gain_lower": 0.4209316372871399,
+    "median_gain_diff": 0.014915287494659424,
+    "wilcoxon_p": 0.5620746612548828,
+    "median_overlap": 0.9064444444444445
+  },
+  "R2|CalPred-style": {
+    "n_units": 21,
+    "median_sel_coverage": 0.9166666666666667,
+    "median_sel_below_lower": 0.04,
+    "median_gain_point": 0.40839698910713196,
+    "median_gain_lower": 0.46221864223480225,
+    "median_gain_diff": -0.014786392450332642,
+    "wilcoxon_p": 0.433048278093338,
+    "median_overlap": 0.86
+  },
+  "R2|Gauss-PEV": {
+    "n_units": 21,
+    "median_sel_coverage": 0.9022222222222223,
+    "median_sel_below_lower": 0.03666666666666667,
+    "median_gain_point": 0.40839698910713196,
+    "median_gain_lower": 0.5947895646095276,
+    "median_gain_diff": 0.000922858715057373,
+    "wilcoxon_p": 0.8917322158813477,
+    "median_overlap": 0.8772222222222222
+  },
+  "R2|KinCP": {
+    "n_units": 21,
+    "median_sel_coverage": 0.9009401709401709,
+    "median_sel_below_lower": 0.04,
+    "median_gain_point": 0.40839698910713196,
+    "median_gain_lower": 0.5301142930984497,
+    "median_gain_diff": -0.005983471870422363,
+    "wilcoxon_p": 0.39258384704589844,
+    "median_overlap": 0.86
+  },
+  "R2|KinCP-ABC": {
+    "n_units": 21,
+    "median_sel_coverage": 0.8394444444444444,
+    "median_sel_below_lower": 0.06666666666666667,
+    "median_gain_point": 0.40839698910713196,
+    "median_gain_lower": 0.40839698910713196,
+    "median_gain_diff": 0.0,
+    "wilcoxon_p": NaN,
+    "median_overlap": 1.0
+  },
+  "R2|SCP": {
+    "n_units": 21,
+    "median_sel_coverage": 0.8642222222222222,
+    "median_sel_below_lower": 0.046524064171122995,
+    "median_gain_point": 0.40839698910713196,
+    "median_gain_lower": 0.3753706216812134,
+    "median_gain_diff": -0.00034296512603759766,
+    "wilcoxon_p": 0.45236778259277344,
+    "median_overlap": 0.762
+  }
+}

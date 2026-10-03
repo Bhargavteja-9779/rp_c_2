@@ -1,0 +1,155 @@
+{
+ "meuwissen2001": {
+  "doi": "10.1093/genetics/157.4.1819"
+ },
+ "vanraden2008": {
+  "doi": "10.3168/jds.2007-0980"
+ },
+ "habier2007": {
+  "doi": "10.1534/genetics.107.081190"
+ },
+ "clark2012": {
+  "q": "Clark Hickey Daetwyler van der Werf 2012 importance of information on relatives prediction of genomic breeding values Genetics Selection Evolution"
+ },
+ "pszczola2012": {
+  "q": "Pszczola Strabel Mulder Calus 2012 Reliability of direct genomic values for animals with different relationships within and to the reference population"
+ },
+ "henderson1975": {
+  "q": "Henderson 1975 Best linear unbiased estimation and prediction under a selection model Biometrics"
+ },
+ "kang2008": {
+  "q": "Kang Zaitlen Wade 2008 Efficient control of population structure in model organism association mapping Genetics"
+ },
+ "gianola2008": {
+  "q": "Gianola van Kaam 2008 Reproducing kernel Hilbert spaces regression methods for genomic assisted prediction of quantitative traits Genetics"
+ },
+ "delos2010": {
+  "q": "de los Campos Gianola Rosa Weigel Crossa 2010 Semi-parametric genomic-enabled prediction of genetic values using reproducing kernel Hilbert spaces methods Genetics Research"
+ },
+ "legarra2018": {
+  "q": "Legarra Reverter 2018 Semi-parametric estimates of population accuracy and bias of predictions of breeding values and future phenotypes using the LR method"
+ },
+ "werner2020": {
+  "doi": "10.3389/fpls.2020.592977"
+ },
+ "quesada2025": {
+  "doi": "10.1186/s12864-025-12129-0"
+ },
+ "resende2012": {
+  "q": "Resende 2012 Accuracy of genomic selection methods in a standard data set of loblolly pine Genetics"
+ },
+ "cleveland2012": {
+  "q": "Cleveland Hickey Forni 2012 A common dataset for genomic analysis of livestock populations G3"
+ },
+ "crossa2017": {
+  "q": "Crossa 2017 Genomic selection in plant breeding: methods, models, and perspectives Trends in Plant Science"
+ },
+ "daetwyler2013": {
+  "q": "Daetwyler Calus Pong-Wong de los Campos Hickey 2013 Genomic prediction in animals and plants: simulation of data, validation, reporting, and benchmarking Genetics"
+ },
+ "wientjes2013": {
+  "q": "Wientjes Veerkamp Calus 2013 effect of linkage disequilibrium and family relationships on the reliability of genomic prediction Genetics"
+ },
+ "ding2023": {
+  "q": "Ding 2023 Polygenic scoring accuracy varies across the genetic ancestry continuum Nature"
+ },
+ "hou2024": {
+  "doi": "10.1038/s41588-024-01792-w"
+ },
+ "predinterval": {
+  "doi": "10.1038/s41588-025-02360-6"
+ },
+ "ahlinder2026": {
+  "doi": "10.1093/genetics/iyag205"
+ },
+ "gibbs2025": {
+  "doi": "10.1093/genetics/iyaf003"
+ },
+ "vovk2005": {
+  "q": "Vovk Gammerman Shafer Algorithmic Learning in a Random World"
+ },
+ "lei2018": {
+  "q": "Lei G'Sell Rinaldo Tibshirani Wasserman 2018 Distribution-free predictive inference for regression"
+ },
+ "barber2021": {
+  "q": "Barber Candes Ramdas Tibshirani Predictive inference with the jackknife+ Annals of Statistics"
+ },
+ "barber2023": {
+  "q": "Barber Candes Ramdas Tibshirani Conformal prediction beyond exchangeability Annals of Statistics"
+ },
+ "guan2023": {
+  "q": "Guan Localized conformal prediction: a generalized inference framework for conformal prediction Biometrika"
+ },
+ "papadopoulos2002": {
+  "q": "Papadopoulos Proedrou Vovk Gammerman Inductive confidence machines for regression"
+ },
+ "gibbs2025cc": {
+  "q": "Gibbs Cherian Candes Conformal prediction with conditional guarantees Journal of the Royal Statistical Society Series B"
+ },
+ "dunn2023": {
+  "q": "Dunn Wasserman Ramdas Distribution-free prediction sets for two-layer hierarchical models Journal of the American Statistical Association"
+ },
+ "gneiting2007": {
+  "doi": "10.1198/016214506000001437"
+ },
+ "vovk2013": {
+  "q": "Vovk Conditional validity of inductive conformal predictors Machine Learning"
+ },
+ "wilcoxon1945": {
+  "q": "Wilcoxon 1945 Individual comparisons by ranking methods"
+ },
+ "isidro2015": {
+  "q": "Isidro Jannink Akdemir Poland Heslot Sorrells 2015 Training set optimization under population structure in genomic selection"
+ },
+ "montesinos2021": {
+  "q": "Montesinos-Lopez A review of deep learning applications for genomic selection BMC Genomics 2021"
+ },
+ "angelopoulos2023": {
+  "q": "Angelopoulos Bates Conformal prediction: a gentle introduction Foundations and Trends in Machine Learning"
+ },
+ "kerby2014": {
+  "q": "Kerby 2014 The simple difference formula: an approach to teaching nonparametric correlation"
+ },
+ "efron1979": {
+  "q": "Efron 1979 Bootstrap methods: another look at the jackknife Annals of Statistics"
+ },
+ "bhattacharyya2024": {
+  "q": "Bhattacharyya Barber Group-weighted conformal prediction"
+ },
+ "hayes2009": {
+  "q": "Hayes Visscher Goddard 2009 Increased accuracy of artificial selection by using the realized relationship matrix Genetics Research"
+ },
+ "vanraden_reliab": {
+  "q": "Misztal Legarra Aguilar 2009 Computing procedures for genetic evaluation including phenotypic, full pedigree, and genomic information"
+ },
+ "edwards2019": {
+  "q": "Edwards Buntjer Hickey Gorjanc 2019 The effects of training population design on genomic prediction accuracy in wheat Theoretical and Applied Genetics"
+ },
+ "gonzalez2021": {
+  "q": "Gonzalez 2021 barley genomic prediction Bymovirus resistance BaMMV BaYMV genebank"
+ },
+ "diaz2020": {
+  "q": "Diaz 2020 genomic prediction common bean Andean MAGIC population"
+ },
+ "haile2020": {
+  "q": "Haile 2020 genomic selection lentil days to flowering diversity panel"
+ },
+ "mccarty2022": {
+  "q": "McCarty 2022 genomic prediction eastern oyster Crassostrea virginica Dermo survival F2 families"
+ },
+ "washburn2025": {
+  "doi": "10.1093/genetics/iyae195"
+ },
+ "xie2021": {
+  "q": "Xie 2021 pig genomic prediction intramuscular fat landrace genotype"
+ },
+ "zhao2011": {
+  "q": "Zhao 2011 Genome-wide association mapping reveals a rich genetic architecture of complex traits in Oryza sativa"
+ },
+ "kaler2017": {
+  "q": "Kaler 2017 genome-wide association mapping carbon isotope ratio soybean"
+ },
+ "gogna2022": {
+  "q": "Gogna 2022 wheat genomic prediction European elite cultivars"
+ }
+}

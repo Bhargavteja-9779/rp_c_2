@@ -1,0 +1,97 @@
+"""Secondary analyses computed from per-individual records (alpha = 0.10):
+E8 error analysis (which units/strata fail and why) and E9 selection-decision analysis.
+
+Writes results/error_analysis_units.csv, results/error_analysis.json,
+       results/decision_analysis.csv, results/decision_summary.json
+"""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+from scipy import stats
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from kincp.data.easygese import read_phenotypes  # noqa: E402
+from kincp.utils import RESULTS_DIR, dump_json  # noqa: E402
+
+JOBS = RESULTS_DIR / "jobs"
+MAIN = ["Gauss-PEV", "SCP", "CV+", "CalPred-style", "KinCP", "KinCP-ABC"]
+SEL_FRAC = 0.10
+
+
+def unit_traits():
+    s = pd.read_csv(RESULTS_DIR / "raw_results.csv")
+    t = pd.read_csv(RESULTS_DIR / "timings.csv")
+    t = t[t["alpha"].isna() & (t["tag"] == "main") & (t["base"] == "GBLUP")]
+    agg = t.groupby(["dataset", "trait", "regime"]).agg(h2_reml=("h2_reml", "mean"), r_pred=("r_pred", "mean"),
+                                                         n_train=("n_train", "mean")).reset_index()
+    rows = []
+    for (ds, tr), _ in agg.groupby(["dataset", "trait"]):
+        y = read_phenotypes(ds)[tr].dropna()
+        rows.append(dict(dataset=ds, trait=tr, skew=float(stats.skew(y)), exkurt=float(stats.kurtosis(y)),
+                         n_unique_frac=float(y.nunique() / len(y))))
+    tr = pd.DataFrame(rows)
+    s = s[(s.tag == "main") & (s.base == "GBLUP") & (s.alpha == 0.10) & s.method.isin(MAIN)]
+    m = s.merge(agg, on=["dataset", "trait", "regime"]).merge(tr, on=["dataset", "trait"])
+    return m
+
+
+def error_analysis():
+    m = unit_traits()
+    m.to_csv(RESULTS_DIR / "error_analysis_units.csv", index=False)
+    out = {}
+    for reg in ["R1", "R2"]:
+        for meth in MAIN:
+            g = m[(m.regime == reg) & (m.method == meth)]
+            res = {}
+            for cov in ["skew", "exkurt", "h2_reml", "r_pred", "n_train"]:
+                x = g[cov].abs() if cov == "skew" else g[cov]
+                rho, p = stats.spearmanr(x, g["cond_err"])
+                res[cov] = dict(spearman_rho=float(rho), p_value=float(p), n=int(len(g)))
+            res["coverage_signed_vs_exkurt"] = dict(zip(["rho", "p"], map(float, stats.spearmanr(g["exkurt"], g["coverage"]))))
+            res["worst_units"] = g.nlargest(3, "cond_err")[["dataset", "trait", "coverage", "cond_err", "worst_bin_cov"]].to_dict("records")
+            out[f"{reg}|{meth}"] = res
+    dump_json(out, RESULTS_DIR / "error_analysis.json")
+
+
+def decision_analysis():
+    rows = []
+    for f in sorted(JOBS.glob("GBLUP__*__main__12345__records.parquet")):
+        parts = f.name.split("__")
+        ds, tr, reg = parts[1], parts[2], parts[3]
+        if reg not in ("R1", "R2"):
+            continue
+        r = pd.read_parquet(f)
+        r = r[r.method.isin(MAIN)]
+        for (meth, rep, fold), g in r.groupby(["method", "rep", "fold"]):
+            k = max(1, int(round(SEL_FRAC * len(g))))
+            by_point = g.nlargest(k, "yhat")
+            by_lower = g.nlargest(k, "lo")
+            cov_sel = ((by_point.y >= by_point.lo) & (by_point.y <= by_point.hi)).mean()
+            below_lo = (by_point.y < by_point.lo).mean()
+            rows.append(dict(dataset=ds, trait=tr, regime=reg, method=meth, rep=rep, fold=fold, k=k,
+                             sel_coverage=cov_sel, sel_below_lower=below_lo,
+                             gain_point=by_point.y.mean(), gain_lower=by_lower.y.mean(),
+                             overlap=len(set(by_point.idx) & set(by_lower.idx)) / k))
+    d = pd.DataFrame(rows)
+    d.to_csv(RESULTS_DIR / "decision_analysis.csv", index=False)
+    u = d.groupby(["regime", "method", "dataset", "trait"]).mean(numeric_only=True).reset_index()
+    summ = {}
+    for (reg, meth), g in u.groupby(["regime", "method"]):
+        diff = (g["gain_lower"] - g["gain_point"]).to_numpy()
+        p = float(stats.wilcoxon(diff).pvalue) if np.any(diff != 0) and len(diff) >= 5 else np.nan
+        summ[f"{reg}|{meth}"] = dict(n_units=len(g), median_sel_coverage=float(g.sel_coverage.median()),
+                                     median_sel_below_lower=float(g.sel_below_lower.median()),
+                                     median_gain_point=float(g.gain_point.median()),
+                                     median_gain_lower=float(g.gain_lower.median()),
+                                     median_gain_diff=float(np.median(diff)), wilcoxon_p=p,
+                                     median_overlap=float(g.overlap.median()))
+    dump_json(summ, RESULTS_DIR / "decision_summary.json")
+
+
+if __name__ == "__main__":
+    error_analysis()
+    decision_analysis()

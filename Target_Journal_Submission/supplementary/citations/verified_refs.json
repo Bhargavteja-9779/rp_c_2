@@ -1,0 +1,955 @@
+{
+ "meuwissen2001": {
+  "status": "OK",
+  "doi": "10.1093/genetics/157.4.1819",
+  "title": "Prediction of Total Genetic Value Using Genome-Wide Dense Marker Maps",
+  "authors": [
+   "Meuwissen THE",
+   "Hayes BJ",
+   "Goddard ME"
+  ],
+  "year": 2001,
+  "journal": "Genetics",
+  "volume": "157",
+  "issue": "4",
+  "pages": "1819-1829",
+  "type": "journal-article"
+ },
+ "vanraden2008": {
+  "status": "OK",
+  "doi": "10.3168/jds.2007-0980",
+  "title": "Efficient Methods to Compute Genomic Predictions",
+  "authors": [
+   "VanRaden P"
+  ],
+  "year": 2008,
+  "journal": "Journal of Dairy Science",
+  "volume": "91",
+  "issue": "11",
+  "pages": "4414-4423",
+  "type": "journal-article"
+ },
+ "habier2007": {
+  "status": "OK",
+  "doi": "10.1534/genetics.107.081190",
+  "title": "The Impact of Genetic Relationship Information on Genome-Assisted Breeding Values",
+  "authors": [
+   "Habier D",
+   "Fernando RL",
+   "Dekkers JCM"
+  ],
+  "year": 2007,
+  "journal": "Genetics",
+  "volume": "177",
+  "issue": "4",
+  "pages": "2389-2397",
+  "type": "journal-article"
+ },
+ "clark2012": {
+  "status": "OK",
+  "doi": "10.1186/1297-9686-44-4",
+  "title": "The importance of information on relatives for the prediction of genomic breeding values and the implications for the makeup of reference data sets in livestock breeding schemes",
+  "authors": [
+   "Clark SA",
+   "Hickey JM",
+   "Daetwyler HD",
+   "van der Werf JH"
+  ],
+  "year": 2012,
+  "journal": "Genetics Selection Evolution",
+  "volume": "44",
+  "issue": "1",
+  "pages": "4",
+  "type": "journal-article"
+ },
+ "pszczola2012": {
+  "status": "OK",
+  "doi": "10.3168/jds.2011-4338",
+  "title": "Reliability of direct genomic values for animals with different relationships within and to the reference population",
+  "authors": [
+   "Pszczola M",
+   "Strabel T",
+   "Mulder H",
+   "Calus M"
+  ],
+  "year": 2012,
+  "journal": "Journal of Dairy Science",
+  "volume": "95",
+  "issue": "1",
+  "pages": "389-400",
+  "type": "journal-article"
+ },
+ "henderson1975": {
+  "status": "OK",
+  "doi": "10.2307/2529430",
+  "title": "Best Linear Unbiased Estimation and Prediction under a Selection Model",
+  "authors": [
+   "Henderson CR"
+  ],
+  "year": 1975,
+  "journal": "Biometrics",
+  "volume": "31",
+  "issue": "2",
+  "pages": "423",
+  "type": "journal-article"
+ },
+ "kang2008": {
+  "status": "OK",
+  "doi": "10.1534/genetics.107.080101",
+  "title": "Efficient Control of Population Structure in Model Organism Association Mapping",
+  "authors": [
+   "Kang HM",
+   "Zaitlen NA",
+   "Wade CM",
+   "Kirby A",
+   "Heckerman D",
+   "Daly MJ",
+   "Eskin E"
+  ],
+  "year": 2008,
+  "journal": "Genetics",
+  "volume": "178",
+  "issue": "3",
+  "pages": "1709-1723",
+  "type": "journal-article"
+ },
+ "gianola2008": {
+  "status": "OK",
+  "doi": "10.1534/genetics.107.084285",
+  "title": "Reproducing Kernel Hilbert Spaces Regression Methods for Genomic Assisted Prediction of Quantitative Traits",
+  "authors": [
+   "Gianola D",
+   "van Kaam JBCHM"
+  ],
+  "year": 2008,
+  "journal": "Genetics",
+  "volume": "178",
+  "issue": "4",
+  "pages": "2289-2303",
+  "type": "journal-article"
+ },
+ "delos2010": {
+  "status": "OK",
+  "doi": "10.1017/s0016672310000285",
+  "title": "Semi-parametric genomic-enabled prediction of genetic values using reproducing kernel Hilbert spaces methods",
+  "authors": [
+   "DE LOS CAMPOS G",
+   "GIANOLA D",
+   "ROSA GJM",
+   "WEIGEL KA",
+   "CROSSA J"
+  ],
+  "year": 2010,
+  "journal": "Genetics Research",
+  "volume": "92",
+  "issue": "4",
+  "pages": "295-308",
+  "type": "journal-article"
+ },
+ "legarra2018": {
+  "status": "OK",
+  "doi": "10.1186/s12711-018-0426-6",
+  "title": "Semi-parametric estimates of population accuracy and bias of predictions of breeding values and future phenotypes using the LR method",
+  "authors": [
+   "Legarra A",
+   "Reverter A"
+  ],
+  "year": 2018,
+  "journal": "Genetics Selection Evolution",
+  "volume": "50",
+  "issue": "1",
+  "pages": "53",
+  "type": "journal-article"
+ },
+ "werner2020": {
+  "status": "OK",
+  "doi": "10.3389/fpls.2020.592977",
+  "title": "How Population Structure Impacts Genomic Selection Accuracy in Cross-Validation: Implications for Practical Breeding",
+  "authors": [
+   "Werner CR",
+   "Gaynor RC",
+   "Gorjanc G",
+   "Hickey JM",
+   "Kox T",
+   "Abbadi A",
+   "Leckband G",
+   "Snowdon RJ",
+   "Stahl A"
+  ],
+  "year": 2020,
+  "journal": "Frontiers in Plant Science",
+  "volume": "11",
+  "issue": null,
+  "pages": "592977",
+  "type": "journal-article"
+ },
+ "quesada2025": {
+  "status": "OK",
+  "doi": "10.1186/s12864-025-12129-0",
+  "title": "EasyGeSe \u2013 a resource for benchmarking genomic prediction methods",
+  "authors": [
+   "Quesada-Traver C",
+   "Ariza-Suarez D",
+   "Studer B",
+   "Yates S"
+  ],
+  "year": 2025,
+  "journal": "BMC Genomics",
+  "volume": "26",
+  "issue": "1",
+  "pages": "953",
+  "type": "journal-article"
+ },
+ "resende2012": {
+  "status": "OK",
+  "doi": "10.1534/genetics.111.137026",
+  "title": "Accuracy of Genomic Selection Methods in a Standard Data Set of Loblolly Pine (<i>Pinus taeda</i>L.)",
+  "authors": [
+   "Resende MFR",
+   "Mu\u00f1oz P",
+   "Resende MDV",
+   "Garrick DJ",
+   "Fernando RL",
+   "Davis JM",
+   "Jokela EJ",
+   "Martin TA",
+   "Peter GF",
+   "Kirst M"
+  ],
+  "year": 2012,
+  "journal": "Genetics",
+  "volume": "190",
+  "issue": "4",
+  "pages": "1503-1510",
+  "type": "journal-article"
+ },
+ "cleveland2012": {
+  "status": "OK",
+  "doi": "10.1534/g3.111.001453",
+  "title": "A Common Dataset for Genomic Analysis of Livestock Populations",
+  "authors": [
+   "Cleveland MA",
+   "Hickey JM",
+   "Forni S"
+  ],
+  "year": 2012,
+  "journal": "G3 Genes|Genomes|Genetics",
+  "volume": "2",
+  "issue": "4",
+  "pages": "429-435",
+  "type": "journal-article"
+ },
+ "crossa2017": {
+  "status": "OK",
+  "doi": "10.1016/j.tplants.2017.08.011",
+  "title": "Genomic Selection in Plant Breeding: Methods, Models, and Perspectives",
+  "authors": [
+   "Crossa J",
+   "P\u00e9rez-Rodr\u00edguez P",
+   "Cuevas J",
+   "Montesinos-L\u00f3pez O",
+   "Jarqu\u00edn D",
+   "de los Campos G",
+   "Burgue\u00f1o J",
+   "Gonz\u00e1lez-Camacho JM",
+   "P\u00e9rez-Elizalde S",
+   "Beyene Y",
+   "Dreisigacker S",
+   "Singh R",
+   "Zhang X",
+   "Gowda M",
+   "Roorkiwal M",
+   "Rutkoski J",
+   "Varshney RK"
+  ],
+  "year": 2017,
+  "journal": "Trends in Plant Science",
+  "volume": "22",
+  "issue": "11",
+  "pages": "961-975",
+  "type": "journal-article"
+ },
+ "daetwyler2013": {
+  "status": "OK",
+  "doi": "10.1534/genetics.112.147983",
+  "title": "Genomic Prediction in Animals and Plants: Simulation of Data, Validation, Reporting, and Benchmarking",
+  "authors": [
+   "Daetwyler HD",
+   "Calus MPL",
+   "Pong-Wong R",
+   "de los Campos G",
+   "Hickey JM"
+  ],
+  "year": 2013,
+  "journal": "Genetics",
+  "volume": "193",
+  "issue": "2",
+  "pages": "347-365",
+  "type": "journal-article"
+ },
+ "wientjes2013": {
+  "status": "OK",
+  "doi": "10.1534/genetics.112.146290",
+  "title": "The Effect of Linkage Disequilibrium and Family Relationships on the Reliability of Genomic Prediction",
+  "authors": [
+   "Wientjes YCJ",
+   "Veerkamp RF",
+   "Calus MPL"
+  ],
+  "year": 2013,
+  "journal": "Genetics",
+  "volume": "193",
+  "issue": "2",
+  "pages": "621-631",
+  "type": "journal-article"
+ },
+ "ding2023": {
+  "status": "OK",
+  "doi": "10.1038/s41586-023-06079-4",
+  "title": "Polygenic scoring accuracy varies across the genetic ancestry continuum",
+  "authors": [
+   "Ding Y",
+   "Hou K",
+   "Xu Z",
+   "Pimplaskar A",
+   "Petter E",
+   "Boulier K",
+   "Priv\u00e9 F",
+   "Vilhj\u00e1lmsson BJ",
+   "Olde Loohuis LM",
+   "Pasaniuc B"
+  ],
+  "year": 2023,
+  "journal": "Nature",
+  "volume": "618",
+  "issue": "7966",
+  "pages": "774-781",
+  "type": "journal-article"
+ },
+ "hou2024": {
+  "status": "OK",
+  "doi": "10.1038/s41588-024-01792-w",
+  "title": "Calibrated prediction intervals for polygenic scores across diverse contexts",
+  "authors": [
+   "Hou K",
+   "Xu Z",
+   "Ding Y",
+   "Mandla R",
+   "Shi Z",
+   "Boulier K",
+   "Harpak A",
+   "Pasaniuc B"
+  ],
+  "year": 2024,
+  "journal": "Nature Genetics",
+  "volume": "56",
+  "issue": "7",
+  "pages": "1386-1396",
+  "type": "journal-article"
+ },
+ "predinterval": {
+  "status": "OK",
+  "doi": "10.1038/s41588-025-02360-6",
+  "title": "Statistical construction of calibrated prediction intervals for polygenic score-based phenotype prediction",
+  "authors": [
+   "Xu C",
+   "Ganesh SK",
+   "Zhou X"
+  ],
+  "year": 2025,
+  "journal": "Nature Genetics",
+  "volume": "57",
+  "issue": "11",
+  "pages": "2891-2900",
+  "type": "journal-article"
+ },
+ "ahlinder2026": {
+  "status": "OK",
+  "doi": "10.1093/genetics/iyag205",
+  "title": "Uncertainty-aware breeding decisions: MCMC-based optimum contribution selection increases breeding decision robustness",
+  "authors": [
+   "Ahlinder J",
+   "Waldmann P"
+  ],
+  "year": 2026,
+  "journal": "GENETICS",
+  "volume": null,
+  "issue": null,
+  "pages": "iyag205",
+  "type": "journal-article"
+ },
+ "gibbs2025": {
+  "status": "OK",
+  "doi": "10.1093/genetics/iyaf003",
+  "title": "Trait genetic architecture and population structure determine model selection for genomic prediction in natural <i>Arabidopsis thaliana</i> populations",
+  "authors": [
+   "Gibbs PM",
+   "Paril JF",
+   "Fournier-Level A"
+  ],
+  "year": 2025,
+  "journal": "GENETICS",
+  "volume": "229",
+  "issue": "3",
+  "pages": "iyaf003",
+  "type": "journal-article"
+ },
+ "vovk2005": {
+  "status": "OK",
+  "doi": "10.1007/978-3-031-06649-8",
+  "title": "Algorithmic Learning in a Random World",
+  "authors": [
+   "Vovk V",
+   "Gammerman A",
+   "Shafer G"
+  ],
+  "year": 2022,
+  "journal": "",
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "type": "book"
+ },
+ "lei2018": {
+  "status": "OK",
+  "doi": "10.1080/01621459.2017.1307116",
+  "title": "Distribution-Free Predictive Inference for Regression",
+  "authors": [
+   "Lei J",
+   "G\u2019Sell M",
+   "Rinaldo A",
+   "Tibshirani RJ",
+   "Wasserman L"
+  ],
+  "year": 2018,
+  "journal": "Journal of the American Statistical Association",
+  "volume": "113",
+  "issue": "523",
+  "pages": "1094-1111",
+  "type": "journal-article"
+ },
+ "barber2021": {
+  "status": "OK",
+  "doi": "10.1214/20-aos1965",
+  "title": "Predictive inference with the jackknife+",
+  "authors": [
+   "Barber RF",
+   "Cand\u00e8s EJ",
+   "Ramdas A",
+   "Tibshirani RJ"
+  ],
+  "year": 2021,
+  "journal": "The Annals of Statistics",
+  "volume": "49",
+  "issue": "1",
+  "pages": null,
+  "type": "journal-article"
+ },
+ "barber2023": {
+  "status": "OK",
+  "doi": "10.1214/23-aos2276",
+  "title": "Conformal prediction beyond exchangeability",
+  "authors": [
+   "Barber RF",
+   "Cand\u00e8s EJ",
+   "Ramdas A",
+   "Tibshirani RJ"
+  ],
+  "year": 2023,
+  "journal": "The Annals of Statistics",
+  "volume": "51",
+  "issue": "2",
+  "pages": null,
+  "type": "journal-article"
+ },
+ "guan2023": {
+  "status": "OK",
+  "doi": "10.1093/biomet/asac040",
+  "title": "Localized conformal prediction: a generalized inference framework for conformal prediction",
+  "authors": [
+   "Guan L"
+  ],
+  "year": 2023,
+  "journal": "Biometrika",
+  "volume": "110",
+  "issue": "1",
+  "pages": "33-50",
+  "type": "journal-article"
+ },
+ "papadopoulos2002": {
+  "status": "OK",
+  "doi": "10.1007/3-540-36755-1_29",
+  "title": "Inductive Confidence Machines for Regression",
+  "authors": [
+   "Papadopoulos H",
+   "Proedrou K",
+   "Vovk V",
+   "Gammerman A"
+  ],
+  "year": 2002,
+  "journal": "Lecture Notes in Computer Science",
+  "volume": null,
+  "issue": null,
+  "pages": "345-356",
+  "type": "book-chapter"
+ },
+ "gibbs2025cc": {
+  "status": "OK",
+  "doi": "10.1093/jrsssb/qkaf008",
+  "title": "Conformal prediction with conditional guarantees",
+  "authors": [
+   "Gibbs I",
+   "Cherian JJ",
+   "Cand\u00e8s EJ"
+  ],
+  "year": 2025,
+  "journal": "Journal of the Royal Statistical Society Series B: Statistical Methodology",
+  "volume": "87",
+  "issue": "4",
+  "pages": "1100-1126",
+  "type": "journal-article"
+ },
+ "dunn2023": {
+  "status": "OK",
+  "doi": "10.1080/01621459.2022.2060112",
+  "title": "Distribution-Free Prediction Sets for Two-Layer Hierarchical Models",
+  "authors": [
+   "Dunn R",
+   "Wasserman L",
+   "Ramdas A"
+  ],
+  "year": 2023,
+  "journal": "Journal of the American Statistical Association",
+  "volume": "118",
+  "issue": "544",
+  "pages": "2491-2502",
+  "type": "journal-article"
+ },
+ "gneiting2007": {
+  "status": "OK",
+  "doi": "10.1198/016214506000001437",
+  "title": "Strictly Proper Scoring Rules, Prediction, and Estimation",
+  "authors": [
+   "Gneiting T",
+   "Raftery AE"
+  ],
+  "year": 2007,
+  "journal": "Journal of the American Statistical Association",
+  "volume": "102",
+  "issue": "477",
+  "pages": "359-378",
+  "type": "journal-article"
+ },
+ "vovk2013": {
+  "status": "OK",
+  "doi": "10.1007/s10994-013-5355-6",
+  "title": "Conditional validity of inductive conformal predictors",
+  "authors": [
+   "Vovk V"
+  ],
+  "year": 2013,
+  "journal": "Machine Learning",
+  "volume": "92",
+  "issue": "2-3",
+  "pages": "349-376",
+  "type": "journal-article"
+ },
+ "wilcoxon1945": {
+  "status": "OK",
+  "doi": "10.2307/3001968",
+  "title": "Individual Comparisons by Ranking Methods",
+  "authors": [
+   "Wilcoxon F"
+  ],
+  "year": 1945,
+  "journal": "Biometrics Bulletin",
+  "volume": "1",
+  "issue": "6",
+  "pages": "80",
+  "type": "journal-article"
+ },
+ "isidro2015": {
+  "status": "OK",
+  "doi": "10.1007/s00122-014-2418-4",
+  "title": "Training set optimization under population structure in genomic selection",
+  "authors": [
+   "Isidro J",
+   "Jannink JL",
+   "Akdemir D",
+   "Poland J",
+   "Heslot N",
+   "Sorrells ME"
+  ],
+  "year": 2015,
+  "journal": "Theoretical and Applied Genetics",
+  "volume": "128",
+  "issue": "1",
+  "pages": "145-158",
+  "type": "journal-article"
+ },
+ "montesinos2021": {
+  "status": "OK",
+  "doi": "10.1186/s12864-020-07319-x",
+  "title": "A review of deep learning applications for genomic selection",
+  "authors": [
+   "Montesinos-L\u00f3pez OA",
+   "Montesinos-L\u00f3pez A",
+   "P\u00e9rez-Rodr\u00edguez P",
+   "Barr\u00f3n-L\u00f3pez JA",
+   "Martini JWR",
+   "Fajardo-Flores SB",
+   "Gaytan-Lugo LS",
+   "Santana-Mancilla PC",
+   "Crossa J"
+  ],
+  "year": 2021,
+  "journal": "BMC Genomics",
+  "volume": "22",
+  "issue": "1",
+  "pages": "19",
+  "type": "journal-article"
+ },
+ "angelopoulos2023": {
+  "status": "OK",
+  "doi": "10.1561/2200000101",
+  "title": "Conformal Prediction: A Gentle Introduction",
+  "authors": [
+   "Angelopoulos AN",
+   "Bates S"
+  ],
+  "year": 2023,
+  "journal": "Foundations and Trends\u00ae in Machine Learning",
+  "volume": "16",
+  "issue": "4",
+  "pages": "494-591",
+  "type": "journal-article"
+ },
+ "kerby2014": {
+  "status": "OK",
+  "doi": "10.2466/11.it.3.1",
+  "title": "The Simple Difference Formula: An Approach to Teaching Nonparametric Correlation",
+  "authors": [
+   "Kerby DS"
+  ],
+  "year": 2014,
+  "journal": "Comprehensive Psychology",
+  "volume": "3",
+  "issue": null,
+  "pages": "11.IT.3.1",
+  "type": "journal-article"
+ },
+ "efron1979": {
+  "status": "OK",
+  "doi": "10.1214/aos/1176344552",
+  "title": "Bootstrap Methods: Another Look at the Jackknife",
+  "authors": [
+   "Efron B"
+  ],
+  "year": 1979,
+  "journal": "The Annals of Statistics",
+  "volume": "7",
+  "issue": "1",
+  "pages": null,
+  "type": "journal-article"
+ },
+ "bhattacharyya2024": {
+  "status": "OK",
+  "doi": "10.1214/26-ejs2506",
+  "title": "Group-weighted conformal prediction",
+  "authors": [
+   "Bhattacharyya A",
+   "Barber RF"
+  ],
+  "year": 2026,
+  "journal": "Electronic Journal of Statistics",
+  "volume": "20",
+  "issue": "1",
+  "pages": null,
+  "type": "journal-article"
+ },
+ "hayes2009": {
+  "status": "OK",
+  "doi": "10.1017/s0016672308009981",
+  "title": "Increased accuracy of artificial selection by using the realized relationship matrix",
+  "authors": [
+   "HAYES BJ",
+   "VISSCHER PM",
+   "GODDARD ME"
+  ],
+  "year": 2009,
+  "journal": "Genetics Research",
+  "volume": "91",
+  "issue": "1",
+  "pages": "47-60",
+  "type": "journal-article"
+ },
+ "vanraden_reliab": {
+  "status": "OK",
+  "doi": "10.3168/jds.2009-2064",
+  "title": "Computing procedures for genetic evaluation including phenotypic, full pedigree, and genomic information",
+  "authors": [
+   "Misztal I",
+   "Legarra A",
+   "Aguilar I"
+  ],
+  "year": 2009,
+  "journal": "Journal of Dairy Science",
+  "volume": "92",
+  "issue": "9",
+  "pages": "4648-4655",
+  "type": "journal-article"
+ },
+ "edwards2019": {
+  "status": "OK",
+  "doi": "10.1007/s00122-019-03327-y",
+  "title": "The effects of training population design on genomic prediction accuracy in wheat",
+  "authors": [
+   "Edwards SM",
+   "Buntjer JB",
+   "Jackson R",
+   "Bentley AR",
+   "Lage J",
+   "Byrne E",
+   "Burt C",
+   "Jack P",
+   "Berry S",
+   "Flatman E",
+   "Poupard B",
+   "Smith S",
+   "Hayes C",
+   "Gaynor RC",
+   "Gorjanc G",
+   "Howell P",
+   "Ober E",
+   "Mackay IJ",
+   "Hickey JM"
+  ],
+  "year": 2019,
+  "journal": "Theoretical and Applied Genetics",
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "type": "journal-article"
+ },
+ "gonzalez2021": {
+  "status": "OK",
+  "doi": "10.1007/s00122-014-2324-9",
+  "title": "Analysis of bymovirus resistance genes on proximal barley chromosome 4HL provides the basis for precision breeding for BaMMV/BaYMV resistance",
+  "authors": [
+   "Yang P",
+   "Habeku\u00df A",
+   "Ordon F",
+   "Stein N"
+  ],
+  "year": 2014,
+  "journal": "Theoretical and Applied Genetics",
+  "volume": "127",
+  "issue": "7",
+  "pages": "1625-1634",
+  "type": "journal-article"
+ },
+ "diaz2020": {
+  "status": "OK",
+  "doi": "10.3389/fpls.2020.622213",
+  "title": "Genetic Architecture and Genomic Prediction of Cooking Time in Common Bean (Phaseolus vulgaris L.)",
+  "authors": [
+   "Diaz S",
+   "Ariza-Suarez D",
+   "Ramdeen R",
+   "Aparicio J",
+   "Arunachalam N",
+   "Hernandez C",
+   "Diaz H",
+   "Ruiz H",
+   "Piepho HP",
+   "Raatz B"
+  ],
+  "year": 2021,
+  "journal": "Frontiers in Plant Science",
+  "volume": "11",
+  "issue": null,
+  "pages": "622213",
+  "type": "journal-article"
+ },
+ "haile2020": {
+  "status": "OK",
+  "doi": "10.1002/tpg2.20002",
+  "title": "Genomic selection for lentil breeding: Empirical evidence",
+  "authors": [
+   "Haile TA",
+   "Heidecker T",
+   "Wright D",
+   "Neupane S",
+   "Ramsay L",
+   "Vandenberg A",
+   "Bett KE"
+  ],
+  "year": 2020,
+  "journal": "The Plant Genome",
+  "volume": "13",
+  "issue": "1",
+  "pages": "e20002",
+  "type": "journal-article"
+ },
+ "mccarty2022": {
+  "status": "OK",
+  "doi": "10.64898/2026.09.08.750100",
+  "title": "Multigenerational machine learning-based genomic prediction for dermo resistance in eastern oyster\n                  <i>Crassostrea virginica</i>",
+  "authors": [
+   "Sun H",
+   "Coyne P",
+   "Wang Z",
+   "Casas S",
+   "Peyre JL",
+   "Williams ML",
+   "Rikard S",
+   "Bushek D",
+   "Wong J",
+   "Guo X"
+  ],
+  "year": 2026,
+  "journal": "",
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "type": "posted-content"
+ },
+ "washburn2025": {
+  "status": "OK",
+  "doi": "10.1093/genetics/iyae195",
+  "title": "Global genotype by environment prediction competition reveals that diverse modeling strategies can deliver satisfactory maize yield estimates",
+  "authors": [
+   "Washburn JD",
+   "Varela JI",
+   "Xavier A",
+   "Chen Q",
+   "Ertl D",
+   "Gage JL",
+   "Holland JB",
+   "Lima DC",
+   "Romay MC",
+   "Lopez-Cruz M",
+   "de los Campos G",
+   "Barber W",
+   "Zimmer C",
+   "Trucillo Silva I",
+   "Rocha F",
+   "Rincent R",
+   "Ali B",
+   "Hu H",
+   "Runcie DE",
+   "Gusev K",
+   "Slabodkin A",
+   "Bax P",
+   "Aubert J",
+   "Gangloff H",
+   "Mary-Huard T",
+   "Vanrenterghem T",
+   "Quesada-Traver C",
+   "Yates S",
+   "Ariza-Su\u00e1rez D",
+   "Ulrich A",
+   "Wyler M",
+   "Kick DR",
+   "Bellis ES",
+   "Causey JL",
+   "Soriano Chavez E",
+   "Wang Y",
+   "Piyush V",
+   "Fernando GD",
+   "Hu RK",
+   "Kumar R",
+   "Timon AJ",
+   "Venkatesh R",
+   "Segura Ab\u00e1 K",
+   "Chen H",
+   "Ranaweera T",
+   "Shiu SH",
+   "Wang P",
+   "Gordon MJ",
+   "Amos BK",
+   "Busato S",
+   "Perondi D",
+   "Gogna A",
+   "Psaroudakis D",
+   "Chen CPJ",
+   "Al-Mamun HA",
+   "Danilevicz MF",
+   "Upadhyaya SR",
+   "Edwards D",
+   "de Leon N"
+  ],
+  "year": 2025,
+  "journal": "GENETICS",
+  "volume": "229",
+  "issue": "2",
+  "pages": "iyae195",
+  "type": "journal-article"
+ },
+ "xie2021": {
+  "status": "OK",
+  "doi": "10.3989/gya.0234141",
+  "title": "Effect of genotype on fatty acid composition of intramuscular and subcutaneous fat of Celta pig breed",
+  "authors": [
+   "Dom\u00ednguez R",
+   "Lorenzo JM"
+  ],
+  "year": 2014,
+  "journal": "Grasas y Aceites",
+  "volume": "65",
+  "issue": "3",
+  "pages": "e037",
+  "type": "journal-article"
+ },
+ "zhao2011": {
+  "status": "OK",
+  "doi": "10.3410/f.13337956.14705054",
+  "title": "Faculty Opinions recommendation of Genome-wide association mapping reveals a rich genetic architecture of complex traits in Oryza sativa.",
+  "authors": [
+   "Hincha D"
+  ],
+  "year": 2011,
+  "journal": "Faculty Opinions \u2013 Post-Publication Peer Review of the Biomedical Literature",
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "type": "dataset"
+ },
+ "kaler2017": {
+  "status": "OK",
+  "doi": "10.2135/cropsci2017.03.0160",
+  "title": "Genome\u2010Wide Association Mapping of Carbon Isotope and Oxygen Isotope Ratios in Diverse Soybean Genotypes",
+  "authors": [
+   "Kaler AS",
+   "Dhanapal AP",
+   "Ray JD",
+   "King CA",
+   "Fritschi FB",
+   "Purcell LC"
+  ],
+  "year": 2017,
+  "journal": "Crop Science",
+  "volume": "57",
+  "issue": "6",
+  "pages": "3085-3100",
+  "type": "journal-article"
+ },
+ "gogna2022": {
+  "status": "OK",
+  "doi": "10.1038/s41597-022-01651-5",
+  "title": "Gabi wheat a panel of European elite lines as central stock for wheat genetic research",
+  "authors": [
+   "Gogna A",
+   "Schulthess AW",
+   "R\u00f6der MS",
+   "Ganal MW",
+   "Reif JC"
+  ],
+  "year": 2022,
+  "journal": "Scientific Data",
+  "volume": "9",
+  "issue": "1",
+  "pages": "538",
+  "type": "journal-article"
+ }
+}

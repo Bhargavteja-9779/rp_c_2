@@ -1,0 +1,22 @@
+| Regime   | Data                    | Method        |   Units | Coverage      | Cond. error   | Width         |
+|:---------|:------------------------|:--------------|--------:|:--------------|:--------------|:--------------|
+| R1       | all individuals         | SCP           |      21 | 0.903 ± 0.009 | 0.025 ± 0.011 | 2.560 ± 0.563 |
+| R1       | all individuals         | CV+           |      21 | 0.910 ± 0.006 | 0.026 ± 0.011 | 2.519 ± 0.526 |
+| R1       | all individuals         | Gauss-PEV     |      21 | 0.904 ± 0.011 | 0.020 ± 0.008 | 2.463 ± 0.547 |
+| R1       | all individuals         | CalPred-style |      21 | 0.901 ± 0.016 | 0.021 ± 0.008 | 2.466 ± 0.526 |
+| R1       | all individuals         | KinCP         |      21 | 0.904 ± 0.009 | 0.017 ± 0.007 | 2.469 ± 0.515 |
+| R1       | near-duplicates removed | SCP           |      21 | 0.904 ± 0.018 | 0.032 ± 0.013 | 2.608 ± 0.600 |
+| R1       | near-duplicates removed | CV+           |      21 | 0.904 ± 0.010 | 0.032 ± 0.014 | 2.521 ± 0.515 |
+| R1       | near-duplicates removed | Gauss-PEV     |      21 | 0.901 ± 0.017 | 0.027 ± 0.009 | 2.499 ± 0.557 |
+| R1       | near-duplicates removed | CalPred-style |      21 | 0.899 ± 0.017 | 0.026 ± 0.009 | 2.485 ± 0.541 |
+| R1       | near-duplicates removed | KinCP         |      21 | 0.900 ± 0.010 | 0.023 ± 0.010 | 2.481 ± 0.516 |
+| R2       | all individuals         | SCP           |      21 | 0.833 ± 0.076 | 0.082 ± 0.065 | 2.579 ± 0.534 |
+| R2       | all individuals         | CV+           |      21 | 0.841 ± 0.074 | 0.078 ± 0.060 | 2.528 ± 0.520 |
+| R2       | all individuals         | Gauss-PEV     |      21 | 0.887 ± 0.046 | 0.050 ± 0.029 | 2.859 ± 0.549 |
+| R2       | all individuals         | CalPred-style |      21 | 0.894 ± 0.026 | 0.036 ± 0.014 | 2.883 ± 0.397 |
+| R2       | all individuals         | KinCP         |      21 | 0.897 ± 0.023 | 0.036 ± 0.015 | 2.884 ± 0.398 |
+| R2       | near-duplicates removed | SCP           |      21 | 0.845 ± 0.087 | 0.077 ± 0.072 | 2.658 ± 0.663 |
+| R2       | near-duplicates removed | CV+           |      21 | 0.849 ± 0.071 | 0.074 ± 0.056 | 2.557 ± 0.510 |
+| R2       | near-duplicates removed | Gauss-PEV     |      21 | 0.887 ± 0.046 | 0.052 ± 0.030 | 2.834 ± 0.512 |
+| R2       | near-duplicates removed | CalPred-style |      21 | 0.893 ± 0.031 | 0.043 ± 0.020 | 2.858 ± 0.379 |
+| R2       | near-duplicates removed | KinCP         |      21 | 0.895 ± 0.025 | 0.040 ± 0.018 | 2.842 ± 0.371 |
