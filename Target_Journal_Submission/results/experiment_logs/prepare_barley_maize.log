@@ -1,5 +1,0 @@
-2026-10-03 21:29:01,884 INFO kincp.prepare: [barley] reading genotypes
-2026-10-03 21:29:28,706 INFO kincp.prepare: [barley] X shape (1438, 176064); building GRM
-barley ok
-2026-10-03 21:29:43,030 INFO kincp.prepare: [maize] reading genotypes
-2026-10-03 21:31:27,875 INFO kincp.prepare: [maize] X shape (4421, 201896); building GRM

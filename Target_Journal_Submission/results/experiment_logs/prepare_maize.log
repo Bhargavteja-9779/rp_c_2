@@ -1,3 +1,0 @@
-2026-10-03 21:42:56,204 INFO kincp.prepare: [maize] reading genotypes
-2026-10-03 21:44:44,962 INFO kincp.prepare: [maize] X shape (4421, 201896); building GRM
-maize ok

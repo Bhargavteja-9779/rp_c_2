@@ -8,3 +8,6 @@ __pycache__/
 *.npz
 Target_Journal_Submission/code/cache/
 Target_Journal_Submission/results/jobs/*.parquet
+# live outputs while the long experiment run is in progress (re-added at the end of the run)
+Target_Journal_Submission/results/jobs/
+Target_Journal_Submission/results/experiment_logs/
