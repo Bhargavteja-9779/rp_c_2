@@ -274,6 +274,19 @@ KinCP's advantage under random cross-validation is therefore specific to calibra
 
 **Granularity of the deployment clusters.** The cluster-out conclusions did not depend on the number of deployment clusters, even though KinCP's inner cluster folds were kept at the pre-specified *k* = 5. With *k* = 3 larger, more distinct held-out groups, mean coverage was 0.906 for KinCP, 0.822 for CV+, 0.813 for SCP and 0.886 for Gauss-PEV. With *k* = 10 smaller groups, it was 0.891, 0.859, 0.854 and 0.885. KinCP had a lower conditional error than CV+ in 17/24 units (*k* = 3; unadjusted Wilcoxon *P* = 0.001) and 14/24 units (*k* = 10; *P* = 0.009). Holding out each of the four real F2 families of eastern oyster in turn gave coverage of 0.923 for KinCP, 0.930 for Gauss-PEV, 0.865 for CV+ and 0.860 for SCP.
 
+**Competing explanations.** Two further analyses asked whether simpler constructions could explain or match KinCP's behaviour.
+
+*Is the gain only in overall width?* Each method's intervals were rescaled by the single constant that gives exactly 0.90 pooled coverage on the *test* data. This is an oracle that no real method can use.
+* *Under R2,* the required factor was 1.19 for CV+, 1.21 for SCP and 1.06 for Gauss-PEV, but 1.02 for KinCP. After rescaling, conditional errors became similar: 0.030 for KinCP, 0.035 for CV+ (unadjusted *P* = 0.034) and 0.033 for Gauss-PEV (*P* = 0.406). Under cluster-out deployment, therefore, the failure of relatedness-blind intervals is mainly one of overall *level*. KinCP's contribution there is to set this level correctly from genotypes alone, without the candidates' phenotypes that the oracle uses.
+* *Under R1,* the oracle-rescaled CV+ still had a higher conditional error than KinCP (0.025 *vs.* 0.017; *P* < 0.001). Here KinCP's advantage lies in how the width is distributed across relatedness.
+
+*Would CV+ with cluster folds suffice?* CV+ was computed with the genomic-cluster folds of pool A ("group CV+") and with both fold schemes combined (GBLUP, R1 first repeat and R2 first seed).
+* *Under R2,* group CV+ covered 0.915, and its conditional error (0.042) did not differ significantly from KinCP's (0.037; KinCP better in 15/24 units, *P* = 0.218).
+* *Under R1,* group CV+ was conservative: coverage 0.944, width 2.96 *vs.* 2.40 SD, conditional error 0.049 *vs.* 0.023; KinCP better in 21/24 units, *P* < 0.001.
+* The combined version behaved similarly (R1 coverage 0.935).
+
+Group CV+ is thus a reasonable choice when deployment is known to be to new clusters. KinCP, by conditioning on each candidate's relatedness, was calibrated in both regimes without knowing which regime applied.
+
 **Near-duplicate genotypes.** Removing near-duplicates did not change the conclusions (File S2, Table S_dedup). Under R2 KinCP covered 0.892 and CV+ 0.845; under R1 the figures were 0.902 and 0.904.
 
 ### RQ4: computational cost and sensitivity
@@ -331,6 +344,14 @@ Given the relatedness-diverse pool, KinCP and a parametric heteroscedastic Gauss
 
 Practitioners who prefer a parametric calibration can obtain most of the gain by fitting it to the same pool. Neither approach improved the interval score relative to relatedness-blind conformal intervals or the Gaussian PEV interval. Narrower, under-covering intervals can score similarly, because the interval score trades width against misses. When the purpose of an interval is a statement of risk that holds for the candidates at hand, coverage validity is the relevant criterion, and that is what calibration along relatedness delivers. We therefore regard pool A as the main methodological recommendation and KinCP as a convenient, assumption-light way to use it.
 
+### What KinCP adds over simpler fixes
+
+Two simpler fixes each capture part of KinCP's behaviour.
+* *Rescaling.* Under cluster-out deployment, relatedness-blind intervals were mainly too narrow overall. A single correct inflation factor would repair most of the problem, but that factor cannot be known without phenotypes of the candidates.
+* *Group CV+.* CV+ with genomic-cluster folds sets the level appropriately for new clusters but is conservative for close relatives.
+
+KinCP combines both kinds of residuals and lets each candidate's relatedness decide which applies. This is why it remained calibrated in both regimes. The comparison also shows that the deployment regime matters: a practitioner who knows candidates will come from new families can use group CV+. One who does not, or whose candidates are a mixture of close and distant relatives, benefits from conditioning on relatedness.
+
 ### Relation to classical reliability and accuracy validation
 
 The classical PEV interval was competitive under random cross-validation, which is the regime in which it is usually checked. It lost calibration under cluster-out deployment, mostly for traits with high within-cluster heritability. This complements the LR method of Legarra and Reverter (2018), which validates *population-level* accuracy and dispersion of predictions. Our endpoints assess *individual-level* interval calibration conditional on relatedness. Both kinds of validation are needed. Neither replaces a deployment-matched validation design (Werner *et al.* 2020).
@@ -338,7 +359,7 @@ The classical PEV interval was competitive under random cross-validation, which 
 ### Practical recommendations
 
 1. **Report calibration conditional on relatedness**, not only marginal coverage. Random cross-validation can show nominal marginal coverage while systematically misstating uncertainty for distant candidates.
-2. **Build the calibration pool by cross-fitting with both random and genomic-cluster folds** whenever candidates may come from new families or sub-populations.
+2. **Build the calibration pool by cross-fitting with both random and genomic-cluster folds** whenever candidates may come from new families or sub-populations. If all candidates are known to come from new clusters, CV+ with cluster folds is a simpler alternative.
 3. **Use the GBLUP PEV as the relatedness covariate**, even when the point predictor is a kernel or tree model.
 4. **Use intervals to qualify, not replace, rankings.** Ranking by lower bounds did not increase mean selected phenotypes. Its value lies in identifying candidates whose predictions are unreliable, consistent with the uncertainty-aware selection framework of Ahlinder and Waldmann (2026).
 
@@ -860,7 +881,7 @@ Alt text: Left: horizontal bars of sample sizes for ten species, ranging from ab
 
 **Figure 3** Coverage of 90% prediction intervals by quintile of relatedness to the training set (GBLUP base predictor). Points are means over 24 dataset × trait units, with 95% bootstrap confidence intervals. Q1 contains the candidates most closely related to the training set; Q5 the least related. The dashed line marks the 0.90 target.
 
-Alt text: Three panels of line plots, one per validation regime. Split conformal and CV+ fall from about 0.93 coverage for close relatives to about 0.88 for distant ones under random CV, and to about 0.81 to 0.84 under cluster-out validation. KinCP, CalPred-style and Gauss-PEV stay near 0.90 across quintiles.
+Alt text: Three panels of line plots, one per validation regime. Under random cross-validation, split conformal and CV+ fall from about 0.92–0.93 coverage for the closest relatives to about 0.88 for the most distant. Under cluster-out validation they lie between about 0.80 and 0.87. KinCP, CalPred-style and Gauss-PEV stay closer to 0.90 across quintiles.
 
 **Figure 4** Marginal coverage of 90% intervals for every dataset × trait unit under random (R1) and cluster-out (R2) validation (GBLUP base predictor).
 

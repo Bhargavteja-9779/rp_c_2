@@ -66,6 +66,19 @@ KinCP's advantage under random cross-validation is therefore specific to calibra
 
 {{granularity_paragraph}}
 
+**Competing explanations.** Two further analyses asked whether simpler constructions could explain or match KinCP's behaviour.
+
+*Is the gain only in overall width?* Each method's intervals were rescaled by the single constant that gives exactly 0.90 pooled coverage on the *test* data. This is an oracle that no real method can use.
+* *Under R2,* the required factor was {{or_cvp_R2_factor}} for CV+, {{or_scp_R2_factor}} for SCP and {{or_pev_R2_factor}} for Gauss-PEV, but {{or_kincp_R2_factor}} for KinCP. After rescaling, conditional errors became similar: {{or_kincp_R2_cond}} for KinCP, {{or_cvp_R2_cond}} for CV+ (unadjusted *P* {{or_st_cvp_R2_p}}) and {{or_pev_R2_cond}} for Gauss-PEV (*P* {{or_st_pev_R2_p}}). Under cluster-out deployment, therefore, the failure of relatedness-blind intervals is mainly one of overall *level*. KinCP's contribution there is to set this level correctly from genotypes alone, without the candidates' phenotypes that the oracle uses.
+* *Under R1,* the oracle-rescaled CV+ still had a higher conditional error than KinCP ({{or_cvp_R1_cond}} *vs.* {{or_kincp_R1_cond}}; *P* {{or_st_cvp_R1_p}}). Here KinCP's advantage lies in how the width is distributed across relatedness.
+
+*Would CV+ with cluster folds suffice?* CV+ was computed with the genomic-cluster folds of pool A ("group CV+") and with both fold schemes combined (GBLUP, R1 first repeat and R2 first seed).
+* *Under R2,* group CV+ covered {{cp_gcvp_R2_cov}}, and its conditional error ({{cp_gcvp_R2_cond}}) did not differ significantly from KinCP's ({{cp_kincp_R2_cond}}; KinCP better in {{cp_st_gcvp_R2_wins}} units, *P* {{cp_st_gcvp_R2_p}}).
+* *Under R1,* group CV+ was conservative: coverage {{cp_gcvp_R1_cov}}, width {{cp_gcvp_R1_width}} *vs.* {{cp_kincp_R1_width}} SD, conditional error {{cp_gcvp_R1_cond}} *vs.* {{cp_kincp_R1_cond}}; KinCP better in {{cp_st_gcvp_R1_wins}} units, *P* {{cp_st_gcvp_R1_p}}.
+* The combined version behaved similarly (R1 coverage {{cp_bcvp_R1_cov}}).
+
+Group CV+ is thus a reasonable choice when deployment is known to be to new clusters. KinCP, by conditioning on each candidate's relatedness, was calibrated in both regimes without knowing which regime applied.
+
 **Near-duplicate genotypes.** Removing near-duplicates did not change the conclusions (File S2, Table S_dedup). Under R2 KinCP covered {{dd_kincp_R2_cov}} and CV+ {{dd_cvp_R2_cov}}; under R1 the figures were {{dd_kincp_R1_cov}} and {{dd_cvp_R1_cov}}.
 
 ### RQ4: computational cost and sensitivity

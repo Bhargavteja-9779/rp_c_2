@@ -23,6 +23,14 @@ Given the relatedness-diverse pool, KinCP and a parametric heteroscedastic Gauss
 
 Practitioners who prefer a parametric calibration can obtain most of the gain by fitting it to the same pool. Neither approach improved the interval score relative to relatedness-blind conformal intervals or the Gaussian PEV interval. Narrower, under-covering intervals can score similarly, because the interval score trades width against misses. When the purpose of an interval is a statement of risk that holds for the candidates at hand, coverage validity is the relevant criterion, and that is what calibration along relatedness delivers. We therefore regard pool A as the main methodological recommendation and KinCP as a convenient, assumption-light way to use it.
 
+### What KinCP adds over simpler fixes
+
+Two simpler fixes each capture part of KinCP's behaviour.
+* *Rescaling.* Under cluster-out deployment, relatedness-blind intervals were mainly too narrow overall. A single correct inflation factor would repair most of the problem, but that factor cannot be known without phenotypes of the candidates.
+* *Group CV+.* CV+ with genomic-cluster folds sets the level appropriately for new clusters but is conservative for close relatives.
+
+KinCP combines both kinds of residuals and lets each candidate's relatedness decide which applies. This is why it remained calibrated in both regimes. The comparison also shows that the deployment regime matters: a practitioner who knows candidates will come from new families can use group CV+. One who does not, or whose candidates are a mixture of close and distant relatives, benefits from conditioning on relatedness.
+
 ### Relation to classical reliability and accuracy validation
 
 The classical PEV interval was competitive under random cross-validation, which is the regime in which it is usually checked. It lost calibration under cluster-out deployment, mostly for traits with high within-cluster heritability. This complements the LR method of Legarra and Reverter (2018), which validates *population-level* accuracy and dispersion of predictions. Our endpoints assess *individual-level* interval calibration conditional on relatedness. Both kinds of validation are needed. Neither replaces a deployment-matched validation design (Werner *et al.* 2020).
@@ -30,7 +38,7 @@ The classical PEV interval was competitive under random cross-validation, which 
 ### Practical recommendations
 
 1. **Report calibration conditional on relatedness**, not only marginal coverage. Random cross-validation can show nominal marginal coverage while systematically misstating uncertainty for distant candidates.
-2. **Build the calibration pool by cross-fitting with both random and genomic-cluster folds** whenever candidates may come from new families or sub-populations.
+2. **Build the calibration pool by cross-fitting with both random and genomic-cluster folds** whenever candidates may come from new families or sub-populations. If all candidates are known to come from new clusters, CV+ with cluster folds is a simpler alternative.
 3. **Use the GBLUP PEV as the relatedness covariate**, even when the point predictor is a kernel or tree model.
 4. **Use intervals to qualify, not replace, rankings.** Ranking by lower bounds did not increase mean selected phenotypes. Its value lies in identifying candidates whose predictions are unreliable, consistent with the uncertainty-aware selection framework of Ahlinder and Waldmann (2026).
 
