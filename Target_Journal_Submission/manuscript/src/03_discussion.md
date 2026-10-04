@@ -21,7 +21,7 @@ Given the relatedness-diverse pool, KinCP and a parametric heteroscedastic Gauss
 * its quantiles are distribution-free, so they need no Gaussian or log-linear variance model;
 * under the relatedness-conditional invariance assumption it inherits the weighted-conformal coverage argument (Tibshirani *et al.* 2019).
 
-Practitioners who prefer a parametric calibration can obtain most of the gain by fitting it to the same pool. We therefore regard pool A as the main methodological recommendation and KinCP as a convenient, assumption-light way to use it.
+Practitioners who prefer a parametric calibration can obtain most of the gain by fitting it to the same pool. Neither approach improved the interval score relative to relatedness-blind conformal intervals or the Gaussian PEV interval. Narrower, under-covering intervals can score similarly, because the interval score trades width against misses. When the purpose of an interval is a statement of risk that holds for the candidates at hand, coverage validity is the relevant criterion, and that is what calibration along relatedness delivers. We therefore regard pool A as the main methodological recommendation and KinCP as a convenient, assumption-light way to use it.
 
 ### Relation to classical reliability and accuracy validation
 

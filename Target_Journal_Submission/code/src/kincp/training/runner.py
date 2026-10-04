@@ -75,6 +75,16 @@ def _outer_folds(job: Job, geno, has_y: np.ndarray, rep: int):
         lab = geno["clusters"].astype(int).copy()
         lab[~has_y] = -1
         return lab, SEEDS[rep - 1]
+    if job.regime.startswith("R2k"):      # Reviewer 5: cluster granularity sensitivity (k = 3, 10)
+        k = int(job.regime[3:])
+        lab = KMeans(n_clusters=k, n_init=10, random_state=2026).fit_predict(geno["pcs"]).astype(int)
+        lab[~has_y] = -1
+        return lab, SEEDS[rep - 1]
+    if job.regime == "R2fam":             # Reviewer 5: leave-one-family-out with real families (oyster IDs)
+        fam = np.array([str(i).split("_")[0] for i in geno["ids"]])
+        lab = np.unique(fam, return_inverse=True)[1].astype(int)
+        lab[~has_y] = -1
+        return lab, SEEDS[rep - 1]
     raise ValueError(job.regime)
 
 

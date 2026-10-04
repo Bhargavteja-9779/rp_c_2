@@ -54,6 +54,10 @@ def job_specs(mode: str) -> list[dict]:
             if ds != "maize":   # deviation D5: LightGBM on maize (n = 4,421) exceeds the CPU budget
                 specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="LightGBM", repeats=(1,), tag="main"))
                 specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2", base="LightGBM", repeats=(1,), tag="main"))
+            for reg in ("R2k3", "R2k10"):   # Reviewer 5: deployment-cluster granularity
+                specs.append(dict(kind="real", dataset=ds, trait=t, regime=reg, base="GBLUP", repeats=(1,), tag="granularity"))
+            if ds == "oyster":                # Reviewer 5: real families (four F2 families)
+                specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2fam", base="GBLUP", repeats=(1, 2, 3, 4, 5), tag="families"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="GBLUP", repeats=(1,), tag="explore"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2", base="GBLUP", repeats=(1,), tag="explore"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="GBLUP", repeats=(1,), tag="dedup"))
