@@ -1,0 +1,356 @@
+{
+  "GBLUP|R1|CV+": {
+    "cond_err_maxkin": 0.02598361211529289,
+    "worst_maxkin": 0.8695645217429191,
+    "cov_low_kin": 0.8986184157608968,
+    "cov_high_kin": 0.9275001566270492
+  },
+  "GBLUP|R1|CalPred-style": {
+    "cond_err_maxkin": 0.02511214179484647,
+    "worst_maxkin": 0.8724611276994952,
+    "cov_low_kin": 0.9124554505113576,
+    "cov_high_kin": 0.8965014210656954
+  },
+  "GBLUP|R1|CalPred-style(rand)": {
+    "cond_err_maxkin": 0.02198480547314213,
+    "worst_maxkin": 0.8674622122969585,
+    "cov_low_kin": 0.9074532734072243,
+    "cov_high_kin": 0.8965142898459634
+  },
+  "GBLUP|R1|Gauss-PEV": {
+    "cond_err_maxkin": 0.023215485384230943,
+    "worst_maxkin": 0.8696065646839756,
+    "cov_low_kin": 0.9114630346723765,
+    "cov_high_kin": 0.9049009025176549
+  },
+  "GBLUP|R1|Gauss-homosc": {
+    "cond_err_maxkin": 0.028341638549261416,
+    "worst_maxkin": 0.86593420666069,
+    "cov_low_kin": 0.8947839873978025,
+    "cov_high_kin": 0.9238712855639567
+  },
+  "GBLUP|R1|KinCP": {
+    "cond_err_maxkin": 0.021601248847634615,
+    "worst_maxkin": 0.8734776332909605,
+    "cov_low_kin": 0.9139412204907097,
+    "cov_high_kin": 0.9045399184755308
+  },
+  "GBLUP|R1|KinCP-ABC": {
+    "cond_err_maxkin": 0.026131122835623702,
+    "worst_maxkin": 0.8623461795866022,
+    "cov_low_kin": 0.8918792815343441,
+    "cov_high_kin": 0.9209266315231681
+  },
+  "GBLUP|R1|NormCP": {
+    "cond_err_maxkin": 0.020593906169458418,
+    "worst_maxkin": 0.8711196816527647,
+    "cov_low_kin": 0.9119102220721748,
+    "cov_high_kin": 0.9033638783120788
+  },
+  "GBLUP|R1|SCP": {
+    "cond_err_maxkin": 0.024262966524393182,
+    "worst_maxkin": 0.8640162921231567,
+    "cov_low_kin": 0.8943992505359147,
+    "cov_high_kin": 0.91781338577899
+  },
+  "GBLUP|R2|CV+": {
+    "cond_err_maxkin": 0.07593320809124644,
+    "worst_maxkin": 0.7676910810657797,
+    "cov_low_kin": 0.8289251729170836,
+    "cov_high_kin": 0.8392379312723993
+  },
+  "GBLUP|R2|CalPred-style": {
+    "cond_err_maxkin": 0.03667501754157049,
+    "worst_maxkin": 0.8420687357192991,
+    "cov_low_kin": 0.8972310159156943,
+    "cov_high_kin": 0.8853140761936292
+  },
+  "GBLUP|R2|CalPred-style(rand)": {
+    "cond_err_maxkin": 0.05824773219944581,
+    "worst_maxkin": 0.8039261251354328,
+    "cov_low_kin": 0.8664014574330836,
+    "cov_high_kin": 0.8631158589700553
+  },
+  "GBLUP|R2|Gauss-PEV": {
+    "cond_err_maxkin": 0.04977195059700273,
+    "worst_maxkin": 0.8218302767897993,
+    "cov_low_kin": 0.8862173818001265,
+    "cov_high_kin": 0.8675686971186959
+  },
+  "GBLUP|R2|Gauss-homosc": {
+    "cond_err_maxkin": 0.08596012568854978,
+    "worst_maxkin": 0.7589517338190347,
+    "cov_low_kin": 0.8186784917660531,
+    "cov_high_kin": 0.8337445952882646
+  },
+  "GBLUP|R2|KinCP": {
+    "cond_err_maxkin": 0.03228367721021109,
+    "worst_maxkin": 0.8490644747022983,
+    "cov_low_kin": 0.8994331921849105,
+    "cov_high_kin": 0.8865704303467173
+  },
+  "GBLUP|R2|KinCP-ABC": {
+    "cond_err_maxkin": 0.08327560218163803,
+    "worst_maxkin": 0.7581866615195657,
+    "cov_low_kin": 0.8177323019649919,
+    "cov_high_kin": 0.8313502104660561
+  },
+  "GBLUP|R2|NormCP": {
+    "cond_err_maxkin": 0.04522717707176915,
+    "worst_maxkin": 0.8310424801035748,
+    "cov_low_kin": 0.8901695000466346,
+    "cov_high_kin": 0.8697311013451907
+  },
+  "GBLUP|R2|SCP": {
+    "cond_err_maxkin": 0.08180808502242058,
+    "worst_maxkin": 0.7615547765186782,
+    "cov_low_kin": 0.8200060679456537,
+    "cov_high_kin": 0.8333367129601558
+  },
+  "GBLUP|R3|CV+": {
+    "cond_err_maxkin": 0.023657338999779554,
+    "worst_maxkin": 0.8778110874237486,
+    "cov_low_kin": 0.8951051214024321,
+    "cov_high_kin": 0.9347176925966717
+  },
+  "GBLUP|R3|CalPred-style": {
+    "cond_err_maxkin": 0.020808083241095583,
+    "worst_maxkin": 0.8738796694434194,
+    "cov_low_kin": 0.9042842654457615,
+    "cov_high_kin": 0.8949301305461829
+  },
+  "GBLUP|R3|CalPred-style(rand)": {
+    "cond_err_maxkin": 0.018553647711667513,
+    "worst_maxkin": 0.8725868765163436,
+    "cov_low_kin": 0.9004865938353953,
+    "cov_high_kin": 0.8949506711045593
+  },
+  "GBLUP|R3|Gauss-PEV": {
+    "cond_err_maxkin": 0.018403519287120185,
+    "worst_maxkin": 0.8756798750254592,
+    "cov_low_kin": 0.9076313212772903,
+    "cov_high_kin": 0.9055335313603535
+  },
+  "GBLUP|R3|Gauss-homosc": {
+    "cond_err_maxkin": 0.024093855381598292,
+    "worst_maxkin": 0.8717627297523468,
+    "cov_low_kin": 0.8893538313082541,
+    "cov_high_kin": 0.9288437733380394
+  },
+  "GBLUP|R3|KinCP": {
+    "cond_err_maxkin": 0.017164615755441193,
+    "worst_maxkin": 0.8778113363970489,
+    "cov_low_kin": 0.9049219613859601,
+    "cov_high_kin": 0.9086542002878621
+  },
+  "GBLUP|R3|KinCP-ABC": {
+    "cond_err_maxkin": 0.021936623103523404,
+    "worst_maxkin": 0.8716793586747124,
+    "cov_low_kin": 0.8892687798506241,
+    "cov_high_kin": 0.9294621774566963
+  },
+  "GBLUP|R3|NormCP": {
+    "cond_err_maxkin": 0.020126799420093922,
+    "worst_maxkin": 0.8915054219059989,
+    "cov_low_kin": 0.9178860952008421,
+    "cov_high_kin": 0.9160156556729048
+  },
+  "GBLUP|R3|SCP": {
+    "cond_err_maxkin": 0.02168715076843925,
+    "worst_maxkin": 0.8842886185326967,
+    "cov_low_kin": 0.8989895805372248,
+    "cov_high_kin": 0.9313348875878721
+  },
+  "LightGBM|R1|CV+": {
+    "cond_err_maxkin": 0.03383313501427194,
+    "worst_maxkin": 0.8789633294238167,
+    "cov_low_kin": 0.9100092880235667,
+    "cov_high_kin": 0.9362607015595353
+  },
+  "LightGBM|R1|CalPred-style": {
+    "cond_err_maxkin": 0.029207301512121364,
+    "worst_maxkin": 0.8628454575363579,
+    "cov_low_kin": 0.9211362579729018,
+    "cov_high_kin": 0.8859302263102931
+  },
+  "LightGBM|R1|CalPred-style(rand)": {
+    "cond_err_maxkin": 0.027431348923339406,
+    "worst_maxkin": 0.8589160773436697,
+    "cov_low_kin": 0.9166412767341628,
+    "cov_high_kin": 0.8861738099104082
+  },
+  "LightGBM|R1|Gauss-homosc": {
+    "cond_err_maxkin": 0.03199597532306799,
+    "worst_maxkin": 0.8636859145163456,
+    "cov_low_kin": 0.9014089286218161,
+    "cov_high_kin": 0.9191343196940158
+  },
+  "LightGBM|R1|KinCP": {
+    "cond_err_maxkin": 0.027503804196482726,
+    "worst_maxkin": 0.8662400542776856,
+    "cov_low_kin": 0.9176978787569917,
+    "cov_high_kin": 0.8956188600421178
+  },
+  "LightGBM|R1|KinCP-ABC": {
+    "cond_err_maxkin": 0.030510835122830277,
+    "worst_maxkin": 0.8604903264796961,
+    "cov_low_kin": 0.8963048613720175,
+    "cov_high_kin": 0.9148694064764319
+  },
+  "LightGBM|R1|NormCP": {
+    "cond_err_maxkin": 0.029699267914317096,
+    "worst_maxkin": 0.8531636617350923,
+    "cov_low_kin": 0.908476805343133,
+    "cov_high_kin": 0.8935299554289962
+  },
+  "LightGBM|R1|SCP": {
+    "cond_err_maxkin": 0.03407116281899712,
+    "worst_maxkin": 0.8476690829446392,
+    "cov_low_kin": 0.884775650805171,
+    "cov_high_kin": 0.908293035584957
+  },
+  "LightGBM|R2|CV+": {
+    "cond_err_maxkin": 0.07818647031473722,
+    "worst_maxkin": 0.7775167540908877,
+    "cov_low_kin": 0.8315814631762017,
+    "cov_high_kin": 0.8538779432616063
+  },
+  "LightGBM|R2|CalPred-style": {
+    "cond_err_maxkin": 0.038177875128049515,
+    "worst_maxkin": 0.8376153845967778,
+    "cov_low_kin": 0.898997983443694,
+    "cov_high_kin": 0.8894732584049235
+  },
+  "LightGBM|R2|CalPred-style(rand)": {
+    "cond_err_maxkin": 0.06516802439339638,
+    "worst_maxkin": 0.7826896843225933,
+    "cov_low_kin": 0.8596661422413011,
+    "cov_high_kin": 0.8697838155760393
+  },
+  "LightGBM|R2|Gauss-homosc": {
+    "cond_err_maxkin": 0.09321760457359556,
+    "worst_maxkin": 0.7459907707471326,
+    "cov_low_kin": 0.802753020398371,
+    "cov_high_kin": 0.8283568037166178
+  },
+  "LightGBM|R2|KinCP": {
+    "cond_err_maxkin": 0.03489678506382025,
+    "worst_maxkin": 0.8441595088409435,
+    "cov_low_kin": 0.9022614016663004,
+    "cov_high_kin": 0.8905543233585126
+  },
+  "LightGBM|R2|KinCP-ABC": {
+    "cond_err_maxkin": 0.09007872371039635,
+    "worst_maxkin": 0.7467757000849365,
+    "cov_low_kin": 0.8077115024504634,
+    "cov_high_kin": 0.831435625198092
+  },
+  "LightGBM|R2|NormCP": {
+    "cond_err_maxkin": 0.06014288337508397,
+    "worst_maxkin": 0.8115031656903743,
+    "cov_low_kin": 0.8791712758266592,
+    "cov_high_kin": 0.8712583872104925
+  },
+  "LightGBM|R2|SCP": {
+    "cond_err_maxkin": 0.0912768293463204,
+    "worst_maxkin": 0.7509009956555055,
+    "cov_low_kin": 0.8191373442281498,
+    "cov_high_kin": 0.8306211935191311
+  },
+  "RKHS|R1|CV+": {
+    "cond_err_maxkin": 0.027558198647416196,
+    "worst_maxkin": 0.8644642981778414,
+    "cov_low_kin": 0.9046476633457745,
+    "cov_high_kin": 0.9221936364366199
+  },
+  "RKHS|R1|CalPred-style": {
+    "cond_err_maxkin": 0.028498293095124083,
+    "worst_maxkin": 0.8647662067576066,
+    "cov_low_kin": 0.9214187866496745,
+    "cov_high_kin": 0.8871831875710718
+  },
+  "RKHS|R1|CalPred-style(rand)": {
+    "cond_err_maxkin": 0.025812413172999735,
+    "worst_maxkin": 0.8614420336950808,
+    "cov_low_kin": 0.9143945037789168,
+    "cov_high_kin": 0.888555404965945
+  },
+  "RKHS|R1|Gauss-homosc": {
+    "cond_err_maxkin": 0.029300388642857434,
+    "worst_maxkin": 0.8636638238539495,
+    "cov_low_kin": 0.9034334849014125,
+    "cov_high_kin": 0.9213559267504511
+  },
+  "RKHS|R1|KinCP": {
+    "cond_err_maxkin": 0.02503211658413798,
+    "worst_maxkin": 0.8667283938911505,
+    "cov_low_kin": 0.9173801478727405,
+    "cov_high_kin": 0.8988750607548015
+  },
+  "RKHS|R1|KinCP-ABC": {
+    "cond_err_maxkin": 0.028226527181928664,
+    "worst_maxkin": 0.8587267030411266,
+    "cov_low_kin": 0.8986258875577344,
+    "cov_high_kin": 0.9189249678485658
+  },
+  "RKHS|R1|NormCP": {
+    "cond_err_maxkin": 0.02436686358155966,
+    "worst_maxkin": 0.8644686572702258,
+    "cov_low_kin": 0.9147714912183488,
+    "cov_high_kin": 0.9019570917957326
+  },
+  "RKHS|R1|SCP": {
+    "cond_err_maxkin": 0.029037060836621675,
+    "worst_maxkin": 0.8520354934572928,
+    "cov_low_kin": 0.8912567319108131,
+    "cov_high_kin": 0.9157524740219046
+  },
+  "RKHS|R2|CV+": {
+    "cond_err_maxkin": 0.08645497192907842,
+    "worst_maxkin": 0.7586738693318349,
+    "cov_low_kin": 0.8251843148927723,
+    "cov_high_kin": 0.8282573472173861
+  },
+  "RKHS|R2|CalPred-style": {
+    "cond_err_maxkin": 0.03654511967130835,
+    "worst_maxkin": 0.8434358556863922,
+    "cov_low_kin": 0.9042969299611653,
+    "cov_high_kin": 0.8856413289657364
+  },
+  "RKHS|R2|CalPred-style(rand)": {
+    "cond_err_maxkin": 0.06386413228839427,
+    "worst_maxkin": 0.7931561936393833,
+    "cov_low_kin": 0.8675221229263214,
+    "cov_high_kin": 0.8537310354456946
+  },
+  "RKHS|R2|Gauss-homosc": {
+    "cond_err_maxkin": 0.09153741250584825,
+    "worst_maxkin": 0.7543038384651801,
+    "cov_low_kin": 0.8215857118430921,
+    "cov_high_kin": 0.8275632108461495
+  },
+  "RKHS|R2|KinCP": {
+    "cond_err_maxkin": 0.034652819575326836,
+    "worst_maxkin": 0.8409765377050179,
+    "cov_low_kin": 0.8995553092437868,
+    "cov_high_kin": 0.875569437197086
+  },
+  "RKHS|R2|KinCP-ABC": {
+    "cond_err_maxkin": 0.09068899099097759,
+    "worst_maxkin": 0.7511548901799503,
+    "cov_low_kin": 0.8198611218746313,
+    "cov_high_kin": 0.823619388216807
+  },
+  "RKHS|R2|NormCP": {
+    "cond_err_maxkin": 0.054285644147333244,
+    "worst_maxkin": 0.8197359386948676,
+    "cov_low_kin": 0.8873763784847842,
+    "cov_high_kin": 0.8679795449119357
+  },
+  "RKHS|R2|SCP": {
+    "cond_err_maxkin": 0.08648210966042476,
+    "worst_maxkin": 0.7532334098678266,
+    "cov_low_kin": 0.8274894691669715,
+    "cov_high_kin": 0.8311150975375238
+  }
+}

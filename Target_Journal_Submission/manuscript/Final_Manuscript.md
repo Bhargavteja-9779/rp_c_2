@@ -24,14 +24,26 @@ Genomic prediction uses genome-wide markers to predict the genetic merit or futu
 
 Quantitative genetics has long recognised that relatedness to the training population is the main determinant of individual prediction reliability. Accuracy decreases as the relationship between a candidate and the reference population decreases (Habier *et al.* 2007; Clark *et al.* 2012; Pszczola *et al.* 2012), and family relationships matter more than linkage disequilibrium *per se* (Wientjes *et al.* 2013). Random cross-validation in structured populations therefore overstates the accuracy expected for new families or sub-populations (Werner *et al.* 2020). In mixed-model theory these effects are summarised by the prediction error variance (PEV) of best linear unbiased prediction (Henderson 1975; VanRaden 2008). The PEV yields model-based Gaussian intervals whose width grows as relatedness falls. These intervals are correct only if the linear mixed model, its Gaussian assumptions and its variance components are correct. They are also unavailable for nonlinear or machine-learning predictors.
 
-Conformal prediction offers intervals with finite-sample coverage guarantees for any predictor (Vovk *et al.* 2022; Lei *et al.* 2018; Angelopoulos and Bates 2023). The guarantee rests on exchangeability between calibration residuals and the residual of the new observation. Conformal and related calibrated intervals have recently been proposed for polygenic scores in human populations (Hou *et al.* 2024; Xu *et al.* 2025), and split-conformal intervals have been suggested for genomic selection on simulated data (Kumar 2026). In human polygenic scores, accuracy decays continuously with the genetic distance of an individual from the training data (Ding *et al.* 2023). This motivated context-specific calibration (Hou *et al.* 2024). Breeding populations are more extreme. They consist of families and closely related lines, and in the scenarios that matter most the selection candidates belong to new crosses, new families or new sub-populations. A calibration hold-out drawn at random from the training population is then systematically more closely related to the remaining training individuals than the candidates are. Exchangeability fails along a known and measurable axis: relatedness to the training set. The statistical literature provides general tools for this situation, including weighted conformal prediction under covariate shift (Tibshirani *et al.* 2019; Barber *et al.* 2023), localized conformal prediction (Guan 2023) and conditional guarantees (Gibbs *et al.* 2025). These tools must be given the right covariate and a calibration design in which their assumptions are plausible.
+Conformal prediction offers intervals with finite-sample coverage guarantees for any predictor (Vovk *et al.* 2022; Lei *et al.* 2018; Angelopoulos and Bates 2023). The guarantee rests on exchangeability between calibration residuals and the residual of the new observation. Conformal and related calibrated intervals have recently been proposed for polygenic scores in human populations (Sun *et al.* 2021; Hou *et al.* 2024; Xu *et al.* 2025; Kodji *et al.* 2026). Some of these use group-conditional (Mondrian) calibration across ancestry groups (Sun *et al.* 2021; Kodji *et al.* 2026). Split-conformal intervals have been suggested for genomic selection on simulated data (Kumar 2026). In human polygenic scores, accuracy decays continuously with the genetic distance of an individual from the training data (Ding *et al.* 2023). This motivated context-specific calibration (Hou *et al.* 2024). Breeding populations are more extreme. They consist of families and closely related lines, and in the scenarios that matter most the selection candidates belong to new crosses, new families or new sub-populations. A calibration hold-out drawn at random from the training population is then systematically more closely related to the remaining training individuals than the candidates are. Exchangeability fails along a known and measurable axis: relatedness to the training set. The statistical literature provides general tools for this situation:
+* normalised or locally weighted scores (Papadopoulos *et al.* 2002; Lei *et al.* 2018);
+* weighted conformal prediction under covariate shift (Tibshirani *et al.* 2019; Barber *et al.* 2023);
+* localized conformal prediction (Guan 2023);
+* group-conditional and hierarchical guarantees (Vovk 2013; Dunn *et al.* 2023; Bhattacharyya and Barber 2026);
+* conditional guarantees over function classes (Gibbs *et al.* 2025).
 
-Here we connect these two lines of work. We use the GBLUP prediction error variance, scaled by the genetic variance, as a genotype-only measure of each candidate's relatedness to the training set. We propose kinship-aware conformal prediction (KinCP), which has three components:
+These tools must be given the right covariate and a calibration design in which their assumptions are plausible.
+
+Here we connect these two lines of work. We use the GBLUP prediction error variance, scaled by the genetic variance, as a genotype-only measure of each candidate's genomic relatedness to the training set (we call the approach "kinship-aware", where kinship refers to genomic relationships). We propose kinship-aware conformal prediction (KinCP), which has three components:
 * (A) a calibration pool of out-of-fold residuals from random and genomic-cluster cross-fitting, spanning close and distant relatives;
 * (B) nonconformity scores normalised by the PEV-implied predictive standard deviation;
 * (C) localisation of the conformal quantile in the relatedness metric.
 
-Throughout, intervals are for the phenotype a candidate will express, which is the quantity breeders observe when validating predictions. The relatedness covariate is also shown, by simulation, to calibrate the error of the genetic-value prediction. We regard the calibration design as the main contribution: a relatedness-diverse calibration pool together with the PEV covariate. KinCP is its distribution-free implementation.
+Throughout, intervals are for the phenotype a candidate will express, which is the quantity breeders observe when validating predictions. The relatedness covariate is also shown, by simulation, to calibrate the error of the genetic-value prediction. We regard the calibration design as the main contribution: a relatedness-diverse calibration pool together with the PEV covariate. KinCP is its distribution-free implementation. The conformal components themselves are established tools; what is new is:
+* the identification and measurement of relatedness as the variable along which genomic-prediction intervals lose calibration;
+* a calibration-pool design that makes the relevant shift assumption plausible without phenotypes of the candidates;
+* a pre-specified, multi-species evaluation.
+
+We do not claim a new conformal theorem, nor superiority over a parametric calibration fitted to the same pool.
 
 We evaluate KinCP against seven alternatives across ten plant and animal species from the EasyGeSe resource (Quesada-Traver *et al.* 2025). The design covers three deployment regimes, three base predictors, an ablation of every component, and a simulation on real genotypes with known genetic values. It addresses five questions:
 * RQ1: how miscalibrated are standard intervals across relatedness levels and deployment regimes?
@@ -135,7 +147,9 @@ Three regimes were used:
 
 RKHS was run on R1 (first repeat) and R2 (two seeds). LightGBM was run on R1 (first repeat) and R2 (one seed), and not on maize (compute; deviation D5).
 
-Phenotype scaling, REML, hyper-parameters, cross-fitting, calibration scores and the variance components in σ(*d*) used outer-training individuals only. Inner cross-fitting reused the outer-fold δ (deviation D3). Seeds {11, 22, 33, 44, 55} were fixed in advance and tied to repeats. No seed was selected after viewing results.
+Phenotype scaling, REML, hyper-parameters, cross-fitting, calibration scores and the variance components in σ(*d*) used outer-training individuals only. Inner cross-fitting reused the outer-fold δ (deviation D3). Seeds {11, 22, 33, 44, 55} were fixed in advance and tied to repeats. No seed was selected after viewing results. The R1 repeats re-use the same individuals, and the R2 seeds share identical outer folds and differ only in inner randomness, so neither is an independent replicate. Test folds with fewer than five individuals were skipped. This affected only one loblolly-pine cluster of three trees, leaving 20 of 25 R2 folds per pine trait.
+
+Split conformal fits its model on 80% of the training set by construction. LightGBM hyper-parameters were not tuned, which may limit its point accuracy but affects all interval methods equally, because they share the same base predictor.
 
 ### Simulation with known genetic values
 
@@ -159,7 +173,9 @@ A perfectly calibrated method still shows a conditional error from binomial samp
 
 ### Statistical analysis
 
-The unit of analysis was the dataset × trait combination. KinCP was compared with each alternative using two-sided Wilcoxon signed-rank tests (Wilcoxon 1945), paired by unit. *P*-values were Holm-adjusted (Holm 1979) within each family, defined by base predictor × endpoint × comparison set (baselines or ablations). Effect sizes were the median paired difference (competitor minus KinCP; positive values favour KinCP), with 95% percentile-bootstrap confidence intervals (10,000 resamples; Efron 1979), and the matched-pairs rank-biserial correlation (Kerby 2014).
+The unit of analysis was the dataset × trait combination. KinCP was compared with each alternative using two-sided Wilcoxon signed-rank tests (Wilcoxon 1945), paired by unit. *P*-values were Holm-adjusted (Holm 1979) within each family, defined by base predictor × endpoint × comparison set (baselines or ablations). Each baseline family spans three regimes and seven competitors (21 tests), which is conservative. Effect sizes were the median paired difference (competitor minus KinCP; positive values favour KinCP), with 95% percentile-bootstrap confidence intervals (10,000 resamples; Efron 1979), and the matched-pairs rank-biserial correlation (Kerby 2014). With 24 heterogeneous units these intervals can be asymmetric and mainly reflect heterogeneity between units.
+
+As a robustness check on the primary endpoint, conditional coverage error was also computed on quintiles of the maximum standardised genomic relationship to the training set, a relatedness measure that KinCP does not use.
 
 Traits from the same dataset share genotypes, so units are not fully independent. The tests are interpreted together with the per-species results (Figure 4).
 
@@ -169,6 +185,13 @@ Within each outer fold, the top 10% of candidates were selected by *ŷ*. We reco
 * coverage among the selected candidates (selection-conditional coverage; cf. Jin and Candès 2023);
 * the share of selected candidates whose phenotype fell below the interval's lower bound (target ≤ 0.05 for a two-sided 90% interval);
 * the mean standardised phenotype of the selected candidates when ranking by *ŷ* versus by the lower bound.
+
+### Exploratory analyses (not pre-specified)
+
+Two variants were added after the main results had been seen, and are reported separately as exploratory (File S1, deviation D6). Both were run with GBLUP for R1 (first repeat) and R2 (first seed) on all units.
+
+1. **KinCP-G.** The cluster folds of pool A are the *global* genomic clusters present in the training set rather than a re-clustering of it. This matches the granularity of the calibration shifts to cluster-out deployment.
+2. **Mondrian-d.** This is a group-conditional alternative to localisation C (Vovk 2013). It uses pool A and normalised scores, with separate conformal quantiles within quintile bins of log *d*.
 
 ### Software, reproducibility and pre-specification
 
@@ -222,6 +245,12 @@ Coverage fell below 0.85 for 11 of 24 units with SCP and for 11 with CV+ (Figure
 * *Without normalisation B* (A + C), it was 0.035. Normalisation therefore contributed little once A and C were present, but it helped when C was absent: A only gave 0.045 under R2 and 0.035 under R1, where pooling without normalisation over-covered (coverage 0.928).
 * *With no component* (the out-of-fold quantile), the R2 error was 0.086.
 
+**Robustness of the endpoint to the relatedness measure.** The primary endpoint bins candidates by *d*, which is also KinCP's localisation variable. We therefore repeated the analysis on quintiles of an independent measure: the maximum standardised genomic relationship of each candidate to the training set.
+* *Under R2,* KinCP again had the smallest conditional error (0.032, against 0.076 for CV+ and 0.050 for Gauss-PEV). It was better than Gauss-PEV in 23/24 units (Holm *P* < 0.001) and than CV+ in 21/24 (Holm *P* < 0.001). It did not differ significantly from CalPred-style calibration on pool A (Holm *P* = 0.094).
+* *Under R1,* all methods were similar on this measure (KinCP 0.022, CV+ 0.026, Gauss-PEV 0.023; all Holm *P* ≥ 0.15). Relatedness-blind intervals still over-covered the candidates with the closest relatives in the training set (CV+ 0.928).
+
+KinCP's advantage under random cross-validation is therefore specific to calibration along *d* and is small. Its advantage under cluster-out deployment does not depend on how relatedness is measured.
+
 **Remaining gap.** Even KinCP remained below nominal in the least-related quintile under R2 (worst-quintile coverage 0.839). Its conditional error under R2 exceeded the error expected from binomial sampling alone (0.022; see Methods).
 
 ### RQ3: robustness and generalisation
@@ -274,7 +303,9 @@ Kinship-aware calibration largely corrected these failures at the cost of a few 
 
 A conformal guarantee is only as good as the exchangeability between calibration residuals and the residual of a new individual. In breeding data the main source of non-exchangeability is not an unknown covariate shift but a known and computable quantity. Quantitative-genetic theory has long shown that the reliability of a genomic prediction is governed by the relationship of the candidate to the reference population (Habier *et al.* 2007; Clark *et al.* 2012; Pszczola *et al.* 2012; Wientjes *et al.* 2013).
 
-The GBLUP prediction error variance summarises this relationship as a single number per candidate, available before phenotyping (Eq. 1). It plays here the role that genetic distance or "context" plays for human polygenic scores (Ding *et al.* 2023; Hou *et al.* 2024). In breeding populations, however, the dominant structure is family relatedness rather than continental ancestry. Our results show that adopting this covariate is not enough. Normalising scores by it (NormCP) or fitting a heteroscedastic model to random-fold residuals (CalPred-style with a random pool) still left large errors under cluster-out deployment. Calibration residuals must also *cover* the relatedness range of the candidates. Genomic-cluster cross-fitting inside the training set achieves this cheaply and without any phenotypes of the candidates.
+The GBLUP prediction error variance summarises this relationship as a single number per candidate, available before phenotyping (Eq. 1). It plays here the role that genetic distance or "context" plays for human polygenic scores (Ding *et al.* 2023; Hou *et al.* 2024). In breeding populations, however, the dominant structure is family relatedness rather than continental ancestry. The training set typically contains full- and half-sibs of some candidates and no relatives of others, so relatedness to the training set varies far more within a single deployment than in largely unrelated human cohorts.
+
+The point here goes beyond the known optimism of random cross-validation for *accuracy* (Werner *et al.* 2020). Uncertainty statements calibrated on random hold-outs are miscalibrated in a relatedness-dependent way even when their marginal coverage is nominal. This can be corrected using genotypes alone. Our results show that adopting this covariate is not enough. Normalising scores by it (NormCP) or fitting a heteroscedastic model to random-fold residuals (CalPred-style with a random pool) still left large errors under cluster-out deployment. Calibration residuals must also *cover* the relatedness range of the candidates. Genomic-cluster cross-fitting inside the training set achieves this cheaply and without any phenotypes of the candidates.
 
 ### Conformal or parametric calibration?
 
@@ -302,6 +333,8 @@ The classical PEV interval was competitive under random cross-validation, which 
 * **Deployment regimes are proxies.**
   * *Clusters.* Genomic clusters stand in for new families or populations. Five clusters per dataset give few independent deployment groups, so coverage under R2 is itself estimated with sizeable error.
   * *No temporal data.* Temporal deployment across breeding cycles, which also involves genotype-by-environment and selection effects, could not be studied because the public datasets lack cycle information.
+* **Phenotype preprocessing.** Some EasyGeSe phenotypes are BLUEs adjusted across all lines and environments (e.g. maize, barley). Test and training phenotypes may therefore share adjusted environmental effects. This mild preprocessing leakage applies equally to all methods.
+* **R1 advantage.** Under random cross-validation, KinCP's advantage was small and specific to calibration along *d*. It was not significant when relatedness was measured by maximum genomic relationship.
 * **Statistical units.** Traits from the same species share genotypes, so the 24 units are not fully independent. The pattern was, however, consistent across species (Figure 4).
 * **Trait choice.** Traits were chosen by a rule fixed in advance. In loblolly pine this selected two closely related root traits.
 * **Compute.** LightGBM was not run on maize, and the RKHS and LightGBM analyses used fewer repeats than GBLUP, both for compute reasons.
@@ -338,6 +371,8 @@ Barber RF, Candès EJ, Ramdas A, Tibshirani RJ. 2021. Predictive inference with 
 
 Barber RF, Candès EJ, Ramdas A, Tibshirani RJ. 2023. Conformal prediction beyond exchangeability. The Annals of Statistics. 51(2). doi:10.1214/23-aos2276
 
+Bhattacharyya A, Barber RF. 2026. Group-weighted conformal prediction. Electronic Journal of Statistics. 20(1). doi:10.1214/26-ejs2506
+
 Clark SA, Hickey JM, Daetwyler HD, van der Werf JH. 2012. The importance of information on relatives for the prediction of genomic breeding values and the implications for the makeup of reference data sets in livestock breeding schemes. Genetics Selection Evolution. 44(1):4. doi:10.1186/1297-9686-44-4
 
 Crossa J, Pérez-Rodríguez P, Cuevas J, Montesinos-López O, Jarquín D, de los Campos G, Burgueño J, González-Camacho JM, Pérez-Elizalde S, Beyene Y, et al. 2017. Genomic Selection in Plant Breeding: Methods, Models, and Perspectives. Trends in Plant Science. 22(11):961–975. doi:10.1016/j.tplants.2017.08.011
@@ -345,6 +380,8 @@ Crossa J, Pérez-Rodríguez P, Cuevas J, Montesinos-López O, Jarquín D, de los
 de los Campos G, Gianola D, Rosa GJM, Weigel KA, Crossa J. 2010. Semi-parametric genomic-enabled prediction of genetic values using reproducing kernel Hilbert spaces methods. Genetics Research. 92(4):295–308. doi:10.1017/s0016672310000285
 
 Ding Y, Hou K, Xu Z, Pimplaskar A, Petter E, Boulier K, Privé F, Vilhjálmsson BJ, Olde Loohuis LM, Pasaniuc B. 2023. Polygenic scoring accuracy varies across the genetic ancestry continuum. Nature. 618(7966):774–781. doi:10.1038/s41586-023-06079-4
+
+Dunn R, Wasserman L, Ramdas A. 2023. Distribution-Free Prediction Sets for Two-Layer Hierarchical Models. Journal of the American Statistical Association. 118(544):2491–2502. doi:10.1080/01621459.2022.2060112
 
 Efron B. 1979. Bootstrap Methods: Another Look at the Jackknife. The Annals of Statistics. 7(1). doi:10.1214/aos/1176344552
 
@@ -378,6 +415,8 @@ Ke G, Meng Q, Finley T, Wang T, Chen W, Ma W, Ye Q, Liu TY. 2017. LightGBM: a hi
 
 Kerby DS. 2014. The Simple Difference Formula: An Approach to Teaching Nonparametric Correlation. Comprehensive Psychology. 3:11.IT.3.1. doi:10.2466/11.it.3.1
 
+Kodji E, Attaoua R, Haloui M, Hishmih C, Seitz M, Woodward M, Hussin JG, Hamet P, Tremblay J. 2026. Improving the reliability of polygenic risk score-based prediction for cardiovascular and renal complications across ancestries in type 2 diabetes using Mondrian Cross-Conformal Prediction. PLOS Computational Biology. 22(8):e1014670. doi:10.1371/journal.pcbi.1014670
+
 Kumar P. 2026. Calibrated genomic selection [data paper and code]. Zenodo. doi:10.5281/zenodo.22962591
 
 Legarra A, Reverter A. 2018. Semi-parametric estimates of population accuracy and bias of predictions of breeding values and future phenotypes using the LR method. Genetics Selection Evolution. 50(1):53. doi:10.1186/s12711-018-0426-6
@@ -386,15 +425,21 @@ Lei J, G’Sell M, Rinaldo A, Tibshirani RJ, Wasserman L. 2018. Distribution-Fre
 
 Meuwissen THE, Hayes BJ, Goddard ME. 2001. Prediction of Total Genetic Value Using Genome-Wide Dense Marker Maps. Genetics. 157(4):1819–1829. doi:10.1093/genetics/157.4.1819
 
+Papadopoulos H, Proedrou K, Vovk V, Gammerman A. 2002. Inductive Confidence Machines for Regression. Lecture Notes in Computer Science. 345-356. doi:10.1007/3-540-36755-1_29
+
 Pszczola M, Strabel T, Mulder H, Calus M. 2012. Reliability of direct genomic values for animals with different relationships within and to the reference population. Journal of Dairy Science. 95(1):389–400. doi:10.3168/jds.2011-4338
 
 Quesada-Traver C, Ariza-Suarez D, Studer B, Yates S. 2025. EasyGeSe – a resource for benchmarking genomic prediction methods. BMC Genomics. 26(1):953. doi:10.1186/s12864-025-12129-0
 
 Resende MFR, Muñoz P, Resende MDV, Garrick DJ, Fernando RL, Davis JM, Jokela EJ, Martin TA, Peter GF, Kirst M. 2012. Accuracy of Genomic Selection Methods in a Standard Data Set of Loblolly Pine (Pinus taedaL.). Genetics. 190(4):1503–1510. doi:10.1534/genetics.111.137026
 
+Sun J, Wang Y, Folkersen L, Borné Y, Amlien I, Buil A, Orho-Melander M, Børglum AD, Hougaard DM, , et al. 2021. Translating polygenic risk scores for clinical use by estimating the confidence bounds of risk prediction. Nature Communications. 12(1):5276. doi:10.1038/s41467-021-25014-7
+
 Tibshirani RJ, Barber RF, Candès EJ, Ramdas A. 2019. Conformal prediction under covariate shift. Advances in Neural Information Processing Systems. 32. https://papers.nips.cc/paper_files/paper/2019/hash/8fb21ee7a2207526da55a679f0332de2-Abstract.html
 
 VanRaden P. 2008. Efficient Methods to Compute Genomic Predictions. Journal of Dairy Science. 91(11):4414–4423. doi:10.3168/jds.2007-0980
+
+Vovk V. 2013. Conditional validity of inductive conformal predictors. Machine Learning. 92(2-3):349–376. doi:10.1007/s10994-013-5355-6
 
 Vovk V, Gammerman A, Shafer G. 2022. Algorithmic Learning in a Random World. Springer, Cham (2nd edition). doi:10.1007/978-3-031-06649-8
 

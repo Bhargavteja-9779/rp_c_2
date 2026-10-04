@@ -45,6 +45,12 @@ Coverage fell below 0.85 for {{scp_R2_nbelow85}} of {{n_units}} units with SCP a
 * *Without normalisation B* (A + C), it was {{abB_R2_cond}}. Normalisation therefore contributed little once A and C were present, but it helped when C was absent: A only gave {{abBC_R2_cond}} under R2 and {{abBC_R1_cond}} under R1, where pooling without normalisation over-covered (coverage {{abBC_R1_cov}}).
 * *With no component* (the out-of-fold quantile), the R2 error was {{oof_R2_cond}}.
 
+**Robustness of the endpoint to the relatedness measure.** The primary endpoint bins candidates by *d*, which is also KinCP's localisation variable. We therefore repeated the analysis on quintiles of an independent measure: the maximum standardised genomic relationship of each candidate to the training set.
+* *Under R2,* KinCP again had the smallest conditional error ({{mk_kincp_R2_cond}}, against {{mk_cvp_R2_cond}} for CV+ and {{mk_pev_R2_cond}} for Gauss-PEV). It was better than Gauss-PEV in {{mk_st_pev_R2_wins}} units (Holm *P* {{mk_st_pev_R2_p}}) and than CV+ in {{mk_st_cvp_R2_wins}} (Holm *P* {{mk_st_cvp_R2_p}}). It did not differ significantly from CalPred-style calibration on pool A (Holm *P* {{mk_st_calp_R2_p}}).
+* *Under R1,* all methods were similar on this measure (KinCP {{mk_kincp_R1_cond}}, CV+ {{mk_cvp_R1_cond}}, Gauss-PEV {{mk_pev_R1_cond}}; all Holm *P* ≥ {{mk_st_cvp_R1_p_num}}). Relatedness-blind intervals still over-covered the candidates with the closest relatives in the training set (CV+ {{mk_cvp_R1_high}}).
+
+KinCP's advantage under random cross-validation is therefore specific to calibration along *d* and is small. Its advantage under cluster-out deployment does not depend on how relatedness is measured.
+
 **Remaining gap.** Even KinCP remained below nominal in the least-related quintile under R2 (worst-quintile coverage {{kincp_R2_worst}}). Its conditional error under R2 exceeded the error expected from binomial sampling alone ({{null_cond}}; see Methods).
 
 ### RQ3: robustness and generalisation

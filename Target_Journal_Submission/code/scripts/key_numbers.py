@@ -212,6 +212,26 @@ def main():
                 K[f"sp_{tok}_{reg}_cond_wins"] = f"{int(r.iloc[0].wins_ref)}/{int(r.iloc[0].n_units)}"
                 K[f"sp_{tok}_{reg}_cond_praw"] = pfmt(r.iloc[0].p_value)
                 K[f"sp_{tok}_{reg}_cond_p"] = pfmt(r.iloc[0].p_holm)
+    # independent relatedness endpoint (Reviewer 3, S1)
+    ar = RESULTS_DIR / "alt_relatedness_summary.json"
+    if ar.exists():
+        arj = json.load(open(ar))
+        ast = pd.read_csv(RESULTS_DIR / "alt_relatedness_statistics.csv")
+        for reg in ["R1", "R2", "R3"]:
+            for m, tok in [("KinCP", "kincp"), ("Gauss-PEV", "pev"), ("CV+", "cvp"), ("SCP", "scp"), ("CalPred-style", "calp"), ("NormCP", "normcp")]:
+                v = arj.get(f"GBLUP|{reg}|{m}")
+                if v:
+                    K[f"mk_{tok}_{reg}_cond"] = f3(v["cond_err_maxkin"])
+                    K[f"mk_{tok}_{reg}_high"] = f3(v["cov_high_kin"])
+                    K[f"mk_{tok}_{reg}_low"] = f3(v["cov_low_kin"])
+                r = ast[(ast.base == "GBLUP") & (ast.regime == reg) & (ast.competitor == m)]
+                if len(r):
+                    K[f"mk_st_{tok}_{reg}_p"] = pfmt(r.iloc[0].p_holm)
+                    K[f"mk_st_{tok}_{reg}_wins"] = f"{int(r.iloc[0].wins_ref)}/{int(r.iloc[0].n_units)}"
+        r1 = ast[(ast.base == "GBLUP") & (ast.regime == "R1") & ast.competitor.isin(["Gauss-PEV", "Gauss-homosc", "SCP", "NormCP", "CV+", "CalPred-style", "CalPred-style(rand)"])]
+        K["mk_st_cvp_R1_p_num"] = f2(r1.p_holm.min())
+    t_all = tim[tim.alpha.isna() & (tim.tag == "main") & (tim.base == "GBLUP")]
+    K["n_folds_r2_pine"] = str(int(t_all[(t_all.dataset == "pine") & (t_all.regime == "R2")].groupby("trait").size().iloc[0]))
     # narrative numbers file can be extended by text tokens defined in manuscript/src/text_tokens.json
     tt = Path(__file__).resolve().parents[2] / "manuscript" / "src" / "text_tokens.json"
     if tt.exists():

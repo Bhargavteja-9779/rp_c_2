@@ -41,6 +41,8 @@ The classical PEV interval was competitive under random cross-validation, which 
 * **Deployment regimes are proxies.**
   * *Clusters.* Genomic clusters stand in for new families or populations. Five clusters per dataset give few independent deployment groups, so coverage under R2 is itself estimated with sizeable error.
   * *No temporal data.* Temporal deployment across breeding cycles, which also involves genotype-by-environment and selection effects, could not be studied because the public datasets lack cycle information.
+* **Phenotype preprocessing.** Some EasyGeSe phenotypes are BLUEs adjusted across all lines and environments (e.g. maize, barley). Test and training phenotypes may therefore share adjusted environmental effects. This mild preprocessing leakage applies equally to all methods.
+* **R1 advantage.** Under random cross-validation, KinCP's advantage was small and specific to calibration along *d*. It was not significant when relatedness was measured by maximum genomic relationship.
 * **Statistical units.** Traits from the same species share genotypes, so the 24 units are not fully independent. The pattern was, however, consistent across species (Figure 4).
 * **Trait choice.** Traits were chosen by a rule fixed in advance. In loblolly pine this selected two closely related root traits.
 * **Compute.** LightGBM was not run on maize, and the RKHS and LightGBM analyses used fewer repeats than GBLUP, both for compute reasons.

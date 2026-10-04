@@ -124,7 +124,46 @@ def pev_calibration():
         dump_json(out, RESULTS_DIR / "pev_calibration_summary.json")
 
 
+def alt_relatedness_endpoint():
+    """Reviewer 3 (S1): conditional coverage error on quintiles of an *independent* relatedness measure
+    that KinCP does not use: the maximum standardised genomic relationship to the training set (maxkin).
+    Paired Wilcoxon tests (KinCP vs competitors), Holm within regime family."""
+    from kincp.statistics.tests import holm, paired_compare
+    rows = []
+    meths = ["Gauss-PEV", "Gauss-homosc", "SCP", "NormCP", "CV+", "CalPred-style", "CalPred-style(rand)", "KinCP", "KinCP-ABC"]
+    for f in sorted(JOBS.glob("*__main__*__records.parquet")):
+        parts = f.name.split("__")
+        base, ds, tr, reg = parts[0], parts[1], parts[2], parts[3]
+        r = pd.read_parquet(f, columns=["method", "y", "lo", "hi", "maxkin", "rep", "fold", "idx"])
+        r = r[r.method.isin(meths)]
+        ref = r.drop_duplicates(["rep", "fold", "idx"])["maxkin"]
+        edges = np.unique(np.quantile(ref, np.linspace(0, 1, 6)))[1:-1]
+        r["bin"] = np.digitize(r["maxkin"], edges)
+        r["cov"] = (r.y >= r.lo) & (r.y <= r.hi)
+        for m, g in r.groupby("method"):
+            bc = g.groupby("bin")["cov"].mean()
+            rows.append(dict(base=base, dataset=ds, trait=tr, regime=reg, method=m,
+                             cond_err_maxkin=float(np.mean(np.abs(bc.values - 0.9))),
+                             worst_maxkin=float(bc.min()), cov_low_kin=float(bc.iloc[0]), cov_high_kin=float(bc.iloc[-1])))
+    d = pd.DataFrame(rows)
+    d.to_csv(RESULTS_DIR / "alt_relatedness_units.csv", index=False)
+    st = []
+    for (base, reg), g in d.groupby(["base", "regime"]):
+        c = paired_compare(g, ["dataset", "trait"], "method", "KinCP", [m for m in meths if m != "KinCP"], "cond_err_maxkin", True)
+        c["base"], c["regime"] = base, reg
+        st.append(c)
+    st = pd.concat(st, ignore_index=True)
+    st["p_holm"] = np.nan
+    for _, g in st.groupby("base"):
+        ok = g.p_value.notna()
+        st.loc[g.index[ok], "p_holm"] = holm(g.loc[ok, "p_value"].to_numpy())
+    st.to_csv(RESULTS_DIR / "alt_relatedness_statistics.csv", index=False)
+    means = d.groupby(["base", "regime", "method"])[["cond_err_maxkin", "worst_maxkin", "cov_low_kin", "cov_high_kin"]].mean()
+    dump_json({f"{b}|{r}|{m}": v.to_dict() for (b, r, m), v in means.iterrows()}, RESULTS_DIR / "alt_relatedness_summary.json")
+
+
 if __name__ == "__main__":
+    alt_relatedness_endpoint()
     error_analysis()
     decision_analysis()
     pev_calibration()

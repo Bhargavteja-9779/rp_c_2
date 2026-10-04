@@ -147,7 +147,9 @@ Three regimes were used:
 
 RKHS was run on R1 (first repeat) and R2 (two seeds). LightGBM was run on R1 (first repeat) and R2 (one seed), and not on maize (compute; deviation D5).
 
-Phenotype scaling, REML, hyper-parameters, cross-fitting, calibration scores and the variance components in σ(*d*) used outer-training individuals only. Inner cross-fitting reused the outer-fold δ (deviation D3). Seeds {11, 22, 33, 44, 55} were fixed in advance and tied to repeats. No seed was selected after viewing results.
+Phenotype scaling, REML, hyper-parameters, cross-fitting, calibration scores and the variance components in σ(*d*) used outer-training individuals only. Inner cross-fitting reused the outer-fold δ (deviation D3). Seeds {11, 22, 33, 44, 55} were fixed in advance and tied to repeats. No seed was selected after viewing results. The R1 repeats re-use the same individuals, and the R2 seeds share identical outer folds and differ only in inner randomness, so neither is an independent replicate. Test folds with fewer than five individuals were skipped. This affected only one loblolly-pine cluster of three trees, leaving {{n_folds_r2_pine}} of 25 R2 folds per pine trait.
+
+Split conformal fits its model on 80% of the training set by construction. LightGBM hyper-parameters were not tuned, which may limit its point accuracy but affects all interval methods equally, because they share the same base predictor.
 
 ### Simulation with known genetic values
 
@@ -171,7 +173,9 @@ A perfectly calibrated method still shows a conditional error from binomial samp
 
 ### Statistical analysis
 
-The unit of analysis was the dataset × trait combination. KinCP was compared with each alternative using two-sided Wilcoxon signed-rank tests (Wilcoxon 1945), paired by unit. *P*-values were Holm-adjusted (Holm 1979) within each family, defined by base predictor × endpoint × comparison set (baselines or ablations). Effect sizes were the median paired difference (competitor minus KinCP; positive values favour KinCP), with 95% percentile-bootstrap confidence intervals (10,000 resamples; Efron 1979), and the matched-pairs rank-biserial correlation (Kerby 2014).
+The unit of analysis was the dataset × trait combination. KinCP was compared with each alternative using two-sided Wilcoxon signed-rank tests (Wilcoxon 1945), paired by unit. *P*-values were Holm-adjusted (Holm 1979) within each family, defined by base predictor × endpoint × comparison set (baselines or ablations). Each baseline family spans three regimes and seven competitors (21 tests), which is conservative. Effect sizes were the median paired difference (competitor minus KinCP; positive values favour KinCP), with 95% percentile-bootstrap confidence intervals (10,000 resamples; Efron 1979), and the matched-pairs rank-biserial correlation (Kerby 2014). With 24 heterogeneous units these intervals can be asymmetric and mainly reflect heterogeneity between units.
+
+As a robustness check on the primary endpoint, conditional coverage error was also computed on quintiles of the maximum standardised genomic relationship to the training set, a relatedness measure that KinCP does not use.
 
 Traits from the same dataset share genotypes, so units are not fully independent. The tests are interpreted together with the per-species results (Figure 4).
 
