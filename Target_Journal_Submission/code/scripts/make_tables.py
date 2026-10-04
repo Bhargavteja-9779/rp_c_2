@@ -59,7 +59,7 @@ def summary_table(s, methods, name, base="GBLUP", namemap=None):
             if v.empty:
                 continue
             rows.append({"Regime": reg, "Method": (namemap or {}).get(m, m), "Units": len(v),
-                         "Coverage": mean_sd(v.coverage), "|Cov−0.90|": mean_sd(v.cov_dev),
+                         "Coverage": mean_sd(v.coverage), "Abs. cov. deviation": mean_sd(v.cov_dev),
                          "Cond. error": mean_sd(v.cond_err), "Worst-quintile cov.": mean_sd(v.worst_bin_cov),
                          "Width (SD units)": mean_sd(v.width), "Interval score": mean_sd(v.iscore)})
     write(pd.DataFrame(rows), name)
@@ -75,7 +75,7 @@ def table_stats():
                             "median_diff": "Median diff.", "ci_low": "CI low", "ci_high": "CI high",
                             "rank_biserial": "Rank-biserial r", "wins_ref": "KinCP better", "wins_comp": "Competitor better",
                             "p_value": "P", "p_holm": "P (Holm)"})
-    st["Endpoint"] = st["Endpoint"].map({"cond_err": "Cond. error", "cov_dev": "|Cov−0.90|", "iscore": "Interval score"})
+    st["Endpoint"] = st["Endpoint"].map({"cond_err": "Cond. error", "cov_dev": "Abs. cov. deviation", "iscore": "Interval score"})
     write(st, "Table3_statistics_GBLUP", 4)
     st2 = pd.read_csv(RESULTS_DIR / "statistics_table.csv")
     write(st2[st2.base != "GBLUP"], "TableS_statistics_other_bases", 4)

@@ -12,7 +12,7 @@
 
 ## Abstract
 
-Genomic prediction guides selection in plant and animal breeding, but breeders acting on an individual prediction also need honest uncertainty. Distribution-free conformal prediction intervals assume that calibration individuals are exchangeable with selection candidates; we show that relatedness to the training population breaks this assumption. We measure each candidate's relatedness by the prediction error variance of genomic best linear unbiased prediction and propose kinship-aware conformal prediction, which calibrates on residuals from random and genomic-cluster cross-fitting, normalises them by this variance and localises the conformal quantile in relatedness. We compared it with seven alternatives on 24 traits from barley, common bean, lentil, loblolly pine, eastern oyster, maize, pig, rice, soybean and wheat, under random and cluster-out validation, with three prediction models, and in simulations on real genotypes. Intervals ignoring relatedness over-covered close relatives and under-covered distant candidates; for held-out clusters, split-conformal and cross-validation-plus intervals covered 0.828 and 0.838 of phenotypes at nominal 0.90, and the classical Gaussian interval 0.881. Kinship-aware intervals covered 0.894, with relatedness-conditional coverage error 0.036 against 0.079 for cross-validation-plus and 0.052 for the Gaussian interval, and the smallest or joint-smallest error for all three predictors. Ablation showed that the calibration pool spanning distant relatives was decisive: a parametric calibration fitted to the same pool performed equally well. Prediction intervals for selection candidates should be calibrated along the relatedness axis, at the cost of about ten additional model fits.
+Genomic prediction guides selection in plant and animal breeding, but breeders acting on an individual prediction also need honest uncertainty. Distribution-free conformal prediction intervals assume that calibration individuals are exchangeable with selection candidates; we show that relatedness to the training population breaks this assumption. We measure each candidate's relatedness by the prediction error variance of genomic best linear unbiased prediction and propose kinship-aware conformal prediction, which calibrates on residuals from random and genomic-cluster cross-fitting, normalises them by this variance and localises the conformal quantile in relatedness. We compared it with seven alternatives on 24 traits from barley, common bean, lentil, loblolly pine, eastern oyster, maize, pig, rice, soybean and wheat, under random and cluster-out validation, with three prediction models, and in simulations on real genotypes. Intervals ignoring relatedness over-covered close relatives and under-covered distant candidates; for held-out clusters, split-conformal and cross-validation-plus intervals covered 0.828 and 0.838 of phenotypes at nominal 0.90, and the classical Gaussian interval 0.881. Kinship-aware intervals covered 0.894, with relatedness-conditional coverage error 0.036 against 0.079 for cross-validation-plus and 0.052 for the Gaussian interval, and the smallest or joint-smallest error for all three predictors. The gains were in calibration, not in interval score. Ablation showed that the calibration pool spanning distant relatives was decisive: a parametric calibration fitted to the same pool performed equally well. Prediction intervals for selection candidates should be calibrated along the relatedness axis, at the cost of about ten additional model fits.
 
 ## Article summary
 
@@ -70,7 +70,7 @@ We used the ten datasets of EasyGeSe (Quesada-Traver *et al.* 2025; Zenodo recor
 * soybean (*Glycine max*; Kaler *et al.* 2017);
 * wheat (*Triticum aestivum*; Gogna *et al.* 2022).
 
-Genotypes were recoded as allele dosages 0/1/2. The wheat file, coded −2/0/2, was shifted to this scale; inbred panels coded 0/2 were kept as is. Monomorphic markers were dropped. No further marker filtering or imputation was applied. The files were verified against the Zenodo MD5 checksums.
+Genotypes were recoded as allele dosages 0/1/2. The wheat file, coded −2/0/2, was shifted to this scale; inbred panels coded 0/2 were kept as is. Monomorphic markers were dropped. No further marker filtering or imputation was applied. All 30 files were verified against the Zenodo MD5 checksums.
 
 Traits were selected by a rule fixed in advance that does not look at results. A trait was eligible if it had at least 200 phenotyped individuals and at least 30 distinct values. Within each dataset we took up to three eligible traits with the largest number of records, breaking ties by column order. This gave 24 dataset × trait units (Table 1).
 
@@ -90,7 +90,7 @@ Phenotypes were standardised in every outer fold using the training mean and sta
 
 **RKHS regression.** This is the same mixed-model machinery with a Gaussian kernel *K*ᵢⱼ = exp(−*D*²ᵢⱼ / median *D*²), where *D*²ᵢⱼ = *G*ᵢᵢ + *G*ⱼⱼ − 2*G*ᵢⱼ (Gianola and van Kaam 2008; de los Campos *et al.* 2010).
 
-**LightGBM.** Gradient-boosted trees (Ke *et al.* 2017) were fitted with hyper-parameters fixed in advance: 500 trees, learning rate 0.05, 31 leaves, column subsampling 0.3, row subsampling 0.8 and at least 10 samples per leaf. Inputs were at most 10,000 evenly spaced markers.
+**LightGBM.** Gradient-boosted trees (Ke *et al.* 2017) were fitted with hyper-parameters fixed in advance: 500 trees, learning rate 0.05, 31 leaves, column subsampling 0.3, row subsampling 0.8 and at least 10 samples per leaf. Inputs were at most 10,000 evenly spaced markers of the dosage matrix. These may include a few monomorphic markers, which trees ignore.
 
 ### Relatedness covariate
 
@@ -106,7 +106,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 
 1. **Gauss-PEV** (GBLUP only): *ŷ*ⱼ ± *z*_{1−α/2} σ(*d*ⱼ). This is the classical model-based interval.
 2. **Gauss-homosc**: *ŷ*ⱼ ± *z*_{1−α/2} times the standard deviation of random five-fold out-of-fold residuals in *T*.
-3. **SCP** (split conformal): the model is refitted on a random 80% of *T*. With absolute residuals *R*ᵢ on the remaining 20% (*n*_c individuals), the interval is *ŷ*ⱼ ± the ⌈(1 − α)(*n*_c + 1)⌉-th smallest *R*ᵢ (Lei *et al.* 2018).
+3. **SCP** (split conformal): the model is refitted on a random 80% of *T* (at least 10 individuals are kept for calibration). With absolute residuals *R*ᵢ on the remaining 20% (*n*_c individuals), the interval is *ŷ*ⱼ ± the ⌈(1 − α)(*n*_c + 1)⌉-th smallest *R*ᵢ (Lei *et al.* 2018).
 4. **NormCP**: as SCP, with scores *R*ᵢ/σ(*d*ᵢ) and half-width scaled by σ(*d*ⱼ). This is component B alone, with *d* measured relative to the 80% fitting subset.
 5. **CV+** (Barber *et al.* 2021): random five-fold cross-fitting in *T*. The bounds are the ⌊α(*n* + 1)⌋-th smallest of {*ŷ*ⱼ^{(−k(i))} − *R*ᵢ} and the ⌈(1 − α)(*n* + 1)⌉-th smallest of {*ŷ*ⱼ^{(−k(i))} + *R*ᵢ}.
 6. **CalPred-style** calibration, inspired by Hou *et al.* (2024): a heteroscedastic Gaussian model for residuals, *r* ~ N(*m*₀ + *m*₁*c*, exp{2(*a* + *bc*)}), with context *c* the standardised log *d*. It was fitted by maximum likelihood either to the random-fold pool ("random pool") or to the same pool A used by KinCP ("pool A").
@@ -115,7 +115,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 
 **KinCP.** KinCP has three components.
 
-(A) *Calibration pool.* Two cross-fitting schemes are run inside *T*: random five-fold, and genomic-cluster folds. For the latter, *k*-means with *k* = min{5, max(2, ⌊|*T*|/20⌋)} is applied to the principal components of the training individuals. Each scheme yields an out-of-fold residual *r*ᵢ for every training individual. For each residual, *d*ᵢ is computed with Eq. (1) relative to the inner training subset that produced it. The pool {(*r*ᵢ, *d*ᵢ)} has 2|*T*| members and spans both close relatives (random folds) and distant relatives (cluster folds).
+(A) *Calibration pool.* Two cross-fitting schemes are run inside *T*: random five-fold, and genomic-cluster folds. For the latter, *k*-means (10 restarts) with *k* = min{5, max(2, ⌊|*T*|/20⌋)} is applied to the training individuals' scores on the global genotype principal components, which are computed once from all genotyped individuals. Each scheme yields an out-of-fold residual *r*ᵢ for every training individual. For each residual, *d*ᵢ is computed with Eq. (1) relative to the inner training subset that produced it. The pool {(*r*ᵢ, *d*ᵢ)} has 2|*T*| members and spans both close relatives (random folds) and distant relatives (cluster folds).
 
 (B) *Normalised scores.* *s*ᵢ = |*r*ᵢ| / σ(*d*ᵢ).
 
@@ -123,7 +123,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 
 *q̂*ⱼ = inf{*s* : Σᵢ *w*ᵢ(*j*) 1[*s*ᵢ ≤ *s*] / (Σᵢ *w*ᵢ(*j*) + 1) ≥ 1 − α},     (2)
 
-and the interval is *ŷ*ⱼ ± *q̂*ⱼ σ(*d*ⱼ). The default bandwidth is *h* = 0.5 × SD(log *d*ᵢ). It is widened multiplicatively (×1.25) for each candidate until Σᵢ *w*ᵢ(*j*) ≥ 50. This floor prevents uninformative infinite intervals for candidates outside the pool's range of *d* (File S1, deviation D1). The floor depends only on genotype-derived covariates, never on outcomes.
+and the interval is *ŷ*ⱼ ± *q̂*ⱼ σ(*d*ⱼ). The default bandwidth is *h* = 0.5 × SD(log *d*ᵢ). It is widened multiplicatively (×1.25, at most 60 times) for each candidate until Σᵢ *w*ᵢ(*j*) ≥ 50. This floor prevents uninformative infinite intervals for candidates outside the pool's range of *d* (File S1, deviation D1). The floor depends only on genotype-derived covariates, never on outcomes.
 
 Ablations removed every non-empty subset of A, B and C:
 * without A, the random-fold pool only;
@@ -132,7 +132,13 @@ Ablations removed every non-empty subset of A, B and C:
 
 **Rationale and guarantees.** Suppose that the conditional distribution of the score given *d* is the same for pool members and candidates (relatedness-conditional invariance), and that only the distribution of *d* differs between them. Weighting pool members by the density ratio of *d* then gives a finite-sample marginal coverage guarantee (Tibshirani *et al.* 2019). Kernel localisation in *d* approximates conditional coverage given *d* (Guan 2023).
 
-Our implementation uses a deterministic kernel. The pool residuals come from models trained on subsets of *T* (as in CV+; Barber *et al.* 2021), and the invariance assumption is only approximately met. KinCP therefore inherits no exact finite-sample guarantee. Its two design choices make the invariance assumption more plausible:
+KinCP departs from these conditions in four ways:
+* it uses a deterministic kernel;
+* the pool residuals come from models trained on subsets of *T* (as in CV+; Barber *et al.* 2021), while the interval is centred on the full-training-set prediction (the cross-validated residual-quantile construction of PredInterval, which has no CV+-type guarantee);
+* each training individual contributes two dependent residuals, one per cross-fitting scheme;
+* the invariance assumption is only approximately met.
+
+KinCP therefore inherits no exact finite-sample guarantee. Its two design choices make the invariance assumption more plausible:
 * cross-fitting with genomic clusters places calibration residuals at the levels of *d* that candidates actually reach;
 * normalisation by σ(*d*) removes the first-order dependence of the residual scale on relatedness.
 
@@ -226,7 +232,7 @@ Coverage fell below 0.85 for 11 of 24 units with SCP and for 11 with CV+ (Figure
 
 ### RQ2: KinCP restores coverage, and the calibration pool is the decisive component
 
-**Calibration of KinCP.** With GBLUP as the base predictor, KinCP had the lowest mean relatedness-conditional coverage error of the eight compared methods in every regime (Table 2): 0.017 under R1, 0.036 under R2 and 0.014 under R3. Under R2 its marginal coverage was 0.894 (SD over units 0.024; minimum 0.845). Its intervals were wider than those of the relatedness-blind conformal methods (2.83 *vs.* 2.46 phenotypic SD for CV+), as required to reach coverage. Its interval score was also lower (3.91 *vs.* 4.06; Holm-adjusted *P* = 0.983). Against Gauss-PEV, the interval-score difference had *P* = 1.000; against CalPred-style on pool A, *P* = 1.000.
+**Calibration of KinCP.** With GBLUP as the base predictor, KinCP had the lowest mean relatedness-conditional coverage error of the eight compared methods in every regime (Table 2): 0.017 under R1, 0.036 under R2 and 0.014 under R3. Under R2 its marginal coverage was 0.894 (SD over units 0.024; minimum 0.845). Its intervals were wider than those of the relatedness-blind conformal methods (2.83 *vs.* 2.46 phenotypic SD for CV+), as required to reach coverage. **Interval score.** On the interval score, which trades width against misses (a proper scoring rule; Gneiting and Raftery 2007), KinCP was *not* better than the main alternatives. The mean scores were 3.91 for KinCP and 4.06 for CV+ under R2. The Holm-adjusted *P*-values were = 0.983 against CV+, = 1.000 against Gauss-PEV and = 1.000 against CalPred-style on pool A. KinCP was significantly better only than SCP (*P* < 0.001) and NormCP (*P* = 0.034). Under R3, Gauss-PEV had a slightly lower interval score than KinCP (Holm *P* = 0.032). The intervals of relatedness-blind methods were narrower and missed more often, and the interval score weighs these two effects against each other. The benefit of KinCP is therefore *validity*: coverage close to the nominal level, including for weakly related candidates. It is not a better sharpness–coverage trade-off.
 
 **Paired tests on the primary endpoint under R2** (Table 3; Figure 12). KinCP's conditional coverage error was lower than that of:
 * CV+: median paired difference 0.012 (95% CI 0.007 to 0.064), Holm-adjusted *P* = 0.003, KinCP better in 20/24 units;
@@ -313,7 +319,7 @@ Given the relatedness-diverse pool, KinCP and a parametric heteroscedastic Gauss
 * its quantiles are distribution-free, so they need no Gaussian or log-linear variance model;
 * under the relatedness-conditional invariance assumption it inherits the weighted-conformal coverage argument (Tibshirani *et al.* 2019).
 
-Practitioners who prefer a parametric calibration can obtain most of the gain by fitting it to the same pool. We therefore regard pool A as the main methodological recommendation and KinCP as a convenient, assumption-light way to use it.
+Practitioners who prefer a parametric calibration can obtain most of the gain by fitting it to the same pool. Neither approach improved the interval score relative to relatedness-blind conformal intervals or the Gaussian PEV interval. Narrower, under-covering intervals can score similarly, because the interval score trades width against misses. When the purpose of an interval is a statement of risk that holds for the candidates at hand, coverage validity is the relevant criterion, and that is what calibration along relatedness delivers. We therefore regard pool A as the main methodological recommendation and KinCP as a convenient, assumption-light way to use it.
 
 ### Relation to classical reliability and accuracy validation
 
@@ -530,108 +536,108 @@ on behalf of all authors
 
 **Table 2** Calibration of 90% prediction intervals with the GBLUP base predictor. Values are mean ± SD over dataset × trait units. Cond. error is the mean over quintiles of relatedness of |coverage − 0.90| (primary endpoint). Width is in phenotypic SD units. Lower interval scores are better.
 
-| Regime   | Method              |   Units | Coverage      | |Cov−0.90|    | Cond. error   | Worst-quintile cov.   | Width (SD units)   | Interval score   |
-|:---------|:--------------------|--------:|:--------------|:--------------|:--------------|:----------------------|:-------------------|:-----------------|
-| R1       | Gauss-PEV           |      24 | 0.905 ± 0.010 | 0.009 ± 0.007 | 0.020 ± 0.008 | 0.876 ± 0.016         | 2.397 ± 0.565      | 3.183 ± 0.746    |
-| R1       | Gauss-homosc        |      24 | 0.907 ± 0.011 | 0.010 ± 0.008 | 0.027 ± 0.012 | 0.867 ± 0.024         | 2.449 ± 0.576      | 3.210 ± 0.751    |
-| R1       | SCP                 |      24 | 0.903 ± 0.009 | 0.006 ± 0.007 | 0.025 ± 0.011 | 0.863 ± 0.025         | 2.481 ± 0.593      | 3.278 ± 0.774    |
-| R1       | NormCP              |      24 | 0.903 ± 0.009 | 0.007 ± 0.006 | 0.019 ± 0.007 | 0.873 ± 0.016         | 2.455 ± 0.587      | 3.253 ± 0.771    |
-| R1       | CV+                 |      24 | 0.910 ± 0.006 | 0.010 ± 0.006 | 0.025 ± 0.011 | 0.870 ± 0.018         | 2.446 ± 0.553      | 3.197 ± 0.764    |
-| R1       | CalPred-style(rand) |      24 | 0.902 ± 0.012 | 0.009 ± 0.007 | 0.020 ± 0.008 | 0.874 ± 0.015         | 2.376 ± 0.557      | 3.190 ± 0.743    |
-| R1       | CalPred-style       |      24 | 0.904 ± 0.017 | 0.014 ± 0.010 | 0.022 ± 0.009 | 0.873 ± 0.019         | 2.418 ± 0.546      | 3.205 ± 0.733    |
-| R1       | KinCP               |      24 | 0.906 ± 0.009 | 0.009 ± 0.006 | 0.017 ± 0.007 | 0.880 ± 0.016         | 2.410 ± 0.539      | 3.197 ± 0.739    |
-| R2       | Gauss-PEV           |      24 | 0.881 ± 0.048 | 0.038 ± 0.035 | 0.052 ± 0.029 | 0.819 ± 0.076         | 2.776 ± 0.581      | 3.953 ± 0.676    |
-| R2       | Gauss-homosc        |      24 | 0.830 ± 0.081 | 0.076 ± 0.075 | 0.088 ± 0.065 | 0.751 ± 0.113         | 2.454 ± 0.572      | 4.110 ± 0.739    |
-| R2       | SCP                 |      24 | 0.828 ± 0.073 | 0.074 ± 0.072 | 0.086 ± 0.062 | 0.742 ± 0.112         | 2.498 ± 0.566      | 4.167 ± 0.665    |
-| R2       | NormCP              |      24 | 0.883 ± 0.045 | 0.036 ± 0.031 | 0.049 ± 0.027 | 0.818 ± 0.077         | 2.867 ± 0.601      | 4.003 ± 0.620    |
-| R2       | CV+                 |      24 | 0.838 ± 0.071 | 0.066 ± 0.068 | 0.079 ± 0.058 | 0.756 ± 0.109         | 2.464 ± 0.538      | 4.062 ± 0.720    |
-| R2       | CalPred-style(rand) |      24 | 0.867 ± 0.058 | 0.049 ± 0.044 | 0.060 ± 0.038 | 0.799 ± 0.087         | 2.715 ± 0.620      | 4.072 ± 0.877    |
-| R2       | CalPred-style       |      24 | 0.891 ± 0.027 | 0.022 ± 0.018 | 0.037 ± 0.014 | 0.838 ± 0.042         | 2.825 ± 0.449      | 3.886 ± 0.659    |
-| R2       | KinCP               |      24 | 0.894 ± 0.024 | 0.018 ± 0.017 | 0.036 ± 0.015 | 0.839 ± 0.044         | 2.830 ± 0.453      | 3.907 ± 0.688    |
-| R3       | Gauss-PEV           |      24 | 0.901 ± 0.012 | 0.009 ± 0.008 | 0.017 ± 0.007 | 0.876 ± 0.020         | 2.504 ± 0.555      | 3.345 ± 0.754    |
-| R3       | Gauss-homosc        |      24 | 0.905 ± 0.012 | 0.010 ± 0.008 | 0.024 ± 0.009 | 0.870 ± 0.025         | 2.558 ± 0.570      | 3.377 ± 0.756    |
-| R3       | SCP                 |      24 | 0.912 ± 0.014 | 0.013 ± 0.013 | 0.023 ± 0.009 | 0.881 ± 0.023         | 2.762 ± 0.631      | 3.525 ± 0.797    |
-| R3       | NormCP              |      24 | 0.913 ± 0.013 | 0.014 ± 0.011 | 0.020 ± 0.008 | 0.890 ± 0.022         | 2.747 ± 0.628      | 3.499 ± 0.801    |
-| R3       | CV+                 |      24 | 0.910 ± 0.009 | 0.011 ± 0.007 | 0.024 ± 0.009 | 0.873 ± 0.024         | 2.588 ± 0.577      | 3.371 ± 0.772    |
-| R3       | CalPred-style(rand) |      24 | 0.897 ± 0.013 | 0.011 ± 0.008 | 0.018 ± 0.007 | 0.872 ± 0.018         | 2.515 ± 0.618      | 3.395 ± 0.805    |
-| R3       | CalPred-style       |      24 | 0.897 ± 0.016 | 0.013 ± 0.009 | 0.021 ± 0.011 | 0.866 ± 0.032         | 2.510 ± 0.538      | 3.394 ± 0.777    |
-| R3       | KinCP               |      24 | 0.902 ± 0.009 | 0.007 ± 0.005 | 0.014 ± 0.005 | 0.883 ± 0.013         | 2.530 ± 0.565      | 3.364 ± 0.753    |
+| Regime   | Method              |   Units | Coverage      | Abs. cov. deviation   | Cond. error   | Worst-quintile cov.   | Width (SD units)   | Interval score   |
+|:---------|:--------------------|--------:|:--------------|:----------------------|:--------------|:----------------------|:-------------------|:-----------------|
+| R1       | Gauss-PEV           |      24 | 0.905 ± 0.010 | 0.009 ± 0.007         | 0.020 ± 0.008 | 0.876 ± 0.016         | 2.397 ± 0.565      | 3.183 ± 0.746    |
+| R1       | Gauss-homosc        |      24 | 0.907 ± 0.011 | 0.010 ± 0.008         | 0.027 ± 0.012 | 0.867 ± 0.024         | 2.449 ± 0.576      | 3.210 ± 0.751    |
+| R1       | SCP                 |      24 | 0.903 ± 0.009 | 0.006 ± 0.007         | 0.025 ± 0.011 | 0.863 ± 0.025         | 2.481 ± 0.593      | 3.278 ± 0.774    |
+| R1       | NormCP              |      24 | 0.903 ± 0.009 | 0.007 ± 0.006         | 0.019 ± 0.007 | 0.873 ± 0.016         | 2.455 ± 0.587      | 3.253 ± 0.771    |
+| R1       | CV+                 |      24 | 0.910 ± 0.006 | 0.010 ± 0.006         | 0.025 ± 0.011 | 0.870 ± 0.018         | 2.446 ± 0.553      | 3.197 ± 0.764    |
+| R1       | CalPred-style(rand) |      24 | 0.902 ± 0.012 | 0.009 ± 0.007         | 0.020 ± 0.008 | 0.874 ± 0.015         | 2.376 ± 0.557      | 3.190 ± 0.743    |
+| R1       | CalPred-style       |      24 | 0.904 ± 0.017 | 0.014 ± 0.010         | 0.022 ± 0.009 | 0.873 ± 0.019         | 2.418 ± 0.546      | 3.205 ± 0.733    |
+| R1       | KinCP               |      24 | 0.906 ± 0.009 | 0.009 ± 0.006         | 0.017 ± 0.007 | 0.880 ± 0.016         | 2.410 ± 0.539      | 3.197 ± 0.739    |
+| R2       | Gauss-PEV           |      24 | 0.881 ± 0.048 | 0.038 ± 0.035         | 0.052 ± 0.029 | 0.819 ± 0.076         | 2.776 ± 0.581      | 3.953 ± 0.676    |
+| R2       | Gauss-homosc        |      24 | 0.830 ± 0.081 | 0.076 ± 0.075         | 0.088 ± 0.065 | 0.751 ± 0.113         | 2.454 ± 0.572      | 4.110 ± 0.739    |
+| R2       | SCP                 |      24 | 0.828 ± 0.073 | 0.074 ± 0.072         | 0.086 ± 0.062 | 0.742 ± 0.112         | 2.498 ± 0.566      | 4.167 ± 0.665    |
+| R2       | NormCP              |      24 | 0.883 ± 0.045 | 0.036 ± 0.031         | 0.049 ± 0.027 | 0.818 ± 0.077         | 2.867 ± 0.601      | 4.003 ± 0.620    |
+| R2       | CV+                 |      24 | 0.838 ± 0.071 | 0.066 ± 0.068         | 0.079 ± 0.058 | 0.756 ± 0.109         | 2.464 ± 0.538      | 4.062 ± 0.720    |
+| R2       | CalPred-style(rand) |      24 | 0.867 ± 0.058 | 0.049 ± 0.044         | 0.060 ± 0.038 | 0.799 ± 0.087         | 2.715 ± 0.620      | 4.072 ± 0.877    |
+| R2       | CalPred-style       |      24 | 0.891 ± 0.027 | 0.022 ± 0.018         | 0.037 ± 0.014 | 0.838 ± 0.042         | 2.825 ± 0.449      | 3.886 ± 0.659    |
+| R2       | KinCP               |      24 | 0.894 ± 0.024 | 0.018 ± 0.017         | 0.036 ± 0.015 | 0.839 ± 0.044         | 2.830 ± 0.453      | 3.907 ± 0.688    |
+| R3       | Gauss-PEV           |      24 | 0.901 ± 0.012 | 0.009 ± 0.008         | 0.017 ± 0.007 | 0.876 ± 0.020         | 2.504 ± 0.555      | 3.345 ± 0.754    |
+| R3       | Gauss-homosc        |      24 | 0.905 ± 0.012 | 0.010 ± 0.008         | 0.024 ± 0.009 | 0.870 ± 0.025         | 2.558 ± 0.570      | 3.377 ± 0.756    |
+| R3       | SCP                 |      24 | 0.912 ± 0.014 | 0.013 ± 0.013         | 0.023 ± 0.009 | 0.881 ± 0.023         | 2.762 ± 0.631      | 3.525 ± 0.797    |
+| R3       | NormCP              |      24 | 0.913 ± 0.013 | 0.014 ± 0.011         | 0.020 ± 0.008 | 0.890 ± 0.022         | 2.747 ± 0.628      | 3.499 ± 0.801    |
+| R3       | CV+                 |      24 | 0.910 ± 0.009 | 0.011 ± 0.007         | 0.024 ± 0.009 | 0.873 ± 0.024         | 2.588 ± 0.577      | 3.371 ± 0.772    |
+| R3       | CalPred-style(rand) |      24 | 0.897 ± 0.013 | 0.011 ± 0.008         | 0.018 ± 0.007 | 0.872 ± 0.018         | 2.515 ± 0.618      | 3.395 ± 0.805    |
+| R3       | CalPred-style       |      24 | 0.897 ± 0.016 | 0.013 ± 0.009         | 0.021 ± 0.011 | 0.866 ± 0.032         | 2.510 ± 0.538      | 3.394 ± 0.777    |
+| R3       | KinCP               |      24 | 0.902 ± 0.009 | 0.007 ± 0.005         | 0.014 ± 0.005 | 0.883 ± 0.013         | 2.530 ± 0.565      | 3.364 ± 0.753    |
 
-**Table 3** Paired comparisons of KinCP with each alternative (GBLUP) on the relatedness-conditional coverage error (Cond. error) and the marginal coverage deviation (|Cov−0.90|). Median diff. is the median paired difference (competitor − KinCP; positive favours KinCP), with its 95% bootstrap confidence interval (CI low, CI high). P is from a two-sided Wilcoxon signed-rank test; P (Holm) is adjusted within each endpoint family (all regimes × baseline competitors). Interval-score comparisons and all ablation comparisons are in File S2.
+**Table 3** Paired comparisons of KinCP with each alternative (GBLUP) on the relatedness-conditional coverage error (Cond. error) and the marginal coverage deviation (Abs. cov. deviation). Median diff. is the median paired difference (competitor − KinCP; positive favours KinCP), with its 95% bootstrap confidence interval (CI low, CI high). P is from a two-sided Wilcoxon signed-rank test; P (Holm) is adjusted within each endpoint family (all regimes × baseline competitors). Interval-score comparisons and all ablation comparisons are in File S2.
 
-| Regime   | Endpoint    | Competitor          |   Units |   KinCP median |   Competitor median |   Median diff. |   CI low |   CI high |   Rank-biserial r |     P |   P (Holm) |
-|:---------|:------------|:--------------------|--------:|---------------:|--------------------:|---------------:|---------:|----------:|------------------:|------:|-----------:|
-| R1       | Cond. error | Gauss-PEV           |      24 |          0.016 |               0.019 |          0.001 |   -0.001 |     0.005 |             0.453 | 0.053 |      0.212 |
-| R1       | Cond. error | Gauss-homosc        |      24 |          0.016 |               0.026 |          0.006 |    0.003 |     0.013 |             0.787 | 0.000 |      0.004 |
-| R1       | Cond. error | SCP                 |      24 |          0.016 |               0.022 |          0.004 |    0.000 |     0.009 |             0.667 | 0.003 |      0.033 |
-| R1       | Cond. error | NormCP              |      24 |          0.016 |               0.018 |          0.000 |   -0.000 |     0.004 |             0.260 | 0.277 |      0.554 |
-| R1       | Cond. error | CV+                 |      24 |          0.016 |               0.026 |          0.005 |    0.003 |     0.010 |             0.813 | 0.000 |      0.003 |
-| R1       | Cond. error | CalPred-style       |      24 |          0.016 |               0.021 |          0.004 |    0.001 |     0.010 |             0.627 | 0.006 |      0.047 |
-| R1       | Cond. error | CalPred-style(rand) |      24 |          0.016 |               0.017 |          0.003 |   -0.000 |     0.006 |             0.500 | 0.031 |      0.189 |
-| R1       | |Cov−0.90|  | Gauss-PEV           |      24 |          0.008 |               0.007 |         -0.001 |   -0.005 |     0.003 |            -0.181 | 0.447 |      1.000 |
-| R1       | |Cov−0.90|  | Gauss-homosc        |      24 |          0.008 |               0.008 |          0.000 |   -0.002 |     0.002 |             0.060 | 0.812 |      1.000 |
-| R1       | |Cov−0.90|  | SCP                 |      24 |          0.008 |               0.005 |         -0.001 |   -0.007 |     0.002 |            -0.293 | 0.218 |      1.000 |
-| R1       | |Cov−0.90|  | NormCP              |      24 |          0.008 |               0.005 |         -0.001 |   -0.003 |     0.002 |            -0.207 | 0.390 |      1.000 |
-| R1       | |Cov−0.90|  | CV+                 |      24 |          0.008 |               0.009 |          0.001 |   -0.003 |     0.004 |             0.153 | 0.527 |      1.000 |
-| R1       | |Cov−0.90|  | CalPred-style       |      24 |          0.008 |               0.011 |          0.004 |   -0.001 |     0.010 |             0.464 | 0.052 |      0.619 |
-| R1       | |Cov−0.90|  | CalPred-style(rand) |      24 |          0.008 |               0.008 |         -0.001 |   -0.004 |     0.004 |            -0.060 | 0.812 |      1.000 |
-| R2       | Cond. error | Gauss-PEV           |      24 |          0.034 |               0.040 |          0.008 |    0.003 |     0.021 |             0.793 | 0.000 |      0.004 |
-| R2       | Cond. error | Gauss-homosc        |      24 |          0.034 |               0.058 |          0.023 |    0.008 |     0.069 |             0.887 | 0.000 |      0.001 |
-| R2       | Cond. error | SCP                 |      24 |          0.034 |               0.048 |          0.028 |    0.005 |     0.080 |             0.840 | 0.000 |      0.002 |
-| R2       | Cond. error | NormCP              |      24 |          0.034 |               0.044 |          0.007 |    0.001 |     0.012 |             0.667 | 0.003 |      0.033 |
-| R2       | Cond. error | CV+                 |      24 |          0.034 |               0.049 |          0.012 |    0.007 |     0.064 |             0.807 | 0.000 |      0.003 |
-| R2       | Cond. error | CalPred-style       |      24 |          0.034 |               0.032 |         -0.001 |   -0.006 |     0.006 |            -0.033 | 0.900 |      0.900 |
-| R2       | Cond. error | CalPred-style(rand) |      24 |          0.034 |               0.052 |          0.014 |    0.006 |     0.026 |             0.820 | 0.000 |      0.003 |
-| R2       | |Cov−0.90|  | Gauss-PEV           |      24 |          0.015 |               0.032 |          0.010 |    0.005 |     0.021 |             0.727 | 0.001 |      0.020 |
-| R2       | |Cov−0.90|  | Gauss-homosc        |      24 |          0.015 |               0.043 |          0.029 |    0.010 |     0.079 |             0.813 | 0.000 |      0.004 |
-| R2       | |Cov−0.90|  | SCP                 |      24 |          0.015 |               0.044 |          0.032 |    0.002 |     0.083 |             0.740 | 0.001 |      0.016 |
-| R2       | |Cov−0.90|  | NormCP              |      24 |          0.015 |               0.026 |          0.008 |    0.002 |     0.022 |             0.696 | 0.004 |      0.056 |
-| R2       | |Cov−0.90|  | CV+                 |      24 |          0.015 |               0.040 |          0.012 |    0.001 |     0.073 |             0.680 | 0.003 |      0.043 |
-| R2       | |Cov−0.90|  | CalPred-style       |      24 |          0.015 |               0.018 |          0.003 |   -0.002 |     0.009 |             0.320 | 0.178 |      1.000 |
-| R2       | |Cov−0.90|  | CalPred-style(rand) |      24 |          0.015 |               0.033 |          0.021 |    0.004 |     0.045 |             0.820 | 0.000 |      0.003 |
-| R3       | Cond. error | Gauss-PEV           |      24 |          0.013 |               0.015 |          0.002 |   -0.001 |     0.005 |             0.460 | 0.049 |      0.212 |
-| R3       | Cond. error | Gauss-homosc        |      24 |          0.013 |               0.023 |          0.007 |    0.004 |     0.013 |             0.827 | 0.000 |      0.002 |
-| R3       | Cond. error | SCP                 |      24 |          0.013 |               0.023 |          0.007 |    0.001 |     0.013 |             0.780 | 0.000 |      0.004 |
-| R3       | Cond. error | NormCP              |      24 |          0.013 |               0.019 |          0.003 |    0.000 |     0.008 |             0.600 | 0.009 |      0.061 |
-| R3       | Cond. error | CV+                 |      24 |          0.013 |               0.023 |          0.008 |    0.003 |     0.014 |             0.935 | 0.000 |      0.002 |
-| R3       | Cond. error | CalPred-style       |      24 |          0.013 |               0.020 |          0.007 |    0.002 |     0.010 |             0.693 | 0.003 |      0.033 |
-| R3       | Cond. error | CalPred-style(rand) |      24 |          0.013 |               0.017 |          0.002 |    0.001 |     0.007 |             0.473 | 0.042 |      0.212 |
-| R3       | |Cov−0.90|  | Gauss-PEV           |      24 |          0.007 |               0.007 |          0.002 |   -0.002 |     0.004 |             0.200 | 0.406 |      1.000 |
-| R3       | |Cov−0.90|  | Gauss-homosc        |      24 |          0.007 |               0.009 |          0.001 |   -0.002 |     0.005 |             0.254 | 0.287 |      1.000 |
-| R3       | |Cov−0.90|  | SCP                 |      24 |          0.007 |               0.007 |          0.004 |   -0.003 |     0.015 |             0.393 | 0.095 |      1.000 |
-| R3       | |Cov−0.90|  | NormCP              |      24 |          0.007 |               0.010 |          0.007 |   -0.001 |     0.011 |             0.478 | 0.045 |      0.581 |
-| R3       | |Cov−0.90|  | CV+                 |      24 |          0.007 |               0.009 |          0.002 |    0.001 |     0.006 |             0.480 | 0.040 |      0.555 |
-| R3       | |Cov−0.90|  | CalPred-style       |      24 |          0.007 |               0.013 |          0.006 |    0.000 |     0.010 |             0.652 | 0.006 |      0.093 |
-| R3       | |Cov−0.90|  | CalPred-style(rand) |      24 |          0.007 |               0.008 |          0.003 |   -0.003 |     0.005 |             0.287 | 0.229 |      1.000 |
+| Regime   | Endpoint            | Competitor          |   Units |   KinCP median |   Competitor median |   Median diff. |   CI low |   CI high |   Rank-biserial r |     P |   P (Holm) |
+|:---------|:--------------------|:--------------------|--------:|---------------:|--------------------:|---------------:|---------:|----------:|------------------:|------:|-----------:|
+| R1       | Cond. error         | Gauss-PEV           |      24 |          0.016 |               0.019 |          0.001 |   -0.001 |     0.005 |             0.453 | 0.053 |      0.212 |
+| R1       | Cond. error         | Gauss-homosc        |      24 |          0.016 |               0.026 |          0.006 |    0.003 |     0.013 |             0.787 | 0.000 |      0.004 |
+| R1       | Cond. error         | SCP                 |      24 |          0.016 |               0.022 |          0.004 |    0.000 |     0.009 |             0.667 | 0.003 |      0.033 |
+| R1       | Cond. error         | NormCP              |      24 |          0.016 |               0.018 |          0.000 |   -0.000 |     0.004 |             0.260 | 0.277 |      0.554 |
+| R1       | Cond. error         | CV+                 |      24 |          0.016 |               0.026 |          0.005 |    0.003 |     0.010 |             0.813 | 0.000 |      0.003 |
+| R1       | Cond. error         | CalPred-style       |      24 |          0.016 |               0.021 |          0.004 |    0.001 |     0.010 |             0.627 | 0.006 |      0.047 |
+| R1       | Cond. error         | CalPred-style(rand) |      24 |          0.016 |               0.017 |          0.003 |   -0.000 |     0.006 |             0.500 | 0.031 |      0.189 |
+| R1       | Abs. cov. deviation | Gauss-PEV           |      24 |          0.008 |               0.007 |         -0.001 |   -0.005 |     0.003 |            -0.181 | 0.447 |      1.000 |
+| R1       | Abs. cov. deviation | Gauss-homosc        |      24 |          0.008 |               0.008 |          0.000 |   -0.002 |     0.002 |             0.060 | 0.812 |      1.000 |
+| R1       | Abs. cov. deviation | SCP                 |      24 |          0.008 |               0.005 |         -0.001 |   -0.007 |     0.002 |            -0.293 | 0.218 |      1.000 |
+| R1       | Abs. cov. deviation | NormCP              |      24 |          0.008 |               0.005 |         -0.001 |   -0.003 |     0.002 |            -0.207 | 0.390 |      1.000 |
+| R1       | Abs. cov. deviation | CV+                 |      24 |          0.008 |               0.009 |          0.001 |   -0.003 |     0.004 |             0.153 | 0.527 |      1.000 |
+| R1       | Abs. cov. deviation | CalPred-style       |      24 |          0.008 |               0.011 |          0.004 |   -0.001 |     0.010 |             0.464 | 0.052 |      0.619 |
+| R1       | Abs. cov. deviation | CalPred-style(rand) |      24 |          0.008 |               0.008 |         -0.001 |   -0.004 |     0.004 |            -0.060 | 0.812 |      1.000 |
+| R2       | Cond. error         | Gauss-PEV           |      24 |          0.034 |               0.040 |          0.008 |    0.003 |     0.021 |             0.793 | 0.000 |      0.004 |
+| R2       | Cond. error         | Gauss-homosc        |      24 |          0.034 |               0.058 |          0.023 |    0.008 |     0.069 |             0.887 | 0.000 |      0.001 |
+| R2       | Cond. error         | SCP                 |      24 |          0.034 |               0.048 |          0.028 |    0.005 |     0.080 |             0.840 | 0.000 |      0.002 |
+| R2       | Cond. error         | NormCP              |      24 |          0.034 |               0.044 |          0.007 |    0.001 |     0.012 |             0.667 | 0.003 |      0.033 |
+| R2       | Cond. error         | CV+                 |      24 |          0.034 |               0.049 |          0.012 |    0.007 |     0.064 |             0.807 | 0.000 |      0.003 |
+| R2       | Cond. error         | CalPred-style       |      24 |          0.034 |               0.032 |         -0.001 |   -0.006 |     0.006 |            -0.033 | 0.900 |      0.900 |
+| R2       | Cond. error         | CalPred-style(rand) |      24 |          0.034 |               0.052 |          0.014 |    0.006 |     0.026 |             0.820 | 0.000 |      0.003 |
+| R2       | Abs. cov. deviation | Gauss-PEV           |      24 |          0.015 |               0.032 |          0.010 |    0.005 |     0.021 |             0.727 | 0.001 |      0.020 |
+| R2       | Abs. cov. deviation | Gauss-homosc        |      24 |          0.015 |               0.043 |          0.029 |    0.010 |     0.079 |             0.813 | 0.000 |      0.004 |
+| R2       | Abs. cov. deviation | SCP                 |      24 |          0.015 |               0.044 |          0.032 |    0.002 |     0.083 |             0.740 | 0.001 |      0.016 |
+| R2       | Abs. cov. deviation | NormCP              |      24 |          0.015 |               0.026 |          0.008 |    0.002 |     0.022 |             0.696 | 0.004 |      0.056 |
+| R2       | Abs. cov. deviation | CV+                 |      24 |          0.015 |               0.040 |          0.012 |    0.001 |     0.073 |             0.680 | 0.003 |      0.043 |
+| R2       | Abs. cov. deviation | CalPred-style       |      24 |          0.015 |               0.018 |          0.003 |   -0.002 |     0.009 |             0.320 | 0.178 |      1.000 |
+| R2       | Abs. cov. deviation | CalPred-style(rand) |      24 |          0.015 |               0.033 |          0.021 |    0.004 |     0.045 |             0.820 | 0.000 |      0.003 |
+| R3       | Cond. error         | Gauss-PEV           |      24 |          0.013 |               0.015 |          0.002 |   -0.001 |     0.005 |             0.460 | 0.049 |      0.212 |
+| R3       | Cond. error         | Gauss-homosc        |      24 |          0.013 |               0.023 |          0.007 |    0.004 |     0.013 |             0.827 | 0.000 |      0.002 |
+| R3       | Cond. error         | SCP                 |      24 |          0.013 |               0.023 |          0.007 |    0.001 |     0.013 |             0.780 | 0.000 |      0.004 |
+| R3       | Cond. error         | NormCP              |      24 |          0.013 |               0.019 |          0.003 |    0.000 |     0.008 |             0.600 | 0.009 |      0.061 |
+| R3       | Cond. error         | CV+                 |      24 |          0.013 |               0.023 |          0.008 |    0.003 |     0.014 |             0.935 | 0.000 |      0.002 |
+| R3       | Cond. error         | CalPred-style       |      24 |          0.013 |               0.020 |          0.007 |    0.002 |     0.010 |             0.693 | 0.003 |      0.033 |
+| R3       | Cond. error         | CalPred-style(rand) |      24 |          0.013 |               0.017 |          0.002 |    0.001 |     0.007 |             0.473 | 0.042 |      0.212 |
+| R3       | Abs. cov. deviation | Gauss-PEV           |      24 |          0.007 |               0.007 |          0.002 |   -0.002 |     0.004 |             0.200 | 0.406 |      1.000 |
+| R3       | Abs. cov. deviation | Gauss-homosc        |      24 |          0.007 |               0.009 |          0.001 |   -0.002 |     0.005 |             0.254 | 0.287 |      1.000 |
+| R3       | Abs. cov. deviation | SCP                 |      24 |          0.007 |               0.007 |          0.004 |   -0.003 |     0.015 |             0.393 | 0.095 |      1.000 |
+| R3       | Abs. cov. deviation | NormCP              |      24 |          0.007 |               0.010 |          0.007 |   -0.001 |     0.011 |             0.478 | 0.045 |      0.581 |
+| R3       | Abs. cov. deviation | CV+                 |      24 |          0.007 |               0.009 |          0.002 |    0.001 |     0.006 |             0.480 | 0.040 |      0.555 |
+| R3       | Abs. cov. deviation | CalPred-style       |      24 |          0.007 |               0.013 |          0.006 |    0.000 |     0.010 |             0.652 | 0.006 |      0.093 |
+| R3       | Abs. cov. deviation | CalPred-style(rand) |      24 |          0.007 |               0.008 |          0.003 |   -0.003 |     0.005 |             0.287 | 0.229 |      1.000 |
 
 **Table 4** Ablation of KinCP (GBLUP). A: relatedness-diverse calibration pool. B: PEV-normalised scores. C: localisation in log d. The row label lists the components that are kept. Mean ± SD over units.
 
-| Regime   | Method        |   Units | Coverage      | |Cov−0.90|    | Cond. error   | Worst-quintile cov.   | Width (SD units)   | Interval score   |
-|:---------|:--------------|--------:|:--------------|:--------------|:--------------|:----------------------|:-------------------|:-----------------|
-| R1       | A+B+C (KinCP) |      24 | 0.906 ± 0.009 | 0.009 ± 0.006 | 0.017 ± 0.007 | 0.880 ± 0.016         | 2.410 ± 0.539      | 3.197 ± 0.739    |
-| R1       | B+C           |      24 | 0.903 ± 0.005 | 0.005 ± 0.004 | 0.015 ± 0.007 | 0.880 ± 0.013         | 2.392 ± 0.566      | 3.195 ± 0.746    |
-| R1       | A+C           |      24 | 0.912 ± 0.010 | 0.013 ± 0.009 | 0.020 ± 0.007 | 0.887 ± 0.018         | 2.475 ± 0.542      | 3.206 ± 0.743    |
-| R1       | A+B           |      24 | 0.907 ± 0.018 | 0.014 ± 0.013 | 0.023 ± 0.009 | 0.879 ± 0.024         | 2.400 ± 0.486      | 3.194 ± 0.733    |
-| R1       | C             |      24 | 0.906 ± 0.006 | 0.007 ± 0.005 | 0.017 ± 0.007 | 0.881 ± 0.013         | 2.422 ± 0.573      | 3.201 ± 0.749    |
-| R1       | B             |      24 | 0.899 ± 0.005 | 0.004 ± 0.003 | 0.019 ± 0.006 | 0.869 ± 0.013         | 2.349 ± 0.562      | 3.181 ± 0.743    |
-| R1       | A             |      24 | 0.928 ± 0.023 | 0.028 ± 0.023 | 0.035 ± 0.019 | 0.897 ± 0.032         | 2.646 ± 0.443      | 3.275 ± 0.685    |
-| R1       | none          |      24 | 0.904 ± 0.004 | 0.005 ± 0.003 | 0.025 ± 0.011 | 0.864 ± 0.018         | 2.409 ± 0.555      | 3.207 ± 0.747    |
-| R2       | A+B+C (KinCP) |      24 | 0.894 ± 0.024 | 0.018 ± 0.017 | 0.036 ± 0.015 | 0.839 ± 0.044         | 2.830 ± 0.453      | 3.907 ± 0.688    |
-| R2       | B+C           |      24 | 0.881 ± 0.049 | 0.039 ± 0.035 | 0.053 ± 0.030 | 0.814 ± 0.080         | 2.779 ± 0.609      | 3.962 ± 0.682    |
-| R2       | A+C           |      24 | 0.893 ± 0.023 | 0.017 ± 0.017 | 0.035 ± 0.013 | 0.843 ± 0.039         | 2.802 ± 0.419      | 3.884 ± 0.671    |
-| R2       | A+B           |      24 | 0.891 ± 0.028 | 0.021 ± 0.020 | 0.042 ± 0.021 | 0.829 ± 0.052         | 2.822 ± 0.463      | 3.917 ± 0.679    |
-| R2       | C             |      24 | 0.861 ± 0.061 | 0.048 ± 0.053 | 0.060 ± 0.047 | 0.794 ± 0.101         | 2.606 ± 0.569      | 3.992 ± 0.687    |
-| R2       | B             |      24 | 0.875 ± 0.050 | 0.042 ± 0.036 | 0.056 ± 0.030 | 0.811 ± 0.077         | 2.723 ± 0.596      | 3.966 ± 0.675    |
-| R2       | A             |      24 | 0.883 ± 0.028 | 0.025 ± 0.022 | 0.045 ± 0.017 | 0.813 ± 0.053         | 2.723 ± 0.372      | 3.916 ± 0.651    |
-| R2       | none          |      24 | 0.829 ± 0.073 | 0.073 ± 0.071 | 0.086 ± 0.060 | 0.750 ± 0.109         | 2.422 ± 0.540      | 4.104 ± 0.730    |
-| R3       | A+B+C (KinCP) |      24 | 0.902 ± 0.009 | 0.007 ± 0.005 | 0.014 ± 0.005 | 0.883 ± 0.013         | 2.530 ± 0.565      | 3.364 ± 0.753    |
-| R3       | B+C           |      24 | 0.904 ± 0.007 | 0.006 ± 0.006 | 0.013 ± 0.007 | 0.886 ± 0.010         | 2.545 ± 0.600      | 3.364 ± 0.760    |
-| R3       | A+C           |      24 | 0.911 ± 0.011 | 0.014 ± 0.008 | 0.018 ± 0.008 | 0.892 ± 0.015         | 2.624 ± 0.558      | 3.383 ± 0.757    |
-| R3       | A+B           |      24 | 0.902 ± 0.017 | 0.012 ± 0.012 | 0.020 ± 0.008 | 0.879 ± 0.022         | 2.506 ± 0.505      | 3.360 ± 0.744    |
-| R3       | C             |      24 | 0.908 ± 0.009 | 0.009 ± 0.007 | 0.015 ± 0.008 | 0.888 ± 0.011         | 2.595 ± 0.605      | 3.378 ± 0.764    |
-| R3       | B             |      24 | 0.898 ± 0.008 | 0.006 ± 0.006 | 0.016 ± 0.006 | 0.873 ± 0.014         | 2.493 ± 0.588      | 3.350 ± 0.753    |
-| R3       | A             |      24 | 0.927 ± 0.024 | 0.027 ± 0.024 | 0.032 ± 0.020 | 0.899 ± 0.028         | 2.769 ± 0.435      | 3.445 ± 0.683    |
-| R3       | none          |      24 | 0.905 ± 0.008 | 0.007 ± 0.005 | 0.021 ± 0.009 | 0.869 ± 0.021         | 2.555 ± 0.587      | 3.381 ± 0.757    |
+| Regime   | Method        |   Units | Coverage      | Abs. cov. deviation   | Cond. error   | Worst-quintile cov.   | Width (SD units)   | Interval score   |
+|:---------|:--------------|--------:|:--------------|:----------------------|:--------------|:----------------------|:-------------------|:-----------------|
+| R1       | A+B+C (KinCP) |      24 | 0.906 ± 0.009 | 0.009 ± 0.006         | 0.017 ± 0.007 | 0.880 ± 0.016         | 2.410 ± 0.539      | 3.197 ± 0.739    |
+| R1       | B+C           |      24 | 0.903 ± 0.005 | 0.005 ± 0.004         | 0.015 ± 0.007 | 0.880 ± 0.013         | 2.392 ± 0.566      | 3.195 ± 0.746    |
+| R1       | A+C           |      24 | 0.912 ± 0.010 | 0.013 ± 0.009         | 0.020 ± 0.007 | 0.887 ± 0.018         | 2.475 ± 0.542      | 3.206 ± 0.743    |
+| R1       | A+B           |      24 | 0.907 ± 0.018 | 0.014 ± 0.013         | 0.023 ± 0.009 | 0.879 ± 0.024         | 2.400 ± 0.486      | 3.194 ± 0.733    |
+| R1       | C             |      24 | 0.906 ± 0.006 | 0.007 ± 0.005         | 0.017 ± 0.007 | 0.881 ± 0.013         | 2.422 ± 0.573      | 3.201 ± 0.749    |
+| R1       | B             |      24 | 0.899 ± 0.005 | 0.004 ± 0.003         | 0.019 ± 0.006 | 0.869 ± 0.013         | 2.349 ± 0.562      | 3.181 ± 0.743    |
+| R1       | A             |      24 | 0.928 ± 0.023 | 0.028 ± 0.023         | 0.035 ± 0.019 | 0.897 ± 0.032         | 2.646 ± 0.443      | 3.275 ± 0.685    |
+| R1       | none          |      24 | 0.904 ± 0.004 | 0.005 ± 0.003         | 0.025 ± 0.011 | 0.864 ± 0.018         | 2.409 ± 0.555      | 3.207 ± 0.747    |
+| R2       | A+B+C (KinCP) |      24 | 0.894 ± 0.024 | 0.018 ± 0.017         | 0.036 ± 0.015 | 0.839 ± 0.044         | 2.830 ± 0.453      | 3.907 ± 0.688    |
+| R2       | B+C           |      24 | 0.881 ± 0.049 | 0.039 ± 0.035         | 0.053 ± 0.030 | 0.814 ± 0.080         | 2.779 ± 0.609      | 3.962 ± 0.682    |
+| R2       | A+C           |      24 | 0.893 ± 0.023 | 0.017 ± 0.017         | 0.035 ± 0.013 | 0.843 ± 0.039         | 2.802 ± 0.419      | 3.884 ± 0.671    |
+| R2       | A+B           |      24 | 0.891 ± 0.028 | 0.021 ± 0.020         | 0.042 ± 0.021 | 0.829 ± 0.052         | 2.822 ± 0.463      | 3.917 ± 0.679    |
+| R2       | C             |      24 | 0.861 ± 0.061 | 0.048 ± 0.053         | 0.060 ± 0.047 | 0.794 ± 0.101         | 2.606 ± 0.569      | 3.992 ± 0.687    |
+| R2       | B             |      24 | 0.875 ± 0.050 | 0.042 ± 0.036         | 0.056 ± 0.030 | 0.811 ± 0.077         | 2.723 ± 0.596      | 3.966 ± 0.675    |
+| R2       | A             |      24 | 0.883 ± 0.028 | 0.025 ± 0.022         | 0.045 ± 0.017 | 0.813 ± 0.053         | 2.723 ± 0.372      | 3.916 ± 0.651    |
+| R2       | none          |      24 | 0.829 ± 0.073 | 0.073 ± 0.071         | 0.086 ± 0.060 | 0.750 ± 0.109         | 2.422 ± 0.540      | 4.104 ± 0.730    |
+| R3       | A+B+C (KinCP) |      24 | 0.902 ± 0.009 | 0.007 ± 0.005         | 0.014 ± 0.005 | 0.883 ± 0.013         | 2.530 ± 0.565      | 3.364 ± 0.753    |
+| R3       | B+C           |      24 | 0.904 ± 0.007 | 0.006 ± 0.006         | 0.013 ± 0.007 | 0.886 ± 0.010         | 2.545 ± 0.600      | 3.364 ± 0.760    |
+| R3       | A+C           |      24 | 0.911 ± 0.011 | 0.014 ± 0.008         | 0.018 ± 0.008 | 0.892 ± 0.015         | 2.624 ± 0.558      | 3.383 ± 0.757    |
+| R3       | A+B           |      24 | 0.902 ± 0.017 | 0.012 ± 0.012         | 0.020 ± 0.008 | 0.879 ± 0.022         | 2.506 ± 0.505      | 3.360 ± 0.744    |
+| R3       | C             |      24 | 0.908 ± 0.009 | 0.009 ± 0.007         | 0.015 ± 0.008 | 0.888 ± 0.011         | 2.595 ± 0.605      | 3.378 ± 0.764    |
+| R3       | B             |      24 | 0.898 ± 0.008 | 0.006 ± 0.006         | 0.016 ± 0.006 | 0.873 ± 0.014         | 2.493 ± 0.588      | 3.350 ± 0.753    |
+| R3       | A             |      24 | 0.927 ± 0.024 | 0.027 ± 0.024         | 0.032 ± 0.020 | 0.899 ± 0.028         | 2.769 ± 0.435      | 3.445 ± 0.683    |
+| R3       | none          |      24 | 0.905 ± 0.008 | 0.007 ± 0.005         | 0.021 ± 0.009 | 0.869 ± 0.021         | 2.555 ± 0.587      | 3.381 ± 0.757    |
 
 **Table 5** Calibration with three base predictors under random (R1) and cluster-out (R2) validation. Mean ± SD over units. LightGBM was not run on maize (deviation D5).
 

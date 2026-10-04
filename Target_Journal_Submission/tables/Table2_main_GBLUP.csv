@@ -1,4 +1,4 @@
-Regime,Method,Units,Coverage,|Cov−0.90|,Cond. error,Worst-quintile cov.,Width (SD units),Interval score
+Regime,Method,Units,Coverage,Abs. cov. deviation,Cond. error,Worst-quintile cov.,Width (SD units),Interval score
 R1,Gauss-PEV,24,0.905 ± 0.010,0.009 ± 0.007,0.020 ± 0.008,0.876 ± 0.016,2.397 ± 0.565,3.183 ± 0.746
 R1,Gauss-homosc,24,0.907 ± 0.011,0.010 ± 0.008,0.027 ± 0.012,0.867 ± 0.024,2.449 ± 0.576,3.210 ± 0.751
 R1,SCP,24,0.903 ± 0.009,0.006 ± 0.007,0.025 ± 0.011,0.863 ± 0.025,2.481 ± 0.593,3.278 ± 0.774
