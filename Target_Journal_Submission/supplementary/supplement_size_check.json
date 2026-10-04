@@ -1,0 +1,10 @@
+{
+  "sizes_mb": {
+    "File_S1_design_and_deviations.pdf": 0.115,
+    "File_S2_supplementary_tables.xlsx": 0.81,
+    "File_S3_code.zip": 0.064
+  },
+  "total_mb": 0.989,
+  "each_le_2mb": true,
+  "total_le_10mb": true
+}

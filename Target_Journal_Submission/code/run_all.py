@@ -58,8 +58,9 @@ def main():
         run([py, "scripts/build_manuscript.py"], env)
         try:
             run([py, "scripts/build_pdf.py"], env)   # optional review PDF (needs Chromium)
+            run([py, "scripts/package_supplement.py"], env)
         except Exception as e:  # noqa: BLE001
-            print("PDF build skipped:", e)
+            print("PDF / supplement build skipped:", e)
     print("done:", a.mode)
 
 

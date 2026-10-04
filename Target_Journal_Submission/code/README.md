@@ -19,18 +19,22 @@ pip install -r requirements.txt
 
 ## 3. Reproduce everything
 ```bash
-python run_all.py --mode quick    # ~2 min: pipeline check on 2 datasets (writes ../results_quick etc.)
+python run_all.py --mode quick    # ~1 min: pipeline check on 2 datasets + pine simulation (writes ../results_quick etc.)
 python run_all.py --mode full     # complete study; resumable (finished jobs are skipped)
 ```
 The full mode runs these steps in order:
 1. data download and audit;
-2. all experiment jobs (`experiments/run_experiments.py`): about 600 jobs, roughly 6–8 h on 4 cores, of which LightGBM accounts for most of the time;
+2. all experiment jobs (`experiments/run_experiments.py`): 535 jobs, roughly 8 h on 4 cores; LightGBM and maize account for most of the time. This includes the robustness jobs added in internal review (tags `granularity`, `families`, `explore`, `competitor`);
 3. aggregation and pre-specified statistics (`scripts/aggregate.py`);
 4. error and selection analyses (`scripts/secondary_analyses.py`);
 5. figures (`scripts/make_figures.py`);
 6. tables (`scripts/make_tables.py`);
 7. the manuscript numbers file (`scripts/key_numbers.py`);
-8. the manuscript itself (`scripts/build_manuscript.py`).
+8. the references (`scripts/build_references.py`), the manuscript and cover letter (`scripts/build_manuscript.py`), a review PDF (`scripts/build_pdf.py`, needs Chromium), and the supplementary files with a size check (`scripts/package_supplement.py`).
+
+The scaling benchmark is run separately on an idle machine: `python scripts/benchmark_scaling.py`.
+
+Per-job *summaries* and *timings* (`results/jobs/*__summary.csv`, `*__timing.csv`) are in the repository. The per-individual interval *records* (`results/jobs/*__records.parquet`, about 326 MB) are needed by the record-based analyses: selection, error and oracle analyses, the maximum-relationship endpoint, the PEV diagnostic, and Figures 2 and 11. They are not in git. Download them from the Zenodo deposit [DOI to be inserted on acceptance] into `results/jobs/`, or regenerate them with the full run.
 
 To re-create only the outputs from existing job results:
 ```bash
@@ -82,7 +86,8 @@ from kincp.conformal.methods import FoldData, kincp
 
 ## 7. Tests
 ```bash
-pytest -q        # 9 tests: GRM, REML recovery, BLUP/PEV closed form, conformal quantiles, KinCP coverage
+pytest -q        # 12 tests: GRM, REML recovery, BLUP/PEV closed form, conformal quantiles,
+                 # KinCP and CV+ coverage, Mondrian/CalPred bounds, configuration
 ```
 
 ## 8. Determinism
