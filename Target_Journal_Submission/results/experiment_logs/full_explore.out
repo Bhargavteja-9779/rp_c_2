@@ -1,0 +1,674 @@
+2026-10-04 01:08:28,219 INFO kincp.run: running 487 jobs (full) with 4 workers
+2026-10-04 01:08:29,650 INFO kincp.run: skip LightGBM__barley__BaMMV__R1__main__1
+2026-10-04 01:08:29,712 INFO kincp.run: skip LightGBM__pig__PFAI__R1__main__1
+2026-10-04 01:08:29,712 INFO kincp.run: skip LightGBM__pig__PFAI__R2__main__1
+2026-10-04 01:08:29,712 INFO kincp.run: skip LightGBM__pine__rootnum__R1__main__1
+2026-10-04 01:08:29,712 INFO kincp.run: skip LightGBM__pine__rootnum__R2__main__1
+2026-10-04 01:08:29,712 INFO kincp.run: skip LightGBM__pine__rootnumbin__R1__main__1
+2026-10-04 01:08:29,713 INFO kincp.run: skip LightGBM__pine__rootnumbin__R2__main__1
+2026-10-04 01:08:29,713 INFO kincp.run: skip LightGBM__pine__c5c6__R1__main__1
+2026-10-04 01:08:29,713 INFO kincp.run: skip LightGBM__pine__c5c6__R2__main__1
+2026-10-04 01:08:29,713 INFO kincp.run: skip GBLUP__maize__Yield_Mg_ha__R1__main__12345
+2026-10-04 01:08:29,713 INFO kincp.run: skip GBLUP__maize__Yield_Mg_ha__R2__main__12345
+2026-10-04 01:08:29,723 INFO kincp.run: skip GBLUP__maize__Yield_Mg_ha__R3__main__12345
+2026-10-04 01:08:29,724 INFO kincp.run: skip RKHS__maize__Yield_Mg_ha__R1__main__1
+2026-10-04 01:08:29,724 INFO kincp.run: skip RKHS__maize__Yield_Mg_ha__R2__main__12
+2026-10-04 01:08:29,737 INFO kincp.run: skip LightGBM__barley__BaYMV__R2__main__1
+2026-10-04 01:08:29,778 INFO kincp.run: skip LightGBM__barley__BaMMV__R2__main__1
+2026-10-04 01:08:29,809 INFO kincp.run: skip LightGBM__barley__BaYMV__R1__main__1
+2026-10-04 01:09:41,621 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R2k3__granularity__1 71.9s
+2026-10-04 01:09:41,692 INFO kincp.run: skip GBLUP__maize__Yield_Mg_ha__R1__dedup__1
+2026-10-04 01:09:41,709 INFO kincp.run: skip GBLUP__maize__Yield_Mg_ha__R2__dedup__1
+2026-10-04 01:09:41,709 INFO kincp.run: skip GBLUP__maize__Grain_Moisture__R1__main__12345
+2026-10-04 01:09:41,709 INFO kincp.run: skip GBLUP__maize__Grain_Moisture__R2__main__12345
+2026-10-04 01:09:41,709 INFO kincp.run: skip GBLUP__maize__Grain_Moisture__R3__main__12345
+2026-10-04 01:09:41,709 INFO kincp.run: skip RKHS__maize__Grain_Moisture__R1__main__1
+2026-10-04 01:09:41,709 INFO kincp.run: skip RKHS__maize__Grain_Moisture__R2__main__12
+2026-10-04 01:10:48,173 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R2k3__granularity__1 66.5s
+2026-10-04 01:11:15,826 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R2__explore__1 166.0s
+2026-10-04 01:11:20,350 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R1__explore__1 170.5s
+2026-10-04 01:13:35,532 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R2k10__granularity__1 305.7s
+2026-10-04 01:13:35,613 INFO kincp.run: skip GBLUP__maize__Grain_Moisture__R1__dedup__1
+2026-10-04 01:13:35,621 INFO kincp.run: skip GBLUP__maize__Grain_Moisture__R2__dedup__1
+2026-10-04 01:13:35,621 INFO kincp.run: skip GBLUP__maize__Plant_Height_cm__R1__main__12345
+2026-10-04 01:13:35,621 INFO kincp.run: skip GBLUP__maize__Plant_Height_cm__R2__main__12345
+2026-10-04 01:13:35,621 INFO kincp.run: skip GBLUP__maize__Plant_Height_cm__R3__main__12345
+2026-10-04 01:13:35,621 INFO kincp.run: skip RKHS__maize__Plant_Height_cm__R1__main__1
+2026-10-04 01:13:35,621 INFO kincp.run: skip RKHS__maize__Plant_Height_cm__R2__main__12
+2026-10-04 01:14:00,777 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R2__explore__1 160.3s
+2026-10-04 01:14:07,704 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R1__explore__1 171.8s
+2026-10-04 01:14:40,348 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R2k3__granularity__1 64.7s
+2026-10-04 01:15:51,518 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R2k10__granularity__1 303.3s
+2026-10-04 01:15:51,621 INFO kincp.run: skip GBLUP__maize__Plant_Height_cm__R1__dedup__1
+2026-10-04 01:15:51,622 INFO kincp.run: skip GBLUP__maize__Plant_Height_cm__R2__dedup__1
+2026-10-04 01:15:51,622 INFO kincp.run: skip sim__maize__h0.2__q10__r1__R1
+2026-10-04 01:15:51,622 INFO kincp.run: skip sim__maize__h0.2__q10__r1__R2
+2026-10-04 01:15:51,622 INFO kincp.run: skip sim__maize__h0.2__q10__r2__R1
+2026-10-04 01:15:51,622 INFO kincp.run: skip sim__maize__h0.2__q10__r2__R2
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q10__r3__R1
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q10__r3__R2
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q10__r4__R1
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q10__r4__R2
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q10__r5__R1
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q10__r5__R2
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q1000__r1__R1
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q1000__r1__R2
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q1000__r2__R1
+2026-10-04 01:15:51,633 INFO kincp.run: skip sim__maize__h0.2__q1000__r2__R2
+2026-10-04 01:15:51,644 INFO kincp.run: skip sim__maize__h0.2__q1000__r3__R1
+2026-10-04 01:15:51,644 INFO kincp.run: skip sim__maize__h0.2__q1000__r3__R2
+2026-10-04 01:15:51,644 INFO kincp.run: skip sim__maize__h0.2__q1000__r4__R1
+2026-10-04 01:15:51,644 INFO kincp.run: skip sim__maize__h0.2__q1000__r4__R2
+2026-10-04 01:15:51,644 INFO kincp.run: skip sim__maize__h0.2__q1000__r5__R1
+2026-10-04 01:15:51,644 INFO kincp.run: skip sim__maize__h0.2__q1000__r5__R2
+2026-10-04 01:15:51,644 INFO kincp.run: skip sim__maize__h0.5__q10__r1__R1
+2026-10-04 01:15:51,644 INFO kincp.run: skip sim__maize__h0.5__q10__r1__R2
+2026-10-04 01:15:51,654 INFO kincp.run: skip sim__maize__h0.5__q10__r2__R1
+2026-10-04 01:15:51,655 INFO kincp.run: skip sim__maize__h0.5__q10__r2__R2
+2026-10-04 01:15:51,655 INFO kincp.run: skip sim__maize__h0.5__q10__r3__R1
+2026-10-04 01:15:51,655 INFO kincp.run: skip sim__maize__h0.5__q10__r3__R2
+2026-10-04 01:15:51,655 INFO kincp.run: skip sim__maize__h0.5__q10__r4__R1
+2026-10-04 01:15:51,655 INFO kincp.run: skip sim__maize__h0.5__q10__r4__R2
+2026-10-04 01:15:51,655 INFO kincp.run: skip sim__maize__h0.5__q10__r5__R1
+2026-10-04 01:15:51,669 INFO kincp.run: skip sim__maize__h0.5__q10__r5__R2
+2026-10-04 01:15:51,670 INFO kincp.run: skip sim__maize__h0.5__q1000__r1__R1
+2026-10-04 01:15:51,670 INFO kincp.run: skip sim__maize__h0.5__q1000__r1__R2
+2026-10-04 01:15:51,670 INFO kincp.run: skip sim__maize__h0.5__q1000__r2__R1
+2026-10-04 01:15:51,670 INFO kincp.run: skip sim__maize__h0.5__q1000__r2__R2
+2026-10-04 01:15:51,683 INFO kincp.run: skip sim__maize__h0.5__q1000__r3__R1
+2026-10-04 01:15:51,684 INFO kincp.run: skip sim__maize__h0.5__q1000__r3__R2
+2026-10-04 01:15:51,684 INFO kincp.run: skip sim__maize__h0.5__q1000__r4__R1
+2026-10-04 01:15:51,684 INFO kincp.run: skip sim__maize__h0.5__q1000__r4__R2
+2026-10-04 01:15:51,684 INFO kincp.run: skip sim__maize__h0.5__q1000__r5__R1
+2026-10-04 01:15:51,684 INFO kincp.run: skip sim__maize__h0.5__q1000__r5__R2
+2026-10-04 01:15:51,685 INFO kincp.run: skip sim__maize__h0.8__q10__r1__R1
+2026-10-04 01:15:51,685 INFO kincp.run: skip sim__maize__h0.8__q10__r1__R2
+2026-10-04 01:15:51,685 INFO kincp.run: skip sim__maize__h0.8__q10__r2__R1
+2026-10-04 01:15:51,685 INFO kincp.run: skip sim__maize__h0.8__q10__r2__R2
+2026-10-04 01:15:51,685 INFO kincp.run: skip sim__maize__h0.8__q10__r3__R1
+2026-10-04 01:15:51,685 INFO kincp.run: skip sim__maize__h0.8__q10__r3__R2
+2026-10-04 01:15:51,686 INFO kincp.run: skip sim__maize__h0.8__q10__r4__R1
+2026-10-04 01:15:51,686 INFO kincp.run: skip sim__maize__h0.8__q10__r4__R2
+2026-10-04 01:15:51,686 INFO kincp.run: skip sim__maize__h0.8__q10__r5__R1
+2026-10-04 01:15:51,686 INFO kincp.run: skip sim__maize__h0.8__q10__r5__R2
+2026-10-04 01:15:51,686 INFO kincp.run: skip sim__maize__h0.8__q1000__r1__R1
+2026-10-04 01:15:51,707 INFO kincp.run: skip sim__maize__h0.8__q1000__r1__R2
+2026-10-04 01:15:51,707 INFO kincp.run: skip sim__maize__h0.8__q1000__r2__R1
+2026-10-04 01:15:51,707 INFO kincp.run: skip sim__maize__h0.8__q1000__r2__R2
+2026-10-04 01:15:51,707 INFO kincp.run: skip sim__maize__h0.8__q1000__r3__R1
+2026-10-04 01:15:51,707 INFO kincp.run: skip sim__maize__h0.8__q1000__r3__R2
+2026-10-04 01:15:51,708 INFO kincp.run: skip sim__maize__h0.8__q1000__r4__R1
+2026-10-04 01:15:51,708 INFO kincp.run: skip sim__maize__h0.8__q1000__r4__R2
+2026-10-04 01:15:51,708 INFO kincp.run: skip sim__maize__h0.8__q1000__r5__R1
+2026-10-04 01:15:51,708 INFO kincp.run: skip sim__maize__h0.8__q1000__r5__R2
+2026-10-04 01:15:51,708 INFO kincp.run: skip GBLUP__barley__BaMMV__R1__main__12345
+2026-10-04 01:15:51,708 INFO kincp.run: skip GBLUP__barley__BaMMV__R2__main__12345
+2026-10-04 01:15:51,709 INFO kincp.run: skip GBLUP__barley__BaMMV__R3__main__12345
+2026-10-04 01:16:10,575 INFO kincp.run: skip RKHS__barley__BaMMV__R1__main__1
+2026-10-04 01:16:10,575 INFO kincp.run: skip RKHS__barley__BaMMV__R2__main__12
+2026-10-04 01:16:10,575 INFO kincp.run: done GBLUP__barley__BaMMV__R2k3__granularity__1 3.8s
+2026-10-04 01:16:10,575 INFO kincp.run: done GBLUP__barley__BaMMV__R2k10__granularity__1 15.1s
+2026-10-04 01:16:27,636 INFO kincp.run: done GBLUP__barley__BaMMV__R1__explore__1 8.6s
+2026-10-04 01:16:27,636 INFO kincp.run: done GBLUP__barley__BaMMV__R2__explore__1 8.4s
+2026-10-04 01:16:27,636 INFO kincp.run: skip GBLUP__barley__BaMMV__R1__dedup__1
+2026-10-04 01:16:27,636 INFO kincp.run: skip GBLUP__barley__BaMMV__R2__dedup__1
+2026-10-04 01:16:27,707 INFO kincp.run: skip GBLUP__barley__BaYMV__R1__main__12345
+2026-10-04 01:16:27,708 INFO kincp.run: skip GBLUP__barley__BaYMV__R2__main__12345
+2026-10-04 01:16:27,708 INFO kincp.run: skip GBLUP__barley__BaYMV__R3__main__12345
+2026-10-04 01:16:27,708 INFO kincp.run: skip RKHS__barley__BaYMV__R1__main__1
+2026-10-04 01:16:54,050 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R1__explore__1 166.3s
+2026-10-04 01:16:55,467 INFO kincp.run: skip RKHS__barley__BaYMV__R2__main__12
+2026-10-04 01:16:55,467 INFO kincp.run: done GBLUP__barley__BaYMV__R2k3__granularity__1 3.8s
+2026-10-04 01:16:55,467 INFO kincp.run: done GBLUP__barley__BaYMV__R2k10__granularity__1 15.1s
+2026-10-04 01:16:55,467 INFO kincp.run: done GBLUP__barley__BaYMV__R1__explore__1 8.9s
+2026-10-04 01:16:55,528 INFO kincp.run: skip GBLUP__pig__PFAI__R2__main__12345
+2026-10-04 01:16:55,528 INFO kincp.run: skip GBLUP__pig__PFAI__R3__main__12345
+2026-10-04 01:16:55,528 INFO kincp.run: skip RKHS__pig__PFAI__R1__main__1
+2026-10-04 01:16:55,528 INFO kincp.run: skip RKHS__pig__PFAI__R2__main__12
+2026-10-04 01:17:02,610 INFO kincp.run: done GBLUP__barley__BaYMV__R2__explore__1 8.5s
+2026-10-04 01:17:02,610 INFO kincp.run: skip GBLUP__barley__BaYMV__R1__dedup__1
+2026-10-04 01:17:02,610 INFO kincp.run: skip GBLUP__barley__BaYMV__R2__dedup__1
+2026-10-04 01:17:02,610 INFO kincp.run: skip GBLUP__pig__PFAI__R1__main__12345
+2026-10-04 01:17:02,671 INFO kincp.run: skip sim__pig__h0.2__q10__r2__R1
+2026-10-04 01:17:02,673 INFO kincp.run: skip sim__pig__h0.2__q10__r2__R2
+2026-10-04 01:17:02,674 INFO kincp.run: skip sim__pig__h0.2__q10__r3__R1
+2026-10-04 01:17:02,674 INFO kincp.run: skip sim__pig__h0.2__q10__r3__R2
+2026-10-04 01:17:02,674 INFO kincp.run: skip sim__pig__h0.2__q10__r4__R1
+2026-10-04 01:17:02,674 INFO kincp.run: skip sim__pig__h0.2__q10__r4__R2
+2026-10-04 01:17:02,674 INFO kincp.run: skip sim__pig__h0.2__q10__r5__R1
+2026-10-04 01:17:02,674 INFO kincp.run: skip sim__pig__h0.2__q10__r5__R2
+2026-10-04 01:17:02,685 INFO kincp.run: skip sim__pig__h0.2__q1000__r1__R1
+2026-10-04 01:17:02,685 INFO kincp.run: skip sim__pig__h0.2__q1000__r1__R2
+2026-10-04 01:17:02,685 INFO kincp.run: skip sim__pig__h0.2__q1000__r2__R1
+2026-10-04 01:17:02,689 INFO kincp.run: skip sim__pig__h0.2__q1000__r2__R2
+2026-10-04 01:17:02,689 INFO kincp.run: skip sim__pig__h0.2__q1000__r3__R1
+2026-10-04 01:17:02,689 INFO kincp.run: skip sim__pig__h0.2__q1000__r3__R2
+2026-10-04 01:17:02,689 INFO kincp.run: skip sim__pig__h0.2__q1000__r4__R1
+2026-10-04 01:17:02,690 INFO kincp.run: skip sim__pig__h0.2__q1000__r4__R2
+2026-10-04 01:17:02,691 INFO kincp.run: skip sim__pig__h0.2__q1000__r5__R1
+2026-10-04 01:17:02,691 INFO kincp.run: skip sim__pig__h0.2__q1000__r5__R2
+2026-10-04 01:17:02,691 INFO kincp.run: skip sim__pig__h0.5__q10__r1__R1
+2026-10-04 01:17:02,691 INFO kincp.run: skip sim__pig__h0.5__q10__r1__R2
+2026-10-04 01:17:02,696 INFO kincp.run: skip sim__pig__h0.5__q10__r2__R1
+2026-10-04 01:17:02,696 INFO kincp.run: skip sim__pig__h0.5__q10__r2__R2
+2026-10-04 01:17:02,696 INFO kincp.run: skip sim__pig__h0.5__q10__r3__R1
+2026-10-04 01:17:02,696 INFO kincp.run: skip sim__pig__h0.5__q10__r3__R2
+2026-10-04 01:17:02,696 INFO kincp.run: skip sim__pig__h0.5__q10__r4__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q10__r4__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q10__r5__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q10__r5__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r1__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r1__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r2__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r2__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r3__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r3__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r4__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r4__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r5__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.5__q1000__r5__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r1__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r1__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r2__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r2__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r3__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r3__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r4__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r4__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r5__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q10__r5__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r1__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r1__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r2__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r2__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r3__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r3__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r4__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r4__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r5__R1
+2026-10-04 01:17:02,697 INFO kincp.run: skip sim__pig__h0.8__q1000__r5__R2
+2026-10-04 01:17:02,697 INFO kincp.run: skip LightGBM__bean__DF__R1__main__1
+2026-10-04 01:17:02,697 INFO kincp.run: skip LightGBM__bean__DF__R2__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__bean__DPM__R1__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__bean__DPM__R2__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__bean__PHI__R1__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__bean__PHI__R2__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__lentil__DTF__R1__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__lentil__DTF__R2__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__lentil__VEG__R1__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__lentil__VEG__R2__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__lentil__DTM__R1__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip LightGBM__lentil__DTM__R2__main__1
+2026-10-04 01:17:02,698 INFO kincp.run: skip GBLUP__pine__rootnum__R1__main__12345
+2026-10-04 01:17:02,698 INFO kincp.run: skip GBLUP__pine__rootnum__R2__main__12345
+2026-10-04 01:17:02,698 INFO kincp.run: skip GBLUP__pine__rootnum__R3__main__12345
+2026-10-04 01:17:02,698 INFO kincp.run: skip RKHS__pine__rootnum__R1__main__1
+2026-10-04 01:17:03,746 INFO kincp.run: skip RKHS__pine__rootnum__R2__main__12
+2026-10-04 01:17:03,746 INFO kincp.run: done GBLUP__pine__rootnum__R2k3__granularity__1 1.0s
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+2026-10-04 01:17:12,147 INFO kincp.run: done GBLUP__pine__rootnum__R2k10__granularity__1 4.6s
+2026-10-04 01:17:12,147 INFO kincp.run: done GBLUP__pine__rootnum__R1__explore__1 3.7s
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:126: RuntimeWarning: overflow encountered in square
+  return np.sum(np.log(s) + 0.5 * ((res - m0 - m1 * c) / s) ** 2)
+/usr/local/lib/python3.11/dist-packages/scipy/optimize/_numdiff.py:686: RuntimeWarning: invalid value encountered in subtract
+  df = [f_eval - f0 for f_eval in f_evals]
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:126: RuntimeWarning: overflow encountered in square
+  return np.sum(np.log(s) + 0.5 * ((res - m0 - m1 * c) / s) ** 2)
+/usr/local/lib/python3.11/dist-packages/scipy/optimize/_numdiff.py:686: RuntimeWarning: invalid value encountered in subtract
+  df = [f_eval - f0 for f_eval in f_evals]
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:126: RuntimeWarning: overflow encountered in square
+  return np.sum(np.log(s) + 0.5 * ((res - m0 - m1 * c) / s) ** 2)
+/usr/local/lib/python3.11/dist-packages/scipy/optimize/_numdiff.py:686: RuntimeWarning: invalid value encountered in subtract
+  df = [f_eval - f0 for f_eval in f_evals]
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+2026-10-04 01:17:15,219 INFO kincp.run: done GBLUP__pine__rootnum__R2__explore__1 3.0s
+2026-10-04 01:17:15,219 INFO kincp.run: skip GBLUP__pine__rootnum__R1__dedup__1
+2026-10-04 01:17:15,293 INFO kincp.run: skip GBLUP__pine__rootnum__R2__dedup__1
+2026-10-04 01:17:15,293 INFO kincp.run: skip GBLUP__pine__rootnumbin__R1__main__12345
+2026-10-04 01:17:15,293 INFO kincp.run: skip GBLUP__pine__rootnumbin__R2__main__12345
+2026-10-04 01:17:15,293 INFO kincp.run: skip GBLUP__pine__rootnumbin__R3__main__12345
+2026-10-04 01:17:19,415 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R2__explore__1 159.0s
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+2026-10-04 01:17:21,313 INFO kincp.run: skip RKHS__pine__rootnumbin__R1__main__1
+2026-10-04 01:17:21,313 INFO kincp.run: skip RKHS__pine__rootnumbin__R2__main__12
+2026-10-04 01:17:21,313 INFO kincp.run: done GBLUP__pine__rootnumbin__R2k3__granularity__1 1.3s
+2026-10-04 01:17:21,313 INFO kincp.run: done GBLUP__pine__rootnumbin__R2k10__granularity__1 4.7s
+2026-10-04 01:17:21,374 INFO kincp.run: skip GBLUP__pine__c5c6__R1__main__12345
+2026-10-04 01:17:21,374 INFO kincp.run: skip GBLUP__pine__c5c6__R2__main__12345
+2026-10-04 01:17:21,374 INFO kincp.run: skip GBLUP__pine__c5c6__R3__main__12345
+2026-10-04 01:17:21,374 INFO kincp.run: skip RKHS__pine__c5c6__R1__main__1
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+2026-10-04 01:17:26,178 INFO kincp.run: done GBLUP__pine__rootnumbin__R1__explore__1 3.6s
+2026-10-04 01:17:26,178 INFO kincp.run: done GBLUP__pine__rootnumbin__R2__explore__1 3.0s
+2026-10-04 01:17:26,178 INFO kincp.run: skip GBLUP__pine__rootnumbin__R1__dedup__1
+2026-10-04 01:17:26,178 INFO kincp.run: skip GBLUP__pine__rootnumbin__R2__dedup__1
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/usr/local/lib/python3.11/dist-packages/numpy/_core/_methods.py:188: RuntimeWarning: invalid value encountered in subtract
+  x = um.subtract(arr, arrmean, out=...)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:121: RuntimeWarning: invalid value encountered in subtract
+  c = (ld - mu_c) / sd_c
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/usr/local/lib/python3.11/dist-packages/numpy/_core/_methods.py:188: RuntimeWarning: invalid value encountered in subtract
+  x = um.subtract(arr, arrmean, out=...)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:121: RuntimeWarning: invalid value encountered in subtract
+  c = (ld - mu_c) / sd_c
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/usr/local/lib/python3.11/dist-packages/numpy/_core/_methods.py:188: RuntimeWarning: invalid value encountered in subtract
+  x = um.subtract(arr, arrmean, out=...)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:121: RuntimeWarning: invalid value encountered in subtract
+  c = (ld - mu_c) / sd_c
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+2026-10-04 01:17:28,848 INFO kincp.run: done GBLUP__pine__c5c6__R2__explore__1 2.6s
+2026-10-04 01:17:28,848 INFO kincp.run: skip GBLUP__pine__c5c6__R1__dedup__1
+2026-10-04 01:17:28,848 INFO kincp.run: skip GBLUP__pine__c5c6__R2__dedup__1
+2026-10-04 01:17:28,848 INFO kincp.run: skip LightGBM__oyster__mm__R1__main__1
+2026-10-04 01:17:28,900 INFO kincp.run: skip LightGBM__oyster__mm__R2__main__1
+2026-10-04 01:17:28,901 INFO kincp.run: skip LightGBM__rice__Plant_height__R1__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__rice__Plant_height__R2__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__rice__Culm_habit__R1__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__rice__Culm_habit__R2__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__rice__Flag_leaf_length__R1__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__rice__Flag_leaf_length__R2__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__soybean__C13__R1__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__soybean__C13__R2__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__soybean__Wilt__R1__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__soybean__Wilt__R2__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__wheatG__EW__R1__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__wheatG__EW__R2__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__wheatG__GH__R1__main__1
+2026-10-04 01:17:28,906 INFO kincp.run: skip LightGBM__wheatG__GH__R2__main__1
+2026-10-04 01:17:28,917 INFO kincp.run: skip LightGBM__wheatG__GPE__R1__main__1
+2026-10-04 01:17:28,917 INFO kincp.run: skip LightGBM__wheatG__GPE__R2__main__1
+2026-10-04 01:17:28,917 INFO kincp.run: skip sim__pine__h0.2__q10__r1__R1
+2026-10-04 01:17:28,917 INFO kincp.run: skip sim__pine__h0.2__q10__r1__R2
+2026-10-04 01:17:28,917 INFO kincp.run: skip sim__pine__h0.2__q10__r2__R1
+2026-10-04 01:17:28,917 INFO kincp.run: skip sim__pine__h0.2__q10__r2__R2
+2026-10-04 01:17:28,917 INFO kincp.run: skip sim__pine__h0.2__q10__r3__R1
+2026-10-04 01:17:28,917 INFO kincp.run: skip sim__pine__h0.2__q10__r3__R2
+2026-10-04 01:17:28,917 INFO kincp.run: skip sim__pine__h0.2__q10__r4__R1
+2026-10-04 01:17:28,929 INFO kincp.run: skip sim__pine__h0.2__q10__r4__R2
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q10__r5__R1
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q10__r5__R2
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q1000__r1__R1
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q1000__r1__R2
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q1000__r2__R1
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q1000__r2__R2
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q1000__r3__R1
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q1000__r3__R2
+2026-10-04 01:17:28,930 INFO kincp.run: skip sim__pine__h0.2__q1000__r4__R1
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.2__q1000__r4__R2
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.2__q1000__r5__R1
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.2__q1000__r5__R2
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.5__q10__r1__R1
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.5__q10__r1__R2
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.5__q10__r2__R1
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.5__q10__r2__R2
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.5__q10__r3__R1
+2026-10-04 01:17:28,941 INFO kincp.run: skip sim__pine__h0.5__q10__r3__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q10__r4__R1
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q10__r4__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q10__r5__R1
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q10__r5__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r1__R1
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r1__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r2__R1
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r2__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r3__R1
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r3__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r4__R1
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r4__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r5__R1
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.5__q1000__r5__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.8__q10__r1__R1
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.8__q10__r1__R2
+2026-10-04 01:17:28,953 INFO kincp.run: skip sim__pine__h0.8__q10__r2__R1
+2026-10-04 01:17:28,969 INFO kincp.run: skip sim__pine__h0.8__q10__r2__R2
+2026-10-04 01:17:28,969 INFO kincp.run: skip sim__pine__h0.8__q10__r3__R1
+2026-10-04 01:17:28,969 INFO kincp.run: skip sim__pine__h0.8__q10__r3__R2
+2026-10-04 01:17:28,969 INFO kincp.run: skip sim__pine__h0.8__q10__r4__R1
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q10__r4__R2
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q10__r5__R1
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q10__r5__R2
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r1__R1
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r1__R2
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r2__R1
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r2__R2
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r3__R1
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r3__R2
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r4__R1
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r4__R2
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r5__R1
+2026-10-04 01:17:28,970 INFO kincp.run: skip sim__pine__h0.8__q1000__r5__R2
+2026-10-04 01:17:28,970 INFO kincp.run: skip GBLUP__bean__DF__R1__main__12345
+2026-10-04 01:17:28,970 INFO kincp.run: skip GBLUP__bean__DF__R2__main__12345
+2026-10-04 01:17:28,970 INFO kincp.run: skip GBLUP__bean__DF__R3__main__12345
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:125: RuntimeWarning: overflow encountered in exp
+  s = np.exp(a + b * c)
+/usr/local/lib/python3.11/dist-packages/scipy/optimize/_numdiff.py:686: RuntimeWarning: invalid value encountered in subtract
+  df = [f_eval - f0 for f_eval in f_evals]
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:125: RuntimeWarning: overflow encountered in exp
+  s = np.exp(a + b * c)
+/usr/local/lib/python3.11/dist-packages/scipy/optimize/_numdiff.py:686: RuntimeWarning: invalid value encountered in subtract
+  df = [f_eval - f0 for f_eval in f_evals]
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:125: RuntimeWarning: overflow encountered in exp
+  s = np.exp(a + b * c)
+/usr/local/lib/python3.11/dist-packages/scipy/optimize/_numdiff.py:686: RuntimeWarning: invalid value encountered in subtract
+  df = [f_eval - f0 for f_eval in f_evals]
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:66: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(s2g * d + s2e)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: invalid value encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/usr/local/lib/python3.11/dist-packages/numpy/_core/_methods.py:188: RuntimeWarning: invalid value encountered in subtract
+  x = um.subtract(arr, arrmean, out=...)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:121: RuntimeWarning: invalid value encountered in subtract
+  c = (ld - mu_c) / sd_c
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/usr/local/lib/python3.11/dist-packages/numpy/_core/_methods.py:188: RuntimeWarning: invalid value encountered in subtract
+  x = um.subtract(arr, arrmean, out=...)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:121: RuntimeWarning: invalid value encountered in subtract
+  c = (ld - mu_c) / sd_c
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:175: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/usr/local/lib/python3.11/dist-packages/numpy/_core/_methods.py:188: RuntimeWarning: invalid value encountered in subtract
+  x = um.subtract(arr, arrmean, out=...)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:119: RuntimeWarning: divide by zero encountered in log
+  ld = np.log(d)
+/home/user/rp_c_2/Target_Journal_Submission/code/src/kincp/conformal/methods.py:121: RuntimeWarning: invalid value encountered in subtract
+  c = (ld - mu_c) / sd_c
+2026-10-04 01:17:31,332 INFO kincp.run: skip RKHS__pine__c5c6__R2__main__12
+2026-10-04 01:17:31,332 INFO kincp.run: done GBLUP__pine__c5c6__R2k3__granularity__1 1.1s
+2026-10-04 01:17:31,332 INFO kincp.run: done GBLUP__pine__c5c6__R2k10__granularity__1 4.8s
+2026-10-04 01:17:31,332 INFO kincp.run: done GBLUP__pine__c5c6__R1__explore__1 4.0s
+2026-10-04 01:17:32,055 INFO kincp.run: skip RKHS__bean__DF__R1__main__1
+2026-10-04 01:17:32,055 INFO kincp.run: skip RKHS__bean__DF__R2__main__12
+2026-10-04 01:17:32,055 INFO kincp.run: done GBLUP__bean__DF__R2k3__granularity__1 0.7s
+2026-10-04 01:17:32,055 INFO kincp.run: done GBLUP__bean__DF__R2k10__granularity__1 2.4s
+2026-10-04 01:17:32,128 INFO kincp.run: skip GBLUP__bean__DPM__R1__main__12345
+2026-10-04 01:17:32,129 INFO kincp.run: skip GBLUP__bean__DPM__R2__main__12345
+2026-10-04 01:17:32,129 INFO kincp.run: skip GBLUP__bean__DPM__R3__main__12345
+2026-10-04 01:17:32,129 INFO kincp.run: skip RKHS__bean__DPM__R1__main__1
+2026-10-04 01:17:34,438 INFO kincp.run: done GBLUP__bean__DF__R1__explore__1 1.6s
+2026-10-04 01:17:34,438 INFO kincp.run: done GBLUP__bean__DF__R2__explore__1 1.5s
+2026-10-04 01:17:34,439 INFO kincp.run: skip GBLUP__bean__DF__R1__dedup__1
+2026-10-04 01:17:34,439 INFO kincp.run: skip GBLUP__bean__DF__R2__dedup__1
+2026-10-04 01:17:38,047 INFO kincp.run: skip RKHS__bean__DPM__R2__main__12
+2026-10-04 01:17:38,047 INFO kincp.run: done GBLUP__bean__DPM__R2k3__granularity__1 0.7s
+2026-10-04 01:17:38,047 INFO kincp.run: done GBLUP__bean__DPM__R2k10__granularity__1 2.2s
+2026-10-04 01:17:38,052 INFO kincp.run: done GBLUP__bean__DPM__R1__explore__1 1.6s
+2026-10-04 01:17:38,052 INFO kincp.run: done GBLUP__bean__DPM__R2__explore__1 1.4s
+2026-10-04 01:17:38,052 INFO kincp.run: skip GBLUP__bean__DPM__R1__dedup__1
+2026-10-04 01:17:38,052 INFO kincp.run: skip GBLUP__bean__DPM__R2__dedup__1
+2026-10-04 01:17:38,052 INFO kincp.run: skip GBLUP__bean__PHI__R1__main__12345
+2026-10-04 01:17:38,786 INFO kincp.run: skip GBLUP__bean__PHI__R1__dedup__1
+2026-10-04 01:17:38,786 INFO kincp.run: skip GBLUP__bean__PHI__R2__dedup__1
+2026-10-04 01:17:38,786 INFO kincp.run: skip GBLUP__lentil__DTF__R1__main__12345
+2026-10-04 01:17:38,787 INFO kincp.run: skip GBLUP__lentil__DTF__R2__main__12345
+2026-10-04 01:17:38,787 INFO kincp.run: skip GBLUP__lentil__DTF__R3__main__12345
+2026-10-04 01:17:38,787 INFO kincp.run: skip RKHS__lentil__DTF__R1__main__1
+2026-10-04 01:17:38,787 INFO kincp.run: skip RKHS__lentil__DTF__R2__main__12
+2026-10-04 01:17:38,787 INFO kincp.run: done GBLUP__lentil__DTF__R2k3__granularity__1 0.7s
+2026-10-04 01:17:40,722 INFO kincp.run: skip GBLUP__bean__PHI__R2__main__12345
+2026-10-04 01:17:40,723 INFO kincp.run: skip GBLUP__bean__PHI__R3__main__12345
+2026-10-04 01:17:40,723 INFO kincp.run: skip RKHS__bean__PHI__R1__main__1
+2026-10-04 01:17:40,723 INFO kincp.run: skip RKHS__bean__PHI__R2__main__12
+2026-10-04 01:17:40,723 INFO kincp.run: done GBLUP__bean__PHI__R2k3__granularity__1 0.7s
+2026-10-04 01:17:40,723 INFO kincp.run: done GBLUP__bean__PHI__R2k10__granularity__1 2.2s
+2026-10-04 01:17:40,723 INFO kincp.run: done GBLUP__bean__PHI__R1__explore__1 1.7s
+2026-10-04 01:17:40,723 INFO kincp.run: done GBLUP__bean__PHI__R2__explore__1 1.6s
+2026-10-04 01:17:43,480 INFO kincp.run: done GBLUP__lentil__DTF__R2k10__granularity__1 1.9s
+2026-10-04 01:17:43,480 INFO kincp.run: done GBLUP__lentil__DTF__R1__explore__1 1.4s
+2026-10-04 01:17:43,480 INFO kincp.run: done GBLUP__lentil__DTF__R2__explore__1 1.3s
+2026-10-04 01:17:43,480 INFO kincp.run: skip GBLUP__lentil__DTF__R1__dedup__1
+2026-10-04 01:17:43,481 INFO kincp.run: skip GBLUP__lentil__DTF__R2__dedup__1
+2026-10-04 01:17:43,481 INFO kincp.run: skip GBLUP__lentil__VEG__R1__main__12345
+2026-10-04 01:17:43,481 INFO kincp.run: skip GBLUP__lentil__VEG__R2__main__12345
+2026-10-04 01:17:43,481 INFO kincp.run: skip GBLUP__lentil__VEG__R3__main__12345
+2026-10-04 01:17:45,914 INFO kincp.run: skip RKHS__lentil__VEG__R1__main__1
+2026-10-04 01:17:45,914 INFO kincp.run: skip RKHS__lentil__VEG__R2__main__12
+2026-10-04 01:17:45,914 INFO kincp.run: done GBLUP__lentil__VEG__R2k3__granularity__1 0.7s
+2026-10-04 01:17:45,914 INFO kincp.run: done GBLUP__lentil__VEG__R2k10__granularity__1 1.8s
+2026-10-04 01:17:45,914 INFO kincp.run: done GBLUP__lentil__VEG__R1__explore__1 1.4s
+2026-10-04 01:17:45,914 INFO kincp.run: done GBLUP__lentil__VEG__R2__explore__1 1.2s
+2026-10-04 01:17:45,914 INFO kincp.run: skip GBLUP__lentil__VEG__R1__dedup__1
+2026-10-04 01:17:45,914 INFO kincp.run: skip GBLUP__lentil__VEG__R2__dedup__1
+2026-10-04 01:17:47,207 INFO kincp.run: done GBLUP__lentil__DTM__R2__explore__1 1.2s
+2026-10-04 01:17:47,207 INFO kincp.run: skip GBLUP__lentil__DTM__R1__dedup__1
+2026-10-04 01:17:47,207 INFO kincp.run: skip GBLUP__lentil__DTM__R2__dedup__1
+2026-10-04 01:17:47,207 INFO kincp.run: skip GBLUP__oyster__mm__R1__main__12345
+2026-10-04 01:17:47,207 INFO kincp.run: skip GBLUP__oyster__mm__R2__main__12345
+2026-10-04 01:17:47,207 INFO kincp.run: skip GBLUP__oyster__mm__R3__main__12345
+2026-10-04 01:17:47,207 INFO kincp.run: skip RKHS__oyster__mm__R1__main__1
+2026-10-04 01:17:47,207 INFO kincp.run: skip RKHS__oyster__mm__R2__main__12
+2026-10-04 01:17:47,299 INFO kincp.run: skip GBLUP__lentil__DTM__R1__main__12345
+2026-10-04 01:17:47,299 INFO kincp.run: skip GBLUP__lentil__DTM__R2__main__12345
+2026-10-04 01:17:47,299 INFO kincp.run: skip GBLUP__lentil__DTM__R3__main__12345
+2026-10-04 01:17:47,299 INFO kincp.run: skip RKHS__lentil__DTM__R1__main__1
+2026-10-04 01:17:47,299 INFO kincp.run: skip RKHS__lentil__DTM__R2__main__12
+2026-10-04 01:17:47,299 INFO kincp.run: done GBLUP__lentil__DTM__R2k3__granularity__1 0.7s
+2026-10-04 01:17:47,299 INFO kincp.run: done GBLUP__lentil__DTM__R2k10__granularity__1 1.7s
+2026-10-04 01:17:47,299 INFO kincp.run: done GBLUP__lentil__DTM__R1__explore__1 1.3s
+2026-10-04 01:17:47,365 INFO kincp.run: skip GBLUP__rice__Plant_height__R2__main__12345
+2026-10-04 01:17:47,366 INFO kincp.run: skip GBLUP__rice__Plant_height__R3__main__12345
+2026-10-04 01:17:47,366 INFO kincp.run: skip RKHS__rice__Plant_height__R1__main__1
+2026-10-04 01:17:47,366 INFO kincp.run: skip RKHS__rice__Plant_height__R2__main__12
+2026-10-04 01:17:48,119 INFO kincp.run: done GBLUP__rice__Plant_height__R2k3__granularity__1 0.8s
+2026-10-04 01:17:49,952 INFO kincp.run: done GBLUP__rice__Plant_height__R2k10__granularity__1 1.8s
+2026-10-04 01:17:50,857 INFO kincp.run: done GBLUP__pig__PFAI__R2k3__granularity__1 5.5s
+2026-10-04 01:17:50,858 INFO kincp.run: done GBLUP__pig__PFAI__R2k10__granularity__1 23.2s
+2026-10-04 01:17:50,858 INFO kincp.run: done GBLUP__pig__PFAI__R1__explore__1 13.4s
+2026-10-04 01:17:50,858 INFO kincp.run: done GBLUP__pig__PFAI__R2__explore__1 13.3s
+2026-10-04 01:17:50,858 INFO kincp.run: skip GBLUP__pig__PFAI__R1__dedup__1
+2026-10-04 01:17:50,858 INFO kincp.run: skip GBLUP__pig__PFAI__R2__dedup__1
+2026-10-04 01:17:50,858 INFO kincp.run: skip sim__pig__h0.2__q10__r1__R1
+2026-10-04 01:17:50,858 INFO kincp.run: skip sim__pig__h0.2__q10__r1__R2
+2026-10-04 01:17:51,236 INFO kincp.run: done GBLUP__rice__Plant_height__R1__explore__1 1.2s
+2026-10-04 01:17:51,311 INFO kincp.run: skip GBLUP__rice__Plant_height__R1__dedup__1
+2026-10-04 01:17:51,311 INFO kincp.run: skip GBLUP__rice__Plant_height__R2__dedup__1
+2026-10-04 01:17:51,311 INFO kincp.run: skip GBLUP__rice__Culm_habit__R1__main__12345
+2026-10-04 01:17:51,311 INFO kincp.run: skip GBLUP__rice__Culm_habit__R2__main__12345
+2026-10-04 01:17:51,312 INFO kincp.run: skip GBLUP__rice__Culm_habit__R3__main__12345
+2026-10-04 01:17:51,312 INFO kincp.run: skip RKHS__rice__Culm_habit__R1__main__1
+2026-10-04 01:17:51,312 INFO kincp.run: skip RKHS__rice__Culm_habit__R2__main__12
+2026-10-04 01:17:51,981 INFO kincp.run: done GBLUP__rice__Culm_habit__R2k3__granularity__1 0.7s
+2026-10-04 01:17:52,062 INFO kincp.run: done GBLUP__rice__Plant_height__R2__explore__1 1.1s
+2026-10-04 01:17:53,316 INFO kincp.run: done GBLUP__rice__Culm_habit__R1__explore__1 1.2s
+2026-10-04 01:17:53,721 INFO kincp.run: done GBLUP__rice__Culm_habit__R2k10__granularity__1 1.7s
+2026-10-04 01:17:53,792 INFO kincp.run: skip GBLUP__rice__Culm_habit__R1__dedup__1
+2026-10-04 01:17:53,793 INFO kincp.run: skip GBLUP__rice__Culm_habit__R2__dedup__1
+2026-10-04 01:17:53,793 INFO kincp.run: skip GBLUP__rice__Flag_leaf_length__R1__main__12345
+2026-10-04 01:17:53,793 INFO kincp.run: skip GBLUP__rice__Flag_leaf_length__R2__main__12345
+2026-10-04 01:17:53,793 INFO kincp.run: skip GBLUP__rice__Flag_leaf_length__R3__main__12345
+2026-10-04 01:17:53,793 INFO kincp.run: skip RKHS__rice__Flag_leaf_length__R1__main__1
+2026-10-04 01:17:53,793 INFO kincp.run: skip RKHS__rice__Flag_leaf_length__R2__main__12
+2026-10-04 01:17:54,444 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R2k3__granularity__1 0.6s
+2026-10-04 01:17:54,526 INFO kincp.run: done GBLUP__rice__Culm_habit__R2__explore__1 1.1s
+2026-10-04 01:17:55,798 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R1__explore__1 1.2s
+2026-10-04 01:17:56,175 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R2k10__granularity__1 1.7s
+2026-10-04 01:17:56,236 INFO kincp.run: skip GBLUP__rice__Flag_leaf_length__R1__dedup__1
+2026-10-04 01:17:56,247 INFO kincp.run: skip GBLUP__rice__Flag_leaf_length__R2__dedup__1
+2026-10-04 01:17:56,247 INFO kincp.run: skip GBLUP__soybean__C13__R1__main__12345
+2026-10-04 01:17:56,248 INFO kincp.run: skip GBLUP__soybean__C13__R2__main__12345
+2026-10-04 01:17:56,248 INFO kincp.run: skip GBLUP__soybean__C13__R3__main__12345
+2026-10-04 01:17:56,249 INFO kincp.run: skip RKHS__soybean__C13__R1__main__1
+2026-10-04 01:17:56,249 INFO kincp.run: skip RKHS__soybean__C13__R2__main__12
+2026-10-04 01:17:56,717 INFO kincp.run: done GBLUP__oyster__mm__R2k3__granularity__1 0.8s
+2026-10-04 01:17:56,717 INFO kincp.run: done GBLUP__oyster__mm__R2k10__granularity__1 2.1s
+2026-10-04 01:17:56,718 INFO kincp.run: done GBLUP__oyster__mm__R2fam__families__12345 3.9s
+2026-10-04 01:17:56,718 INFO kincp.run: done GBLUP__oyster__mm__R1__explore__1 1.2s
+2026-10-04 01:17:56,718 INFO kincp.run: done GBLUP__oyster__mm__R2__explore__1 1.4s
+2026-10-04 01:17:56,718 INFO kincp.run: skip GBLUP__oyster__mm__R1__dedup__1
+2026-10-04 01:17:56,718 INFO kincp.run: skip GBLUP__oyster__mm__R2__dedup__1
+2026-10-04 01:17:56,718 INFO kincp.run: skip GBLUP__rice__Plant_height__R1__main__12345
+2026-10-04 01:17:56,871 INFO kincp.run: done GBLUP__soybean__C13__R2k3__granularity__1 0.6s
+2026-10-04 01:17:57,075 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R2__explore__1 1.2s
+2026-10-04 01:17:58,114 INFO kincp.run: done GBLUP__soybean__C13__R1__explore__1 1.2s
+2026-10-04 01:17:58,176 INFO kincp.run: skip GBLUP__soybean__C13__R1__dedup__1
+2026-10-04 01:17:58,188 INFO kincp.run: skip GBLUP__soybean__C13__R2__dedup__1
+2026-10-04 01:17:58,188 INFO kincp.run: skip GBLUP__soybean__Wilt__R1__main__12345
+2026-10-04 01:17:58,188 INFO kincp.run: skip GBLUP__soybean__Wilt__R2__main__12345
+2026-10-04 01:17:58,188 INFO kincp.run: skip GBLUP__soybean__Wilt__R3__main__12345
+2026-10-04 01:17:58,188 INFO kincp.run: skip RKHS__soybean__Wilt__R1__main__1
+2026-10-04 01:17:58,188 INFO kincp.run: skip RKHS__soybean__Wilt__R2__main__12
+2026-10-04 01:17:58,431 INFO kincp.run: done GBLUP__soybean__C13__R2__explore__1 1.3s
+2026-10-04 01:17:58,632 INFO kincp.run: done GBLUP__soybean__C13__R2k10__granularity__1 1.9s
+2026-10-04 01:17:58,865 INFO kincp.run: done GBLUP__soybean__Wilt__R2k3__granularity__1 0.7s
+2026-10-04 01:18:00,008 INFO kincp.run: done GBLUP__soybean__Wilt__R1__explore__1 1.3s
+2026-10-04 01:18:00,078 INFO kincp.run: skip GBLUP__soybean__Wilt__R1__dedup__1
+2026-10-04 01:18:00,079 INFO kincp.run: skip GBLUP__soybean__Wilt__R2__dedup__1
+2026-10-04 01:18:00,079 INFO kincp.run: skip GBLUP__wheatG__EW__R1__main__12345
+2026-10-04 01:18:00,079 INFO kincp.run: skip GBLUP__wheatG__EW__R2__main__12345
+2026-10-04 01:18:00,079 INFO kincp.run: skip GBLUP__wheatG__EW__R3__main__12345
+2026-10-04 01:18:00,079 INFO kincp.run: skip RKHS__wheatG__EW__R1__main__1
+2026-10-04 01:18:00,079 INFO kincp.run: skip RKHS__wheatG__EW__R2__main__12
+2026-10-04 01:18:00,180 INFO kincp.run: done GBLUP__soybean__Wilt__R2__explore__1 1.3s
+2026-10-04 01:18:00,433 INFO kincp.run: done GBLUP__soybean__Wilt__R2k10__granularity__1 1.9s
+2026-10-04 01:18:00,802 INFO kincp.run: done GBLUP__wheatG__EW__R2k3__granularity__1 0.7s
+2026-10-04 01:18:01,899 INFO kincp.run: done GBLUP__wheatG__EW__R1__explore__1 1.4s
+2026-10-04 01:18:01,960 INFO kincp.run: skip GBLUP__wheatG__EW__R1__dedup__1
+2026-10-04 01:18:01,961 INFO kincp.run: skip GBLUP__wheatG__EW__R2__dedup__1
+2026-10-04 01:18:01,961 INFO kincp.run: skip GBLUP__wheatG__GH__R1__main__12345
+2026-10-04 01:18:01,961 INFO kincp.run: skip GBLUP__wheatG__GH__R2__main__12345
+2026-10-04 01:18:01,961 INFO kincp.run: skip GBLUP__wheatG__GH__R3__main__12345
+2026-10-04 01:18:01,961 INFO kincp.run: skip RKHS__wheatG__GH__R1__main__1
+2026-10-04 01:18:01,961 INFO kincp.run: skip RKHS__wheatG__GH__R2__main__12
+2026-10-04 01:18:02,075 INFO kincp.run: done GBLUP__wheatG__EW__R2__explore__1 1.3s
+2026-10-04 01:18:02,095 INFO kincp.run: done GBLUP__wheatG__EW__R2k10__granularity__1 1.9s
+2026-10-04 01:18:02,685 INFO kincp.run: done GBLUP__wheatG__GH__R2k3__granularity__1 0.7s
+2026-10-04 01:18:03,550 INFO kincp.run: done GBLUP__wheatG__GH__R1__explore__1 1.4s
+2026-10-04 01:18:03,633 INFO kincp.run: skip GBLUP__wheatG__GH__R1__dedup__1
+2026-10-04 01:18:03,633 INFO kincp.run: skip GBLUP__wheatG__GH__R2__dedup__1
+2026-10-04 01:18:03,633 INFO kincp.run: skip GBLUP__wheatG__GPE__R1__main__12345
+2026-10-04 01:18:03,633 INFO kincp.run: skip GBLUP__wheatG__GPE__R2__main__12345
+2026-10-04 01:18:03,633 INFO kincp.run: skip GBLUP__wheatG__GPE__R3__main__12345
+2026-10-04 01:18:03,633 INFO kincp.run: skip RKHS__wheatG__GPE__R1__main__1
+2026-10-04 01:18:03,633 INFO kincp.run: skip RKHS__wheatG__GPE__R2__main__12
+2026-10-04 01:18:03,971 INFO kincp.run: done GBLUP__wheatG__GH__R2__explore__1 1.3s
+2026-10-04 01:18:04,072 INFO kincp.run: done GBLUP__wheatG__GH__R2k10__granularity__1 1.9s
+2026-10-04 01:18:04,289 INFO kincp.run: done GBLUP__wheatG__GPE__R2k3__granularity__1 0.7s
+2026-10-04 01:18:05,426 INFO kincp.run: done GBLUP__wheatG__GPE__R1__explore__1 1.3s
+2026-10-04 01:18:05,487 INFO kincp.run: skip GBLUP__wheatG__GPE__R1__dedup__1
+2026-10-04 01:18:05,487 INFO kincp.run: skip GBLUP__wheatG__GPE__R2__dedup__1
+2026-10-04 01:18:05,498 INFO kincp.run: done GBLUP__wheatG__GPE__R2__explore__1 1.2s
+2026-10-04 01:18:05,902 INFO kincp.run: done GBLUP__wheatG__GPE__R2k10__granularity__1 1.9s
+2026-10-04 01:19:03,401 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R2k10__granularity__1 302.6s

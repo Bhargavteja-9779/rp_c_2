@@ -1,0 +1,148 @@
+2026-10-03 21:43:00,407 INFO kincp.run: running 147 jobs (full) with 2 workers
+2026-10-03 21:43:03,036 INFO kincp.run: skip GBLUP__barley__BaMMV__R1__main__12345
+2026-10-03 21:43:03,047 INFO kincp.run: skip GBLUP__barley__BaMMV__R2__main__12345
+2026-10-03 21:43:03,098 INFO kincp.run: skip GBLUP__barley__BaMMV__R3__main__12345
+2026-10-03 21:43:03,099 INFO kincp.run: skip RKHS__barley__BaMMV__R1__main__1
+2026-10-03 21:43:03,099 INFO kincp.run: skip RKHS__barley__BaMMV__R2__main__12
+2026-10-03 21:43:12,078 INFO kincp.run: done GBLUP__barley__BaMMV__R1__dedup__1 9.0s
+2026-10-03 21:43:12,149 INFO kincp.run: skip GBLUP__barley__BaYMV__R1__main__12345
+2026-10-03 21:43:12,149 INFO kincp.run: skip GBLUP__barley__BaYMV__R2__main__12345
+2026-10-03 21:43:12,149 INFO kincp.run: skip GBLUP__barley__BaYMV__R3__main__12345
+2026-10-03 21:43:12,149 INFO kincp.run: skip RKHS__barley__BaYMV__R1__main__1
+2026-10-03 21:43:12,149 INFO kincp.run: skip RKHS__barley__BaYMV__R2__main__12
+2026-10-03 21:43:12,385 INFO kincp.run: done GBLUP__barley__BaMMV__R2__dedup__1 9.3s
+2026-10-03 21:43:15,943 INFO kincp.run: done GBLUP__barley__BaYMV__R1__dedup__1 3.8s
+2026-10-03 21:43:15,999 INFO kincp.run: skip GBLUP__pig__PFAI__R1__main__12345
+2026-10-03 21:43:15,999 INFO kincp.run: skip GBLUP__pig__PFAI__R2__main__12345
+2026-10-03 21:43:15,999 INFO kincp.run: skip GBLUP__pig__PFAI__R3__main__12345
+2026-10-03 21:43:15,999 INFO kincp.run: skip RKHS__pig__PFAI__R1__main__1
+2026-10-03 21:43:16,010 INFO kincp.run: skip RKHS__pig__PFAI__R2__main__12
+2026-10-03 21:43:17,066 INFO kincp.run: done GBLUP__barley__BaYMV__R2__dedup__1 4.6s
+2026-10-03 21:43:32,931 INFO kincp.run: done GBLUP__pig__PFAI__R1__dedup__1 16.9s
+2026-10-03 21:43:32,985 INFO kincp.run: skip GBLUP__pine__rootnum__R1__main__12345
+2026-10-03 21:43:32,985 INFO kincp.run: skip GBLUP__pine__rootnum__R2__main__12345
+2026-10-03 21:43:32,985 INFO kincp.run: skip GBLUP__pine__rootnum__R3__main__12345
+2026-10-03 21:43:32,985 INFO kincp.run: skip RKHS__pine__rootnum__R1__main__1
+2026-10-03 21:43:32,985 INFO kincp.run: skip RKHS__pine__rootnum__R2__main__12
+2026-10-03 21:43:33,229 INFO kincp.run: done GBLUP__pig__PFAI__R2__dedup__1 16.1s
+2026-10-03 21:43:37,310 INFO kincp.run: done GBLUP__pine__rootnum__R2__dedup__1 4.0s
+2026-10-03 21:43:37,381 INFO kincp.run: skip GBLUP__pine__rootnumbin__R1__main__12345
+2026-10-03 21:43:37,381 INFO kincp.run: skip GBLUP__pine__rootnumbin__R2__main__12345
+2026-10-03 21:43:37,381 INFO kincp.run: skip GBLUP__pine__rootnumbin__R3__main__12345
+2026-10-03 21:43:37,381 INFO kincp.run: skip RKHS__pine__rootnumbin__R1__main__1
+2026-10-03 21:43:37,381 INFO kincp.run: skip RKHS__pine__rootnumbin__R2__main__12
+2026-10-03 21:43:38,034 INFO kincp.run: done GBLUP__pine__rootnum__R1__dedup__1 5.0s
+2026-10-03 21:43:40,323 INFO kincp.run: done GBLUP__pine__rootnumbin__R1__dedup__1 2.9s
+2026-10-03 21:43:40,387 INFO kincp.run: skip GBLUP__pine__c5c6__R1__main__12345
+2026-10-03 21:43:40,387 INFO kincp.run: skip GBLUP__pine__c5c6__R2__main__12345
+2026-10-03 21:43:40,387 INFO kincp.run: skip GBLUP__pine__c5c6__R3__main__12345
+2026-10-03 21:43:40,387 INFO kincp.run: skip RKHS__pine__c5c6__R1__main__1
+2026-10-03 21:43:40,387 INFO kincp.run: skip RKHS__pine__c5c6__R2__main__12
+2026-10-03 21:43:40,408 INFO kincp.run: done GBLUP__pine__rootnumbin__R2__dedup__1 2.3s
+2026-10-03 21:43:42,691 INFO kincp.run: done GBLUP__pine__c5c6__R2__dedup__1 2.2s
+2026-10-03 21:43:42,765 INFO kincp.run: skip GBLUP__bean__DF__R1__main__12345
+2026-10-03 21:43:42,765 INFO kincp.run: skip GBLUP__bean__DF__R2__main__12345
+2026-10-03 21:43:42,765 INFO kincp.run: skip GBLUP__bean__DF__R3__main__12345
+2026-10-03 21:43:42,765 INFO kincp.run: skip RKHS__bean__DF__R1__main__1
+2026-10-03 21:43:42,765 INFO kincp.run: skip RKHS__bean__DF__R2__main__12
+2026-10-03 21:43:43,160 INFO kincp.run: done GBLUP__pine__c5c6__R1__dedup__1 2.8s
+2026-10-03 21:43:44,830 INFO kincp.run: done GBLUP__bean__DF__R2__dedup__1 1.6s
+2026-10-03 21:43:44,870 INFO kincp.run: done GBLUP__bean__DF__R1__dedup__1 2.1s
+2026-10-03 21:43:44,902 INFO kincp.run: skip GBLUP__bean__DPM__R1__main__12345
+2026-10-03 21:43:44,902 INFO kincp.run: skip GBLUP__bean__DPM__R2__main__12345
+2026-10-03 21:43:44,902 INFO kincp.run: skip GBLUP__bean__DPM__R3__main__12345
+2026-10-03 21:43:44,902 INFO kincp.run: skip RKHS__bean__DPM__R1__main__1
+2026-10-03 21:43:44,902 INFO kincp.run: skip RKHS__bean__DPM__R2__main__12
+2026-10-03 21:43:46,104 INFO kincp.run: done GBLUP__bean__DPM__R1__dedup__1 1.2s
+2026-10-03 21:43:46,178 INFO kincp.run: skip GBLUP__bean__PHI__R1__main__12345
+2026-10-03 21:43:46,178 INFO kincp.run: skip GBLUP__bean__PHI__R2__main__12345
+2026-10-03 21:43:46,178 INFO kincp.run: skip GBLUP__bean__PHI__R3__main__12345
+2026-10-03 21:43:46,178 INFO kincp.run: skip RKHS__bean__PHI__R1__main__1
+2026-10-03 21:43:46,188 INFO kincp.run: skip RKHS__bean__PHI__R2__main__12
+2026-10-03 21:43:46,210 INFO kincp.run: done GBLUP__bean__DPM__R2__dedup__1 1.3s
+2026-10-03 21:43:47,431 INFO kincp.run: done GBLUP__bean__PHI__R1__dedup__1 1.2s
+2026-10-03 21:43:47,482 INFO kincp.run: done GBLUP__bean__PHI__R2__dedup__1 1.2s
+2026-10-03 21:43:47,508 INFO kincp.run: skip GBLUP__lentil__DTF__R1__main__12345
+2026-10-03 21:43:47,508 INFO kincp.run: skip GBLUP__lentil__DTF__R2__main__12345
+2026-10-03 21:43:47,508 INFO kincp.run: skip GBLUP__lentil__DTF__R3__main__12345
+2026-10-03 21:43:47,508 INFO kincp.run: skip RKHS__lentil__DTF__R1__main__1
+2026-10-03 21:43:47,518 INFO kincp.run: skip RKHS__lentil__DTF__R2__main__12
+2026-10-03 21:43:48,769 INFO kincp.run: done GBLUP__lentil__DTF__R1__dedup__1 1.3s
+2026-10-03 21:43:48,779 INFO kincp.run: done GBLUP__lentil__DTF__R2__dedup__1 1.2s
+2026-10-03 21:43:48,830 INFO kincp.run: skip GBLUP__lentil__VEG__R1__main__12345
+2026-10-03 21:43:48,831 INFO kincp.run: skip GBLUP__lentil__VEG__R2__main__12345
+2026-10-03 21:43:48,831 INFO kincp.run: skip GBLUP__lentil__VEG__R3__main__12345
+2026-10-03 21:43:48,831 INFO kincp.run: skip RKHS__lentil__VEG__R1__main__1
+2026-10-03 21:43:48,831 INFO kincp.run: skip RKHS__lentil__VEG__R2__main__12
+2026-10-03 21:43:49,893 INFO kincp.run: done GBLUP__lentil__VEG__R1__dedup__1 1.1s
+2026-10-03 21:43:49,954 INFO kincp.run: skip GBLUP__lentil__DTM__R1__main__12345
+2026-10-03 21:43:49,955 INFO kincp.run: skip GBLUP__lentil__DTM__R2__main__12345
+2026-10-03 21:43:49,955 INFO kincp.run: skip GBLUP__lentil__DTM__R3__main__12345
+2026-10-03 21:43:49,965 INFO kincp.run: skip RKHS__lentil__DTM__R1__main__1
+2026-10-03 21:43:49,965 INFO kincp.run: skip RKHS__lentil__DTM__R2__main__12
+2026-10-03 21:43:50,098 INFO kincp.run: done GBLUP__lentil__VEG__R2__dedup__1 1.3s
+2026-10-03 21:43:50,942 INFO kincp.run: done GBLUP__lentil__DTM__R1__dedup__1 1.0s
+2026-10-03 21:43:50,942 INFO kincp.run: skip GBLUP__oyster__mm__R1__main__12345
+2026-10-03 21:43:50,942 INFO kincp.run: skip GBLUP__oyster__mm__R2__main__12345
+2026-10-03 21:43:50,942 INFO kincp.run: skip GBLUP__oyster__mm__R3__main__12345
+2026-10-03 21:43:50,942 INFO kincp.run: skip RKHS__oyster__mm__R1__main__1
+2026-10-03 21:43:50,942 INFO kincp.run: skip RKHS__oyster__mm__R2__main__12
+2026-10-03 21:43:51,085 INFO kincp.run: done GBLUP__lentil__DTM__R2__dedup__1 0.9s
+2026-10-03 21:43:52,240 INFO kincp.run: done GBLUP__oyster__mm__R1__dedup__1 1.3s
+2026-10-03 21:43:52,311 INFO kincp.run: skip GBLUP__rice__Plant_height__R1__main__12345
+2026-10-03 21:43:52,312 INFO kincp.run: skip GBLUP__rice__Plant_height__R2__main__12345
+2026-10-03 21:43:52,312 INFO kincp.run: skip GBLUP__rice__Plant_height__R3__main__12345
+2026-10-03 21:43:52,312 INFO kincp.run: skip RKHS__rice__Plant_height__R1__main__1
+2026-10-03 21:43:52,312 INFO kincp.run: skip RKHS__rice__Plant_height__R2__main__12
+2026-10-03 21:43:52,485 INFO kincp.run: done GBLUP__oyster__mm__R2__dedup__1 1.4s
+2026-10-03 21:43:53,829 INFO kincp.run: done GBLUP__rice__Plant_height__R2__dedup__1 1.3s
+2026-10-03 21:43:53,870 INFO kincp.run: skip GBLUP__rice__Culm_habit__R1__main__12345
+2026-10-03 21:43:53,870 INFO kincp.run: skip GBLUP__rice__Culm_habit__R2__main__12345
+2026-10-03 21:43:53,870 INFO kincp.run: skip GBLUP__rice__Culm_habit__R3__main__12345
+2026-10-03 21:43:53,870 INFO kincp.run: skip RKHS__rice__Culm_habit__R1__main__1
+2026-10-03 21:43:53,870 INFO kincp.run: skip RKHS__rice__Culm_habit__R2__main__12
+2026-10-03 21:43:53,901 INFO kincp.run: done GBLUP__rice__Plant_height__R1__dedup__1 1.6s
+2026-10-03 21:43:54,873 INFO kincp.run: done GBLUP__rice__Culm_habit__R1__dedup__1 1.0s
+2026-10-03 21:43:54,874 INFO kincp.run: done GBLUP__rice__Culm_habit__R2__dedup__1 0.9s
+2026-10-03 21:43:54,874 INFO kincp.run: skip GBLUP__rice__Flag_leaf_length__R1__main__12345
+2026-10-03 21:43:54,874 INFO kincp.run: skip GBLUP__rice__Flag_leaf_length__R2__main__12345
+2026-10-03 21:43:54,874 INFO kincp.run: skip GBLUP__rice__Flag_leaf_length__R3__main__12345
+2026-10-03 21:43:54,874 INFO kincp.run: skip RKHS__rice__Flag_leaf_length__R1__main__1
+2026-10-03 21:43:54,884 INFO kincp.run: skip RKHS__rice__Flag_leaf_length__R2__main__12
+2026-10-03 21:43:55,811 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R1__dedup__1 0.9s
+2026-10-03 21:43:55,863 INFO kincp.run: skip GBLUP__soybean__C13__R1__main__12345
+2026-10-03 21:43:55,863 INFO kincp.run: skip GBLUP__soybean__C13__R2__main__12345
+2026-10-03 21:43:55,863 INFO kincp.run: skip GBLUP__soybean__C13__R3__main__12345
+2026-10-03 21:43:55,863 INFO kincp.run: skip RKHS__soybean__C13__R1__main__1
+2026-10-03 21:43:55,873 INFO kincp.run: skip RKHS__soybean__C13__R2__main__12
+2026-10-03 21:43:55,959 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R2__dedup__1 1.0s
+2026-10-03 21:43:57,479 INFO kincp.run: done GBLUP__soybean__C13__R1__dedup__1 1.6s
+2026-10-03 21:43:57,550 INFO kincp.run: skip GBLUP__soybean__Wilt__R1__main__12345
+2026-10-03 21:43:57,550 INFO kincp.run: skip GBLUP__soybean__Wilt__R2__main__12345
+2026-10-03 21:43:57,550 INFO kincp.run: skip GBLUP__soybean__Wilt__R3__main__12345
+2026-10-03 21:43:57,551 INFO kincp.run: skip RKHS__soybean__Wilt__R1__main__1
+2026-10-03 21:43:57,551 INFO kincp.run: skip RKHS__soybean__Wilt__R2__main__12
+2026-10-03 21:43:57,561 INFO kincp.run: done GBLUP__soybean__C13__R2__dedup__1 1.5s
+2026-10-03 21:43:58,519 INFO kincp.run: done GBLUP__soybean__Wilt__R1__dedup__1 1.0s
+2026-10-03 21:43:58,519 INFO kincp.run: skip GBLUP__wheatG__EW__R1__main__12345
+2026-10-03 21:43:58,519 INFO kincp.run: skip GBLUP__wheatG__EW__R2__main__12345
+2026-10-03 21:43:58,519 INFO kincp.run: skip GBLUP__wheatG__EW__R3__main__12345
+2026-10-03 21:43:58,519 INFO kincp.run: skip RKHS__wheatG__EW__R1__main__1
+2026-10-03 21:43:58,529 INFO kincp.run: skip RKHS__wheatG__EW__R2__main__12
+2026-10-03 21:43:58,734 INFO kincp.run: done GBLUP__soybean__Wilt__R2__dedup__1 1.1s
+2026-10-03 21:43:59,947 INFO kincp.run: done GBLUP__wheatG__EW__R2__dedup__1 1.2s
+2026-10-03 21:44:00,018 INFO kincp.run: skip GBLUP__wheatG__GH__R1__main__12345
+2026-10-03 21:44:00,018 INFO kincp.run: skip GBLUP__wheatG__GH__R2__main__12345
+2026-10-03 21:44:00,018 INFO kincp.run: skip GBLUP__wheatG__GH__R3__main__12345
+2026-10-03 21:44:00,018 INFO kincp.run: skip RKHS__wheatG__GH__R1__main__1
+2026-10-03 21:44:00,018 INFO kincp.run: skip RKHS__wheatG__GH__R2__main__12
+2026-10-03 21:44:00,031 INFO kincp.run: done GBLUP__wheatG__EW__R1__dedup__1 1.5s
+2026-10-03 21:44:01,161 INFO kincp.run: done GBLUP__wheatG__GH__R1__dedup__1 1.1s
+2026-10-03 21:44:01,183 INFO kincp.run: done GBLUP__wheatG__GH__R2__dedup__1 1.1s
+2026-10-03 21:44:01,241 INFO kincp.run: skip GBLUP__wheatG__GPE__R1__main__12345
+2026-10-03 21:44:01,241 INFO kincp.run: skip GBLUP__wheatG__GPE__R2__main__12345
+2026-10-03 21:44:01,241 INFO kincp.run: skip GBLUP__wheatG__GPE__R3__main__12345
+2026-10-03 21:44:01,241 INFO kincp.run: skip RKHS__wheatG__GPE__R1__main__1
+2026-10-03 21:44:01,241 INFO kincp.run: skip RKHS__wheatG__GPE__R2__main__12
+2026-10-03 21:44:02,312 INFO kincp.run: done GBLUP__wheatG__GPE__R2__dedup__1 1.1s
+2026-10-03 21:44:02,414 INFO kincp.run: done GBLUP__wheatG__GPE__R1__dedup__1 1.2s

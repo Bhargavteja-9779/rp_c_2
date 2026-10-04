@@ -1,0 +1,148 @@
+2026-10-03 21:31:50,395 INFO kincp.run: running 147 jobs (full) with 3 workers
+2026-10-03 21:32:08,553 INFO kincp.run: done GBLUP__barley__BaMMV__R3__main__12345 15.9s
+2026-10-03 21:32:21,296 INFO kincp.run: done RKHS__barley__BaMMV__R1__main__1 12.7s
+2026-10-03 21:32:34,830 INFO kincp.run: done GBLUP__barley__BaMMV__R1__main__12345 41.8s
+2026-10-03 21:32:35,035 INFO kincp.run: ERROR GBLUP__barley__BaMMV__R1__dedup__1
+2026-10-03 21:32:35,107 INFO kincp.run: ERROR GBLUP__barley__BaMMV__R2__dedup__1
+2026-10-03 21:32:37,467 INFO kincp.run: done GBLUP__barley__BaMMV__R2__main__12345 44.2s
+2026-10-03 21:32:46,582 INFO kincp.run: done RKHS__barley__BaMMV__R2__main__12 25.2s
+2026-10-03 21:33:04,185 INFO kincp.run: done GBLUP__barley__BaYMV__R3__main__12345 17.5s
+2026-10-03 21:33:17,959 INFO kincp.run: done RKHS__barley__BaYMV__R1__main__1 13.7s
+2026-10-03 21:33:20,885 INFO kincp.run: done GBLUP__barley__BaYMV__R1__main__12345 45.8s
+2026-10-03 21:33:21,004 INFO kincp.run: ERROR GBLUP__barley__BaYMV__R1__dedup__1
+2026-10-03 21:33:21,059 INFO kincp.run: ERROR GBLUP__barley__BaYMV__R2__dedup__1
+2026-10-03 21:33:23,382 INFO kincp.run: done GBLUP__barley__BaYMV__R2__main__12345 45.8s
+2026-10-03 21:33:38,457 INFO kincp.run: done RKHS__barley__BaYMV__R2__main__12 20.4s
+2026-10-03 21:33:54,753 INFO kincp.run: done GBLUP__pig__PFAI__R3__main__12345 16.2s
+2026-10-03 21:34:11,170 INFO kincp.run: done RKHS__pig__PFAI__R1__main__1 16.4s
+2026-10-03 21:34:11,678 INFO kincp.run: done GBLUP__pig__PFAI__R1__main__12345 50.6s
+2026-10-03 21:34:11,820 INFO kincp.run: ERROR GBLUP__pig__PFAI__R1__dedup__1
+2026-10-03 21:34:11,892 INFO kincp.run: ERROR GBLUP__pig__PFAI__R2__dedup__1
+2026-10-03 21:34:17,199 INFO kincp.run: done GBLUP__pig__PFAI__R2__main__12345 53.8s
+2026-10-03 21:34:26,255 INFO kincp.run: done GBLUP__pine__rootnum__R1__main__12345 14.4s
+2026-10-03 21:34:28,001 INFO kincp.run: done GBLUP__pine__rootnum__R2__main__12345 10.7s
+2026-10-03 21:34:31,901 INFO kincp.run: done RKHS__pine__rootnum__R1__main__1 3.8s
+2026-10-03 21:34:32,937 INFO kincp.run: done GBLUP__pine__rootnum__R3__main__12345 6.6s
+2026-10-03 21:34:33,028 INFO kincp.run: ERROR GBLUP__pine__rootnum__R1__dedup__1
+2026-10-03 21:34:33,060 INFO kincp.run: ERROR GBLUP__pine__rootnum__R2__dedup__1
+2026-10-03 21:34:37,648 INFO kincp.run: done RKHS__pine__rootnum__R2__main__12 5.7s
+2026-10-03 21:34:43,744 INFO kincp.run: done RKHS__pig__PFAI__R2__main__12 32.5s
+2026-10-03 21:34:46,140 INFO kincp.run: done GBLUP__pine__rootnumbin__R1__main__12345 13.1s
+2026-10-03 21:34:48,365 INFO kincp.run: done GBLUP__pine__rootnumbin__R2__main__12345 10.7s
+2026-10-03 21:34:49,863 INFO kincp.run: done RKHS__pine__rootnumbin__R1__main__1 3.7s
+2026-10-03 21:34:49,955 INFO kincp.run: ERROR GBLUP__pine__rootnumbin__R1__dedup__1
+2026-10-03 21:34:49,985 INFO kincp.run: ERROR GBLUP__pine__rootnumbin__R2__dedup__1
+2026-10-03 21:34:50,568 INFO kincp.run: done GBLUP__pine__rootnumbin__R3__main__12345 6.8s
+2026-10-03 21:34:54,273 INFO kincp.run: done RKHS__pine__rootnumbin__R2__main__12 5.8s
+2026-10-03 21:35:00,915 INFO kincp.run: done GBLUP__pine__c5c6__R2__main__12345 10.3s
+2026-10-03 21:35:01,243 INFO kincp.run: done GBLUP__pine__c5c6__R3__main__12345 6.9s
+2026-10-03 21:35:03,389 INFO kincp.run: done GBLUP__pine__c5c6__R1__main__12345 13.4s
+2026-10-03 21:35:03,480 INFO kincp.run: ERROR GBLUP__pine__c5c6__R1__dedup__1
+2026-10-03 21:35:03,511 INFO kincp.run: ERROR GBLUP__pine__c5c6__R2__dedup__1
+2026-10-03 21:35:04,588 INFO kincp.run: done RKHS__pine__c5c6__R1__main__1 3.6s
+2026-10-03 21:35:06,885 INFO kincp.run: done RKHS__pine__c5c6__R2__main__12 5.6s
+2026-10-03 21:35:09,027 INFO kincp.run: done GBLUP__bean__DF__R1__main__12345 5.5s
+2026-10-03 21:35:10,104 INFO kincp.run: done GBLUP__bean__DF__R2__main__12345 5.4s
+2026-10-03 21:35:10,530 INFO kincp.run: done RKHS__bean__DF__R1__main__1 1.4s
+2026-10-03 21:35:10,602 INFO kincp.run: ERROR GBLUP__bean__DF__R1__dedup__1
+2026-10-03 21:35:10,622 INFO kincp.run: ERROR GBLUP__bean__DF__R2__dedup__1
+2026-10-03 21:35:11,264 INFO kincp.run: done GBLUP__bean__DF__R3__main__12345 4.3s
+2026-10-03 21:35:12,594 INFO kincp.run: done RKHS__bean__DF__R2__main__12 2.4s
+2026-10-03 21:35:16,267 INFO kincp.run: done GBLUP__bean__DPM__R1__main__12345 5.6s
+2026-10-03 21:35:16,776 INFO kincp.run: done GBLUP__bean__DPM__R2__main__12345 5.5s
+2026-10-03 21:35:16,980 INFO kincp.run: done GBLUP__bean__DPM__R3__main__12345 4.3s
+2026-10-03 21:35:17,071 INFO kincp.run: ERROR GBLUP__bean__DPM__R1__dedup__1
+2026-10-03 21:35:17,082 INFO kincp.run: ERROR GBLUP__bean__DPM__R2__dedup__1
+2026-10-03 21:35:17,672 INFO kincp.run: done RKHS__bean__DPM__R1__main__1 1.3s
+2026-10-03 21:35:19,445 INFO kincp.run: done RKHS__bean__DPM__R2__main__12 2.6s
+2026-10-03 21:35:22,967 INFO kincp.run: done GBLUP__bean__PHI__R1__main__12345 5.9s
+2026-10-03 21:35:23,477 INFO kincp.run: done GBLUP__bean__PHI__R2__main__12345 5.7s
+2026-10-03 21:35:23,997 INFO kincp.run: done GBLUP__bean__PHI__R3__main__12345 4.5s
+2026-10-03 21:35:24,079 INFO kincp.run: ERROR GBLUP__bean__PHI__R1__dedup__1
+2026-10-03 21:35:24,103 INFO kincp.run: ERROR GBLUP__bean__PHI__R2__dedup__1
+2026-10-03 21:35:24,622 INFO kincp.run: done RKHS__bean__PHI__R1__main__1 1.6s
+2026-10-03 21:35:26,289 INFO kincp.run: done RKHS__bean__PHI__R2__main__12 2.7s
+2026-10-03 21:35:28,814 INFO kincp.run: done GBLUP__lentil__DTF__R1__main__12345 4.7s
+2026-10-03 21:35:29,418 INFO kincp.run: done GBLUP__lentil__DTF__R2__main__12345 4.7s
+2026-10-03 21:35:29,929 INFO kincp.run: done RKHS__lentil__DTF__R1__main__1 1.1s
+2026-10-03 21:35:30,001 INFO kincp.run: ERROR GBLUP__lentil__DTF__R1__dedup__1
+2026-10-03 21:35:30,021 INFO kincp.run: ERROR GBLUP__lentil__DTF__R2__dedup__1
+2026-10-03 21:35:30,348 INFO kincp.run: done GBLUP__lentil__DTF__R3__main__12345 4.0s
+2026-10-03 21:35:31,570 INFO kincp.run: done RKHS__lentil__DTF__R2__main__12 2.1s
+2026-10-03 21:35:34,709 INFO kincp.run: done GBLUP__lentil__VEG__R1__main__12345 4.7s
+2026-10-03 21:35:34,893 INFO kincp.run: done GBLUP__lentil__VEG__R2__main__12345 4.5s
+2026-10-03 21:35:35,781 INFO kincp.run: done GBLUP__lentil__VEG__R3__main__12345 4.1s
+2026-10-03 21:35:35,863 INFO kincp.run: ERROR GBLUP__lentil__VEG__R1__dedup__1
+2026-10-03 21:35:35,874 INFO kincp.run: ERROR GBLUP__lentil__VEG__R2__dedup__1
+2026-10-03 21:35:35,915 INFO kincp.run: done RKHS__lentil__VEG__R1__main__1 1.1s
+2026-10-03 21:35:37,096 INFO kincp.run: done RKHS__lentil__VEG__R2__main__12 2.1s
+2026-10-03 21:35:40,531 INFO kincp.run: done GBLUP__lentil__DTM__R1__main__12345 4.7s
+2026-10-03 21:35:40,603 INFO kincp.run: done GBLUP__lentil__DTM__R2__main__12345 4.6s
+2026-10-03 21:35:41,254 INFO kincp.run: done GBLUP__lentil__DTM__R3__main__12345 4.1s
+2026-10-03 21:35:41,336 INFO kincp.run: ERROR GBLUP__lentil__DTM__R1__dedup__1
+2026-10-03 21:35:41,356 INFO kincp.run: ERROR GBLUP__lentil__DTM__R2__dedup__1
+2026-10-03 21:35:41,683 INFO kincp.run: done RKHS__lentil__DTM__R1__main__1 1.1s
+2026-10-03 21:35:42,568 INFO kincp.run: done RKHS__lentil__DTM__R2__main__12 1.9s
+2026-10-03 21:35:46,137 INFO kincp.run: done GBLUP__oyster__mm__R1__main__12345 4.8s
+2026-10-03 21:35:46,209 INFO kincp.run: skip RKHS__oyster__mm__R1__main__1
+2026-10-03 21:35:46,515 INFO kincp.run: done GBLUP__oyster__mm__R3__main__12345 3.9s
+2026-10-03 21:35:46,567 INFO kincp.run: done GBLUP__oyster__mm__R2__main__12345 4.8s
+2026-10-03 21:35:46,588 INFO kincp.run: ERROR GBLUP__oyster__mm__R1__dedup__1
+2026-10-03 21:35:46,609 INFO kincp.run: ERROR GBLUP__oyster__mm__R2__dedup__1
+2026-10-03 21:35:48,775 INFO kincp.run: done RKHS__oyster__mm__R2__main__12 2.6s
+2026-10-03 21:35:51,380 INFO kincp.run: done GBLUP__rice__Plant_height__R2__main__12345 4.8s
+2026-10-03 21:35:51,482 INFO kincp.run: done GBLUP__rice__Plant_height__R1__main__12345 4.9s
+2026-10-03 21:35:52,642 INFO kincp.run: done RKHS__rice__Plant_height__R1__main__1 1.2s
+2026-10-03 21:35:52,724 INFO kincp.run: ERROR GBLUP__rice__Plant_height__R1__dedup__1
+2026-10-03 21:35:52,736 INFO kincp.run: ERROR GBLUP__rice__Plant_height__R2__dedup__1
+2026-10-03 21:35:53,061 INFO kincp.run: done GBLUP__rice__Plant_height__R3__main__12345 4.2s
+2026-10-03 21:35:53,631 INFO kincp.run: done RKHS__rice__Plant_height__R2__main__12 2.1s
+2026-10-03 21:35:57,646 INFO kincp.run: done GBLUP__rice__Culm_habit__R3__main__12345 4.0s
+2026-10-03 21:35:57,687 INFO kincp.run: done GBLUP__rice__Culm_habit__R1__main__12345 4.9s
+2026-10-03 21:35:57,697 INFO kincp.run: done GBLUP__rice__Culm_habit__R2__main__12345 4.6s
+2026-10-03 21:35:57,778 INFO kincp.run: ERROR GBLUP__rice__Culm_habit__R1__dedup__1
+2026-10-03 21:35:57,799 INFO kincp.run: ERROR GBLUP__rice__Culm_habit__R2__dedup__1
+2026-10-03 21:35:58,928 INFO kincp.run: done RKHS__rice__Culm_habit__R1__main__1 1.2s
+2026-10-03 21:35:59,745 INFO kincp.run: done RKHS__rice__Culm_habit__R2__main__12 2.0s
+2026-10-03 21:36:02,503 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R1__main__12345 4.7s
+2026-10-03 21:36:03,512 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R2__main__12345 4.5s
+2026-10-03 21:36:03,735 INFO kincp.run: done RKHS__rice__Flag_leaf_length__R1__main__1 1.2s
+2026-10-03 21:36:03,815 INFO kincp.run: ERROR GBLUP__rice__Flag_leaf_length__R1__dedup__1
+2026-10-03 21:36:03,835 INFO kincp.run: ERROR GBLUP__rice__Flag_leaf_length__R2__dedup__1
+2026-10-03 21:36:03,906 INFO kincp.run: done GBLUP__rice__Flag_leaf_length__R3__main__12345 4.1s
+2026-10-03 21:36:05,678 INFO kincp.run: done RKHS__rice__Flag_leaf_length__R2__main__12 2.1s
+2026-10-03 21:36:08,572 INFO kincp.run: done GBLUP__soybean__C13__R2__main__12345 4.6s
+2026-10-03 21:36:08,694 INFO kincp.run: done GBLUP__soybean__C13__R1__main__12345 4.9s
+2026-10-03 21:36:09,598 INFO kincp.run: done GBLUP__soybean__C13__R3__main__12345 3.9s
+2026-10-03 21:36:09,680 INFO kincp.run: ERROR GBLUP__soybean__C13__R1__dedup__1
+2026-10-03 21:36:09,690 INFO kincp.run: ERROR GBLUP__soybean__C13__R2__dedup__1
+2026-10-03 21:36:09,751 INFO kincp.run: done RKHS__soybean__C13__R1__main__1 1.1s
+2026-10-03 21:36:10,942 INFO kincp.run: done RKHS__soybean__C13__R2__main__12 2.2s
+2026-10-03 21:36:14,324 INFO kincp.run: done GBLUP__soybean__Wilt__R2__main__12345 4.5s
+2026-10-03 21:36:14,446 INFO kincp.run: done GBLUP__soybean__Wilt__R1__main__12345 4.8s
+2026-10-03 21:36:14,904 INFO kincp.run: done GBLUP__soybean__Wilt__R3__main__12345 3.9s
+2026-10-03 21:36:14,985 INFO kincp.run: ERROR GBLUP__soybean__Wilt__R1__dedup__1
+2026-10-03 21:36:14,996 INFO kincp.run: ERROR GBLUP__soybean__Wilt__R2__dedup__1
+2026-10-03 21:36:15,616 INFO kincp.run: done RKHS__soybean__Wilt__R1__main__1 1.2s
+2026-10-03 21:36:16,595 INFO kincp.run: done RKHS__soybean__Wilt__R2__main__12 2.1s
+2026-10-03 21:36:20,146 INFO kincp.run: done GBLUP__wheatG__EW__R1__main__12345 5.2s
+2026-10-03 21:36:20,217 INFO kincp.run: skip RKHS__wheatG__EW__R1__main__1
+2026-10-03 21:36:20,553 INFO kincp.run: done GBLUP__wheatG__EW__R2__main__12345 4.9s
+2026-10-03 21:36:20,645 INFO kincp.run: ERROR GBLUP__wheatG__EW__R1__dedup__1
+2026-10-03 21:36:20,655 INFO kincp.run: ERROR GBLUP__wheatG__EW__R2__dedup__1
+2026-10-03 21:36:20,666 INFO kincp.run: done GBLUP__wheatG__EW__R3__main__12345 4.0s
+2026-10-03 21:36:22,432 INFO kincp.run: done RKHS__wheatG__EW__R2__main__12 2.2s
+2026-10-03 21:36:25,437 INFO kincp.run: done GBLUP__wheatG__GH__R2__main__12345 4.7s
+2026-10-03 21:36:25,661 INFO kincp.run: done GBLUP__wheatG__GH__R1__main__12345 5.0s
+2026-10-03 21:36:26,475 INFO kincp.run: done GBLUP__wheatG__GH__R3__main__12345 4.0s
+2026-10-03 21:36:26,557 INFO kincp.run: ERROR GBLUP__wheatG__GH__R1__dedup__1
+2026-10-03 21:36:26,567 INFO kincp.run: ERROR GBLUP__wheatG__GH__R2__dedup__1
+2026-10-03 21:36:26,843 INFO kincp.run: done RKHS__wheatG__GH__R1__main__1 1.4s
+2026-10-03 21:36:28,086 INFO kincp.run: done RKHS__wheatG__GH__R2__main__12 2.4s
+2026-10-03 21:36:31,655 INFO kincp.run: done GBLUP__wheatG__GPE__R2__main__12345 4.7s
+2026-10-03 21:36:31,665 INFO kincp.run: done GBLUP__wheatG__GPE__R1__main__12345 5.1s
+2026-10-03 21:36:32,347 INFO kincp.run: done GBLUP__wheatG__GPE__R3__main__12345 4.2s
+2026-10-03 21:36:32,439 INFO kincp.run: ERROR GBLUP__wheatG__GPE__R1__dedup__1
+2026-10-03 21:36:32,460 INFO kincp.run: ERROR GBLUP__wheatG__GPE__R2__dedup__1
+2026-10-03 21:36:32,968 INFO kincp.run: done RKHS__wheatG__GPE__R1__main__1 1.3s
+2026-10-03 21:36:33,884 INFO kincp.run: done RKHS__wheatG__GPE__R2__main__12 2.2s

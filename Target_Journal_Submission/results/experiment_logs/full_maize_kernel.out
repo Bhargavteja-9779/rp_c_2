@@ -1,0 +1,22 @@
+2026-10-03 21:48:08,758 INFO kincp.run: running 21 jobs (full) with 1 workers
+2026-10-03 21:59:08,953 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R1__main__12345 660.0s
+2026-10-03 22:10:14,793 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R2__main__12345 665.8s
+2026-10-03 22:12:28,515 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R3__main__12345 133.7s
+2026-10-03 22:15:46,808 INFO kincp.run: done RKHS__maize__Yield_Mg_ha__R1__main__1 198.3s
+2026-10-03 22:22:32,389 INFO kincp.run: done RKHS__maize__Yield_Mg_ha__R2__main__12 405.6s
+2026-10-03 22:24:38,500 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R1__dedup__1 126.1s
+2026-10-03 22:26:45,034 INFO kincp.run: done GBLUP__maize__Yield_Mg_ha__R2__dedup__1 126.5s
+2026-10-03 22:37:18,175 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R1__main__12345 633.1s
+2026-10-03 22:48:00,000 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R2__main__12345 641.8s
+2026-10-03 22:50:11,069 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R3__main__12345 131.1s
+2026-10-03 22:53:36,532 INFO kincp.run: done RKHS__maize__Grain_Moisture__R1__main__1 205.5s
+2026-10-03 23:00:25,046 INFO kincp.run: done RKHS__maize__Grain_Moisture__R2__main__12 408.5s
+2026-10-03 23:02:32,726 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R1__dedup__1 127.7s
+2026-10-03 23:04:40,379 INFO kincp.run: done GBLUP__maize__Grain_Moisture__R2__dedup__1 127.7s
+2026-10-03 23:15:38,969 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R1__main__12345 658.6s
+2026-10-03 23:26:36,705 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R2__main__12345 657.7s
+2026-10-03 23:28:53,519 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R3__main__12345 136.8s
+2026-10-03 23:32:21,004 INFO kincp.run: done RKHS__maize__Plant_Height_cm__R1__main__1 207.5s
+2026-10-03 23:39:11,648 INFO kincp.run: done RKHS__maize__Plant_Height_cm__R2__main__12 410.6s
+2026-10-03 23:41:20,505 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R1__dedup__1 128.9s
+2026-10-03 23:43:25,853 INFO kincp.run: done GBLUP__maize__Plant_Height_cm__R2__dedup__1 125.3s
