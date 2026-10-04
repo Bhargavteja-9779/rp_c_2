@@ -151,6 +151,8 @@ Three regimes were used:
 * **R2, cluster-out:** each of the five genomic clusters was held out in turn, and the analysis was repeated with five seeds for all stochastic components.
 * **R3, reduced training:** the R1 folds with the training set randomly subsampled to 50%.
 
+Two further cluster-out variants tested the sensitivity of R2 to cluster granularity, both with GBLUP and one seed: *k*-means with *k* = 3 and with *k* = 10 deployment clusters. KinCP's inner folds were left at *k* = 5 in both. For eastern oyster, whose individuals belong to four F2 families identified in the EasyGeSe identifiers, each family was also held out in turn (five seeds). These analyses were added at the request of internal review, after the main results had been seen.
+
 RKHS was run on R1 (first repeat) and R2 (two seeds). LightGBM was run on R1 (first repeat) and R2 (one seed), and not on maize (compute; deviation D5).
 
 Phenotype scaling, REML, hyper-parameters, cross-fitting, calibration scores and the variance components in σ(*d*) used outer-training individuals only. Inner cross-fitting reused the outer-fold δ (deviation D3). Seeds {11, 22, 33, 44, 55} were fixed in advance and tied to repeats. No seed was selected after viewing results. The R1 repeats re-use the same individuals, and the R2 seeds share identical outer folds and differ only in inner randomness, so neither is an independent replicate. Test folds with fewer than five individuals were skipped. This affected only one loblolly-pine cluster of three trees, leaving {{n_folds_r2_pine}} of 25 R2 folds per pine trait.

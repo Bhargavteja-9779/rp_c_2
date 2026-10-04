@@ -133,7 +133,7 @@ def fig2():
     for i, o in enumerate(order):
         for k, reg in enumerate(["R1", "R2"]):
             v = np.log10(d[(d.dataset == o) & (d.regime == reg)].d.values)
-            bp = axes[1].boxplot(v, positions=[i + (k - 0.5) * 0.36], widths=0.3, vert=False, showfliers=False,
+            bp = axes[1].boxplot(v, positions=[i + (k - 0.5) * 0.36], widths=0.3, orientation="horizontal", showfliers=False,
                                  patch_artist=True, medianprops=dict(color=INK, lw=1))
             bp["boxes"][0].set(facecolor=[COL["KinCP"], COL["Gauss-PEV"]][k], alpha=0.85, edgecolor=INK2)
     axes[1].set_yticks(y, names)
@@ -280,23 +280,27 @@ def fig7(s):
 
 # ---------------------------------------------------------------- Fig 8: efficiency
 def fig8():
-    t = pd.read_csv(RESULTS_DIR / "timings.csv")
-    f = t[t.alpha.isna() & (t.tag == "main") & (t.regime == "R1")].copy()
-    f["pool"] = f.t_pool_rand + f.t_pool_clus
-    agg = f.groupby(["base", "dataset"]).agg(n=("n_train", "mean"), outer=("t_outer_fit", "mean"), pool=("pool", "mean"),
-                                             rand=("t_pool_rand", "mean"), scp=("t_scp", "mean")).reset_index()
-    fig, ax = plt.subplots(figsize=(4.2, 2.8))
-    for b, m in zip(["GBLUP", "RKHS", "LightGBM"], ["o", "s", "^"]):
-        a = agg[agg.base == b]
-        if a.empty:
-            continue
-        ax.scatter(a.n, a.outer, color=COL["Gauss-PEV"], marker=m, s=18, label=f"{b}: single fit")
-        ax.scatter(a.n, a.pool, color=COL["KinCP"], marker=m, s=18, label=f"{b}: KinCP pools (10 fits)")
-    ax.set_xscale("log")
-    ax.set_yscale("log")
-    ax.set_xlabel("Training-set size")
-    ax.set_ylabel("Wall time per outer fold (s, 1 CPU thread)")
-    ax.legend(fontsize=6, ncol=1, loc="upper left")
+    sc = pd.read_csv(RESULTS_DIR / "scaling.csv")
+    a = sc.groupby("n_train").agg(["mean", "std"])
+    n = a.index.values
+    fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.7))
+    for col, lab_, c, m in [("t_fit", "Single GBLUP fit (REML)", COL["Gauss-PEV"], "s"),
+                            ("t_pool_rand", "Random-fold pool (5 fits)", COL["CalPred-style"], "D"),
+                            ("t_pool_clus", "Cluster-fold pool (5 fits)", COL["CV+"], "^"),
+                            ("t_intervals", "KinCP intervals (300 candidates)", COL["KinCP"], "o")]:
+        axes[0].errorbar(n, a[(col, "mean")], yerr=a[(col, "std")], color=c, marker=m, ms=4, capsize=1.5, label=lab_)
+    axes[0].set_xscale("log")
+    axes[0].set_yscale("log")
+    axes[0].set_xlabel("Training-set size")
+    axes[0].set_ylabel("Wall time (s, 1 CPU thread)")
+    axes[0].set_title("a  Time (maize genotypes)", fontsize=8, loc="left", color=INK)
+    axes[0].legend(fontsize=6)
+    axes[1].errorbar(n, a[("peak_mem_mb", "mean")], yerr=a[("peak_mem_mb", "std")], color=COL["KinCP"], marker="o", ms=4, capsize=1.5)
+    axes[1].set_xscale("log")
+    axes[1].set_yscale("log")
+    axes[1].set_xlabel("Training-set size")
+    axes[1].set_ylabel("Peak traced memory (MB)")
+    axes[1].set_title("b  Memory (fit + pools + intervals)", fontsize=8, loc="left", color=INK)
     fig.tight_layout()
     save(fig, "Fig8_runtime")
 

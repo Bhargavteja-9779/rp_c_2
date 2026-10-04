@@ -1,38 +1,74 @@
 [
- {"label": "Figure 1", "file": "Fig1_KinCP_schematic",
+ {
+  "label": "Figure 1",
+  "file": "Fig1_KinCP_schematic",
   "legend": "Kinship-aware conformal prediction (KinCP). (A) Random and genomic-cluster cross-fitting inside the training set produce a pool of out-of-fold residuals together with each residual's relatedness covariate d, the GBLUP prediction error variance in σ²_g units (Equation 1), computed relative to the inner training subset. (B) Scores are normalised by the predictive standard deviation implied by d. (C) For each candidate, the conformal quantile is computed with kernel weights in log d (Equation 2); the candidate's own unit weight is placed at +∞.",
-  "alt": "Flow diagram. Genotypes and training phenotypes feed an outer model fit. Two cross-fitting schemes (random and genomic-cluster folds) produce residuals and relatedness values, which are normalised and kernel-weighted to give an interval for each candidate."},
- {"label": "Figure 2", "file": "Fig2_data_relatedness",
+  "alt": "Flow diagram. Genotypes and training phenotypes feed an outer model fit. Two cross-fitting schemes (random and genomic-cluster folds) produce residuals and relatedness values, which are normalised and kernel-weighted to give an interval for each candidate."
+ },
+ {
+  "label": "Figure 2",
+  "file": "Fig2_data_relatedness",
   "legend": "Datasets and relatedness of test candidates. (a) Number of genotyped individuals (n) and polymorphic markers (m) in each EasyGeSe dataset. (b) Distribution of the relatedness covariate d (log10 scale) for test candidates under random cross-validation (R1) and cluster-out validation (R2), shown for the first selected trait of each dataset. Boxes show the interquartile range and whiskers 1.5 × IQR. Larger d means weaker relatedness to the training set.",
-  "alt": "Left: horizontal bars of sample sizes for ten species, ranging from about 320 to 4,400 individuals. Right: paired box plots per species; cluster-out candidates have systematically larger d than random-CV candidates."},
- {"label": "Figure 3", "file": "Fig3_conditional_coverage",
+  "alt": "Left: horizontal bars of sample sizes for ten species, ranging from about 320 to 4,400 individuals. Right: paired box plots per species; cluster-out candidates have systematically larger d than random-CV candidates."
+ },
+ {
+  "label": "Figure 3",
+  "file": "Fig3_conditional_coverage",
   "legend": "Coverage of 90% prediction intervals by quintile of relatedness to the training set (GBLUP base predictor). Points are means over {{n_units}} dataset × trait units, with 95% bootstrap confidence intervals. Q1 contains the candidates most closely related to the training set; Q5 the least related. The dashed line marks the 0.90 target.",
-  "alt": "Three panels of line plots, one per validation regime. Split conformal and CV+ fall from about 0.93 coverage for close relatives to about 0.88 for distant ones under random CV, and to about 0.81 to 0.84 under cluster-out validation. KinCP, CalPred-style and Gauss-PEV stay near 0.90 across quintiles."},
- {"label": "Figure 4", "file": "Fig4_unit_coverage",
+  "alt": "Three panels of line plots, one per validation regime. Split conformal and CV+ fall from about 0.93 coverage for close relatives to about 0.88 for distant ones under random CV, and to about 0.81 to 0.84 under cluster-out validation. KinCP, CalPred-style and Gauss-PEV stay near 0.90 across quintiles."
+ },
+ {
+  "label": "Figure 4",
+  "file": "Fig4_unit_coverage",
   "legend": "Marginal coverage of 90% intervals for every dataset × trait unit under random (R1) and cluster-out (R2) validation (GBLUP base predictor).",
-  "alt": "Dot plot with one row per species and trait. Under cluster-out validation, split conformal and CV+ fall below 0.80 for several units, while KinCP points cluster closer to 0.90."},
- {"label": "Figure 5", "file": "Fig5_ablation",
+  "alt": "Dot plot with one row per species and trait. Under cluster-out validation, split conformal and CV+ fall below 0.80 for several units, while KinCP points cluster closer to 0.90."
+ },
+ {
+  "label": "Figure 5",
+  "file": "Fig5_ablation",
   "legend": "Ablation of KinCP components (GBLUP base predictor): (A) relatedness-diverse calibration pool, (B) PEV-normalised scores, (C) localisation in log d. Bars show the mean relatedness-conditional coverage error over units; error bars are 95% bootstrap confidence intervals.",
-  "alt": "Horizontal bar charts for random and cluster-out validation, comparing the full method with every subset of its three components. Under cluster-out validation, removing the diverse calibration pool raises the error most."},
- {"label": "Figure 6", "file": "Fig6_base_predictors",
+  "alt": "Horizontal bar charts for random and cluster-out validation, comparing the full method with every subset of its three components. Under cluster-out validation, removing the diverse calibration pool raises the error most."
+ },
+ {
+  "label": "Figure 6",
+  "file": "Fig6_base_predictors",
   "legend": "Generalisation across base predictors. Marginal coverage (a) and relatedness-conditional coverage error (b) for GBLUP, RKHS regression and LightGBM under random (R1) and cluster-out (R2) validation. Means over units with 95% bootstrap confidence intervals. Gauss-PEV is not shown because it exists only for GBLUP.",
-  "alt": "Two panels of grouped point estimates by base predictor and regime, comparing split conformal, CV+, CalPred-style and KinCP."},
- {"label": "Figure 7", "file": "Fig7_simulation",
+  "alt": "Two panels of grouped point estimates by base predictor and regime, comparing split conformal, CV+, CalPred-style and KinCP."
+ },
+ {
+  "label": "Figure 7",
+  "file": "Fig7_simulation",
   "legend": "Simulation with known genetic values on real loblolly pine, pig and maize genotypes (additive traits; 10 or 1,000 QTL; five replicates). (a) Worst-quintile coverage and (b) relatedness-conditional coverage error by regime and heritability. Means over genotype sets, QTL numbers and replicates, with 95% bootstrap confidence intervals.",
-  "alt": "Two panels of point estimates by regime and heritability, comparing five interval methods."},
- {"label": "Figure 8", "file": "Fig8_runtime",
-  "legend": "Computational cost per outer fold (one CPU thread) against training-set size: a single model fit versus the ten cross-fitted fits used to build KinCP's calibration pools, for each base predictor.",
-  "alt": "Log-log scatter plot. Pool construction costs roughly ten single fits for every base predictor and training-set size."},
- {"label": "Figure 9", "file": "Fig9_sensitivity",
+  "alt": "Two panels of point estimates by regime and heritability, comparing five interval methods."
+ },
+ {
+  "label": "Figure 8",
+  "file": "Fig8_runtime",
+  "legend": "Computational cost of KinCP against training-set size, from a controlled benchmark on random subsets of the maize genotypes with a simulated trait, one CPU thread and three replicates (mean ± SD). (a) Wall time of one REML-based GBLUP fit, of the random-fold and cluster-fold calibration pools (five fixed-δ fits each), and of computing KinCP intervals for 300 candidates. (b) Peak traced memory of the whole procedure.",
+  "alt": "Two log-log line plots. Time grows roughly with the square to the cube of training-set size, and pool construction costs less than one REML fit; interval computation takes well under a second. Memory grows with the square of training-set size and reaches about 300 MB at 3,500 individuals."
+ },
+ {
+  "label": "Figure 9",
+  "file": "Fig9_sensitivity",
   "legend": "Sensitivity analyses (GBLUP). (a) Relatedness-conditional coverage error of KinCP for localisation bandwidths h = 0.25–2 (in units of SD(log d)), without the mass floor, and with floors n_min = 25 and 100. (b) Coverage minus nominal coverage at 1 − α = 0.80, 0.90 and 0.95. Solid lines: R1; dotted lines: R2.",
-  "alt": "Left: line plot of error against bandwidth variant for the two regimes. Right: coverage deviation at three nominal levels for five methods."},
- {"label": "Figure 10", "file": "Fig10_error_analysis",
+  "alt": "Left: line plot of error against bandwidth variant for the two regimes. Right: coverage deviation at three nominal levels for five methods."
+ },
+ {
+  "label": "Figure 10",
+  "file": "Fig10_error_analysis",
   "legend": "Error analysis under cluster-out validation (GBLUP). Marginal coverage of each unit against (a) the excess kurtosis of the phenotype and (b) the predictive ability of GBLUP.",
-  "alt": "Two scatter plots comparing Gauss-PEV and KinCP coverage across units."},
- {"label": "Figure 11", "file": "Fig11_selection",
+  "alt": "Two scatter plots comparing Gauss-PEV and KinCP coverage across units."
+ },
+ {
+  "label": "Figure 11",
+  "file": "Fig11_selection",
   "legend": "Interval validity among selected candidates. In each outer fold the top 10% of candidates by predicted value were selected. (a) Coverage among the selected candidates. (b) Share of selected candidates whose phenotype fell below the lower interval bound (target 0.05 for a two-sided 90% interval). Means over units with 95% bootstrap confidence intervals.",
-  "alt": "Two panels of point estimates for random and cluster-out validation, comparing five interval methods among selected candidates."},
- {"label": "Figure 12", "file": "Fig12_statistics_forest",
+  "alt": "Two panels of point estimates for random and cluster-out validation, comparing five interval methods among selected candidates."
+ },
+ {
+  "label": "Figure 12",
+  "file": "Fig12_statistics_forest",
   "legend": "Paired comparison of relatedness-conditional coverage error, competitor minus KinCP (GBLUP; positive values favour KinCP). Points are median paired differences across units, with 95% bootstrap confidence intervals. Asterisks mark Holm-adjusted P < 0.05 (two-sided Wilcoxon signed-rank tests).",
-  "alt": "Forest plots for three regimes, showing one median difference with its confidence interval for each competing method."}
+  "alt": "Forest plots for three regimes, showing one median difference with its confidence interval for each competing method."
+ }
 ]

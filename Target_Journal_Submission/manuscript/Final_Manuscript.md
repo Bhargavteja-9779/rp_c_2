@@ -151,6 +151,8 @@ Three regimes were used:
 * **R2, cluster-out:** each of the five genomic clusters was held out in turn, and the analysis was repeated with five seeds for all stochastic components.
 * **R3, reduced training:** the R1 folds with the training set randomly subsampled to 50%.
 
+Two further cluster-out variants tested the sensitivity of R2 to cluster granularity, both with GBLUP and one seed: *k*-means with *k* = 3 and with *k* = 10 deployment clusters. KinCP's inner folds were left at *k* = 5 in both. For eastern oyster, whose individuals belong to four F2 families identified in the EasyGeSe identifiers, each family was also held out in turn (five seeds). These analyses were added at the request of internal review, after the main results had been seen.
+
 RKHS was run on R1 (first repeat) and R2 (two seeds). LightGBM was run on R1 (first repeat) and R2 (one seed), and not on maize (compute; deviation D5).
 
 Phenotype scaling, REML, hyper-parameters, cross-fitting, calibration scores and the variance components in σ(*d*) used outer-training individuals only. Inner cross-fitting reused the outer-fold δ (deviation D3). Seeds {11, 22, 33, 44, 55} were fixed in advance and tied to repeats. No seed was selected after viewing results. The R1 repeats re-use the same individuals, and the R2 seeds share identical outer folds and differ only in inner randomness, so neither is an independent replicate. Test folds with fewer than five individuals were skipped. This affected only one loblolly-pine cluster of three trees, leaving 20 of 25 R2 folds per pine trait.
@@ -268,20 +270,28 @@ KinCP's advantage under random cross-validation is therefore specific to calibra
 * *LightGBM, R2:* coverage 0.895 against 0.845 and 0.826. Conditional errors were 0.037 *vs.* 0.082 (*P* = 0.007).
 * As with GBLUP, KinCP and CalPred-style calibration on pool A did not differ for either predictor (RKHS *P* = 0.927; LightGBM *P* = 1.000).
 
-**Simulation with known genetic values** (Table 6; Figure 7). In simulations with known additive genetic values on real loblolly pine, pig and maize genotypes (128 analyses), KinCP covered 0.899 under R1 and 0.901 under R2. CV+ covered 0.906 and 0.881, SCP 0.878 under R2, and Gauss-PEV 0.899 under R2. Mean worst-quintile coverage under R2 was 0.874 for KinCP and 0.872 for Gauss-PEV. Because the simulated traits satisfy the Gaussian additive model exactly, Gauss-PEV is the correctly specified reference here. KinCP approached it without using the model's distributional assumptions, whereas relatedness-blind conformal intervals under-covered under R2. The relatedness covariate itself was calibrated for the genetic values. By quintile of *d*, the realised mean squared error of the genetic-value prediction divided by σ̂²_g·*d* ranged from 1.00 to 1.07 under R1 and from 0.98 to 1.06 under R2 (median over analyses; 1 = perfect calibration).
+**Simulation with known genetic values** (Table 6; Figure 7). In simulations with known additive genetic values on real loblolly pine, pig and maize genotypes (180 analyses), KinCP covered 0.900 under R1 and 0.901 under R2. CV+ covered 0.906 and 0.882, SCP 0.875 under R2, and Gauss-PEV 0.900 under R2. Mean worst-quintile coverage under R2 was 0.875 for KinCP and 0.874 for Gauss-PEV. Because the simulated traits satisfy the Gaussian additive model exactly, Gauss-PEV is the correctly specified reference here. KinCP approached it without using the model's distributional assumptions, whereas relatedness-blind conformal intervals under-covered under R2. The relatedness covariate itself was calibrated for the genetic values. By quintile of *d*, the realised mean squared error of the genetic-value prediction divided by σ̂²_g·*d* ranged from 1.00 to 1.02 under R1 and from 0.95 to 1.04 under R2 (median over analyses; 1 = perfect calibration).
+
+**Granularity of the deployment clusters.** The cluster-out conclusions did not depend on the number of deployment clusters, even though KinCP's inner cluster folds were kept at the pre-specified *k* = 5. With *k* = 3 larger, more distinct held-out groups, mean coverage was 0.906 for KinCP, 0.822 for CV+, 0.813 for SCP and 0.886 for Gauss-PEV. With *k* = 10 smaller groups, it was 0.891, 0.859, 0.854 and 0.885. KinCP had a lower conditional error than CV+ in 17/24 units (*k* = 3; unadjusted Wilcoxon *P* = 0.001) and 14/24 units (*k* = 10; *P* = 0.009). Holding out each of the four real F2 families of eastern oyster in turn gave coverage of 0.923 for KinCP, 0.930 for Gauss-PEV, 0.865 for CV+ and 0.860 for SCP.
 
 **Near-duplicate genotypes.** Removing near-duplicates did not change the conclusions (File S2, Table S_dedup). Under R2 KinCP covered 0.892 and CV+ 0.845; under R1 the figures were 0.902 and 0.904.
 
 ### RQ4: computational cost and sensitivity
 
-**Cost** (Table 7; Figure 8). Building KinCP's two calibration pools requires ten additional model fits per training set. For the kernel models these inner fits reuse the outer-fold variance ratio and need only a Cholesky factorisation, whereas the single outer fit includes REML with an eigendecomposition. The median cost of both pools relative to one outer fit was 1.9× for GBLUP, 1.3× for RKHS and 8.3× for LightGBM. For maize (about 3,500 training individuals), one GBLUP fit took 10.6 s on one CPU thread and both pools 7.7 s. Computing all interval methods from the pools took at most 6.27 s per fold. The overhead is therefore that of a standard five-fold cross-validation run twice, and is negligible relative to phenotyping or genotyping.
+**Cost** (Table 7; Figure 8). Building KinCP's two calibration pools requires ten additional model fits per training set. For the kernel models these inner fits reuse the outer-fold variance ratio and need only a Cholesky factorisation, whereas the single outer fit includes REML with an eigendecomposition. The median cost of both pools relative to one outer fit was 1.9× for GBLUP, 1.3× for RKHS and 8.3× for LightGBM. For maize (about 3,500 training individuals), one GBLUP fit took 10.6 s on one CPU thread and both pools 7.7 s. Computing all interval methods from the pools took at most 6.27 s per fold. In a controlled benchmark on maize genotypes (Figure 8), with 3,500 training individuals on one thread:
+* one REML fit took 10.0 s;
+* both pools took 7.3 s;
+* the KinCP intervals for 300 candidates took 0.07 s;
+* peak memory was 303 MB.
+
+Pool time grew with training-set size to the power 2.0, and memory to the power 1.7. These exponents follow the dense *O*(*n*³) factorisations and *O*(*n*²) relationship matrices of GBLUP itself. The overhead is therefore that of a standard five-fold cross-validation run twice, and is small relative to phenotyping or genotyping costs.
 
 **Sensitivity** (Table 8; Figure 9). KinCP was insensitive to its tuning choices:
 * *Bandwidth multiplier* from 0.25 to 2: R2 conditional error 0.037 to 0.040, against 0.036 at the default.
 * *Mass floor:* without the floor, 0.002 of R2 intervals were infinite. With n_min = 25 or 100 the conditional error was 0.036 and 0.036.
 * *Nominal level:* at 1 − α = 0.95 and 0.80, KinCP's R2 coverage was 0.945 and 0.789, against 0.909 and 0.710 for CV+.
 
-[PENDING]
+**Exploratory refinements (not pre-specified).** Two attempts to close the remaining gap under R2 did not improve on KinCP. Inner cluster folds matched to the deployment clusters (KinCP-G) gave a conditional error of 0.038, against 0.037 for KinCP on the same runs. Group-conditional (Mondrian) quantiles within quintiles of *d* gave 0.040. The residual under-coverage of the least-related candidates is therefore not explained by the granularity of the inner cluster folds. We report this negative result for completeness.
 
 ### RQ5: failure modes and selection decisions
 
@@ -344,6 +354,7 @@ The classical PEV interval was competitive under random cross-validation, which 
 * **Statistical units.** Traits from the same species share genotypes, so the 24 units are not fully independent. The pattern was, however, consistent across species (Figure 4).
 * **Trait choice.** Traits were chosen by a rule fixed in advance. In loblolly pine this selected two closely related root traits.
 * **Compute.** LightGBM was not run on maize, and the RKHS and LightGBM analyses used fewer repeats than GBLUP, both for compute reasons.
+* **Scale.** All computations use dense relationship matrices. For national animal-breeding evaluations with 10⁵–10⁶ genotyped animals, the PEV in Eq. (1) would need the approximate reliability methods used in large-scale evaluation (e.g. Misztal *et al.* 2013). The cross-fitted pools would need to be built on subsamples. We did not test this.
 * **Scope of the evaluation.** Only one-step prediction intervals for single traits in a single environment were evaluated. Multi-trait, multi-environment and selection-conditional (Jin and Candès 2023) guarantees are natural extensions.
 
 ### Conclusions
@@ -430,6 +441,8 @@ Legarra A, Reverter A. 2018. Semi-parametric estimates of population accuracy an
 Lei J, G’Sell M, Rinaldo A, Tibshirani RJ, Wasserman L. 2018. Distribution-Free Predictive Inference for Regression. Journal of the American Statistical Association. 113(523):1094–1111. doi:10.1080/01621459.2017.1307116
 
 Meuwissen THE, Hayes BJ, Goddard ME. 2001. Prediction of Total Genetic Value Using Genome-Wide Dense Marker Maps. Genetics. 157(4):1819–1829. doi:10.1093/genetics/157.4.1819
+
+Misztal I, Tsuruta S, Aguilar I, Legarra A, VanRaden P, Lawlor T. 2013. Methods to approximate reliabilities in single-step genomic evaluation. Journal of Dairy Science. 96(1):647–654. doi:10.3168/jds.2012-5656
 
 Papadopoulos H, Proedrou K, Vovk V, Gammerman A. 2002. Inductive Confidence Machines for Regression. Lecture Notes in Computer Science. 345-356. doi:10.1007/3-540-36755-1_29
 
@@ -674,66 +687,66 @@ on behalf of all authors
 
 | Regime   |    h² |   QTL | Method        |   Replicates×genotype sets | Coverage      | Cond. error   | Worst-quintile cov.   | Width         |
 |:---------|------:|------:|:--------------|---------------------------:|:--------------|:--------------|:----------------------|:--------------|
-| R1       | 0.200 |    10 | SCP           |                         14 | 0.902 ± 0.007 | 0.016 ± 0.007 | 0.878 ± 0.014         | 3.190 ± 0.114 |
-| R1       | 0.200 |    10 | CV+           |                         14 | 0.902 ± 0.003 | 0.014 ± 0.007 | 0.881 ± 0.013         | 3.162 ± 0.079 |
-| R1       | 0.200 |    10 | Gauss-PEV     |                         14 | 0.899 ± 0.004 | 0.014 ± 0.007 | 0.877 ± 0.011         | 3.144 ± 0.074 |
-| R1       | 0.200 |    10 | CalPred-style |                         14 | 0.897 ± 0.007 | 0.014 ± 0.009 | 0.877 ± 0.015         | 3.125 ± 0.071 |
-| R1       | 0.200 |    10 | KinCP         |                         14 | 0.900 ± 0.004 | 0.014 ± 0.008 | 0.879 ± 0.012         | 3.143 ± 0.074 |
-| R1       | 0.200 |  1000 | SCP           |                         10 | 0.901 ± 0.007 | 0.016 ± 0.008 | 0.875 ± 0.017         | 3.209 ± 0.116 |
-| R1       | 0.200 |  1000 | CV+           |                         10 | 0.902 ± 0.002 | 0.015 ± 0.007 | 0.878 ± 0.009         | 3.196 ± 0.075 |
-| R1       | 0.200 |  1000 | Gauss-PEV     |                         10 | 0.900 ± 0.005 | 0.015 ± 0.007 | 0.875 ± 0.015         | 3.178 ± 0.064 |
-| R1       | 0.200 |  1000 | CalPred-style |                         10 | 0.898 ± 0.007 | 0.016 ± 0.006 | 0.875 ± 0.014         | 3.161 ± 0.071 |
-| R1       | 0.200 |  1000 | KinCP         |                         10 | 0.898 ± 0.003 | 0.016 ± 0.006 | 0.875 ± 0.009         | 3.175 ± 0.080 |
-| R1       | 0.500 |    10 | SCP           |                         10 | 0.904 ± 0.011 | 0.015 ± 0.004 | 0.884 ± 0.018         | 2.976 ± 0.117 |
-| R1       | 0.500 |    10 | CV+           |                         10 | 0.905 ± 0.007 | 0.014 ± 0.004 | 0.885 ± 0.007         | 2.953 ± 0.093 |
-| R1       | 0.500 |    10 | Gauss-PEV     |                         10 | 0.898 ± 0.005 | 0.013 ± 0.004 | 0.878 ± 0.012         | 2.869 ± 0.090 |
-| R1       | 0.500 |    10 | CalPred-style |                         10 | 0.896 ± 0.005 | 0.013 ± 0.005 | 0.874 ± 0.011         | 2.857 ± 0.092 |
-| R1       | 0.500 |    10 | KinCP         |                         10 | 0.900 ± 0.006 | 0.013 ± 0.003 | 0.880 ± 0.009         | 2.898 ± 0.101 |
-| R1       | 0.500 |  1000 | SCP           |                         10 | 0.902 ± 0.011 | 0.018 ± 0.006 | 0.875 ± 0.014         | 2.990 ± 0.133 |
-| R1       | 0.500 |  1000 | CV+           |                         10 | 0.904 ± 0.004 | 0.017 ± 0.006 | 0.881 ± 0.009         | 2.961 ± 0.108 |
-| R1       | 0.500 |  1000 | Gauss-PEV     |                         10 | 0.898 ± 0.004 | 0.015 ± 0.006 | 0.873 ± 0.008         | 2.896 ± 0.086 |
-| R1       | 0.500 |  1000 | CalPred-style |                         10 | 0.896 ± 0.007 | 0.016 ± 0.006 | 0.871 ± 0.011         | 2.875 ± 0.090 |
-| R1       | 0.500 |  1000 | KinCP         |                         10 | 0.898 ± 0.005 | 0.014 ± 0.006 | 0.878 ± 0.012         | 2.909 ± 0.107 |
-| R1       | 0.800 |    10 | SCP           |                         10 | 0.906 ± 0.011 | 0.023 ± 0.007 | 0.871 ± 0.017         | 2.518 ± 0.191 |
-| R1       | 0.800 |    10 | CV+           |                         10 | 0.915 ± 0.008 | 0.023 ± 0.005 | 0.886 ± 0.014         | 2.516 ± 0.155 |
-| R1       | 0.800 |    10 | Gauss-PEV     |                         10 | 0.900 ± 0.007 | 0.017 ± 0.005 | 0.873 ± 0.018         | 2.391 ± 0.137 |
-| R1       | 0.800 |    10 | CalPred-style |                         10 | 0.901 ± 0.010 | 0.016 ± 0.003 | 0.876 ± 0.017         | 2.399 ± 0.163 |
-| R1       | 0.800 |    10 | KinCP         |                         10 | 0.902 ± 0.012 | 0.016 ± 0.005 | 0.878 ± 0.022         | 2.408 ± 0.171 |
-| R1       | 0.800 |  1000 | SCP           |                         10 | 0.906 ± 0.009 | 0.019 ± 0.005 | 0.876 ± 0.015         | 2.523 ± 0.201 |
-| R1       | 0.800 |  1000 | CV+           |                         10 | 0.910 ± 0.005 | 0.020 ± 0.004 | 0.879 ± 0.014         | 2.506 ± 0.181 |
-| R1       | 0.800 |  1000 | Gauss-PEV     |                         10 | 0.899 ± 0.006 | 0.013 ± 0.004 | 0.876 ± 0.015         | 2.402 ± 0.163 |
-| R1       | 0.800 |  1000 | CalPred-style |                         10 | 0.897 ± 0.009 | 0.014 ± 0.005 | 0.873 ± 0.021         | 2.392 ± 0.185 |
-| R1       | 0.800 |  1000 | KinCP         |                         10 | 0.899 ± 0.006 | 0.014 ± 0.003 | 0.881 ± 0.012         | 2.401 ± 0.175 |
-| R2       | 0.200 |    10 | SCP           |                         14 | 0.894 ± 0.014 | 0.019 ± 0.008 | 0.870 ± 0.018         | 3.195 ± 0.128 |
-| R2       | 0.200 |    10 | CV+           |                         14 | 0.893 ± 0.009 | 0.017 ± 0.008 | 0.871 ± 0.014         | 3.159 ± 0.086 |
-| R2       | 0.200 |    10 | Gauss-PEV     |                         14 | 0.900 ± 0.007 | 0.014 ± 0.006 | 0.878 ± 0.011         | 3.215 ± 0.052 |
-| R2       | 0.200 |    10 | CalPred-style |                         14 | 0.900 ± 0.006 | 0.013 ± 0.005 | 0.880 ± 0.009         | 3.226 ± 0.070 |
-| R2       | 0.200 |    10 | KinCP         |                         14 | 0.902 ± 0.005 | 0.013 ± 0.006 | 0.879 ± 0.014         | 3.239 ± 0.080 |
-| R2       | 0.200 |  1000 | SCP           |                         10 | 0.896 ± 0.014 | 0.020 ± 0.010 | 0.870 ± 0.021         | 3.208 ± 0.128 |
-| R2       | 0.200 |  1000 | CV+           |                         10 | 0.897 ± 0.004 | 0.015 ± 0.006 | 0.868 ± 0.013         | 3.196 ± 0.075 |
-| R2       | 0.200 |  1000 | Gauss-PEV     |                         10 | 0.902 ± 0.008 | 0.015 ± 0.004 | 0.877 ± 0.014         | 3.243 ± 0.034 |
-| R2       | 0.200 |  1000 | CalPred-style |                         10 | 0.899 ± 0.008 | 0.016 ± 0.006 | 0.874 ± 0.015         | 3.235 ± 0.043 |
-| R2       | 0.200 |  1000 | KinCP         |                         10 | 0.901 ± 0.004 | 0.015 ± 0.005 | 0.877 ± 0.013         | 3.235 ± 0.084 |
-| R2       | 0.500 |    10 | SCP           |                         10 | 0.877 ± 0.016 | 0.027 ± 0.014 | 0.846 ± 0.031         | 2.925 ± 0.096 |
-| R2       | 0.500 |    10 | CV+           |                         10 | 0.881 ± 0.012 | 0.023 ± 0.010 | 0.852 ± 0.016         | 2.960 ± 0.098 |
-| R2       | 0.500 |    10 | Gauss-PEV     |                         10 | 0.895 ± 0.009 | 0.019 ± 0.007 | 0.865 ± 0.018         | 3.082 ± 0.049 |
-| R2       | 0.500 |    10 | CalPred-style |                         10 | 0.897 ± 0.012 | 0.021 ± 0.008 | 0.863 ± 0.019         | 3.106 ± 0.072 |
-| R2       | 0.500 |    10 | KinCP         |                         10 | 0.903 ± 0.009 | 0.020 ± 0.009 | 0.870 ± 0.012         | 3.163 ± 0.097 |
-| R2       | 0.500 |  1000 | SCP           |                         10 | 0.890 ± 0.018 | 0.023 ± 0.014 | 0.868 ± 0.020         | 3.049 ± 0.110 |
-| R2       | 0.500 |  1000 | CV+           |                         10 | 0.884 ± 0.020 | 0.022 ± 0.017 | 0.862 ± 0.025         | 2.977 ± 0.106 |
-| R2       | 0.500 |  1000 | Gauss-PEV     |                         10 | 0.902 ± 0.011 | 0.014 ± 0.008 | 0.883 ± 0.017         | 3.118 ± 0.071 |
-| R2       | 0.500 |  1000 | CalPred-style |                         10 | 0.898 ± 0.014 | 0.017 ± 0.012 | 0.878 ± 0.023         | 3.110 ± 0.079 |
-| R2       | 0.500 |  1000 | KinCP         |                         10 | 0.900 ± 0.011 | 0.015 ± 0.009 | 0.881 ± 0.019         | 3.100 ± 0.070 |
-| R2       | 0.800 |    10 | SCP           |                         10 | 0.861 ± 0.021 | 0.045 ± 0.019 | 0.823 ± 0.034         | 2.523 ± 0.153 |
-| R2       | 0.800 |    10 | CV+           |                         10 | 0.869 ± 0.019 | 0.038 ± 0.019 | 0.829 ± 0.044         | 2.520 ± 0.142 |
-| R2       | 0.800 |    10 | Gauss-PEV     |                         10 | 0.901 ± 0.017 | 0.024 ± 0.014 | 0.867 ± 0.029         | 2.737 ± 0.166 |
-| R2       | 0.800 |    10 | CalPred-style |                         10 | 0.899 ± 0.013 | 0.022 ± 0.014 | 0.865 ± 0.030         | 2.737 ± 0.155 |
-| R2       | 0.800 |    10 | KinCP         |                         10 | 0.901 ± 0.012 | 0.022 ± 0.010 | 0.867 ± 0.023         | 2.753 ± 0.197 |
-| R2       | 0.800 |  1000 | SCP           |                         10 | 0.843 ± 0.026 | 0.057 ± 0.027 | 0.794 ± 0.059         | 2.503 ± 0.208 |
-| R2       | 0.800 |  1000 | CV+           |                         10 | 0.857 ± 0.034 | 0.045 ± 0.033 | 0.811 ± 0.055         | 2.522 ± 0.210 |
-| R2       | 0.800 |  1000 | Gauss-PEV     |                         10 | 0.891 ± 0.021 | 0.020 ± 0.015 | 0.862 ± 0.035         | 2.771 ± 0.096 |
-| R2       | 0.800 |  1000 | CalPred-style |                         10 | 0.894 ± 0.018 | 0.019 ± 0.014 | 0.867 ± 0.026         | 2.780 ± 0.085 |
-| R2       | 0.800 |  1000 | KinCP         |                         10 | 0.897 ± 0.013 | 0.017 ± 0.009 | 0.870 ± 0.027         | 2.813 ± 0.101 |
+| R1       | 0.200 |    10 | SCP           |                         15 | 0.902 ± 0.007 | 0.015 ± 0.006 | 0.878 ± 0.014         | 3.178 ± 0.119 |
+| R1       | 0.200 |    10 | CV+           |                         15 | 0.902 ± 0.003 | 0.014 ± 0.006 | 0.881 ± 0.012         | 3.155 ± 0.080 |
+| R1       | 0.200 |    10 | Gauss-PEV     |                         15 | 0.899 ± 0.004 | 0.013 ± 0.007 | 0.878 ± 0.011         | 3.139 ± 0.074 |
+| R1       | 0.200 |    10 | CalPred-style |                         15 | 0.897 ± 0.007 | 0.014 ± 0.009 | 0.877 ± 0.015         | 3.121 ± 0.070 |
+| R1       | 0.200 |    10 | KinCP         |                         15 | 0.900 ± 0.004 | 0.013 ± 0.008 | 0.879 ± 0.012         | 3.138 ± 0.074 |
+| R1       | 0.200 |  1000 | SCP           |                         15 | 0.901 ± 0.007 | 0.013 ± 0.007 | 0.880 ± 0.016         | 3.158 ± 0.124 |
+| R1       | 0.200 |  1000 | CV+           |                         15 | 0.902 ± 0.002 | 0.013 ± 0.006 | 0.881 ± 0.009         | 3.154 ± 0.087 |
+| R1       | 0.200 |  1000 | Gauss-PEV     |                         15 | 0.900 ± 0.004 | 0.013 ± 0.007 | 0.878 ± 0.014         | 3.133 ± 0.085 |
+| R1       | 0.200 |  1000 | CalPred-style |                         15 | 0.899 ± 0.006 | 0.014 ± 0.006 | 0.878 ± 0.013         | 3.124 ± 0.081 |
+| R1       | 0.200 |  1000 | KinCP         |                         15 | 0.899 ± 0.003 | 0.013 ± 0.006 | 0.879 ± 0.010         | 3.136 ± 0.087 |
+| R1       | 0.500 |    10 | SCP           |                         15 | 0.902 ± 0.010 | 0.014 ± 0.005 | 0.883 ± 0.015         | 2.827 ± 0.239 |
+| R1       | 0.500 |    10 | CV+           |                         15 | 0.905 ± 0.006 | 0.012 ± 0.005 | 0.887 ± 0.007         | 2.816 ± 0.215 |
+| R1       | 0.500 |    10 | Gauss-PEV     |                         15 | 0.899 ± 0.005 | 0.011 ± 0.005 | 0.882 ± 0.012         | 2.753 ± 0.186 |
+| R1       | 0.500 |    10 | CalPred-style |                         15 | 0.898 ± 0.005 | 0.012 ± 0.005 | 0.880 ± 0.012         | 2.748 ± 0.177 |
+| R1       | 0.500 |    10 | KinCP         |                         15 | 0.900 ± 0.005 | 0.011 ± 0.004 | 0.883 ± 0.009         | 2.770 ± 0.205 |
+| R1       | 0.500 |  1000 | SCP           |                         15 | 0.902 ± 0.009 | 0.016 ± 0.006 | 0.876 ± 0.012         | 2.850 ± 0.235 |
+| R1       | 0.500 |  1000 | CV+           |                         15 | 0.905 ± 0.003 | 0.015 ± 0.006 | 0.882 ± 0.010         | 2.833 ± 0.210 |
+| R1       | 0.500 |  1000 | Gauss-PEV     |                         15 | 0.899 ± 0.004 | 0.013 ± 0.006 | 0.878 ± 0.010         | 2.774 ± 0.193 |
+| R1       | 0.500 |  1000 | CalPred-style |                         15 | 0.897 ± 0.006 | 0.014 ± 0.006 | 0.876 ± 0.012         | 2.760 ± 0.185 |
+| R1       | 0.500 |  1000 | KinCP         |                         15 | 0.899 ± 0.005 | 0.012 ± 0.006 | 0.882 ± 0.011         | 2.784 ± 0.204 |
+| R1       | 0.800 |    10 | SCP           |                         15 | 0.904 ± 0.010 | 0.023 ± 0.008 | 0.863 ± 0.022         | 2.274 ± 0.390 |
+| R1       | 0.800 |    10 | CV+           |                         15 | 0.914 ± 0.007 | 0.024 ± 0.006 | 0.879 ± 0.019         | 2.279 ± 0.370 |
+| R1       | 0.800 |    10 | Gauss-PEV     |                         15 | 0.900 ± 0.006 | 0.014 ± 0.006 | 0.877 ± 0.016         | 2.169 ± 0.342 |
+| R1       | 0.800 |    10 | CalPred-style |                         15 | 0.899 ± 0.009 | 0.015 ± 0.005 | 0.875 ± 0.015         | 2.171 ± 0.358 |
+| R1       | 0.800 |    10 | KinCP         |                         15 | 0.901 ± 0.010 | 0.014 ± 0.006 | 0.880 ± 0.018         | 2.181 ± 0.360 |
+| R1       | 0.800 |  1000 | SCP           |                         15 | 0.904 ± 0.008 | 0.019 ± 0.005 | 0.871 ± 0.016         | 2.265 ± 0.412 |
+| R1       | 0.800 |  1000 | CV+           |                         15 | 0.911 ± 0.004 | 0.021 ± 0.004 | 0.878 ± 0.013         | 2.265 ± 0.383 |
+| R1       | 0.800 |  1000 | Gauss-PEV     |                         15 | 0.900 ± 0.005 | 0.012 ± 0.004 | 0.880 ± 0.013         | 2.172 ± 0.362 |
+| R1       | 0.800 |  1000 | CalPred-style |                         15 | 0.898 ± 0.007 | 0.013 ± 0.004 | 0.876 ± 0.018         | 2.162 ± 0.368 |
+| R1       | 0.800 |  1000 | KinCP         |                         15 | 0.900 ± 0.005 | 0.012 ± 0.004 | 0.884 ± 0.011         | 2.172 ± 0.365 |
+| R2       | 0.200 |    10 | SCP           |                         15 | 0.894 ± 0.014 | 0.019 ± 0.007 | 0.870 ± 0.017         | 3.186 ± 0.128 |
+| R2       | 0.200 |    10 | CV+           |                         15 | 0.892 ± 0.009 | 0.017 ± 0.008 | 0.871 ± 0.014         | 3.154 ± 0.084 |
+| R2       | 0.200 |    10 | Gauss-PEV     |                         15 | 0.899 ± 0.007 | 0.014 ± 0.006 | 0.878 ± 0.011         | 3.211 ± 0.052 |
+| R2       | 0.200 |    10 | CalPred-style |                         15 | 0.900 ± 0.006 | 0.013 ± 0.004 | 0.880 ± 0.009         | 3.227 ± 0.068 |
+| R2       | 0.200 |    10 | KinCP         |                         15 | 0.902 ± 0.005 | 0.013 ± 0.006 | 0.880 ± 0.014         | 3.240 ± 0.077 |
+| R2       | 0.200 |  1000 | SCP           |                         15 | 0.893 ± 0.013 | 0.019 ± 0.009 | 0.870 ± 0.017         | 3.165 ± 0.123 |
+| R2       | 0.200 |  1000 | CV+           |                         15 | 0.894 ± 0.006 | 0.015 ± 0.005 | 0.870 ± 0.011         | 3.156 ± 0.085 |
+| R2       | 0.200 |  1000 | Gauss-PEV     |                         15 | 0.900 ± 0.007 | 0.013 ± 0.005 | 0.879 ± 0.012         | 3.210 ± 0.058 |
+| R2       | 0.200 |  1000 | CalPred-style |                         15 | 0.899 ± 0.006 | 0.013 ± 0.007 | 0.878 ± 0.013         | 3.212 ± 0.057 |
+| R2       | 0.200 |  1000 | KinCP         |                         15 | 0.901 ± 0.004 | 0.012 ± 0.006 | 0.881 ± 0.013         | 3.221 ± 0.075 |
+| R2       | 0.500 |    10 | SCP           |                         15 | 0.877 ± 0.015 | 0.027 ± 0.013 | 0.849 ± 0.028         | 2.811 ± 0.186 |
+| R2       | 0.500 |    10 | CV+           |                         15 | 0.882 ± 0.011 | 0.023 ± 0.010 | 0.854 ± 0.020         | 2.838 ± 0.198 |
+| R2       | 0.500 |    10 | Gauss-PEV     |                         15 | 0.898 ± 0.010 | 0.018 ± 0.007 | 0.871 ± 0.020         | 2.963 ± 0.183 |
+| R2       | 0.500 |    10 | CalPred-style |                         15 | 0.896 ± 0.010 | 0.019 ± 0.008 | 0.867 ± 0.020         | 2.971 ± 0.213 |
+| R2       | 0.500 |    10 | KinCP         |                         15 | 0.903 ± 0.008 | 0.018 ± 0.008 | 0.875 ± 0.013         | 3.021 ± 0.231 |
+| R2       | 0.500 |  1000 | SCP           |                         15 | 0.885 ± 0.018 | 0.024 ± 0.012 | 0.856 ± 0.030         | 2.900 ± 0.238 |
+| R2       | 0.500 |  1000 | CV+           |                         15 | 0.884 ± 0.018 | 0.022 ± 0.016 | 0.855 ± 0.035         | 2.855 ± 0.203 |
+| R2       | 0.500 |  1000 | Gauss-PEV     |                         15 | 0.901 ± 0.013 | 0.015 ± 0.008 | 0.879 ± 0.030         | 2.992 ± 0.203 |
+| R2       | 0.500 |  1000 | CalPred-style |                         15 | 0.898 ± 0.012 | 0.017 ± 0.011 | 0.873 ± 0.026         | 2.982 ± 0.197 |
+| R2       | 0.500 |  1000 | KinCP         |                         15 | 0.900 ± 0.010 | 0.014 ± 0.007 | 0.879 ± 0.022         | 2.981 ± 0.186 |
+| R2       | 0.800 |    10 | SCP           |                         15 | 0.855 ± 0.023 | 0.051 ± 0.021 | 0.803 ± 0.045         | 2.285 ± 0.371 |
+| R2       | 0.800 |    10 | CV+           |                         15 | 0.872 ± 0.017 | 0.038 ± 0.015 | 0.817 ± 0.043         | 2.309 ± 0.333 |
+| R2       | 0.800 |    10 | Gauss-PEV     |                         15 | 0.903 ± 0.015 | 0.023 ± 0.012 | 0.870 ± 0.031         | 2.499 ± 0.376 |
+| R2       | 0.800 |    10 | CalPred-style |                         15 | 0.899 ± 0.012 | 0.022 ± 0.012 | 0.864 ± 0.027         | 2.491 ± 0.384 |
+| R2       | 0.800 |    10 | KinCP         |                         15 | 0.901 ± 0.011 | 0.021 ± 0.010 | 0.868 ± 0.023         | 2.510 ± 0.397 |
+| R2       | 0.800 |  1000 | SCP           |                         15 | 0.850 ± 0.025 | 0.051 ± 0.025 | 0.802 ± 0.051         | 2.266 ± 0.387 |
+| R2       | 0.800 |  1000 | CV+           |                         15 | 0.865 ± 0.031 | 0.041 ± 0.028 | 0.815 ± 0.048         | 2.296 ± 0.374 |
+| R2       | 0.800 |  1000 | Gauss-PEV     |                         15 | 0.897 ± 0.020 | 0.022 ± 0.012 | 0.866 ± 0.030         | 2.510 ± 0.393 |
+| R2       | 0.800 |  1000 | CalPred-style |                         15 | 0.896 ± 0.017 | 0.021 ± 0.013 | 0.867 ± 0.025         | 2.504 ± 0.412 |
+| R2       | 0.800 |  1000 | KinCP         |                         15 | 0.900 ± 0.013 | 0.019 ± 0.008 | 0.870 ± 0.024         | 2.532 ± 0.421 |
 
 **Table 7** Wall time per outer fold on one CPU thread (random cross-validation). Overhead is the time to build both calibration pools divided by the time of one model fit.
 
@@ -865,9 +878,9 @@ Alt text: Two panels of grouped point estimates by base predictor and regime, co
 
 Alt text: Two panels of point estimates by regime and heritability, comparing five interval methods.
 
-**Figure 8** Computational cost per outer fold (one CPU thread) against training-set size: a single model fit versus the ten cross-fitted fits used to build KinCP's calibration pools, for each base predictor.
+**Figure 8** Computational cost of KinCP against training-set size, from a controlled benchmark on random subsets of the maize genotypes with a simulated trait, one CPU thread and three replicates (mean ± SD). (a) Wall time of one REML-based GBLUP fit, of the random-fold and cluster-fold calibration pools (five fixed-δ fits each), and of computing KinCP intervals for 300 candidates. (b) Peak traced memory of the whole procedure.
 
-Alt text: Log-log scatter plot. Pool construction costs roughly ten single fits for every base predictor and training-set size.
+Alt text: Two log-log line plots. Time grows roughly with the square to the cube of training-set size, and pool construction costs less than one REML fit; interval computation takes well under a second. Memory grows with the square of training-set size and reaches about 300 MB at 3,500 individuals.
 
 **Figure 9** Sensitivity analyses (GBLUP). (a) Relatedness-conditional coverage error of KinCP for localisation bandwidths h = 0.25–2 (in units of SD(log d)), without the mass floor, and with floors n_min = 25 and 100. (b) Coverage minus nominal coverage at 1 − α = 0.80, 0.90 and 0.95. Solid lines: R1; dotted lines: R2.
 

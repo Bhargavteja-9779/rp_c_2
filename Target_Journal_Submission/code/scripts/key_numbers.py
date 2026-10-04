@@ -190,7 +190,7 @@ def main():
     # exploratory KinCP-G (Phase 19, D6)
     ex = s[(s.tag == "explore") & (s.alpha == 0.10)]
     for reg in ["R1", "R2"]:
-        for m, tok in [("KinCP", "kincp"), ("KinCP-G", "kincpg"), ("KinCP-G+", "kincpgp"), ("CalPred-style-G", "calpg")]:
+        for m, tok in [("KinCP", "kincp"), ("KinCP-G", "kincpg"), ("KinCP-G+", "kincpgp"), ("CalPred-style-G", "calpg"), ("Mondrian-d", "mondrian")]:
             v = ex[(ex.regime == reg) & (ex.method == m)]
             if len(v):
                 K[f"ex_{tok}_{reg}_cov"] = f3(v.coverage.mean())
@@ -232,6 +232,38 @@ def main():
         K["mk_st_cvp_R1_p_num"] = f2(r1.p_holm.min())
     t_all = tim[tim.alpha.isna() & (tim.tag == "main") & (tim.base == "GBLUP")]
     K["n_folds_r2_pine"] = str(int(t_all[(t_all.dataset == "pine") & (t_all.regime == "R2")].groupby("trait").size().iloc[0]))
+    # granularity (k = 3, 10) and real families (Reviewer 5)
+    for tag, regs in [("granularity", ["R2k3", "R2k10"]), ("families", ["R2fam"])]:
+        gg = s[(s.tag == tag) & (s.alpha == 0.10)]
+        for reg in regs:
+            for m, tok in [("KinCP", "kincp"), ("CV+", "cvp"), ("SCP", "scp"), ("Gauss-PEV", "pev"), ("CalPred-style", "calp")]:
+                v = gg[(gg.regime == reg) & (gg.method == m)]
+                if len(v):
+                    K[f"gr_{tok}_{reg}_cov"] = f3(v.coverage.mean())
+                    K[f"gr_{tok}_{reg}_cond"] = f3(v.cond_err.mean())
+                    K[f"gr_{tok}_{reg}_worst"] = f3(v.worst_bin_cov.mean())
+        if tag == "granularity":
+            from scipy import stats as _st
+            for reg in regs:
+                w = gg[gg.regime == reg].pivot_table(index=["dataset", "trait"], columns="method", values="cond_err")
+                for comp, tok in [("CV+", "cvp"), ("Gauss-PEV", "pev"), ("CalPred-style", "calp")]:
+                    dlt = (w[comp] - w["KinCP"]).dropna()
+                    K[f"gr_st_{tok}_{reg}_wins"] = f"{int((dlt > 0).sum())}/{len(dlt)}"
+                    K[f"gr_st_{tok}_{reg}_p"] = pfmt(float(_st.wilcoxon(dlt).pvalue))
+    # scaling benchmark (Reviewer 6)
+    sc_p = RESULTS_DIR / "scaling.csv"
+    if sc_p.exists():
+        sc = pd.read_csv(sc_p).groupby("n_train").mean(numeric_only=True)
+        big = sc.loc[sc.index.max()]
+        K["sc_n_max"] = f"{int(sc.index.max()):,}"
+        K["sc_fit"] = f"{big.t_fit:.1f}"
+        K["sc_pools"] = f"{big.t_pool_rand + big.t_pool_clus:.1f}"
+        K["sc_int"] = f"{big.t_intervals:.2f}"
+        K["sc_mem"] = f"{big.peak_mem_mb:.0f}"
+        slope = np.polyfit(np.log(sc.index.values), np.log((sc.t_pool_rand + sc.t_pool_clus).values), 1)[0]
+        K["sc_slope"] = f"{slope:.1f}"
+        mslope = np.polyfit(np.log(sc.index.values), np.log(sc.peak_mem_mb.values), 1)[0]
+        K["sc_mslope"] = f"{mslope:.1f}"
     # narrative numbers file can be extended by text tokens defined in manuscript/src/text_tokens.json
     tt = Path(__file__).resolve().parents[2] / "manuscript" / "src" / "text_tokens.json"
     if tt.exists():

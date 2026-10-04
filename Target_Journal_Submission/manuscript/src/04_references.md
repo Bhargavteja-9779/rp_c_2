@@ -62,6 +62,8 @@ Lei J, G’Sell M, Rinaldo A, Tibshirani RJ, Wasserman L. 2018. Distribution-Fre
 
 Meuwissen THE, Hayes BJ, Goddard ME. 2001. Prediction of Total Genetic Value Using Genome-Wide Dense Marker Maps. Genetics. 157(4):1819–1829. doi:10.1093/genetics/157.4.1819
 
+Misztal I, Tsuruta S, Aguilar I, Legarra A, VanRaden P, Lawlor T. 2013. Methods to approximate reliabilities in single-step genomic evaluation. Journal of Dairy Science. 96(1):647–654. doi:10.3168/jds.2012-5656
+
 Papadopoulos H, Proedrou K, Vovk V, Gammerman A. 2002. Inductive Confidence Machines for Regression. Lecture Notes in Computer Science. 345-356. doi:10.1007/3-540-36755-1_29
 
 Pszczola M, Strabel T, Mulder H, Calus M. 2012. Reliability of direct genomic values for animals with different relationships within and to the reference population. Journal of Dairy Science. 95(1):389–400. doi:10.3168/jds.2011-4338

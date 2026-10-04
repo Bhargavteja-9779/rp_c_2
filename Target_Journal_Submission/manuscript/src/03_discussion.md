@@ -46,6 +46,7 @@ The classical PEV interval was competitive under random cross-validation, which 
 * **Statistical units.** Traits from the same species share genotypes, so the 24 units are not fully independent. The pattern was, however, consistent across species (Figure 4).
 * **Trait choice.** Traits were chosen by a rule fixed in advance. In loblolly pine this selected two closely related root traits.
 * **Compute.** LightGBM was not run on maize, and the RKHS and LightGBM analyses used fewer repeats than GBLUP, both for compute reasons.
+* **Scale.** All computations use dense relationship matrices. For national animal-breeding evaluations with 10⁵–10⁶ genotyped animals, the PEV in Eq. (1) would need the approximate reliability methods used in large-scale evaluation (e.g. Misztal *et al.* 2013). The cross-fitted pools would need to be built on subsamples. We did not test this.
 * **Scope of the evaluation.** Only one-step prediction intervals for single traits in a single environment were evaluated. Multi-trait, multi-environment and selection-conditional (Jin and Candès 2023) guarantees are natural extensions.
 
 ### Conclusions

@@ -937,5 +937,24 @@
   "issue": "8",
   "pages": "e1014670",
   "type": "journal-article"
+ },
+ "misztal2013": {
+  "status": "OK",
+  "doi": "10.3168/jds.2012-5656",
+  "title": "Methods to approximate reliabilities in single-step genomic evaluation",
+  "authors": [
+   "Misztal I",
+   "Tsuruta S",
+   "Aguilar I",
+   "Legarra A",
+   "VanRaden P",
+   "Lawlor T"
+  ],
+  "year": 2013,
+  "journal": "Journal of Dairy Science",
+  "volume": "96",
+  "issue": "1",
+  "pages": "647-654",
+  "type": "journal-article"
  }
 }

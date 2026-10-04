@@ -64,11 +64,19 @@ KinCP's advantage under random cross-validation is therefore specific to calibra
 
 {{sim_paragraph}}
 
+{{granularity_paragraph}}
+
 **Near-duplicate genotypes.** Removing near-duplicates did not change the conclusions (File S2, Table S_dedup). Under R2 KinCP covered {{dd_kincp_R2_cov}} and CV+ {{dd_cvp_R2_cov}}; under R1 the figures were {{dd_kincp_R1_cov}} and {{dd_cvp_R1_cov}}.
 
 ### RQ4: computational cost and sensitivity
 
-**Cost** (Table 7; Figure 8). Building KinCP's two calibration pools requires ten additional model fits per training set. For the kernel models these inner fits reuse the outer-fold variance ratio and need only a Cholesky factorisation, whereas the single outer fit includes REML with an eigendecomposition. The median cost of both pools relative to one outer fit was {{rt_gb_ratio_med}}× for GBLUP, {{rt_rk_ratio_med}}× for RKHS and {{rt_lg_ratio_med}}× for LightGBM. For maize (about 3,500 training individuals), one GBLUP fit took {{rt_maize_fit}} s on one CPU thread and both pools {{rt_maize_pool}} s. Computing all interval methods from the pools took at most {{rt_interval_max}} s per fold. The overhead is therefore that of a standard five-fold cross-validation run twice, and is negligible relative to phenotyping or genotyping.
+**Cost** (Table 7; Figure 8). Building KinCP's two calibration pools requires ten additional model fits per training set. For the kernel models these inner fits reuse the outer-fold variance ratio and need only a Cholesky factorisation, whereas the single outer fit includes REML with an eigendecomposition. The median cost of both pools relative to one outer fit was {{rt_gb_ratio_med}}× for GBLUP, {{rt_rk_ratio_med}}× for RKHS and {{rt_lg_ratio_med}}× for LightGBM. For maize (about 3,500 training individuals), one GBLUP fit took {{rt_maize_fit}} s on one CPU thread and both pools {{rt_maize_pool}} s. Computing all interval methods from the pools took at most {{rt_interval_max}} s per fold. In a controlled benchmark on maize genotypes (Figure 8), with {{sc_n_max}} training individuals on one thread:
+* one REML fit took {{sc_fit}} s;
+* both pools took {{sc_pools}} s;
+* the KinCP intervals for 300 candidates took {{sc_int}} s;
+* peak memory was {{sc_mem}} MB.
+
+Pool time grew with training-set size to the power {{sc_slope}}, and memory to the power {{sc_mslope}}. These exponents follow the dense *O*(*n*³) factorisations and *O*(*n*²) relationship matrices of GBLUP itself. The overhead is therefore that of a standard five-fold cross-validation run twice, and is small relative to phenotyping or genotyping costs.
 
 **Sensitivity** (Table 8; Figure 9). KinCP was insensitive to its tuning choices:
 * *Bandwidth multiplier* from 0.25 to 2: R2 conditional error {{sens_h025_R2_cond}} to {{sens_h2_R2_cond}}, against {{kincp_R2_cond}} at the default.

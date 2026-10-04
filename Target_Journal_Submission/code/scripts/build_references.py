@@ -36,7 +36,7 @@ CITED = {
     "kerby2014": "Kerby 2014", "jin2023": "Jin and Candès 2023", "legarra2018": "Legarra and Reverter (2018)",
     "sun2021": "Sun *et al.* 2021", "kodji2026": "Kodji *et al.* 2026", "vovk2013": "Vovk 2013",
     "papadopoulos2002": "Papadopoulos *et al.* 2002", "dunn2023": "Dunn *et al.* 2023",
-    "bhattacharyya2024": "Bhattacharyya and Barber 2026",
+    "bhattacharyya2024": "Bhattacharyya and Barber 2026", "misztal2013": "Misztal *et al.* 2013",
 }
 
 

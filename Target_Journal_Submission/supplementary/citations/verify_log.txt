@@ -38,7 +38,6 @@ kerby2014 | 2014 | Kerby DS | The Simple Difference Formula: An Approach to Teac
 efron1979 | 1979 | Efron B | Bootstrap Methods: Another Look at the Jackknife | The Annals of Statistics 7 None | 10.1214/aos/1176344552
 bhattacharyya2024 | 2026 | Bhattacharyya A, Barber RF | Group-weighted conformal prediction | Electronic Journal of Statistics 20 None | 10.1214/26-ejs2506
 hayes2009 | 2009 | HAYES BJ, VISSCHER PM, GODDARD ME | Increased accuracy of artificial selection by using the realized relationship matrix | Genetics Research 91 47-60 | 10.1017/s0016672308009981
-vanraden_reliab | 2009 | Misztal I, Legarra A, Aguilar I | Computing procedures for genetic evaluation including phenotypic, full pedigree, and genom | Journal of Dairy Science 92 4648-4655 | 10.3168/jds.2009-2064
 edwards2019 | 2019 | Edwards SM, Buntjer JB, Jackson R | The effects of training population design on genomic prediction accuracy in wheat | Theoretical and Applied Genetics None None | 10.1007/s00122-019-03327-y
 haile2020 | 2020 | Haile TA, Heidecker T, Wright D | Genomic selection for lentil breeding: Empirical evidence | The Plant Genome 13 e20002 | 10.1002/tpg2.20002
 washburn2025 | 2025 | Washburn JD, Varela JI, Xavier A | Global genotype by environment prediction competition reveals that diverse modeling strate | GENETICS 229 iyae195 | 10.1093/genetics/iyae195
@@ -47,3 +46,4 @@ kaler2017 | 2017 | Kaler AS, Dhanapal AP, Ray JD | Genome‐Wide Association Map
 gogna2022 | 2022 | Gogna A, Schulthess AW, Röder MS | Gabi wheat a panel of European elite lines as central stock for wheat genetic research | Scientific Data 9 538 | 10.1038/s41597-022-01651-5
 sun2021 | 2021 | Sun J, Wang Y, Folkersen L | Translating polygenic risk scores for clinical use by estimating the confidence bounds of  | Nature Communications 12 5276 | 10.1038/s41467-021-25014-7
 kodji2026 | 2026 | Kodji E, Attaoua R, Haloui M | Improving the reliability of polygenic risk score-based prediction for cardiovascular and  | PLOS Computational Biology 22 e1014670 | 10.1371/journal.pcbi.1014670
+misztal2013 | 2013 | Misztal I, Tsuruta S, Aguilar I | Methods to approximate reliabilities in single-step genomic evaluation | Journal of Dairy Science 96 647-654 | 10.3168/jds.2012-5656

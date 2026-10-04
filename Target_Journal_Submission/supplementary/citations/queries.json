@@ -9,25 +9,25 @@
   "doi": "10.1534/genetics.107.081190"
  },
  "clark2012": {
-  "q": "Clark Hickey Daetwyler van der Werf 2012 importance of information on relatives prediction of genomic breeding values Genetics Selection Evolution"
+  "doi": "10.1186/1297-9686-44-4"
  },
  "pszczola2012": {
-  "q": "Pszczola Strabel Mulder Calus 2012 Reliability of direct genomic values for animals with different relationships within and to the reference population"
+  "doi": "10.3168/jds.2011-4338"
  },
  "henderson1975": {
-  "q": "Henderson 1975 Best linear unbiased estimation and prediction under a selection model Biometrics"
+  "doi": "10.2307/2529430"
  },
  "kang2008": {
-  "q": "Kang Zaitlen Wade 2008 Efficient control of population structure in model organism association mapping Genetics"
+  "doi": "10.1534/genetics.107.080101"
  },
  "gianola2008": {
-  "q": "Gianola van Kaam 2008 Reproducing kernel Hilbert spaces regression methods for genomic assisted prediction of quantitative traits Genetics"
+  "doi": "10.1534/genetics.107.084285"
  },
  "delos2010": {
-  "q": "de los Campos Gianola Rosa Weigel Crossa 2010 Semi-parametric genomic-enabled prediction of genetic values using reproducing kernel Hilbert spaces methods Genetics Research"
+  "doi": "10.1017/s0016672310000285"
  },
  "legarra2018": {
-  "q": "Legarra Reverter 2018 Semi-parametric estimates of population accuracy and bias of predictions of breeding values and future phenotypes using the LR method"
+  "doi": "10.1186/s12711-018-0426-6"
  },
  "werner2020": {
   "doi": "10.3389/fpls.2020.592977"
@@ -36,22 +36,22 @@
   "doi": "10.1186/s12864-025-12129-0"
  },
  "resende2012": {
-  "q": "Resende 2012 Accuracy of genomic selection methods in a standard data set of loblolly pine Genetics"
+  "doi": "10.1534/genetics.111.137026"
  },
  "cleveland2012": {
-  "q": "Cleveland Hickey Forni 2012 A common dataset for genomic analysis of livestock populations G3"
+  "doi": "10.1534/g3.111.001453"
  },
  "crossa2017": {
-  "q": "Crossa 2017 Genomic selection in plant breeding: methods, models, and perspectives Trends in Plant Science"
+  "doi": "10.1016/j.tplants.2017.08.011"
  },
  "daetwyler2013": {
-  "q": "Daetwyler Calus Pong-Wong de los Campos Hickey 2013 Genomic prediction in animals and plants: simulation of data, validation, reporting, and benchmarking Genetics"
+  "doi": "10.1534/genetics.112.147983"
  },
  "wientjes2013": {
-  "q": "Wientjes Veerkamp Calus 2013 effect of linkage disequilibrium and family relationships on the reliability of genomic prediction Genetics"
+  "doi": "10.1534/genetics.112.146290"
  },
  "ding2023": {
-  "q": "Ding 2023 Polygenic scoring accuracy varies across the genetic ancestry continuum Nature"
+  "doi": "10.1038/s41586-023-06079-4"
  },
  "hou2024": {
   "doi": "10.1038/s41588-024-01792-w"
@@ -66,25 +66,25 @@
   "doi": "10.1093/genetics/iyaf003"
  },
  "vovk2005": {
-  "q": "Vovk Gammerman Shafer Algorithmic Learning in a Random World"
+  "doi": "10.1007/978-3-031-06649-8"
  },
  "lei2018": {
-  "q": "Lei G'Sell Rinaldo Tibshirani Wasserman 2018 Distribution-free predictive inference for regression"
+  "doi": "10.1080/01621459.2017.1307116"
  },
  "barber2021": {
-  "q": "Barber Candes Ramdas Tibshirani Predictive inference with the jackknife+ Annals of Statistics"
+  "doi": "10.1214/20-aos1965"
  },
  "barber2023": {
-  "q": "Barber Candes Ramdas Tibshirani Conformal prediction beyond exchangeability Annals of Statistics"
+  "doi": "10.1214/23-aos2276"
  },
  "guan2023": {
-  "q": "Guan Localized conformal prediction: a generalized inference framework for conformal prediction Biometrika"
+  "doi": "10.1093/biomet/asac040"
  },
  "papadopoulos2002": {
   "doi": "10.1007/3-540-36755-1_29"
  },
  "gibbs2025cc": {
-  "q": "Gibbs Cherian Candes Conformal prediction with conditional guarantees Journal of the Royal Statistical Society Series B"
+  "doi": "10.1093/jrsssb/qkaf008"
  },
  "dunn2023": {
   "doi": "10.1080/01621459.2022.2060112"
@@ -96,37 +96,34 @@
   "doi": "10.1007/s10994-013-5355-6"
  },
  "wilcoxon1945": {
-  "q": "Wilcoxon 1945 Individual comparisons by ranking methods"
+  "doi": "10.2307/3001968"
  },
  "isidro2015": {
-  "q": "Isidro Jannink Akdemir Poland Heslot Sorrells 2015 Training set optimization under population structure in genomic selection"
+  "doi": "10.1007/s00122-014-2418-4"
  },
  "montesinos2021": {
-  "q": "Montesinos-Lopez A review of deep learning applications for genomic selection BMC Genomics 2021"
+  "doi": "10.1186/s12864-020-07319-x"
  },
  "angelopoulos2023": {
-  "q": "Angelopoulos Bates Conformal prediction: a gentle introduction Foundations and Trends in Machine Learning"
+  "doi": "10.1561/2200000101"
  },
  "kerby2014": {
-  "q": "Kerby 2014 The simple difference formula: an approach to teaching nonparametric correlation"
+  "doi": "10.2466/11.it.3.1"
  },
  "efron1979": {
-  "q": "Efron 1979 Bootstrap methods: another look at the jackknife Annals of Statistics"
+  "doi": "10.1214/aos/1176344552"
  },
  "bhattacharyya2024": {
   "doi": "10.1214/26-ejs2506"
  },
  "hayes2009": {
-  "q": "Hayes Visscher Goddard 2009 Increased accuracy of artificial selection by using the realized relationship matrix Genetics Research"
- },
- "vanraden_reliab": {
-  "q": "Misztal Legarra Aguilar 2009 Computing procedures for genetic evaluation including phenotypic, full pedigree, and genomic information"
+  "doi": "10.1017/s0016672308009981"
  },
  "edwards2019": {
-  "q": "Edwards Buntjer Hickey Gorjanc 2019 The effects of training population design on genomic prediction accuracy in wheat Theoretical and Applied Genetics"
+  "doi": "10.1007/s00122-019-03327-y"
  },
  "haile2020": {
-  "q": "Haile 2020 genomic selection lentil days to flowering diversity panel"
+  "doi": "10.1002/tpg2.20002"
  },
  "washburn2025": {
   "doi": "10.1093/genetics/iyae195"
@@ -135,15 +132,18 @@
   "doi": "10.1038/ncomms1467"
  },
  "kaler2017": {
-  "q": "Kaler 2017 genome-wide association mapping carbon isotope ratio soybean"
+  "doi": "10.2135/cropsci2017.03.0160"
  },
  "gogna2022": {
-  "q": "Gogna 2022 wheat genomic prediction European elite cultivars"
+  "doi": "10.1038/s41597-022-01651-5"
  },
  "sun2021": {
   "doi": "10.1038/s41467-021-25014-7"
  },
  "kodji2026": {
   "doi": "10.1371/journal.pcbi.1014670"
+ },
+ "misztal2013": {
+  "doi": "10.3168/jds.2012-5656"
  }
 }
