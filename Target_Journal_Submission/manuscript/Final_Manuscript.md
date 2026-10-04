@@ -246,7 +246,9 @@ Coverage fell below 0.85 for 11 of 24 units with SCP and for 11 with CV+ (Figure
 
 ### RQ2: KinCP restores coverage, and the calibration pool is the decisive component
 
-**Calibration of KinCP.** With GBLUP as the base predictor, KinCP had the lowest mean relatedness-conditional coverage error of the eight compared methods in every regime (Table 2): 0.017 under R1, 0.036 under R2 and 0.014 under R3. Under R2 its marginal coverage was 0.894 (SD over units 0.024; minimum 0.845). Its intervals were wider than those of the relatedness-blind conformal methods (2.83 *vs.* 2.46 phenotypic SD for CV+), as required to reach coverage. **Interval score.** On the interval score, which trades width against misses (a proper scoring rule; Gneiting and Raftery 2007), KinCP was *not* better than the main alternatives. The mean scores were 3.91 for KinCP and 4.06 for CV+ under R2. The Holm-adjusted *P*-values were = 0.983 against CV+, = 1.000 against Gauss-PEV and = 1.000 against CalPred-style on pool A. KinCP was significantly better only than SCP (*P* < 0.001) and NormCP (*P* = 0.034). Under R3, Gauss-PEV had a slightly lower interval score than KinCP (Holm *P* = 0.032). The intervals of relatedness-blind methods were narrower and missed more often, and the interval score weighs these two effects against each other. The benefit of KinCP is therefore *validity*: coverage close to the nominal level, including for weakly related candidates. It is not a better sharpness–coverage trade-off.
+**Calibration of KinCP.** With GBLUP as the base predictor, KinCP had the lowest mean relatedness-conditional coverage error of the eight compared methods in every regime (Table 2): 0.017 under R1, 0.036 under R2 and 0.014 under R3. Under R2 its marginal coverage was 0.894 (SD over units 0.024; minimum 0.845). Its intervals were wider than those of the relatedness-blind conformal methods (2.83 *vs.* 2.46 phenotypic SD for CV+), as required to reach coverage.
+
+**Interval score.** On the interval score, which trades width against misses (a proper scoring rule; Gneiting and Raftery 2007), KinCP was *not* better than the main alternatives. The mean scores were 3.91 for KinCP and 4.06 for CV+ under R2. Holm-adjusted *P*-values were: against CV+, *P* = 0.983; against Gauss-PEV, *P* = 1.000; against CalPred-style on pool A, *P* = 1.000. KinCP was significantly better only than SCP (*P* < 0.001) and NormCP (*P* = 0.034). Under R3, Gauss-PEV had a slightly lower interval score than KinCP (Holm *P* = 0.032). The intervals of relatedness-blind methods were narrower and missed more often, and the interval score weighs these two effects against each other. The benefit of KinCP is therefore *validity*: coverage close to the nominal level, including for weakly related candidates. It is not a better sharpness–coverage trade-off.
 
 **Paired tests on the primary endpoint under R2** (Table 3; Figure 12). KinCP's conditional coverage error was lower than that of:
 * CV+: median paired difference 0.012 (95% CI 0.007 to 0.064), Holm-adjusted *P* = 0.003, KinCP better in 20/24 units;
@@ -303,13 +305,13 @@ Group CV+ is thus a reasonable choice when deployment is known to be to new clus
 
 ### RQ4: computational cost and sensitivity
 
-**Cost** (Table 7; Figure 8). Building KinCP's two calibration pools requires ten additional model fits per training set. For the kernel models these inner fits reuse the outer-fold variance ratio and need only a Cholesky factorisation, whereas the single outer fit includes REML with an eigendecomposition. The median cost of both pools relative to one outer fit was 1.9× for GBLUP, 1.3× for RKHS and 8.3× for LightGBM. For maize (about 3,500 training individuals), one GBLUP fit took 10.6 s on one CPU thread and both pools 7.7 s. Computing all interval methods from the pools took at most 6.27 s per fold. In a controlled benchmark on maize genotypes (Figure 8), with 3,500 training individuals on one thread:
+**Cost** (Table 7; Figure 8). Building KinCP's two calibration pools requires ten additional model fits per training set. For the kernel models these inner fits reuse the outer-fold variance ratio and need only a Cholesky factorisation, whereas the single outer fit includes REML with an eigendecomposition. The median cost of both pools relative to one outer fit was 1.9× for GBLUP, 1.3× for RKHS and 8.3× for LightGBM. These ratios come from the main runs, in which four jobs shared four cores. Computing all interval methods from the pools, including every sensitivity variant, took at most 6.27 s per fold. In a controlled benchmark on maize genotypes (Figure 8), with 3,500 training individuals on one thread:
 * one REML fit took 10.0 s;
 * both pools took 7.3 s;
 * the KinCP intervals for 300 candidates took 0.07 s;
 * peak memory was 303 MB.
 
-Pool time grew with training-set size to the power 2.0, and memory to the power 1.7. These exponents follow the dense *O*(*n*³) factorisations and *O*(*n*²) relationship matrices of GBLUP itself. The overhead is therefore that of a standard five-fold cross-validation run twice, and is small relative to phenotyping or genotyping costs. The pools depend only on the training set, so they are built once and reused for any number of candidate batches. The per-candidate cost of KinCP is then a weighted quantile of the pool scores.
+Over this range, pool time grew with training-set size to the power 2.0 and memory to the power 1.7. This is below the asymptotic *O*(*n*³) cost of dense factorisations and *O*(*n*²) memory of relationship matrices, which dominate only at larger *n*. KinCP therefore scales like GBLUP itself. The overhead is therefore that of a standard five-fold cross-validation run twice, and is small relative to phenotyping or genotyping costs. The pools depend only on the training set, so they are built once and reused for any number of candidate batches. The per-candidate cost of KinCP is then a weighted quantile of the pool scores.
 
 **Sensitivity** (Table 8; Figure 9). KinCP was insensitive to its tuning choices:
 * *Bandwidth multiplier* from 0.25 to 2: R2 conditional error 0.037 to 0.040, against 0.036 at the default.
@@ -334,7 +336,7 @@ Ranking candidates by their lower bound instead of their predicted value did not
 ## Discussion
 
 Uncertainty statements for genomic predictions are only useful if they are calibrated for the candidates being selected. Across ten species, three predictors and three deployment regimes, relatedness to the training population was the axis along which standard intervals failed:
-* conformal intervals calibrated on random hold-outs were too narrow for weakly related candidates and too wide for close relatives;
+* conformal intervals calibrated on random hold-outs were too wide for close relatives and, along the PEV-based relatedness covariate, too narrow for weakly related candidates;
 * when the candidates formed a new genomic cluster, their marginal coverage collapsed;
 * the classical Gaussian interval based on prediction error variance adapted to relatedness but inherited the misspecification of the mixed model under cluster-out deployment.
 
@@ -366,7 +368,7 @@ KinCP combines both kinds of residuals and lets each candidate's relatedness dec
 
 ### Relation to classical reliability and accuracy validation
 
-The classical PEV interval was competitive under random cross-validation, which is the regime in which it is usually checked. It lost calibration under cluster-out deployment, mostly for traits with high within-cluster heritability. This complements the LR method of Legarra and Reverter (2018), which validates *population-level* accuracy and dispersion of predictions. Our endpoints assess *individual-level* interval calibration conditional on relatedness. Both kinds of validation are needed. Neither replaces a deployment-matched validation design (Werner *et al.* 2020).
+The classical PEV interval was competitive under random cross-validation, which is the regime in which it is usually checked. It lost calibration under cluster-out deployment. In an exploratory analysis the loss was largest for traits with high REML heritability. This complements the LR method of Legarra and Reverter (2018), which validates *population-level* accuracy and dispersion of predictions. Our endpoints assess *individual-level* interval calibration conditional on relatedness. Both kinds of validation are needed. Neither replaces a deployment-matched validation design (Werner *et al.* 2020).
 
 ### Practical recommendations
 

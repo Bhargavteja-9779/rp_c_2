@@ -1,7 +1,7 @@
 ## Discussion
 
 Uncertainty statements for genomic predictions are only useful if they are calibrated for the candidates being selected. Across ten species, three predictors and three deployment regimes, relatedness to the training population was the axis along which standard intervals failed:
-* conformal intervals calibrated on random hold-outs were too narrow for weakly related candidates and too wide for close relatives;
+* conformal intervals calibrated on random hold-outs were too wide for close relatives and, along the PEV-based relatedness covariate, too narrow for weakly related candidates;
 * when the candidates formed a new genomic cluster, their marginal coverage collapsed;
 * the classical Gaussian interval based on prediction error variance adapted to relatedness but inherited the misspecification of the mixed model under cluster-out deployment.
 
@@ -33,7 +33,7 @@ KinCP combines both kinds of residuals and lets each candidate's relatedness dec
 
 ### Relation to classical reliability and accuracy validation
 
-The classical PEV interval was competitive under random cross-validation, which is the regime in which it is usually checked. It lost calibration under cluster-out deployment, mostly for traits with high within-cluster heritability. This complements the LR method of Legarra and Reverter (2018), which validates *population-level* accuracy and dispersion of predictions. Our endpoints assess *individual-level* interval calibration conditional on relatedness. Both kinds of validation are needed. Neither replaces a deployment-matched validation design (Werner *et al.* 2020).
+The classical PEV interval was competitive under random cross-validation, which is the regime in which it is usually checked. It lost calibration under cluster-out deployment. In an exploratory analysis the loss was largest for traits with high REML heritability. This complements the LR method of Legarra and Reverter (2018), which validates *population-level* accuracy and dispersion of predictions. Our endpoints assess *individual-level* interval calibration conditional on relatedness. Both kinds of validation are needed. Neither replaces a deployment-matched validation design (Werner *et al.* 2020).
 
 ### Practical recommendations
 
