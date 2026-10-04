@@ -177,15 +177,36 @@ def main():
             K[f"err_{tok}_{reg}_kurt_p"] = pfmt(e["coverage_signed_vs_exkurt"]["p"])
             K[f"err_{tok}_{reg}_r_rho"] = f2(e["r_pred"]["spearman_rho"])
             K[f"err_{tok}_{reg}_r_p"] = pfmt(e["r_pred"]["p_value"])
+            K[f"err_{tok}_{reg}_h2_rho"] = f2(e["h2_reml"]["spearman_rho"])
+            K[f"err_{tok}_{reg}_h2_p"] = pfmt(e["h2_reml"]["p_value"])
             w = e["worst_units"][0]
             K[f"err_{tok}_{reg}_worst_unit"] = f"{w['dataset']} {w['trait']}".replace("_", " ")
             K[f"err_{tok}_{reg}_worst_cov"] = f3(w["coverage"])
+    # per-unit extremes used in the text
+    for reg in ["R1", "R2"]:
+        for m, tok in [("Gauss-PEV", "pev"), ("KinCP", "kincp"), ("CV+", "cvp"), ("SCP", "scp")]:
+            v = g[(g.regime == reg) & (g.method == m)].sort_values("coverage")
+            K[f"{tok}_{reg}_minunit"] = f"{v.iloc[0].dataset} {v.iloc[0].trait}".replace("_", " ")
+    # exploratory KinCP-G (Phase 19, D6)
+    ex = s[(s.tag == "explore") & (s.alpha == 0.10)]
+    for reg in ["R1", "R2"]:
+        for m, tok in [("KinCP", "kincp"), ("KinCP-G", "kincpg"), ("KinCP-G+", "kincpgp"), ("CalPred-style-G", "calpg")]:
+            v = ex[(ex.regime == reg) & (ex.method == m)]
+            if len(v):
+                K[f"ex_{tok}_{reg}_cov"] = f3(v.coverage.mean())
+                K[f"ex_{tok}_{reg}_cond"] = f3(v.cond_err.mean())
+                K[f"ex_{tok}_{reg}_worst"] = f3(v.worst_bin_cov.mean())
+                K[f"ex_{tok}_{reg}_width"] = f2(v.width.mean())
     # narrative numbers file can be extended by text tokens defined in manuscript/src/text_tokens.json
     tt = Path(__file__).resolve().parents[2] / "manuscript" / "src" / "text_tokens.json"
     if tt.exists():
         templ = json.load(open(tt))
         for k, v in templ.items():
-            K[k] = v.format(**K) if isinstance(v, str) else v
+            try:
+                K[k] = v.format(**K) if isinstance(v, str) else v
+            except KeyError as e:
+                print("WARNING: text token", k, "needs", e)
+                K[k] = f"[PENDING: {k}]"
     dump_json(K, RESULTS_DIR / "key_numbers.json")
     print(len(K), "numbers written")
 

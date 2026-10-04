@@ -157,6 +157,14 @@ def run_job(job: Job, h_mults=(0.25, 1.0, 2.0)) -> tuple[pd.DataFrame, pd.DataFr
             cfolds = [np.flatnonzero(cl == c) for c in range(k_in) if (cl == c).sum() > 0]
             pool_c, _ = _cross_fit(base_obj, delta_base, vc.delta, G, T, yT, cfolds, U, False)
             t_clus = time.perf_counter() - t0
+            pools = dict(rand=pool_r, clus=pool_c)
+            if job.tag == "explore":
+                # exploratory (Phase 19): inner folds = the *global* genomic clusters present in T,
+                # i.e. calibration shifts of the same granularity as cluster-out deployment
+                gl = geno["clusters"][T]
+                gfolds = [np.flatnonzero(gl == c) for c in np.unique(gl) if (gl == c).sum() >= 5]
+                if len(gfolds) >= 2:
+                    pools["glob"], _ = _cross_fit(base_obj, delta_base, vc.delta, G, T, yT, gfolds, U, False)
             # (iii) split conformal
             t0 = time.perf_counter()
             perm = rng.permutation(len(T))
@@ -169,7 +177,7 @@ def run_job(job: Job, h_mults=(0.25, 1.0, 2.0)) -> tuple[pd.DataFrame, pd.DataFr
                        yhat=p[ncal:], d_test=m80.predict(U, return_d=True)[1])
             t_scp = time.perf_counter() - t0
             fd = FoldData(yhat=yhat, d=dU, s2g=vc.s2g, s2e=vc.s2e,
-                          pools=dict(rand=pool_r, clus=pool_c), cvplus_pred=P, scp=scp)
+                          pools=pools, cvplus_pred=P, scp=scp)
             maxkin = Gstd[np.ix_(U, T)].max(axis=1)
             for a in job.alphas:
                 t0 = time.perf_counter()

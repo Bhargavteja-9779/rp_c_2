@@ -161,9 +161,9 @@ H_MULT_DEFAULT = STUDY["kincp"]["bandwidth_multiplier"]
 
 
 def kincp(fd: FoldData, alpha: float, A: bool = True, B: bool = True, C: bool = True, h_mult: float = H_MULT_DEFAULT,
-          return_q: bool = False, n_min: float | None = N_MIN_DEFAULT):
+          return_q: bool = False, n_min: float | None = N_MIN_DEFAULT, pool_names: tuple | None = None):
     """KinCP and its ablations (A: relatedness-diverse pool, B: PEV-normalised score, C: localisation)."""
-    which = ("rand", "clus") if A else ("rand",)
+    which = pool_names or (("rand", "clus") if A else ("rand",))
     res, d = _pool(fd, which)
     if B:
         sc = np.abs(res) / sigma_of_d(d, fd.s2g, fd.s2e)
@@ -211,6 +211,10 @@ def all_intervals(fd: FoldData, alpha: float, base: str, h_mults=(0.25, 1.0, 2.0
         out[name] = kincp(fd, alpha, **flags)
     for hm in h_mults:
         out[f"KinCP[h={hm}]"] = kincp(fd, alpha, h_mult=hm)
+    if "glob" in fd.pools:   # exploratory variants (not part of the pre-specified comparison)
+        out["KinCP-G"] = kincp(fd, alpha, pool_names=("rand", "glob"))
+        out["KinCP-G+"] = kincp(fd, alpha, pool_names=("rand", "clus", "glob"))
+        out["CalPred-style-G"] = calpred_style(fd, alpha, ("rand", "glob"))
     if h_mults:   # sensitivity: fixed bandwidth (no effective-sample-size floor) and other floors
         out["KinCP[fixed-h]"] = kincp(fd, alpha, n_min=None)
         out["KinCP[nmin=25]"] = kincp(fd, alpha, n_min=25)

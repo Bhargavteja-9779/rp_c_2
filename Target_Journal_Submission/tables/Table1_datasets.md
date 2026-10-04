@@ -12,9 +12,9 @@
 | Loblolly pine (Pinus taeda)            | rootnum          |            925 |      4782 |                              0 | 175/510/222/3/15               |          0.824 |          0.864 |
 | Loblolly pine (Pinus taeda)            | rootnumbin       |            925 |      4782 |                              0 | 175/510/222/3/15               |          0.793 |          0.844 |
 | Loblolly pine (Pinus taeda)            | c5c6             |            910 |      4782 |                              0 | 172/500/220/3/15               |          0.847 |          0.896 |
-| Maize (Zea mays)                       | Yield_Mg_ha      |           4421 |    201896 |                            116 | 1547/689/577/384/1224          |        nan     |        nan     |
-| Maize (Zea mays)                       | Grain_Moisture   |           4421 |    201896 |                            116 | 1547/689/577/384/1224          |        nan     |        nan     |
-| Maize (Zea mays)                       | Plant_Height_cm  |           4420 |    201896 |                            116 | 1547/688/577/384/1224          |        nan     |        nan     |
+| Maize (Zea mays)                       | Yield_Mg_ha      |           4421 |    201896 |                            116 | 1547/689/577/384/1224          |          0.680 |          0.609 |
+| Maize (Zea mays)                       | Grain_Moisture   |           4421 |    201896 |                            116 | 1547/689/577/384/1224          |          0.771 |          0.883 |
+| Maize (Zea mays)                       | Plant_Height_cm  |           4420 |    201896 |                            116 | 1547/688/577/384/1224          |          0.848 |          0.857 |
 | Pig (Sus scrofa)                       | PFAI             |           1709 |     39308 |                              4 | 712/239/134/494/130            |          0.235 |          0.294 |
 | Rice (Oryza sativa)                    | Plant_height     |            352 |     27232 |                              2 | 52/55/81/86/78                 |          0.639 |          0.626 |
 | Rice (Oryza sativa)                    | Culm_habit       |            351 |     27232 |                              2 | 52/55/80/86/78                 |          0.402 |          0.614 |

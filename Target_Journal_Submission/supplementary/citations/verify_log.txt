@@ -1,0 +1,47 @@
+meuwissen2001 | 2001 | Meuwissen THE, Hayes BJ, Goddard ME | Prediction of Total Genetic Value Using Genome-Wide Dense Marker Maps | Genetics 157 1819-1829 | 10.1093/genetics/157.4.1819
+vanraden2008 | 2008 | VanRaden P | Efficient Methods to Compute Genomic Predictions | Journal of Dairy Science 91 4414-4423 | 10.3168/jds.2007-0980
+habier2007 | 2007 | Habier D, Fernando RL, Dekkers JCM | The Impact of Genetic Relationship Information on Genome-Assisted Breeding Values | Genetics 177 2389-2397 | 10.1534/genetics.107.081190
+clark2012 | 2012 | Clark SA, Hickey JM, Daetwyler HD | The importance of information on relatives for the prediction of genomic breeding values a | Genetics Selection Evolution 44 4 | 10.1186/1297-9686-44-4
+pszczola2012 | 2012 | Pszczola M, Strabel T, Mulder H | Reliability of direct genomic values for animals with different relationships within and t | Journal of Dairy Science 95 389-400 | 10.3168/jds.2011-4338
+henderson1975 | 1975 | Henderson CR | Best Linear Unbiased Estimation and Prediction under a Selection Model | Biometrics 31 423 | 10.2307/2529430
+kang2008 | 2008 | Kang HM, Zaitlen NA, Wade CM | Efficient Control of Population Structure in Model Organism Association Mapping | Genetics 178 1709-1723 | 10.1534/genetics.107.080101
+gianola2008 | 2008 | Gianola D, van Kaam JBCHM | Reproducing Kernel Hilbert Spaces Regression Methods for Genomic Assisted Prediction of Qu | Genetics 178 2289-2303 | 10.1534/genetics.107.084285
+delos2010 | 2010 | DE LOS CAMPOS G, GIANOLA D, ROSA GJM | Semi-parametric genomic-enabled prediction of genetic values using reproducing kernel Hilb | Genetics Research 92 295-308 | 10.1017/s0016672310000285
+legarra2018 | 2018 | Legarra A, Reverter A | Semi-parametric estimates of population accuracy and bias of predictions of breeding value | Genetics Selection Evolution 50 53 | 10.1186/s12711-018-0426-6
+werner2020 | 2020 | Werner CR, Gaynor RC, Gorjanc G | How Population Structure Impacts Genomic Selection Accuracy in Cross-Validation: Implicati | Frontiers in Plant Science 11 592977 | 10.3389/fpls.2020.592977
+quesada2025 | 2025 | Quesada-Traver C, Ariza-Suarez D, Studer B | EasyGeSe – a resource for benchmarking genomic prediction methods | BMC Genomics 26 953 | 10.1186/s12864-025-12129-0
+resende2012 | 2012 | Resende MFR, Muñoz P, Resende MDV | Accuracy of Genomic Selection Methods in a Standard Data Set of Loblolly Pine (<i>Pinus ta | Genetics 190 1503-1510 | 10.1534/genetics.111.137026
+cleveland2012 | 2012 | Cleveland MA, Hickey JM, Forni S | A Common Dataset for Genomic Analysis of Livestock Populations | G3 Genes|Genomes|Genetics 2 429-435 | 10.1534/g3.111.001453
+crossa2017 | 2017 | Crossa J, Pérez-Rodríguez P, Cuevas J | Genomic Selection in Plant Breeding: Methods, Models, and Perspectives | Trends in Plant Science 22 961-975 | 10.1016/j.tplants.2017.08.011
+daetwyler2013 | 2013 | Daetwyler HD, Calus MPL, Pong-Wong R | Genomic Prediction in Animals and Plants: Simulation of Data, Validation, Reporting, and B | Genetics 193 347-365 | 10.1534/genetics.112.147983
+wientjes2013 | 2013 | Wientjes YCJ, Veerkamp RF, Calus MPL | The Effect of Linkage Disequilibrium and Family Relationships on the Reliability of Genomi | Genetics 193 621-631 | 10.1534/genetics.112.146290
+ding2023 | 2023 | Ding Y, Hou K, Xu Z | Polygenic scoring accuracy varies across the genetic ancestry continuum | Nature 618 774-781 | 10.1038/s41586-023-06079-4
+hou2024 | 2024 | Hou K, Xu Z, Ding Y | Calibrated prediction intervals for polygenic scores across diverse contexts | Nature Genetics 56 1386-1396 | 10.1038/s41588-024-01792-w
+predinterval | 2025 | Xu C, Ganesh SK, Zhou X | Statistical construction of calibrated prediction intervals for polygenic score-based phen | Nature Genetics 57 2891-2900 | 10.1038/s41588-025-02360-6
+ahlinder2026 | 2026 | Ahlinder J, Waldmann P | Uncertainty-aware breeding decisions: MCMC-based optimum contribution selection increases  | GENETICS None iyag205 | 10.1093/genetics/iyag205
+gibbs2025 | 2025 | Gibbs PM, Paril JF, Fournier-Level A | Trait genetic architecture and population structure determine model selection for genomic  | GENETICS 229 iyaf003 | 10.1093/genetics/iyaf003
+vovk2005 | 2022 | Vovk V, Gammerman A, Shafer G | Algorithmic Learning in a Random World |  None None | 10.1007/978-3-031-06649-8
+lei2018 | 2018 | Lei J, G’Sell M, Rinaldo A | Distribution-Free Predictive Inference for Regression | Journal of the American Statistical Asso 113 1094-1111 | 10.1080/01621459.2017.1307116
+barber2021 | 2021 | Barber RF, Candès EJ, Ramdas A | Predictive inference with the jackknife+ | The Annals of Statistics 49 None | 10.1214/20-aos1965
+barber2023 | 2023 | Barber RF, Candès EJ, Ramdas A | Conformal prediction beyond exchangeability | The Annals of Statistics 51 None | 10.1214/23-aos2276
+guan2023 | 2023 | Guan L | Localized conformal prediction: a generalized inference framework for conformal prediction | Biometrika 110 33-50 | 10.1093/biomet/asac040
+papadopoulos2002 | 2002 | Papadopoulos H, Proedrou K, Vovk V | Inductive Confidence Machines for Regression | Lecture Notes in Computer Science None 345-356 | 10.1007/3-540-36755-1_29
+gibbs2025cc | 2025 | Gibbs I, Cherian JJ, Candès EJ | Conformal prediction with conditional guarantees | Journal of the Royal Statistical Society 87 1100-1126 | 10.1093/jrsssb/qkaf008
+dunn2023 | 2023 | Dunn R, Wasserman L, Ramdas A | Distribution-Free Prediction Sets for Two-Layer Hierarchical Models | Journal of the American Statistical Asso 118 2491-2502 | 10.1080/01621459.2022.2060112
+gneiting2007 | 2007 | Gneiting T, Raftery AE | Strictly Proper Scoring Rules, Prediction, and Estimation | Journal of the American Statistical Asso 102 359-378 | 10.1198/016214506000001437
+vovk2013 | 2013 | Vovk V | Conditional validity of inductive conformal predictors | Machine Learning 92 349-376 | 10.1007/s10994-013-5355-6
+wilcoxon1945 | 1945 | Wilcoxon F | Individual Comparisons by Ranking Methods | Biometrics Bulletin 1 80 | 10.2307/3001968
+isidro2015 | 2015 | Isidro J, Jannink JL, Akdemir D | Training set optimization under population structure in genomic selection | Theoretical and Applied Genetics 128 145-158 | 10.1007/s00122-014-2418-4
+montesinos2021 | 2021 | Montesinos-López OA, Montesinos-López A, Pérez-Rodríguez P | A review of deep learning applications for genomic selection | BMC Genomics 22 19 | 10.1186/s12864-020-07319-x
+angelopoulos2023 | 2023 | Angelopoulos AN, Bates S | Conformal Prediction: A Gentle Introduction | Foundations and Trends® in Machine Learn 16 494-591 | 10.1561/2200000101
+kerby2014 | 2014 | Kerby DS | The Simple Difference Formula: An Approach to Teaching Nonparametric Correlation | Comprehensive Psychology 3 11.IT.3.1 | 10.2466/11.it.3.1
+efron1979 | 1979 | Efron B | Bootstrap Methods: Another Look at the Jackknife | The Annals of Statistics 7 None | 10.1214/aos/1176344552
+bhattacharyya2024 | 2026 | Bhattacharyya A, Barber RF | Group-weighted conformal prediction | Electronic Journal of Statistics 20 None | 10.1214/26-ejs2506
+hayes2009 | 2009 | HAYES BJ, VISSCHER PM, GODDARD ME | Increased accuracy of artificial selection by using the realized relationship matrix | Genetics Research 91 47-60 | 10.1017/s0016672308009981
+vanraden_reliab | 2009 | Misztal I, Legarra A, Aguilar I | Computing procedures for genetic evaluation including phenotypic, full pedigree, and genom | Journal of Dairy Science 92 4648-4655 | 10.3168/jds.2009-2064
+edwards2019 | 2019 | Edwards SM, Buntjer JB, Jackson R | The effects of training population design on genomic prediction accuracy in wheat | Theoretical and Applied Genetics None None | 10.1007/s00122-019-03327-y
+haile2020 | 2020 | Haile TA, Heidecker T, Wright D | Genomic selection for lentil breeding: Empirical evidence | The Plant Genome 13 e20002 | 10.1002/tpg2.20002
+washburn2025 | 2025 | Washburn JD, Varela JI, Xavier A | Global genotype by environment prediction competition reveals that diverse modeling strate | GENETICS 229 iyae195 | 10.1093/genetics/iyae195
+zhao2011 | 2011 | Zhao K, Tung CW, Eizenga GC | Genome-wide association mapping reveals a rich genetic architecture of complex traits in O | Nature Communications 2 467 | 10.1038/ncomms1467
+kaler2017 | 2017 | Kaler AS, Dhanapal AP, Ray JD | Genome‐Wide Association Mapping of Carbon Isotope and Oxygen Isotope Ratios in Diverse Soy | Crop Science 57 3085-3100 | 10.2135/cropsci2017.03.0160
+gogna2022 | 2022 | Gogna A, Schulthess AW, Röder MS | Gabi wheat a panel of European elite lines as central stock for wheat genetic research | Scientific Data 9 538 | 10.1038/s41597-022-01651-5

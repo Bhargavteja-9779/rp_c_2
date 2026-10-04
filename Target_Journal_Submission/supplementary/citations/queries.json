@@ -125,26 +125,14 @@
  "edwards2019": {
   "q": "Edwards Buntjer Hickey Gorjanc 2019 The effects of training population design on genomic prediction accuracy in wheat Theoretical and Applied Genetics"
  },
- "gonzalez2021": {
-  "q": "Gonzalez 2021 barley genomic prediction Bymovirus resistance BaMMV BaYMV genebank"
- },
- "diaz2020": {
-  "q": "Diaz 2020 genomic prediction common bean Andean MAGIC population"
- },
  "haile2020": {
   "q": "Haile 2020 genomic selection lentil days to flowering diversity panel"
- },
- "mccarty2022": {
-  "q": "McCarty 2022 genomic prediction eastern oyster Crassostrea virginica Dermo survival F2 families"
  },
  "washburn2025": {
   "doi": "10.1093/genetics/iyae195"
  },
- "xie2021": {
-  "q": "Xie 2021 pig genomic prediction intramuscular fat landrace genotype"
- },
  "zhao2011": {
-  "q": "Zhao 2011 Genome-wide association mapping reveals a rich genetic architecture of complex traits in Oryza sativa"
+  "doi": "10.1038/ncomms1467"
  },
  "kaler2017": {
   "q": "Kaler 2017 genome-wide association mapping carbon isotope ratio soybean"

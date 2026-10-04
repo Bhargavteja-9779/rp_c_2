@@ -1,0 +1,83 @@
+{
+ "tibshirani2019": {
+  "status": "OK (NeurIPS proceedings page + arXiv:1904.06019)",
+  "authors": [
+   "Tibshirani RJ",
+   "Barber RF",
+   "Cand\u00e8s EJ",
+   "Ramdas A"
+  ],
+  "year": 2019,
+  "title": "Conformal prediction under covariate shift",
+  "journal": "Advances in Neural Information Processing Systems",
+  "volume": "32",
+  "issue": null,
+  "pages": null,
+  "doi": null,
+  "url": "https://papers.nips.cc/paper_files/paper/2019/hash/8fb21ee7a2207526da55a679f0332de2-Abstract.html"
+ },
+ "ke2017": {
+  "status": "OK (NeurIPS proceedings page)",
+  "authors": [
+   "Ke G",
+   "Meng Q",
+   "Finley T",
+   "Wang T",
+   "Chen W",
+   "Ma W",
+   "Ye Q",
+   "Liu TY"
+  ],
+  "year": 2017,
+  "title": "LightGBM: a highly efficient gradient boosting decision tree",
+  "journal": "Advances in Neural Information Processing Systems",
+  "volume": "30",
+  "issue": null,
+  "pages": null,
+  "doi": null,
+  "url": "https://papers.nips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html"
+ },
+ "jin2023": {
+  "status": "OK (arXiv:2210.01408; JMLR 24)",
+  "authors": [
+   "Jin Y",
+   "Cand\u00e8s EJ"
+  ],
+  "year": 2023,
+  "title": "Selection by prediction with conformal p-values",
+  "journal": "Journal of Machine Learning Research",
+  "volume": "24",
+  "issue": null,
+  "pages": null,
+  "doi": null,
+  "url": "https://arxiv.org/abs/2210.01408"
+ },
+ "holm1979": {
+  "status": "OK (web search; JSTOR 4615733)",
+  "authors": [
+   "Holm S"
+  ],
+  "year": 1979,
+  "title": "A simple sequentially rejective multiple test procedure",
+  "journal": "Scandinavian Journal of Statistics",
+  "volume": "6",
+  "issue": "2",
+  "pages": "65-70",
+  "doi": null,
+  "url": "https://www.jstor.org/stable/4615733"
+ },
+ "kumar2026": {
+  "status": "OK (Zenodo API)",
+  "authors": [
+   "Kumar P"
+  ],
+  "year": 2026,
+  "title": "Calibrated genomic selection [data paper and code]",
+  "journal": "Zenodo",
+  "volume": null,
+  "issue": null,
+  "pages": null,
+  "doi": "10.5281/zenodo.22962591",
+  "url": null
+ }
+}

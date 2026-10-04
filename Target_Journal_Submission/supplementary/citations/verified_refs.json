@@ -731,46 +731,6 @@
   "pages": null,
   "type": "journal-article"
  },
- "gonzalez2021": {
-  "status": "OK",
-  "doi": "10.1007/s00122-014-2324-9",
-  "title": "Analysis of bymovirus resistance genes on proximal barley chromosome 4HL provides the basis for precision breeding for BaMMV/BaYMV resistance",
-  "authors": [
-   "Yang P",
-   "Habeku\u00df A",
-   "Ordon F",
-   "Stein N"
-  ],
-  "year": 2014,
-  "journal": "Theoretical and Applied Genetics",
-  "volume": "127",
-  "issue": "7",
-  "pages": "1625-1634",
-  "type": "journal-article"
- },
- "diaz2020": {
-  "status": "OK",
-  "doi": "10.3389/fpls.2020.622213",
-  "title": "Genetic Architecture and Genomic Prediction of Cooking Time in Common Bean (Phaseolus vulgaris L.)",
-  "authors": [
-   "Diaz S",
-   "Ariza-Suarez D",
-   "Ramdeen R",
-   "Aparicio J",
-   "Arunachalam N",
-   "Hernandez C",
-   "Diaz H",
-   "Ruiz H",
-   "Piepho HP",
-   "Raatz B"
-  ],
-  "year": 2021,
-  "journal": "Frontiers in Plant Science",
-  "volume": "11",
-  "issue": null,
-  "pages": "622213",
-  "type": "journal-article"
- },
  "haile2020": {
   "status": "OK",
   "doi": "10.1002/tpg2.20002",
@@ -790,29 +750,6 @@
   "issue": "1",
   "pages": "e20002",
   "type": "journal-article"
- },
- "mccarty2022": {
-  "status": "OK",
-  "doi": "10.64898/2026.09.08.750100",
-  "title": "Multigenerational machine learning-based genomic prediction for dermo resistance in eastern oyster\n                  <i>Crassostrea virginica</i>",
-  "authors": [
-   "Sun H",
-   "Coyne P",
-   "Wang Z",
-   "Casas S",
-   "Peyre JL",
-   "Williams ML",
-   "Rikard S",
-   "Bushek D",
-   "Wong J",
-   "Guo X"
-  ],
-  "year": 2026,
-  "journal": "",
-  "volume": null,
-  "issue": null,
-  "pages": null,
-  "type": "posted-content"
  },
  "washburn2025": {
   "status": "OK",
@@ -886,34 +823,31 @@
   "pages": "iyae195",
   "type": "journal-article"
  },
- "xie2021": {
-  "status": "OK",
-  "doi": "10.3989/gya.0234141",
-  "title": "Effect of genotype on fatty acid composition of intramuscular and subcutaneous fat of Celta pig breed",
-  "authors": [
-   "Dom\u00ednguez R",
-   "Lorenzo JM"
-  ],
-  "year": 2014,
-  "journal": "Grasas y Aceites",
-  "volume": "65",
-  "issue": "3",
-  "pages": "e037",
-  "type": "journal-article"
- },
  "zhao2011": {
   "status": "OK",
-  "doi": "10.3410/f.13337956.14705054",
-  "title": "Faculty Opinions recommendation of Genome-wide association mapping reveals a rich genetic architecture of complex traits in Oryza sativa.",
+  "doi": "10.1038/ncomms1467",
+  "title": "Genome-wide association mapping reveals a rich genetic architecture of complex traits in Oryza sativa",
   "authors": [
-   "Hincha D"
+   "Zhao K",
+   "Tung CW",
+   "Eizenga GC",
+   "Wright MH",
+   "Ali ML",
+   "Price AH",
+   "Norton GJ",
+   "Islam MR",
+   "Reynolds A",
+   "Mezey J",
+   "McClung AM",
+   "Bustamante CD",
+   "McCouch SR"
   ],
   "year": 2011,
-  "journal": "Faculty Opinions \u2013 Post-Publication Peer Review of the Biomedical Literature",
-  "volume": null,
-  "issue": null,
-  "pages": null,
-  "type": "dataset"
+  "journal": "Nature Communications",
+  "volume": "2",
+  "issue": "1",
+  "pages": "467",
+  "type": "journal-article"
  },
  "kaler2017": {
   "status": "OK",
