@@ -79,6 +79,21 @@ def main():
         ok = g["p_value"].notna()
         st.loc[g.index[ok], "p_holm"] = holm(g.loc[ok, "p_value"].to_numpy())
     st.to_csv(RESULTS_DIR / "statistics_table.csv", index=False)
+    # Reviewer 1, M2: species as the unit (traits averaged within species), GBLUP, baseline family
+    sp_rows = []
+    for reg in ["R1", "R2", "R3"]:
+        sub = real[(real.base == "GBLUP") & (real.regime == reg) & (real.alpha == 0.10)]
+        sub = sub.groupby(["dataset", "method"], as_index=False)[["cond_err", "cov_dev", "iscore"]].mean()
+        for ep, lib in ENDPOINTS:
+            comp = paired_compare(sub, ["dataset"], "method", "KinCP", COMPETITORS, ep, lib)
+            comp["regime"] = reg
+            sp_rows.append(comp)
+    sp = pd.concat(sp_rows, ignore_index=True)
+    sp["p_holm"] = np.nan
+    for _, g in sp.groupby("endpoint"):
+        ok = g["p_value"].notna()
+        sp.loc[g.index[ok], "p_holm"] = holm(g.loc[ok, "p_value"].to_numpy())
+    sp.to_csv(RESULTS_DIR / "statistics_species.csv", index=False)
     dump_json(dict(
         test="two-sided Wilcoxon signed-rank (zero_method='wilcox'), paired by dataset x trait",
         rationale="units are heterogeneous dataset-trait combinations; endpoint differences are not assumed normal",

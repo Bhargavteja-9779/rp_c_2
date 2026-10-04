@@ -1,6 +1,6 @@
 {
   "mode": "full",
-  "n_jobs_loaded": 334,
+  "n_jobs_loaded": 338,
   "missing_jobs": [
     "GBLUP__barley__BaMMV__R1__explore__1",
     "GBLUP__barley__BaMMV__R2__explore__1",
@@ -60,10 +60,6 @@
     "sim__maize__h0.2__q1000__r4__R2",
     "sim__maize__h0.2__q1000__r5__R1",
     "sim__maize__h0.2__q1000__r5__R2",
-    "sim__maize__h0.2__q10__r2__R1",
-    "sim__maize__h0.2__q10__r3__R1",
-    "sim__maize__h0.2__q10__r4__R1",
-    "sim__maize__h0.2__q10__r4__R2",
     "sim__maize__h0.2__q10__r5__R1",
     "sim__maize__h0.2__q10__r5__R2",
     "sim__maize__h0.5__q1000__r1__R1",

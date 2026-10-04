@@ -31,6 +31,8 @@ Here we connect these two lines of work. We use the GBLUP prediction error varia
 * (B) nonconformity scores normalised by the PEV-implied predictive standard deviation;
 * (C) localisation of the conformal quantile in the relatedness metric.
 
+Throughout, intervals are for the phenotype a candidate will express, which is the quantity breeders observe when validating predictions. The relatedness covariate is also shown, by simulation, to calibrate the error of the genetic-value prediction. We regard the calibration design as the main contribution: a relatedness-diverse calibration pool together with the PEV covariate. KinCP is its distribution-free implementation.
+
 We evaluate KinCP against seven alternatives across ten plant and animal species from the EasyGeSe resource (Quesada-Traver *et al.* 2025). The design covers three deployment regimes, three base predictors, an ablation of every component, and a simulation on real genotypes with known genetic values. It addresses five questions:
 * RQ1: how miscalibrated are standard intervals across relatedness levels and deployment regimes?
 * RQ2: does KinCP restore marginal and relatedness-conditional coverage, and which components are responsible?
@@ -88,7 +90,7 @@ For a training set *S* and a candidate *j* with relationship vector *k* = *G*_{S
 
 ### Prediction-interval methods
 
-Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on the training set *T*, and let σ(*d*) = (σ̂²_g *d* + σ̂²_e)^{1/2}. The nominal coverage was 1 − α = 0.90; α = 0.05 and 0.20 were used for sensitivity analyses. Eight methods were compared:
+Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on the training set *T*, and let σ(*d*) = (σ̂²_g *d* + σ̂²_e)^{1/2}. The nominal coverage was 1 − α = 0.90; α = 0.05 and 0.20 were used for sensitivity analyses. Eight methods were compared: KinCP and seven alternatives. CalPred-style calibration was fitted in two variants, which are counted as one alternative.
 
 1. **Gauss-PEV** (GBLUP only): *ŷ*ⱼ ± *z*_{1−α/2} σ(*d*ⱼ). This is the classical model-based interval.
 2. **Gauss-homosc**: *ŷ*ⱼ ± *z*_{1−α/2} times the standard deviation of random five-fold out-of-fold residuals in *T*.
@@ -153,7 +155,7 @@ For each unit, regime and base predictor, test records were pooled over folds an
 * mean width, in phenotypic SD units;
 * the interval score (Gneiting and Raftery 2007), (*u* − *l*) + (2/α)(*l* − *y*)₊ + (2/α)(*y* − *u*)₊.
 
-A perfectly calibrated method still shows a conditional error from binomial sampling within quintiles. As a reference, we report the expected value of this noise floor for one pass over the data.
+A perfectly calibrated method still shows a conditional error from binomial sampling within quintiles. As a reference, we report the expected value of this noise floor for one pass over the data, with quintiles of *n*/5 individuals. Under R1 each individual is tested in five repeats with different training sets. Pooled R1 errors can therefore fall below this single-pass floor, so the floor is only an approximate yardstick.
 
 ### Statistical analysis
 

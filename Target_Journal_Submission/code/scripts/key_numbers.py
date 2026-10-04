@@ -197,6 +197,21 @@ def main():
                 K[f"ex_{tok}_{reg}_cond"] = f3(v.cond_err.mean())
                 K[f"ex_{tok}_{reg}_worst"] = f3(v.worst_bin_cov.mean())
                 K[f"ex_{tok}_{reg}_width"] = f2(v.width.mean())
+    # PEV calibration diagnostic (simulation) and species-level tests (Reviewer 1)
+    pc = RESULTS_DIR / "pev_calibration_summary.json"
+    if pc.exists():
+        pcj = json.load(open(pc))
+        for reg in ["R1", "R2"]:
+            vals = list(pcj[reg].values())
+            K[f"pevcal_{reg}_min"], K[f"pevcal_{reg}_max"] = f2(min(vals)), f2(max(vals))
+    sp = pd.read_csv(RESULTS_DIR / "statistics_species.csv")
+    for reg in ["R1", "R2", "R3"]:
+        for comp, tok in meths.items():
+            r = sp[(sp.regime == reg) & (sp.endpoint == "cond_err") & (sp.competitor == comp)]
+            if len(r):
+                K[f"sp_{tok}_{reg}_cond_wins"] = f"{int(r.iloc[0].wins_ref)}/{int(r.iloc[0].n_units)}"
+                K[f"sp_{tok}_{reg}_cond_praw"] = pfmt(r.iloc[0].p_value)
+                K[f"sp_{tok}_{reg}_cond_p"] = pfmt(r.iloc[0].p_holm)
     # narrative numbers file can be extended by text tokens defined in manuscript/src/text_tokens.json
     tt = Path(__file__).resolve().parents[2] / "manuscript" / "src" / "text_tokens.json"
     if tt.exists():

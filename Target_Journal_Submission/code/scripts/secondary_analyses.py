@@ -92,6 +92,39 @@ def decision_analysis():
     dump_json(summ, RESULTS_DIR / "decision_summary.json")
 
 
+def pev_calibration():
+    """Simulation diagnostic (Reviewer 1, M1): is d a calibrated measure of the *genetic* prediction error?
+    On the standardised scale y* = (y - mu)/sd, E[y*|g] = g* = (g - mu)/sd, so the GBLUP prediction yhat
+    (mu-hat + g-hat) predicts g* with error variance s2g*d (Eq. 1, universal-kriging form).
+    We compare the realised mean squared error (g* - yhat)^2 with mean s2g*d by quintile of d."""
+    rows = []
+    t = pd.read_csv(RESULTS_DIR / "timings.csv")
+    t = t[t.alpha.isna() & (t.tag == "sim")][["dataset", "trait", "regime", "rep", "fold", "s2g"]]
+    for f in sorted(JOBS.glob("sim__*__records.parquet")):
+        r = pd.read_parquet(f)
+        r = r[r.method == "Gauss-PEV"].drop(columns=["base", "tag"], errors="ignore")
+        r = r.merge(t, on=["dataset", "trait", "regime", "rep", "fold"], how="inner")
+        if r.empty:
+            continue
+        r["sq"] = (r["g_true"] - r["ghat"]) ** 2
+        r["pev"] = r["s2g"] * r["d"]
+        r["bin"] = pd.qcut(r["d"], 5, labels=False, duplicates="drop")
+        h2, nq = r.trait.iloc[0].split("_")[1:]
+        for b, gb in r.groupby("bin"):
+            rows.append(dict(genotypes=r.dataset.iloc[0], h2=float(h2[1:]), n_qtl=int(nq[1:]),
+                             regime=r.regime.iloc[0], rep=int(r.rep.iloc[0]), bin=int(b) + 1,
+                             mse=float(gb.sq.mean()), mean_pev=float(gb.pev.mean())))
+    d = pd.DataFrame(rows)
+    d.to_csv(RESULTS_DIR / "pev_calibration.csv", index=False)
+    if len(d):
+        d["ratio"] = d.mse / d.mean_pev
+        summ = d.groupby(["regime", "bin"]).ratio.median().unstack()
+        out = {reg: {f"Q{int(b)}": float(v) for b, v in row.items()} for reg, row in summ.iterrows()}
+        out["n_analyses"] = int(d.groupby(["genotypes", "h2", "n_qtl", "regime", "rep"]).ngroups)
+        dump_json(out, RESULTS_DIR / "pev_calibration_summary.json")
+
+
 if __name__ == "__main__":
     error_analysis()
     decision_analysis()
+    pev_calibration()

@@ -70,6 +70,12 @@ def table_stats():
     st = st[st.base == "GBLUP"]
     st = st[["regime", "endpoint", "family", "competitor", "n_units", "ref_median", "comp_median", "median_diff",
              "ci_low", "ci_high", "rank_biserial", "wins_ref", "wins_comp", "p_value", "p_holm"]]
+    st = st.rename(columns={"regime": "Regime", "endpoint": "Endpoint", "family": "Family", "competitor": "Competitor",
+                            "n_units": "Units", "ref_median": "KinCP median", "comp_median": "Competitor median",
+                            "median_diff": "Median diff.", "ci_low": "CI low", "ci_high": "CI high",
+                            "rank_biserial": "Rank-biserial r", "wins_ref": "KinCP better", "wins_comp": "Competitor better",
+                            "p_value": "P", "p_holm": "P (Holm)"})
+    st["Endpoint"] = st["Endpoint"].map({"cond_err": "Cond. error", "cov_dev": "|Cov−0.90|", "iscore": "Interval score"})
     write(st, "Table3_statistics_GBLUP", 4)
     st2 = pd.read_csv(RESULTS_DIR / "statistics_table.csv")
     write(st2[st2.base != "GBLUP"], "TableS_statistics_other_bases", 4)
