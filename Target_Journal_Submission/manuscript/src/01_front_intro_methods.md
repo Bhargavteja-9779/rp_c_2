@@ -8,7 +8,7 @@
 
 **Corresponding author:** [Name, address, e-mail to be inserted]
 
-**Keywords:** genomic prediction; genomic selection; prediction interval; conformal prediction; prediction error variance; genomic relationship; uncertainty quantification; GBLUP; Genomic Prediction
+**Keywords:** genomic prediction; genomic selection; prediction interval; conformal prediction; prediction error variance; genomic relationship; uncertainty quantification; GBLUP
 
 ## Abstract
 
@@ -94,7 +94,7 @@ Phenotypes were standardised in every outer fold using the training mean and sta
 
 ### Relatedness covariate
 
-For a training set *S* and a candidate *j* with relationship vector *k* = *G*_{S,j}, let *V* = *G*_{S,S} + δ*I*. The prediction error variance of the GBLUP phenotype prediction (universal kriging form, including the uncertainty of the estimated mean) is σ²_g *d*ⱼ + σ²_e, with
+For a training set *S* (the outer training set *T*, or an inner subset of it) and a candidate *j* with relationship vector *k* = *G*_{S,j}, let *V* = *G*_{S,S} + δ*I*. The prediction error variance of the GBLUP phenotype prediction (universal kriging form, including the uncertainty of the estimated mean) is σ²_g *d*ⱼ + σ²_e, with
 
 *d*ⱼ = *G*ⱼⱼ − *k*ᵀ*V*⁻¹*k* + (1 − 1ᵀ*V*⁻¹*k*)² / (1ᵀ*V*⁻¹1).     (1)
 
@@ -108,7 +108,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 2. **Gauss-homosc**: *ŷ*ⱼ ± *z*_{1−α/2} times the standard deviation of random five-fold out-of-fold residuals in *T*.
 3. **SCP** (split conformal): the model is refitted on a random 80% of *T* (at least 10 individuals are kept for calibration). With absolute residuals *R*ᵢ on the remaining 20% (*n*_c individuals), the interval is *ŷ*ⱼ ± the ⌈(1 − α)(*n*_c + 1)⌉-th smallest *R*ᵢ (Lei *et al.* 2018).
 4. **NormCP**: as SCP, with scores *R*ᵢ/σ(*d*ᵢ) and half-width scaled by σ(*d*ⱼ). This is component B alone, with *d* measured relative to the 80% fitting subset.
-5. **CV+** (Barber *et al.* 2021): random five-fold cross-fitting in *T*. The bounds are the ⌊α(*n* + 1)⌋-th smallest of {*ŷ*ⱼ^{(−k(i))} − *R*ᵢ} and the ⌈(1 − α)(*n* + 1)⌉-th smallest of {*ŷ*ⱼ^{(−k(i))} + *R*ᵢ}.
+5. **CV+** (Barber *et al.* 2021): random five-fold cross-fitting in *T*. Here *ŷ*ⱼ^{(−k(i))} is the prediction for *j* from the model fitted without the fold *k*(*i*) that contains training individual *i*, and *R*ᵢ is the absolute out-of-fold residual of *i*. The bounds are the ⌊α(*n* + 1)⌋-th smallest of {*ŷ*ⱼ^{(−k(i))} − *R*ᵢ} and the ⌈(1 − α)(*n* + 1)⌉-th smallest of {*ŷ*ⱼ^{(−k(i))} + *R*ᵢ}.
 6. **CalPred-style** calibration, inspired by Hou *et al.* (2024): a heteroscedastic Gaussian model for residuals, *r* ~ N(*m*₀ + *m*₁*c*, exp{2(*a* + *bc*)}), with context *c* the standardised log *d*. It was fitted by maximum likelihood either to the random-fold pool ("random pool") or to the same pool A used by KinCP ("pool A").
 7. **OOF-quantile**: the conformal quantile of absolute random-fold out-of-fold residuals, placed around *ŷ*ⱼ. This mirrors the cross-validated residual quantiles of PredInterval (Xu *et al.* 2025) and is also the ablation of KinCP with none of its components.
 8. **KinCP** (proposed), described next.
@@ -203,4 +203,4 @@ Two variants were added after the main results had been seen, and are reported s
 
 ### Software, reproducibility and pre-specification
 
-The analysis uses Python 3.11, NumPy, SciPy, scikit-learn and LightGBM. All computations ran on a 4-core CPU without a GPU. A single command (`python run_all.py --mode full`) regenerates every result, table and figure from the public data, and every number in this article is inserted automatically from the generated result files. The study design was committed to version control before any model was fitted. Five deviations, all made for compute reasons or found in a pipeline smoke test, are listed in File S1.
+The analysis uses Python 3.11, NumPy, SciPy, scikit-learn and LightGBM. All computations ran on a 4-core CPU without a GPU. A single command (`python run_all.py --mode full`) regenerates every result, table and figure from the public data, and every number in this article is inserted automatically from the generated result files. The study design was committed to version control before any model was fitted. File S1 lists all seven deviations from the pre-specified design: five made for compute reasons or found in a pipeline smoke test, and two (the exploratory variants and the robustness analyses requested by internal review) added after the main results had been seen.

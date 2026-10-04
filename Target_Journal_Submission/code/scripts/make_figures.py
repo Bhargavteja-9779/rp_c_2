@@ -399,13 +399,14 @@ def fig12():
         ax.errorbar(g.median_diff, y, xerr=[g.median_diff - g.ci_low, g.ci_high - g.median_diff], fmt="o", color=COL["KinCP"],
                     ms=3.5, capsize=1.5, elinewidth=0.8)
         for yi, (_, r) in zip(y, g.iterrows()):
-            star = "" if not np.isfinite(r.p_holm) else ("*" if r.p_holm < 0.05 else "")
-            ax.text(max(g.ci_high.max(), 0) * 1.02 + 0.001, yi, f"{star}", va="center", fontsize=8, color=INK)
+            if np.isfinite(r.p_holm) and r.p_holm < 0.05:
+                ax.annotate("*", xy=(r.ci_high, yi), xytext=(3, -2), textcoords="offset points", fontsize=9, color=INK)
         ax.axvline(0, color=INK2, lw=0.8, ls="--")
         ax.set_title(REG[reg], fontsize=8, loc="left", color=INK)
-        ax.set_xlabel("Δ cond. error (competitor − KinCP)")
+        ax.margins(x=0.12)
     axes[0].set_yticks(range(len(comps)), [lab(c) for c in comps], fontsize=6.5)
     axes[0].invert_yaxis()
+    fig.supxlabel("Median paired difference in conditional coverage error (competitor − KinCP); * Holm P < 0.05", fontsize=7.5)
     fig.tight_layout()
     save(fig, "Fig12_statistics_forest")
 
