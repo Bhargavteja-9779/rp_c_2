@@ -1,6 +1,5 @@
-data/
-**/data/raw/
-**/data/processed/
+/data/
+Target_Journal_Submission/code/data/
 __pycache__/
 *.pyc
 .pytest_cache/
