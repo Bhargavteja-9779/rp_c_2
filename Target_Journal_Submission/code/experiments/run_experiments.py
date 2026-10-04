@@ -23,13 +23,14 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from kincp.data.easygese import DATASETS, eligible_traits, read_phenotypes  # noqa: E402
 from kincp.evaluation.metrics import summarize  # noqa: E402
-from kincp.utils import RESULTS_DIR, environment_info, dump_json, get_logger  # noqa: E402
+from kincp.utils import RESULTS_DIR, STUDY, environment_info, dump_json, get_logger  # noqa: E402
 
 JOB_DIR = RESULTS_DIR / "jobs"
-SIM_GENOS = ("pine", "pig", "maize")
-SIM_H2 = (0.2, 0.5, 0.8)
-SIM_NQTL = (10, 1000)
-SIM_REPS = (1, 2, 3, 4, 5)
+_SIM = STUDY["simulation"]
+SIM_GENOS = tuple(_SIM["genotypes"])
+SIM_H2 = tuple(_SIM["h2"])
+SIM_NQTL = tuple(_SIM["n_qtl"])
+SIM_REPS = tuple(range(1, _SIM["replicates"] + 1))
 
 
 def job_specs(mode: str) -> list[dict]:

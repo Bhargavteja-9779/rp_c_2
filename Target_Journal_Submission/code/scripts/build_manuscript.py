@@ -16,12 +16,11 @@ from pathlib import Path
 
 import pandas as pd
 from docx import Document
-from docx.enum.section import WD_ORIENT
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Cm, Inches, Pt
+from docx.shared import Inches, Pt
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from kincp.utils import FIG_DIR, PKG_ROOT, RESULTS_DIR, TAB_DIR  # noqa: E402

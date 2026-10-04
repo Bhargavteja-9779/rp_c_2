@@ -3,7 +3,10 @@ from __future__ import annotations
 
 import numpy as np
 
+from ..utils import STUDY
 from .kernel_blup import KernelBLUP, reml
+
+_LGB = STUDY["lightgbm"]
 
 
 class GBLUPPredictor:
@@ -41,11 +44,11 @@ class LightGBMPredictor:
 
     name = "LightGBM"
 
-    def __init__(self, Xthin: np.ndarray, seed: int, n_estimators: int = 500, learning_rate: float = 0.05,
-                 num_leaves: int = 31, colsample: float = 0.3, n_jobs: int = 1):
+    def __init__(self, Xthin: np.ndarray, seed: int, n_jobs: int = 1):
         self.X = Xthin
-        self.params = dict(n_estimators=n_estimators, learning_rate=learning_rate, num_leaves=num_leaves,
-                           colsample_bytree=colsample, subsample=0.8, subsample_freq=1, min_child_samples=10,
+        self.params = dict(n_estimators=_LGB["n_estimators"], learning_rate=_LGB["learning_rate"],
+                           num_leaves=_LGB["num_leaves"], colsample_bytree=_LGB["colsample_bytree"],
+                           subsample=_LGB["subsample"], subsample_freq=1, min_child_samples=_LGB["min_child_samples"],
                            random_state=seed, n_jobs=n_jobs, verbose=-1)
 
     def fit_reml(self, S, y):

@@ -1,13 +1,13 @@
 # Study configuration (mirrors supplementary/S0_preregistered_design.md).
-# seeds, alphas, inner_cross_fitting and kincp are read by the code (kincp.utils.STUDY);
-# the other entries document constants set in the modules named in the comments.
+# All entries below are read by the code through kincp.utils.STUDY, except the free-text
+# descriptions under `regimes` and `data.source` (documentation only).
 data:
   source: EasyGeSe (Zenodo 15348871, CC-BY 4.0)
   datasets: [barley, bean, lentil, pine, oyster, maize, pig, rice, soybean, wheatG]
   trait_rule: {min_n: 200, min_unique: 30, max_traits: 3}         # kincp.data.easygese.eligible_traits
 genomic:
   grm: VanRaden method 1                                           # kincp.preprocessing.genomic.grm_vanraden
-  clusters: {k: 5, n_pcs: 10, seed: 2026, n_init: 10}              # kincp.data.prepare.prepare
+  clusters: {k: 5, n_pcs: 10, seed: 2026, n_init: 10}              # kincp.data.prepare.prepare (n_init fixed at 10 in preprocessing.genomic)
 regimes:
   R1: EasyGeSe 5x5-fold CV
   R2: leave-one-genomic-cluster-out, 5 seeds

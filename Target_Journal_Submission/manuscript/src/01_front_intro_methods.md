@@ -70,7 +70,7 @@ We used the ten datasets of EasyGeSe (Quesada-Traver *et al.* 2025; Zenodo recor
 * soybean (*Glycine max*; Kaler *et al.* 2017);
 * wheat (*Triticum aestivum*; Gogna *et al.* 2022).
 
-Genotypes were recoded as allele dosages 0/1/2. The wheat file, coded −2/0/2, was shifted to this scale; inbred panels coded 0/2 were kept as is. Monomorphic markers were dropped. No further marker filtering or imputation was applied. The files were verified against the Zenodo MD5 checksums.
+Genotypes were recoded as allele dosages 0/1/2. The wheat file, coded −2/0/2, was shifted to this scale; inbred panels coded 0/2 were kept as is. Monomorphic markers were dropped. No further marker filtering or imputation was applied. All 30 files were verified against the Zenodo MD5 checksums.
 
 Traits were selected by a rule fixed in advance that does not look at results. A trait was eligible if it had at least 200 phenotyped individuals and at least 30 distinct values. Within each dataset we took up to three eligible traits with the largest number of records, breaking ties by column order. This gave {{n_units}} dataset × trait units (Table 1).
 
@@ -90,7 +90,7 @@ Phenotypes were standardised in every outer fold using the training mean and sta
 
 **RKHS regression.** This is the same mixed-model machinery with a Gaussian kernel *K*ᵢⱼ = exp(−*D*²ᵢⱼ / median *D*²), where *D*²ᵢⱼ = *G*ᵢᵢ + *G*ⱼⱼ − 2*G*ᵢⱼ (Gianola and van Kaam 2008; de los Campos *et al.* 2010).
 
-**LightGBM.** Gradient-boosted trees (Ke *et al.* 2017) were fitted with hyper-parameters fixed in advance: 500 trees, learning rate 0.05, 31 leaves, column subsampling 0.3, row subsampling 0.8 and at least 10 samples per leaf. Inputs were at most 10,000 evenly spaced markers.
+**LightGBM.** Gradient-boosted trees (Ke *et al.* 2017) were fitted with hyper-parameters fixed in advance: 500 trees, learning rate 0.05, 31 leaves, column subsampling 0.3, row subsampling 0.8 and at least 10 samples per leaf. Inputs were at most 10,000 evenly spaced markers of the dosage matrix. These may include a few monomorphic markers, which trees ignore.
 
 ### Relatedness covariate
 
@@ -106,7 +106,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 
 1. **Gauss-PEV** (GBLUP only): *ŷ*ⱼ ± *z*_{1−α/2} σ(*d*ⱼ). This is the classical model-based interval.
 2. **Gauss-homosc**: *ŷ*ⱼ ± *z*_{1−α/2} times the standard deviation of random five-fold out-of-fold residuals in *T*.
-3. **SCP** (split conformal): the model is refitted on a random 80% of *T*. With absolute residuals *R*ᵢ on the remaining 20% (*n*_c individuals), the interval is *ŷ*ⱼ ± the ⌈(1 − α)(*n*_c + 1)⌉-th smallest *R*ᵢ (Lei *et al.* 2018).
+3. **SCP** (split conformal): the model is refitted on a random 80% of *T* (at least 10 individuals are kept for calibration). With absolute residuals *R*ᵢ on the remaining 20% (*n*_c individuals), the interval is *ŷ*ⱼ ± the ⌈(1 − α)(*n*_c + 1)⌉-th smallest *R*ᵢ (Lei *et al.* 2018).
 4. **NormCP**: as SCP, with scores *R*ᵢ/σ(*d*ᵢ) and half-width scaled by σ(*d*ⱼ). This is component B alone, with *d* measured relative to the 80% fitting subset.
 5. **CV+** (Barber *et al.* 2021): random five-fold cross-fitting in *T*. The bounds are the ⌊α(*n* + 1)⌋-th smallest of {*ŷ*ⱼ^{(−k(i))} − *R*ᵢ} and the ⌈(1 − α)(*n* + 1)⌉-th smallest of {*ŷ*ⱼ^{(−k(i))} + *R*ᵢ}.
 6. **CalPred-style** calibration, inspired by Hou *et al.* (2024): a heteroscedastic Gaussian model for residuals, *r* ~ N(*m*₀ + *m*₁*c*, exp{2(*a* + *bc*)}), with context *c* the standardised log *d*. It was fitted by maximum likelihood either to the random-fold pool ("random pool") or to the same pool A used by KinCP ("pool A").
@@ -115,7 +115,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 
 **KinCP.** KinCP has three components.
 
-(A) *Calibration pool.* Two cross-fitting schemes are run inside *T*: random five-fold, and genomic-cluster folds. For the latter, *k*-means with *k* = min{5, max(2, ⌊|*T*|/20⌋)} is applied to the principal components of the training individuals. Each scheme yields an out-of-fold residual *r*ᵢ for every training individual. For each residual, *d*ᵢ is computed with Eq. (1) relative to the inner training subset that produced it. The pool {(*r*ᵢ, *d*ᵢ)} has 2|*T*| members and spans both close relatives (random folds) and distant relatives (cluster folds).
+(A) *Calibration pool.* Two cross-fitting schemes are run inside *T*: random five-fold, and genomic-cluster folds. For the latter, *k*-means (10 restarts) with *k* = min{5, max(2, ⌊|*T*|/20⌋)} is applied to the training individuals' scores on the global genotype principal components, which are computed once from all genotyped individuals. Each scheme yields an out-of-fold residual *r*ᵢ for every training individual. For each residual, *d*ᵢ is computed with Eq. (1) relative to the inner training subset that produced it. The pool {(*r*ᵢ, *d*ᵢ)} has 2|*T*| members and spans both close relatives (random folds) and distant relatives (cluster folds).
 
 (B) *Normalised scores.* *s*ᵢ = |*r*ᵢ| / σ(*d*ᵢ).
 
@@ -123,7 +123,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 
 *q̂*ⱼ = inf{*s* : Σᵢ *w*ᵢ(*j*) 1[*s*ᵢ ≤ *s*] / (Σᵢ *w*ᵢ(*j*) + 1) ≥ 1 − α},     (2)
 
-and the interval is *ŷ*ⱼ ± *q̂*ⱼ σ(*d*ⱼ). The default bandwidth is *h* = 0.5 × SD(log *d*ᵢ). It is widened multiplicatively (×1.25) for each candidate until Σᵢ *w*ᵢ(*j*) ≥ 50. This floor prevents uninformative infinite intervals for candidates outside the pool's range of *d* (File S1, deviation D1). The floor depends only on genotype-derived covariates, never on outcomes.
+and the interval is *ŷ*ⱼ ± *q̂*ⱼ σ(*d*ⱼ). The default bandwidth is *h* = 0.5 × SD(log *d*ᵢ). It is widened multiplicatively (×1.25, at most 60 times) for each candidate until Σᵢ *w*ᵢ(*j*) ≥ 50. This floor prevents uninformative infinite intervals for candidates outside the pool's range of *d* (File S1, deviation D1). The floor depends only on genotype-derived covariates, never on outcomes.
 
 Ablations removed every non-empty subset of A, B and C:
 * without A, the random-fold pool only;
@@ -132,7 +132,13 @@ Ablations removed every non-empty subset of A, B and C:
 
 **Rationale and guarantees.** Suppose that the conditional distribution of the score given *d* is the same for pool members and candidates (relatedness-conditional invariance), and that only the distribution of *d* differs between them. Weighting pool members by the density ratio of *d* then gives a finite-sample marginal coverage guarantee (Tibshirani *et al.* 2019). Kernel localisation in *d* approximates conditional coverage given *d* (Guan 2023).
 
-Our implementation uses a deterministic kernel. The pool residuals come from models trained on subsets of *T* (as in CV+; Barber *et al.* 2021), and the invariance assumption is only approximately met. KinCP therefore inherits no exact finite-sample guarantee. Its two design choices make the invariance assumption more plausible:
+KinCP departs from these conditions in four ways:
+* it uses a deterministic kernel;
+* the pool residuals come from models trained on subsets of *T* (as in CV+; Barber *et al.* 2021), while the interval is centred on the full-training-set prediction (the cross-validated residual-quantile construction of PredInterval, which has no CV+-type guarantee);
+* each training individual contributes two dependent residuals, one per cross-fitting scheme;
+* the invariance assumption is only approximately met.
+
+KinCP therefore inherits no exact finite-sample guarantee. Its two design choices make the invariance assumption more plausible:
 * cross-fitting with genomic clusters places calibration residuals at the levels of *d* that candidates actually reach;
 * normalisation by σ(*d*) removes the first-order dependence of the residual scale on relatedness.
 

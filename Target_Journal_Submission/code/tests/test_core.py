@@ -120,3 +120,38 @@ def test_kincp_coverage_under_relatedness_heteroscedasticity():
             covs[t].append(c[terc == t].mean())
     for t in range(3):
         assert 0.86 < np.mean(covs[t]) < 0.94
+
+
+def test_cv_plus_marginal_coverage_exchangeable():
+    """CV+ on exchangeable synthetic residuals: coverage at least 1 - 2*alpha and close to nominal."""
+    rng = np.random.default_rng(9)
+    cov = []
+    for _ in range(200):
+        n = 150
+        res = rng.normal(size=n)
+        fold = np.arange(n) % 5
+        P = np.zeros((1, 5))
+        fd = FoldData(yhat=np.zeros(1), d=np.ones(1), s2g=1.0, s2e=1.0,
+                      pools=dict(rand=dict(res=res, d=np.ones(n), fold=fold)), cvplus_pred=P)
+        lo, hi = cv_plus(fd, 0.1)
+        y = rng.normal()
+        cov.append(lo[0] <= y <= hi[0])
+    assert np.mean(cov) > 0.84
+
+
+def test_mondrian_and_calpred_return_finite_ordered_bounds():
+    from kincp.conformal.methods import calpred_style, mondrian_bins
+    rng = np.random.default_rng(10)
+    pools = {k: dict(res=rng.normal(size=400), d=rng.uniform(0.1, 1.0, 400), fold=rng.integers(0, 5, 400))
+             for k in ("rand", "clus")}
+    fd = FoldData(yhat=np.zeros(30), d=rng.uniform(0.1, 1.0, 30), s2g=0.5, s2e=0.5, pools=pools)
+    for f in (mondrian_bins, calpred_style):
+        lo, hi = f(fd, 0.1)
+        assert np.all(np.isfinite(lo)) and np.all(lo < hi)
+
+
+def test_config_is_read():
+    from kincp.utils import STUDY
+    from kincp.training.runner import SEEDS
+    assert tuple(STUDY["seeds"]) == SEEDS == (11, 22, 33, 44, 55)
+    assert STUDY["kincp"]["mass_floor_n_min"] == 50
