@@ -76,7 +76,7 @@ KinCP's advantage under random cross-validation is therefore specific to calibra
 * the KinCP intervals for 300 candidates took {{sc_int}} s;
 * peak memory was {{sc_mem}} MB.
 
-Pool time grew with training-set size to the power {{sc_slope}}, and memory to the power {{sc_mslope}}. These exponents follow the dense *O*(*n*³) factorisations and *O*(*n*²) relationship matrices of GBLUP itself. The overhead is therefore that of a standard five-fold cross-validation run twice, and is small relative to phenotyping or genotyping costs.
+Pool time grew with training-set size to the power {{sc_slope}}, and memory to the power {{sc_mslope}}. These exponents follow the dense *O*(*n*³) factorisations and *O*(*n*²) relationship matrices of GBLUP itself. The overhead is therefore that of a standard five-fold cross-validation run twice, and is small relative to phenotyping or genotyping costs. The pools depend only on the training set, so they are built once and reused for any number of candidate batches. The per-candidate cost of KinCP is then a weighted quantile of the pool scores.
 
 **Sensitivity** (Table 8; Figure 9). KinCP was insensitive to its tuning choices:
 * *Bandwidth multiplier* from 0.25 to 2: R2 conditional error {{sens_h025_R2_cond}} to {{sens_h2_R2_cond}}, against {{kincp_R2_cond}} at the default.
