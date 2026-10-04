@@ -17,6 +17,7 @@ import pandas as pd  # noqa: E402
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from kincp.data.easygese import COMMON  # noqa: E402
 from kincp.utils import FIG_DIR, RESULTS_DIR  # noqa: E402
 
@@ -104,7 +105,8 @@ def fig1():
 def fig2():
     audit = json.load(open(RESULTS_DIR / "data_audit.json"))
     rec = []
-    for f in sorted((RESULTS_DIR / "jobs").glob("GBLUP__*__main__12345__records.parquet")):
+    import secondary_analyses as _sa
+    for f in _sa.main_gblup_records():
         p = f.name.split("__")
         if p[3] not in ("R1", "R2"):
             continue

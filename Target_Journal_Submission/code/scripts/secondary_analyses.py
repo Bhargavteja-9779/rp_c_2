@@ -19,6 +19,18 @@ from kincp.utils import RESULTS_DIR, dump_json  # noqa: E402
 
 JOBS = RESULTS_DIR / "jobs"
 MAIN = ["Gauss-PEV", "SCP", "CV+", "CalPred-style", "KinCP", "KinCP-ABC"]
+
+
+def main_gblup_records():
+    """Per (dataset, trait, regime): the GBLUP 'main' record file with the most repeats
+    (full mode: __12345; quick mode: __1)."""
+    best = {}
+    for f in sorted(JOBS.glob("GBLUP__*__main__*__records.parquet")):
+        p = f.name.split("__")
+        key = (p[1], p[2], p[3])
+        if key not in best or len(p[5]) > len(best[key].name.split("__")[5]):
+            best[key] = f
+    return [best[k] for k in sorted(best)]
 SEL_FRAC = 0.10
 
 
@@ -59,7 +71,7 @@ def error_analysis():
 
 def decision_analysis():
     rows = []
-    for f in sorted(JOBS.glob("GBLUP__*__main__12345__records.parquet")):
+    for f in main_gblup_records():
         parts = f.name.split("__")
         ds, tr, reg = parts[1], parts[2], parts[3]
         if reg not in ("R1", "R2"):
@@ -78,6 +90,9 @@ def decision_analysis():
                              overlap=len(set(by_point.idx) & set(by_lower.idx)) / k))
     d = pd.DataFrame(rows)
     d.to_csv(RESULTS_DIR / "decision_analysis.csv", index=False)
+    if d.empty:
+        dump_json({}, RESULTS_DIR / "decision_summary.json")
+        return
     u = d.groupby(["regime", "method", "dataset", "trait"]).mean(numeric_only=True).reset_index()
     summ = {}
     for (reg, meth), g in u.groupby(["regime", "method"]):
@@ -147,6 +162,8 @@ def alt_relatedness_endpoint():
                              worst_maxkin=float(bc.min()), cov_low_kin=float(bc.iloc[0]), cov_high_kin=float(bc.iloc[-1])))
     d = pd.DataFrame(rows)
     d.to_csv(RESULTS_DIR / "alt_relatedness_units.csv", index=False)
+    if d.empty or d[["dataset", "trait"]].drop_duplicates().shape[0] < 5:
+        return
     st = []
     for (base, reg), g in d.groupby(["base", "regime"]):
         c = paired_compare(g, ["dataset", "trait"], "method", "KinCP", [m for m in meths if m != "KinCP"], "cond_err_maxkin", True)
@@ -169,7 +186,7 @@ def oracle_inflation():
     If KinCP still has the smaller error, its advantage lies in how width is distributed across relatedness,
     not in average width."""
     rows = []
-    for f in sorted(JOBS.glob("GBLUP__*__main__12345__records.parquet")):
+    for f in main_gblup_records():
         parts = f.name.split("__")
         ds, tr, reg = parts[1], parts[2], parts[3]
         if reg not in ("R1", "R2"):
@@ -191,6 +208,8 @@ def oracle_inflation():
                              worst_oracle=float(bc.min()), width_oracle=float((2 * k * hw).mean())))
     d = pd.DataFrame(rows)
     d.to_csv(RESULTS_DIR / "oracle_inflation_units.csv", index=False)
+    if d.empty or d[["dataset", "trait"]].drop_duplicates().shape[0] < 5:
+        return
     from kincp.statistics.tests import paired_compare
     st = pd.concat([paired_compare(d[d.regime == reg], ["dataset", "trait"], "method", "KinCP",
                                    ["SCP", "CV+", "Gauss-PEV", "CalPred-style", "Gauss-homosc"], "cond_err_oracle", True).assign(regime=reg)
