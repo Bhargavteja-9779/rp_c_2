@@ -81,19 +81,19 @@
   "q": "Guan Localized conformal prediction: a generalized inference framework for conformal prediction Biometrika"
  },
  "papadopoulos2002": {
-  "q": "Papadopoulos Proedrou Vovk Gammerman Inductive confidence machines for regression"
+  "doi": "10.1007/3-540-36755-1_29"
  },
  "gibbs2025cc": {
   "q": "Gibbs Cherian Candes Conformal prediction with conditional guarantees Journal of the Royal Statistical Society Series B"
  },
  "dunn2023": {
-  "q": "Dunn Wasserman Ramdas Distribution-free prediction sets for two-layer hierarchical models Journal of the American Statistical Association"
+  "doi": "10.1080/01621459.2022.2060112"
  },
  "gneiting2007": {
   "doi": "10.1198/016214506000001437"
  },
  "vovk2013": {
-  "q": "Vovk Conditional validity of inductive conformal predictors Machine Learning"
+  "doi": "10.1007/s10994-013-5355-6"
  },
  "wilcoxon1945": {
   "q": "Wilcoxon 1945 Individual comparisons by ranking methods"
@@ -114,7 +114,7 @@
   "q": "Efron 1979 Bootstrap methods: another look at the jackknife Annals of Statistics"
  },
  "bhattacharyya2024": {
-  "q": "Bhattacharyya Barber Group-weighted conformal prediction"
+  "doi": "10.1214/26-ejs2506"
  },
  "hayes2009": {
   "q": "Hayes Visscher Goddard 2009 Increased accuracy of artificial selection by using the realized relationship matrix Genetics Research"
@@ -139,5 +139,11 @@
  },
  "gogna2022": {
   "q": "Gogna 2022 wheat genomic prediction European elite cultivars"
+ },
+ "sun2021": {
+  "doi": "10.1038/s41467-021-25014-7"
+ },
+ "kodji2026": {
+  "doi": "10.1371/journal.pcbi.1014670"
  }
 }

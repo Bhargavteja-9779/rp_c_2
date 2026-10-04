@@ -45,3 +45,5 @@ washburn2025 | 2025 | Washburn JD, Varela JI, Xavier A | Global genotype by envi
 zhao2011 | 2011 | Zhao K, Tung CW, Eizenga GC | Genome-wide association mapping reveals a rich genetic architecture of complex traits in O | Nature Communications 2 467 | 10.1038/ncomms1467
 kaler2017 | 2017 | Kaler AS, Dhanapal AP, Ray JD | Genome‐Wide Association Mapping of Carbon Isotope and Oxygen Isotope Ratios in Diverse Soy | Crop Science 57 3085-3100 | 10.2135/cropsci2017.03.0160
 gogna2022 | 2022 | Gogna A, Schulthess AW, Röder MS | Gabi wheat a panel of European elite lines as central stock for wheat genetic research | Scientific Data 9 538 | 10.1038/s41597-022-01651-5
+sun2021 | 2021 | Sun J, Wang Y, Folkersen L | Translating polygenic risk scores for clinical use by estimating the confidence bounds of  | Nature Communications 12 5276 | 10.1038/s41467-021-25014-7
+kodji2026 | 2026 | Kodji E, Attaoua R, Haloui M | Improving the reliability of polygenic risk score-based prediction for cardiovascular and  | PLOS Computational Biology 22 e1014670 | 10.1371/journal.pcbi.1014670

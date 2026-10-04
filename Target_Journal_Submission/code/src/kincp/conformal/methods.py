@@ -185,6 +185,21 @@ def kincp(fd: FoldData, alpha: float, A: bool = True, B: bool = True, C: bool = 
     return lo, hi
 
 
+def mondrian_bins(fd: FoldData, alpha: float, n_bins: int = 5, which=("rand", "clus")):
+    """Mondrian (category-conditional; Vovk 2013) alternative to localisation C: pool A, PEV-normalised
+    scores, separate conformal quantiles within quintile bins of log d (bin edges from the pool)."""
+    res, d = _pool(fd, which)
+    sc = np.abs(res) / sigma_of_d(d, fd.s2g, fd.s2e)
+    edges = np.quantile(np.log(d), np.linspace(0, 1, n_bins + 1))[1:-1]
+    bp = np.digitize(np.log(d), edges)
+    bt = np.digitize(np.log(fd.d), edges)
+    q = np.empty(len(fd.d))
+    for b in range(n_bins):
+        q[bt == b] = conformal_quantile(sc[bp == b], alpha)
+    h = q * sigma_of_d(fd.d, fd.s2g, fd.s2e)
+    return fd.yhat - h, fd.yhat + h
+
+
 ABLATIONS = {
     "KinCP": dict(A=True, B=True, C=True),
     "KinCP-A": dict(A=False, B=True, C=True),
@@ -215,6 +230,7 @@ def all_intervals(fd: FoldData, alpha: float, base: str, h_mults=(0.25, 1.0, 2.0
         out["KinCP-G"] = kincp(fd, alpha, pool_names=("rand", "glob"))
         out["KinCP-G+"] = kincp(fd, alpha, pool_names=("rand", "clus", "glob"))
         out["CalPred-style-G"] = calpred_style(fd, alpha, ("rand", "glob"))
+        out["Mondrian-d"] = mondrian_bins(fd, alpha)
     if h_mults:   # sensitivity: fixed bandwidth (no effective-sample-size floor) and other floors
         out["KinCP[fixed-h]"] = kincp(fd, alpha, n_min=None)
         out["KinCP[nmin=25]"] = kincp(fd, alpha, n_min=25)

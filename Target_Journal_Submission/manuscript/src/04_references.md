@@ -8,6 +8,8 @@ Barber RF, Candès EJ, Ramdas A, Tibshirani RJ. 2021. Predictive inference with 
 
 Barber RF, Candès EJ, Ramdas A, Tibshirani RJ. 2023. Conformal prediction beyond exchangeability. The Annals of Statistics. 51(2). doi:10.1214/23-aos2276
 
+Bhattacharyya A, Barber RF. 2026. Group-weighted conformal prediction. Electronic Journal of Statistics. 20(1). doi:10.1214/26-ejs2506
+
 Clark SA, Hickey JM, Daetwyler HD, van der Werf JH. 2012. The importance of information on relatives for the prediction of genomic breeding values and the implications for the makeup of reference data sets in livestock breeding schemes. Genetics Selection Evolution. 44(1):4. doi:10.1186/1297-9686-44-4
 
 Crossa J, Pérez-Rodríguez P, Cuevas J, Montesinos-López O, Jarquín D, de los Campos G, Burgueño J, González-Camacho JM, Pérez-Elizalde S, Beyene Y, et al. 2017. Genomic Selection in Plant Breeding: Methods, Models, and Perspectives. Trends in Plant Science. 22(11):961–975. doi:10.1016/j.tplants.2017.08.011
@@ -15,6 +17,8 @@ Crossa J, Pérez-Rodríguez P, Cuevas J, Montesinos-López O, Jarquín D, de los
 de los Campos G, Gianola D, Rosa GJM, Weigel KA, Crossa J. 2010. Semi-parametric genomic-enabled prediction of genetic values using reproducing kernel Hilbert spaces methods. Genetics Research. 92(4):295–308. doi:10.1017/s0016672310000285
 
 Ding Y, Hou K, Xu Z, Pimplaskar A, Petter E, Boulier K, Privé F, Vilhjálmsson BJ, Olde Loohuis LM, Pasaniuc B. 2023. Polygenic scoring accuracy varies across the genetic ancestry continuum. Nature. 618(7966):774–781. doi:10.1038/s41586-023-06079-4
+
+Dunn R, Wasserman L, Ramdas A. 2023. Distribution-Free Prediction Sets for Two-Layer Hierarchical Models. Journal of the American Statistical Association. 118(544):2491–2502. doi:10.1080/01621459.2022.2060112
 
 Efron B. 1979. Bootstrap Methods: Another Look at the Jackknife. The Annals of Statistics. 7(1). doi:10.1214/aos/1176344552
 
@@ -48,6 +52,8 @@ Ke G, Meng Q, Finley T, Wang T, Chen W, Ma W, Ye Q, Liu TY. 2017. LightGBM: a hi
 
 Kerby DS. 2014. The Simple Difference Formula: An Approach to Teaching Nonparametric Correlation. Comprehensive Psychology. 3:11.IT.3.1. doi:10.2466/11.it.3.1
 
+Kodji E, Attaoua R, Haloui M, Hishmih C, Seitz M, Woodward M, Hussin JG, Hamet P, Tremblay J. 2026. Improving the reliability of polygenic risk score-based prediction for cardiovascular and renal complications across ancestries in type 2 diabetes using Mondrian Cross-Conformal Prediction. PLOS Computational Biology. 22(8):e1014670. doi:10.1371/journal.pcbi.1014670
+
 Kumar P. 2026. Calibrated genomic selection [data paper and code]. Zenodo. doi:10.5281/zenodo.22962591
 
 Legarra A, Reverter A. 2018. Semi-parametric estimates of population accuracy and bias of predictions of breeding values and future phenotypes using the LR method. Genetics Selection Evolution. 50(1):53. doi:10.1186/s12711-018-0426-6
@@ -56,15 +62,21 @@ Lei J, G’Sell M, Rinaldo A, Tibshirani RJ, Wasserman L. 2018. Distribution-Fre
 
 Meuwissen THE, Hayes BJ, Goddard ME. 2001. Prediction of Total Genetic Value Using Genome-Wide Dense Marker Maps. Genetics. 157(4):1819–1829. doi:10.1093/genetics/157.4.1819
 
+Papadopoulos H, Proedrou K, Vovk V, Gammerman A. 2002. Inductive Confidence Machines for Regression. Lecture Notes in Computer Science. 345-356. doi:10.1007/3-540-36755-1_29
+
 Pszczola M, Strabel T, Mulder H, Calus M. 2012. Reliability of direct genomic values for animals with different relationships within and to the reference population. Journal of Dairy Science. 95(1):389–400. doi:10.3168/jds.2011-4338
 
 Quesada-Traver C, Ariza-Suarez D, Studer B, Yates S. 2025. EasyGeSe – a resource for benchmarking genomic prediction methods. BMC Genomics. 26(1):953. doi:10.1186/s12864-025-12129-0
 
 Resende MFR, Muñoz P, Resende MDV, Garrick DJ, Fernando RL, Davis JM, Jokela EJ, Martin TA, Peter GF, Kirst M. 2012. Accuracy of Genomic Selection Methods in a Standard Data Set of Loblolly Pine (Pinus taedaL.). Genetics. 190(4):1503–1510. doi:10.1534/genetics.111.137026
 
+Sun J, Wang Y, Folkersen L, Borné Y, Amlien I, Buil A, Orho-Melander M, Børglum AD, Hougaard DM, , et al. 2021. Translating polygenic risk scores for clinical use by estimating the confidence bounds of risk prediction. Nature Communications. 12(1):5276. doi:10.1038/s41467-021-25014-7
+
 Tibshirani RJ, Barber RF, Candès EJ, Ramdas A. 2019. Conformal prediction under covariate shift. Advances in Neural Information Processing Systems. 32. https://papers.nips.cc/paper_files/paper/2019/hash/8fb21ee7a2207526da55a679f0332de2-Abstract.html
 
 VanRaden P. 2008. Efficient Methods to Compute Genomic Predictions. Journal of Dairy Science. 91(11):4414–4423. doi:10.3168/jds.2007-0980
+
+Vovk V. 2013. Conditional validity of inductive conformal predictors. Machine Learning. 92(2-3):349–376. doi:10.1007/s10994-013-5355-6
 
 Vovk V, Gammerman A, Shafer G. 2022. Algorithmic Learning in a Random World. Springer, Cham (2nd edition). doi:10.1007/978-3-031-06649-8
 

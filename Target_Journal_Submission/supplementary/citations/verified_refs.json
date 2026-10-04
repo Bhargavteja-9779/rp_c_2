@@ -885,5 +885,57 @@
   "issue": "1",
   "pages": "538",
   "type": "journal-article"
+ },
+ "sun2021": {
+  "status": "OK",
+  "doi": "10.1038/s41467-021-25014-7",
+  "title": "Translating polygenic risk scores for clinical use by estimating the confidence bounds of risk prediction",
+  "authors": [
+   "Sun J",
+   "Wang Y",
+   "Folkersen L",
+   "Born\u00e9 Y",
+   "Amlien I",
+   "Buil A",
+   "Orho-Melander M",
+   "B\u00f8rglum AD",
+   "Hougaard DM",
+   "",
+   "Lotta LA",
+   "Jones M",
+   "Baras A",
+   "Melander O",
+   "Engstr\u00f6m G",
+   "Werge T",
+   "Lage K"
+  ],
+  "year": 2021,
+  "journal": "Nature Communications",
+  "volume": "12",
+  "issue": "1",
+  "pages": "5276",
+  "type": "journal-article"
+ },
+ "kodji2026": {
+  "status": "OK",
+  "doi": "10.1371/journal.pcbi.1014670",
+  "title": "Improving the reliability of polygenic risk score-based prediction for cardiovascular and renal complications across ancestries in type 2 diabetes using Mondrian Cross-Conformal Prediction",
+  "authors": [
+   "Kodji E",
+   "Attaoua R",
+   "Haloui M",
+   "Hishmih C",
+   "Seitz M",
+   "Woodward M",
+   "Hussin JG",
+   "Hamet P",
+   "Tremblay J"
+  ],
+  "year": 2026,
+  "journal": "PLOS Computational Biology",
+  "volume": "22",
+  "issue": "8",
+  "pages": "e1014670",
+  "type": "journal-article"
  }
 }

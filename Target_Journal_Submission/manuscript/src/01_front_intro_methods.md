@@ -24,14 +24,26 @@ Genomic prediction uses genome-wide markers to predict the genetic merit or futu
 
 Quantitative genetics has long recognised that relatedness to the training population is the main determinant of individual prediction reliability. Accuracy decreases as the relationship between a candidate and the reference population decreases (Habier *et al.* 2007; Clark *et al.* 2012; Pszczola *et al.* 2012), and family relationships matter more than linkage disequilibrium *per se* (Wientjes *et al.* 2013). Random cross-validation in structured populations therefore overstates the accuracy expected for new families or sub-populations (Werner *et al.* 2020). In mixed-model theory these effects are summarised by the prediction error variance (PEV) of best linear unbiased prediction (Henderson 1975; VanRaden 2008). The PEV yields model-based Gaussian intervals whose width grows as relatedness falls. These intervals are correct only if the linear mixed model, its Gaussian assumptions and its variance components are correct. They are also unavailable for nonlinear or machine-learning predictors.
 
-Conformal prediction offers intervals with finite-sample coverage guarantees for any predictor (Vovk *et al.* 2022; Lei *et al.* 2018; Angelopoulos and Bates 2023). The guarantee rests on exchangeability between calibration residuals and the residual of the new observation. Conformal and related calibrated intervals have recently been proposed for polygenic scores in human populations (Hou *et al.* 2024; Xu *et al.* 2025), and split-conformal intervals have been suggested for genomic selection on simulated data (Kumar 2026). In human polygenic scores, accuracy decays continuously with the genetic distance of an individual from the training data (Ding *et al.* 2023). This motivated context-specific calibration (Hou *et al.* 2024). Breeding populations are more extreme. They consist of families and closely related lines, and in the scenarios that matter most the selection candidates belong to new crosses, new families or new sub-populations. A calibration hold-out drawn at random from the training population is then systematically more closely related to the remaining training individuals than the candidates are. Exchangeability fails along a known and measurable axis: relatedness to the training set. The statistical literature provides general tools for this situation, including weighted conformal prediction under covariate shift (Tibshirani *et al.* 2019; Barber *et al.* 2023), localized conformal prediction (Guan 2023) and conditional guarantees (Gibbs *et al.* 2025). These tools must be given the right covariate and a calibration design in which their assumptions are plausible.
+Conformal prediction offers intervals with finite-sample coverage guarantees for any predictor (Vovk *et al.* 2022; Lei *et al.* 2018; Angelopoulos and Bates 2023). The guarantee rests on exchangeability between calibration residuals and the residual of the new observation. Conformal and related calibrated intervals have recently been proposed for polygenic scores in human populations (Sun *et al.* 2021; Hou *et al.* 2024; Xu *et al.* 2025; Kodji *et al.* 2026). Some of these use group-conditional (Mondrian) calibration across ancestry groups (Sun *et al.* 2021; Kodji *et al.* 2026). Split-conformal intervals have been suggested for genomic selection on simulated data (Kumar 2026). In human polygenic scores, accuracy decays continuously with the genetic distance of an individual from the training data (Ding *et al.* 2023). This motivated context-specific calibration (Hou *et al.* 2024). Breeding populations are more extreme. They consist of families and closely related lines, and in the scenarios that matter most the selection candidates belong to new crosses, new families or new sub-populations. A calibration hold-out drawn at random from the training population is then systematically more closely related to the remaining training individuals than the candidates are. Exchangeability fails along a known and measurable axis: relatedness to the training set. The statistical literature provides general tools for this situation:
+* normalised or locally weighted scores (Papadopoulos *et al.* 2002; Lei *et al.* 2018);
+* weighted conformal prediction under covariate shift (Tibshirani *et al.* 2019; Barber *et al.* 2023);
+* localized conformal prediction (Guan 2023);
+* group-conditional and hierarchical guarantees (Vovk 2013; Dunn *et al.* 2023; Bhattacharyya and Barber 2026);
+* conditional guarantees over function classes (Gibbs *et al.* 2025).
 
-Here we connect these two lines of work. We use the GBLUP prediction error variance, scaled by the genetic variance, as a genotype-only measure of each candidate's relatedness to the training set. We propose kinship-aware conformal prediction (KinCP), which has three components:
+These tools must be given the right covariate and a calibration design in which their assumptions are plausible.
+
+Here we connect these two lines of work. We use the GBLUP prediction error variance, scaled by the genetic variance, as a genotype-only measure of each candidate's genomic relatedness to the training set (we call the approach "kinship-aware", where kinship refers to genomic relationships). We propose kinship-aware conformal prediction (KinCP), which has three components:
 * (A) a calibration pool of out-of-fold residuals from random and genomic-cluster cross-fitting, spanning close and distant relatives;
 * (B) nonconformity scores normalised by the PEV-implied predictive standard deviation;
 * (C) localisation of the conformal quantile in the relatedness metric.
 
-Throughout, intervals are for the phenotype a candidate will express, which is the quantity breeders observe when validating predictions. The relatedness covariate is also shown, by simulation, to calibrate the error of the genetic-value prediction. We regard the calibration design as the main contribution: a relatedness-diverse calibration pool together with the PEV covariate. KinCP is its distribution-free implementation.
+Throughout, intervals are for the phenotype a candidate will express, which is the quantity breeders observe when validating predictions. The relatedness covariate is also shown, by simulation, to calibrate the error of the genetic-value prediction. We regard the calibration design as the main contribution: a relatedness-diverse calibration pool together with the PEV covariate. KinCP is its distribution-free implementation. The conformal components themselves are established tools; what is new is:
+* the identification and measurement of relatedness as the variable along which genomic-prediction intervals lose calibration;
+* a calibration-pool design that makes the relevant shift assumption plausible without phenotypes of the candidates;
+* a pre-specified, multi-species evaluation.
+
+We do not claim a new conformal theorem, nor superiority over a parametric calibration fitted to the same pool.
 
 We evaluate KinCP against seven alternatives across ten plant and animal species from the EasyGeSe resource (Quesada-Traver *et al.* 2025). The design covers three deployment regimes, three base predictors, an ablation of every component, and a simulation on real genotypes with known genetic values. It addresses five questions:
 * RQ1: how miscalibrated are standard intervals across relatedness levels and deployment regimes?
@@ -169,6 +181,13 @@ Within each outer fold, the top 10% of candidates were selected by *ŷ*. We reco
 * coverage among the selected candidates (selection-conditional coverage; cf. Jin and Candès 2023);
 * the share of selected candidates whose phenotype fell below the interval's lower bound (target ≤ 0.05 for a two-sided 90% interval);
 * the mean standardised phenotype of the selected candidates when ranking by *ŷ* versus by the lower bound.
+
+### Exploratory analyses (not pre-specified)
+
+Two variants were added after the main results had been seen, and are reported separately as exploratory (File S1, deviation D6). Both were run with GBLUP for R1 (first repeat) and R2 (first seed) on all units.
+
+1. **KinCP-G.** The cluster folds of pool A are the *global* genomic clusters present in the training set rather than a re-clustering of it. This matches the granularity of the calibration shifts to cluster-out deployment.
+2. **Mondrian-d.** This is a group-conditional alternative to localisation C (Vovk 2013). It uses pool A and normalised scores, with separate conformal quantiles within quintile bins of log *d*.
 
 ### Software, reproducibility and pre-specification
 
