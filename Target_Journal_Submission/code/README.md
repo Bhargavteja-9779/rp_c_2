@@ -1,6 +1,6 @@
 # KinCP: kinship-aware conformal prediction intervals for genomic prediction
 
-This repository is the complete code for the manuscript *"Kinship-aware conformal prediction intervals for genomic prediction across ten plant and animal species"*, prepared for GENETICS. Every number, table and figure in the manuscript is regenerated from public data by one command.
+This repository is the complete code for the manuscript *"Relatedness-aware calibration of genomic prediction intervals: kinship-aware conformal prediction across ten plant and animal species"*, prepared for GENETICS. Every number, table and figure in the manuscript is regenerated from public data by one command.
 
 ## 1. Installation
 ```bash

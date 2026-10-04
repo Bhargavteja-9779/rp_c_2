@@ -59,7 +59,7 @@ The classical PEV interval was competitive under random cross-validation, which 
 
 ### Conclusions
 
-Relatedness to the training population is the variable along which genomic-prediction intervals lose calibration. Kinship-aware conformal prediction uses the GBLUP prediction error variance as a relatedness covariate and calibrates on residuals from random and genomic-cluster cross-fitting. Across ten species and three predictors it restored near-nominal coverage that holds across relatedness levels, at modest computational cost. The calibration design, rather than the choice between conformal and parametric calibration, is what matters most.
+Relatedness to the training population is the variable along which genomic-prediction intervals lose calibration. Kinship-aware conformal prediction uses the GBLUP prediction error variance as a relatedness covariate and calibrates on residuals from random and genomic-cluster cross-fitting. Across ten species and three predictors it restored near-nominal coverage that holds across relatedness levels, at modest computational cost. The calibration design, rather than the choice between conformal and parametric calibration, is what matters most. Simpler fixes can match KinCP within a single known deployment regime, such as group CV+ for new clusters. KinCP, by conditioning on each candidate's relatedness, remained calibrated across regimes.
 
 ## Data availability
 

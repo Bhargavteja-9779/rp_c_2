@@ -1,6 +1,6 @@
-# Kinship-aware conformal prediction intervals for genomic prediction across ten plant and animal species
+# Relatedness-aware calibration of genomic prediction intervals: kinship-aware conformal prediction across ten plant and animal species
 
-**Running title:** Kinship-aware genomic prediction intervals
+**Running title:** Relatedness-aware genomic prediction intervals
 
 [Author names to be inserted]¹
 
@@ -201,6 +201,18 @@ Two variants were added after the main results had been seen, and are reported s
 1. **KinCP-G.** The cluster folds of pool A are the *global* genomic clusters present in the training set rather than a re-clustering of it. This matches the granularity of the calibration shifts to cluster-out deployment.
 2. **Mondrian-d.** This is a group-conditional alternative to localisation C (Vovk 2013). It uses pool A and normalised scores, with separate conformal quantiles within quintile bins of log *d*.
 
+### Robustness analyses requested by internal review
+
+The following analyses were added after the main results had been seen (deviation D7):
+* the granularity and family regimes described above;
+* conditional coverage on quintiles of maximum genomic relationship;
+* species-level paired tests, averaging traits within species (10 units);
+* a PEV-calibration diagnostic in the simulation, comparing the realised mean squared error of the genetic-value prediction with σ̂²_g *d* by quintile of *d*;
+* a single-thread scaling benchmark on random subsets of the maize genotypes;
+* two competitor analyses:
+  * an *oracle rescaling*, in which each method's intervals were rescaled about their centre by the one constant giving exactly 0.90 pooled coverage on the test data, before recomputing the conditional error;
+  * *group CV+*, i.e. CV+ computed with the genomic-cluster folds of pool A, alone or combined with the random folds (GBLUP, R1 first repeat and R2 first seed).
+
 ### Software, reproducibility and pre-specification
 
 The analysis uses Python 3.11, NumPy, SciPy, scikit-learn and LightGBM. All computations ran on a 4-core CPU without a GPU. A single command (`python run_all.py --mode full`) regenerates every result, table and figure from the public data, and every number in this article is inserted automatically from the generated result files. The study design was committed to version control before any model was fitted. File S1 lists all seven deviations from the pre-specified design: five made for compute reasons or found in a pipeline smoke test, and two (the exploratory variants and the robustness analyses requested by internal review) added after the main results had been seen.
@@ -380,7 +392,7 @@ The classical PEV interval was competitive under random cross-validation, which 
 
 ### Conclusions
 
-Relatedness to the training population is the variable along which genomic-prediction intervals lose calibration. Kinship-aware conformal prediction uses the GBLUP prediction error variance as a relatedness covariate and calibrates on residuals from random and genomic-cluster cross-fitting. Across ten species and three predictors it restored near-nominal coverage that holds across relatedness levels, at modest computational cost. The calibration design, rather than the choice between conformal and parametric calibration, is what matters most.
+Relatedness to the training population is the variable along which genomic-prediction intervals lose calibration. Kinship-aware conformal prediction uses the GBLUP prediction error variance as a relatedness covariate and calibrates on residuals from random and genomic-cluster cross-fitting. Across ten species and three predictors it restored near-nominal coverage that holds across relatedness levels, at modest computational cost. The calibration design, rather than the choice between conformal and parametric calibration, is what matters most. Simpler fixes can match KinCP within a single known deployment regime, such as group CV+ for new clusters. KinCP, by conditioning on each candidate's relatedness, remained calibrated across regimes.
 
 ## Data availability
 
@@ -504,14 +516,14 @@ Genetics Society of America
 
 Dear Editor,
 
-We submit our manuscript **"Kinship-aware conformal prediction intervals for genomic prediction across ten plant and animal species"** for consideration as an Investigation in GENETICS, in the area of Systems & Computational Genetics (statistical methods / genomic prediction).
+We submit our manuscript **"Relatedness-aware calibration of genomic prediction intervals: kinship-aware conformal prediction across ten plant and animal species"** for consideration as an Investigation in GENETICS, in the area of Systems & Computational Genetics (statistical methods / genomic prediction).
 
 **What the manuscript does.** Breeders act on individual genomic predictions, so they need uncertainty statements that are valid for the candidates actually being selected. Distribution-free conformal intervals are increasingly proposed for this purpose. We show that their guarantee is undermined in breeding data along a known quantitative-genetic axis: the relatedness of each candidate to the training population. We measure this relatedness with the GBLUP prediction error variance and propose kinship-aware conformal prediction (KinCP), which has three components: a calibration pool spanning close and distant relatives, PEV-normalised scores, and localisation in the relatedness metric.
 
 The study covers 24 traits from ten species in the EasyGeSe resource, three prediction models, three deployment regimes, and simulations on real genotypes with known genetic values:
 * Relatedness-blind conformal intervals (split conformal, CV+) over-cover close relatives and under-cover distant candidates. For candidates from held-out genomic clusters their mean coverage of nominal 90% intervals fell to 0.828–0.838.
 * KinCP achieved the lowest, or joint-lowest, relatedness-conditional coverage error in all deployment regimes and for all three predictors (GBLUP, RKHS, LightGBM). The classical PEV-based Gaussian interval lost calibration under cluster-out deployment (mean coverage 0.881; KinCP 0.894).
-* Ablations show that the relatedness-diverse calibration pool, rather than conformalisation itself, is the decisive ingredient. We report this openly and give practical recommendations.
+* Ablations and competitor analyses show that a relatedness-diverse calibration pool, rather than conformalisation itself, is the decisive ingredient. Within a single known regime, simpler fixes (a parametric calibration on the same pool, or group CV+ for new clusters) perform comparably. We report this openly and give practical recommendations.
 
 **Why GENETICS.** The work joins classical quantitative-genetic theory (prediction error variance, reliability and the effect of relatedness, a tradition with deep roots in GENETICS, e.g. Habier *et al.* 2007; Wientjes *et al.* 2013) with modern distribution-free inference. It continues the journal's recent genomic-prediction methods literature, for example Gibbs *et al.* 2025 and Ahlinder and Waldmann 2026.
 

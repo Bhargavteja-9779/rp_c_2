@@ -6,7 +6,7 @@ Genetics Society of America
 
 Dear Editor,
 
-We submit our manuscript **"Kinship-aware conformal prediction intervals for genomic prediction across ten plant and animal species"** for consideration as an Investigation in GENETICS, in the area of Systems & Computational Genetics (statistical methods / genomic prediction).
+We submit our manuscript **"Relatedness-aware calibration of genomic prediction intervals: kinship-aware conformal prediction across ten plant and animal species"** for consideration as an Investigation in GENETICS, in the area of Systems & Computational Genetics (statistical methods / genomic prediction).
 
 **What the manuscript does.** Breeders act on individual genomic predictions, so they need uncertainty statements that are valid for the candidates actually being selected. Distribution-free conformal intervals are increasingly proposed for this purpose. We show that their guarantee is undermined in breeding data along a known quantitative-genetic axis: the relatedness of each candidate to the training population. We measure this relatedness with the GBLUP prediction error variance and propose kinship-aware conformal prediction (KinCP), which has three components: a calibration pool spanning close and distant relatives, PEV-normalised scores, and localisation in the relatedness metric.
 

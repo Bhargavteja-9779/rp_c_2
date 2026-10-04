@@ -1,6 +1,6 @@
-# Kinship-aware conformal prediction intervals for genomic prediction across ten plant and animal species
+# Relatedness-aware calibration of genomic prediction intervals: kinship-aware conformal prediction across ten plant and animal species
 
-**Running title:** Kinship-aware genomic prediction intervals
+**Running title:** Relatedness-aware genomic prediction intervals
 
 [Author names to be inserted]¹
 
@@ -200,6 +200,18 @@ Two variants were added after the main results had been seen, and are reported s
 
 1. **KinCP-G.** The cluster folds of pool A are the *global* genomic clusters present in the training set rather than a re-clustering of it. This matches the granularity of the calibration shifts to cluster-out deployment.
 2. **Mondrian-d.** This is a group-conditional alternative to localisation C (Vovk 2013). It uses pool A and normalised scores, with separate conformal quantiles within quintile bins of log *d*.
+
+### Robustness analyses requested by internal review
+
+The following analyses were added after the main results had been seen (deviation D7):
+* the granularity and family regimes described above;
+* conditional coverage on quintiles of maximum genomic relationship;
+* species-level paired tests, averaging traits within species (10 units);
+* a PEV-calibration diagnostic in the simulation, comparing the realised mean squared error of the genetic-value prediction with σ̂²_g *d* by quintile of *d*;
+* a single-thread scaling benchmark on random subsets of the maize genotypes;
+* two competitor analyses:
+  * an *oracle rescaling*, in which each method's intervals were rescaled about their centre by the one constant giving exactly 0.90 pooled coverage on the test data, before recomputing the conditional error;
+  * *group CV+*, i.e. CV+ computed with the genomic-cluster folds of pool A, alone or combined with the random folds (GBLUP, R1 first repeat and R2 first seed).
 
 ### Software, reproducibility and pre-specification
 
