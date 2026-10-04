@@ -15,7 +15,7 @@
   "label": "Figure 3",
   "file": "Fig3_conditional_coverage",
   "legend": "Coverage of 90% prediction intervals by quintile of relatedness to the training set (GBLUP base predictor). Points are means over {{n_units}} dataset × trait units, with 95% bootstrap confidence intervals. Q1 contains the candidates most closely related to the training set; Q5 the least related. The dashed line marks the 0.90 target.",
-  "alt": "Three panels of line plots, one per validation regime. Split conformal and CV+ fall from about 0.93 coverage for close relatives to about 0.88 for distant ones under random CV, and to about 0.81 to 0.84 under cluster-out validation. KinCP, CalPred-style and Gauss-PEV stay near 0.90 across quintiles."
+  "alt": "Three panels of line plots, one per validation regime. Under random cross-validation, split conformal and CV+ fall from about 0.92–0.93 coverage for the closest relatives to about 0.88 for the most distant. Under cluster-out validation they lie between about 0.80 and 0.87. KinCP, CalPred-style and Gauss-PEV stay closer to 0.90 across quintiles."
  },
  {
   "label": "Figure 4",

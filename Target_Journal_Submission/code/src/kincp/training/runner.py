@@ -165,7 +165,7 @@ def run_job(job: Job, h_mults=(0.25, 1.0, 2.0)) -> tuple[pd.DataFrame, pd.DataFr
             k_in = min(job.inner_k, max(2, len(T) // 20))
             cl = KMeans(n_clusters=k_in, n_init=10, random_state=seed).fit_predict(pcs[T])
             cfolds = [np.flatnonzero(cl == c) for c in range(k_in) if (cl == c).sum() > 0]
-            pool_c, _ = _cross_fit(base_obj, delta_base, vc.delta, G, T, yT, cfolds, U, False)
+            pool_c, Pc = _cross_fit(base_obj, delta_base, vc.delta, G, T, yT, cfolds, U, job.tag == "competitor")
             t_clus = time.perf_counter() - t0
             pools = dict(rand=pool_r, clus=pool_c)
             if job.tag == "explore":
@@ -188,6 +188,8 @@ def run_job(job: Job, h_mults=(0.25, 1.0, 2.0)) -> tuple[pd.DataFrame, pd.DataFr
             t_scp = time.perf_counter() - t0
             fd = FoldData(yhat=yhat, d=dU, s2g=vc.s2g, s2e=vc.s2e,
                           pools=pools, cvplus_pred=P, scp=scp)
+            if job.tag == "competitor":     # Reviewer 8: group (cluster-fold) CV+ competitors
+                fd.extra["cvplus_clus"] = Pc
             maxkin = Gstd[np.ix_(U, T)].max(axis=1)
             for a in job.alphas:
                 t0 = time.perf_counter()

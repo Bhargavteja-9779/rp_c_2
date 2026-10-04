@@ -162,7 +162,44 @@ def alt_relatedness_endpoint():
     dump_json({f"{b}|{r}|{m}": v.to_dict() for (b, r, m), v in means.iterrows()}, RESULTS_DIR / "alt_relatedness_summary.json")
 
 
+def oracle_inflation():
+    """Reviewer 8 (R8-1): is KinCP's advantage just width? Each method's intervals are inflated or deflated
+    about their centre by the single constant that gives exactly 0.90 pooled coverage on the *test* data
+    (an oracle no real method can use). We then recompute the d-quintile conditional coverage error.
+    If KinCP still has the smaller error, its advantage lies in how width is distributed across relatedness,
+    not in average width."""
+    rows = []
+    for f in sorted(JOBS.glob("GBLUP__*__main__12345__records.parquet")):
+        parts = f.name.split("__")
+        ds, tr, reg = parts[1], parts[2], parts[3]
+        if reg not in ("R1", "R2"):
+            continue
+        r = pd.read_parquet(f, columns=["method", "y", "lo", "hi", "d", "rep", "fold", "idx"])
+        r = r[r.method.isin(["SCP", "CV+", "Gauss-PEV", "CalPred-style", "KinCP", "Gauss-homosc"])]
+        ref = r.drop_duplicates(["rep", "fold", "idx"]).d
+        edges = np.unique(np.quantile(ref, np.linspace(0, 1, 6)))[1:-1]
+        for m, g in r.groupby("method"):
+            c = (g.lo + g.hi) / 2
+            hw = (g.hi - g.lo) / 2
+            ratio = np.abs(g.y - c) / hw
+            k = float(np.quantile(ratio, 0.90))       # oracle constant for exact 0.90 coverage
+            cov = ratio <= k
+            b = np.digitize(g.d, edges)
+            bc = pd.Series(cov.values).groupby(b).mean()
+            rows.append(dict(dataset=ds, trait=tr, regime=reg, method=m, oracle_factor=k,
+                             cond_err_oracle=float(np.mean(np.abs(bc.values - 0.9))),
+                             worst_oracle=float(bc.min()), width_oracle=float((2 * k * hw).mean())))
+    d = pd.DataFrame(rows)
+    d.to_csv(RESULTS_DIR / "oracle_inflation_units.csv", index=False)
+    from kincp.statistics.tests import paired_compare
+    st = pd.concat([paired_compare(d[d.regime == reg], ["dataset", "trait"], "method", "KinCP",
+                                   ["SCP", "CV+", "Gauss-PEV", "CalPred-style", "Gauss-homosc"], "cond_err_oracle", True).assign(regime=reg)
+                    for reg in ["R1", "R2"]], ignore_index=True)
+    st.to_csv(RESULTS_DIR / "oracle_inflation_statistics.csv", index=False)
+
+
 if __name__ == "__main__":
+    oracle_inflation()
     alt_relatedness_endpoint()
     error_analysis()
     decision_analysis()

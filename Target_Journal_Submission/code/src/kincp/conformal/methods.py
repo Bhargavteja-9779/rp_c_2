@@ -91,11 +91,19 @@ def norm_split_conformal(fd: FoldData, alpha: float):
     return fd.scp["yhat"] - h, fd.scp["yhat"] + h
 
 
-def cv_plus(fd: FoldData, alpha: float):
-    """CV+ (Barber, Candes, Ramdas & Tibshirani 2021) with random K-fold models."""
-    pool = fd.pools["rand"]
-    R = np.abs(pool["res"])
-    P = fd.cvplus_pred[:, pool["fold"]]            # (n_U, n_T) prediction of the model that excluded i
+def cv_plus(fd: FoldData, alpha: float, which: str = "rand"):
+    """CV+ (Barber, Candes, Ramdas & Tibshirani 2021). which = 'rand' (random K-fold models), 'clus'
+    (genomic-cluster folds, i.e. group CV+), or 'both' (union of the two cross-fits; each training
+    individual contributes one score per scheme)."""
+    if which == "both":
+        pr, pc = fd.pools["rand"], fd.pools["clus"]
+        R = np.abs(np.concatenate([pr["res"], pc["res"]]))
+        P = np.hstack([fd.cvplus_pred[:, pr["fold"]], fd.extra["cvplus_clus"][:, pc["fold"]]])
+    else:
+        pool = fd.pools[which]
+        R = np.abs(pool["res"])
+        Pm = fd.cvplus_pred if which == "rand" else fd.extra["cvplus_clus"]
+        P = Pm[:, pool["fold"]]                     # (n_U, n_T) prediction of the model that excluded i
     n = len(R)
     k_lo = int(np.floor(alpha * (n + 1)))
     k_hi = int(np.ceil((1 - alpha) * (n + 1)))
@@ -231,6 +239,9 @@ def all_intervals(fd: FoldData, alpha: float, base: str, h_mults=(0.25, 1.0, 2.0
         out["KinCP-G+"] = kincp(fd, alpha, pool_names=("rand", "clus", "glob"))
         out["CalPred-style-G"] = calpred_style(fd, alpha, ("rand", "glob"))
         out["Mondrian-d"] = mondrian_bins(fd, alpha)
+    if "cvplus_clus" in fd.extra:   # Reviewer 8 competitors
+        out["CV+(cluster)"] = cv_plus(fd, alpha, "clus")
+        out["CV+(rand+cluster)"] = cv_plus(fd, alpha, "both")
     if h_mults:   # sensitivity: fixed bandwidth (no effective-sample-size floor) and other floors
         out["KinCP[fixed-h]"] = kincp(fd, alpha, n_min=None)
         out["KinCP[nmin=25]"] = kincp(fd, alpha, n_min=25)

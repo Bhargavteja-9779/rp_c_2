@@ -58,6 +58,8 @@ def job_specs(mode: str) -> list[dict]:
                 specs.append(dict(kind="real", dataset=ds, trait=t, regime=reg, base="GBLUP", repeats=(1,), tag="granularity"))
             if ds == "oyster":                # Reviewer 5: real families (four F2 families)
                 specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2fam", base="GBLUP", repeats=(1, 2, 3, 4, 5), tag="families"))
+            for reg in ("R1", "R2"):        # Reviewer 8: group-CV+ competitors
+                specs.append(dict(kind="real", dataset=ds, trait=t, regime=reg, base="GBLUP", repeats=(1,), tag="competitor"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="GBLUP", repeats=(1,), tag="explore"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R2", base="GBLUP", repeats=(1,), tag="explore"))
             specs.append(dict(kind="real", dataset=ds, trait=t, regime="R1", base="GBLUP", repeats=(1,), tag="dedup"))

@@ -264,6 +264,38 @@ def main():
         K["sc_slope"] = f"{slope:.1f}"
         mslope = np.polyfit(np.log(sc.index.values), np.log(sc.peak_mem_mb.values), 1)[0]
         K["sc_mslope"] = f"{mslope:.1f}"
+    # oracle inflation (Reviewer 8) and group-CV+ competitors
+    oi = RESULTS_DIR / "oracle_inflation_units.csv"
+    if oi.exists():
+        od = pd.read_csv(oi)
+        ost = pd.read_csv(RESULTS_DIR / "oracle_inflation_statistics.csv")
+        for reg in ["R1", "R2"]:
+            for m, tok in [("KinCP", "kincp"), ("CV+", "cvp"), ("SCP", "scp"), ("Gauss-PEV", "pev"), ("CalPred-style", "calp")]:
+                v = od[(od.regime == reg) & (od.method == m)]
+                K[f"or_{tok}_{reg}_factor"] = f2(v.oracle_factor.mean())
+                K[f"or_{tok}_{reg}_cond"] = f3(v.cond_err_oracle.mean())
+                r = ost[(ost.regime == reg) & (ost.competitor == m)]
+                if len(r):
+                    K[f"or_st_{tok}_{reg}_p"] = pfmt(r.iloc[0].p_value)
+                    K[f"or_st_{tok}_{reg}_wins"] = f"{int(r.iloc[0].wins_ref)}/{int(r.iloc[0].n_units)}"
+    cp = s[(s.tag == "competitor") & (s.alpha == 0.10)]
+    if len(cp):
+        from scipy import stats as _st2
+        for reg in ["R1", "R2"]:
+            for m, tok in [("KinCP", "kincp"), ("CV+", "cvp"), ("CV+(cluster)", "gcvp"), ("CV+(rand+cluster)", "bcvp")]:
+                v = cp[(cp.regime == reg) & (cp.method == m)]
+                if len(v):
+                    K[f"cp_{tok}_{reg}_cov"] = f3(v.coverage.mean())
+                    K[f"cp_{tok}_{reg}_cond"] = f3(v.cond_err.mean())
+                    K[f"cp_{tok}_{reg}_width"] = f2(v.width.mean())
+                    K[f"cp_{tok}_{reg}_worst"] = f3(v.worst_bin_cov.mean())
+            w = cp[cp.regime == reg].pivot_table(index=["dataset", "trait"], columns="method", values="cond_err")
+            for comp, tok in [("CV+(cluster)", "gcvp"), ("CV+(rand+cluster)", "bcvp")]:
+                if comp in w:
+                    dlt = (w[comp] - w["KinCP"]).dropna()
+                    K[f"cp_st_{tok}_{reg}_wins"] = f"{int((dlt > 0).sum())}/{len(dlt)}"
+                    K[f"cp_st_{tok}_{reg}_p"] = pfmt(float(_st2.wilcoxon(dlt).pvalue)) if (dlt != 0).any() else "NA"
+                    K[f"cp_st_{tok}_{reg}_d"] = f3(float(np.median(dlt)))
     # narrative numbers file can be extended by text tokens defined in manuscript/src/text_tokens.json
     tt = Path(__file__).resolve().parents[2] / "manuscript" / "src" / "text_tokens.json"
     if tt.exists():
