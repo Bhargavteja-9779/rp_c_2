@@ -54,7 +54,12 @@ def main():
     run([py, "scripts/make_tables.py"], env)
     if a.mode == "full":
         run([py, "scripts/key_numbers.py"], env)
+        run([py, "scripts/build_references.py"], env)
         run([py, "scripts/build_manuscript.py"], env)
+        try:
+            run([py, "scripts/build_pdf.py"], env)   # optional review PDF (needs Chromium)
+        except Exception as e:  # noqa: BLE001
+            print("PDF build skipped:", e)
     print("done:", a.mode)
 
 

@@ -1,1737 +1,5 @@
 [
   {
-    "dataset": "oyster",
-    "species": "Crassostrea virginica",
-    "common": "Eastern oyster",
-    "n": 372,
-    "summary": {
-      "name": "oyster",
-      "n": 372,
-      "m_total": 20745,
-      "m_polymorphic": 20745,
-      "m_thin": 10000,
-      "cluster_sizes": [
-        91,
-        45,
-        95,
-        76,
-        65
-      ],
-      "n_near_duplicate_pairs": 2,
-      "near_duplicate_pairs": [
-        [
-          67,
-          68
-        ],
-        [
-          175,
-          176
-        ]
-      ],
-      "mean_offdiag_G": -0.0031841369736890445,
-      "mean_diag_G": 1.1813110095225827
-    },
-    "traits_selected": [
-      "mm"
-    ],
-    "n_traits_available": 2,
-    "near_dup_pairs_gt095": 2,
-    "cluster_sizes": [
-      91,
-      45,
-      95,
-      76,
-      65
-    ],
-    "traits": {
-      "mm": {
-        "n": 372,
-        "mean": 96.37927419354838,
-        "sd": 11.061877563320486,
-        "skew": -0.1883158578573097,
-        "n_unique": 243,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          91,
-          45,
-          95,
-          76,
-          65
-        ]
-      }
-    },
-    "std_relationship_offdiag": {
-      "mean": -0.002422026104173969,
-      "p99": 0.701794050114714,
-      "max": 0.9930376611037564
-    }
-  },
-  {
-    "dataset": "pine",
-    "species": "Pinus taeda",
-    "common": "Loblolly pine",
-    "n": 926,
-    "summary": {
-      "name": "pine",
-      "n": 926,
-      "m_total": 4782,
-      "m_polymorphic": 4782,
-      "m_thin": 4782,
-      "cluster_sizes": [
-        175,
-        511,
-        222,
-        3,
-        15
-      ],
-      "n_near_duplicate_pairs": 0,
-      "near_duplicate_pairs": [],
-      "mean_offdiag_G": -0.001041527873378277,
-      "mean_diag_G": 0.9634141557957788
-    },
-    "traits_selected": [
-      "rootnum",
-      "rootnumbin",
-      "c5c6"
-    ],
-    "n_traits_available": 17,
-    "near_dup_pairs_gt095": 0,
-    "cluster_sizes": [
-      175,
-      511,
-      222,
-      3,
-      15
-    ],
-    "traits": {
-      "rootnum": {
-        "n": 925,
-        "mean": 0.06513944432432432,
-        "sd": 0.24437733499517153,
-        "skew": -0.27897076166839707,
-        "n_unique": 891,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          175,
-          510,
-          222,
-          3,
-          15
-        ]
-      },
-      "rootnumbin": {
-        "n": 925,
-        "mean": 0.027898378270270273,
-        "sd": 0.09320598962841885,
-        "skew": -0.5614855724712677,
-        "n_unique": 882,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          175,
-          510,
-          222,
-          3,
-          15
-        ]
-      },
-      "c5c6": {
-        "n": 910,
-        "mean": -0.028015713186813184,
-        "sd": 0.75222347612585,
-        "skew": 0.008508003818172977,
-        "n_unique": 838,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          172,
-          500,
-          220,
-          3,
-          15
-        ]
-      }
-    },
-    "std_relationship_offdiag": {
-      "mean": -0.0009947175819808311,
-      "p99": 0.44614306012492955,
-      "max": 0.7169704402519003
-    }
-  },
-  {
-    "dataset": "rice",
-    "species": "Oryza sativa",
-    "common": "Rice",
-    "n": 352,
-    "summary": {
-      "name": "rice",
-      "n": 352,
-      "m_total": 27232,
-      "m_polymorphic": 27232,
-      "m_thin": 10000,
-      "cluster_sizes": [
-        52,
-        55,
-        81,
-        86,
-        78
-      ],
-      "n_near_duplicate_pairs": 2,
-      "near_duplicate_pairs": [
-        [
-          18,
-          318
-        ],
-        [
-          74,
-          150
-        ]
-      ],
-      "mean_offdiag_G": -0.005698055055386624,
-      "mean_diag_G": 2.0000000236702107
-    },
-    "traits_selected": [
-      "Plant_height",
-      "Culm_habit",
-      "Flag_leaf_length"
-    ],
-    "n_traits_available": 36,
-    "near_dup_pairs_gt095": 2,
-    "cluster_sizes": [
-      52,
-      55,
-      81,
-      86,
-      78
-    ],
-    "traits": {
-      "Plant_height": {
-        "n": 352,
-        "mean": 116.74231591423296,
-        "sd": 20.916129479441352,
-        "skew": 0.17873500340330012,
-        "n_unique": 305,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          52,
-          55,
-          81,
-          86,
-          78
-        ]
-      },
-      "Culm_habit": {
-        "n": 351,
-        "mean": 4.193126420900285,
-        "sd": 1.8287743744914524,
-        "skew": 0.44507651263217085,
-        "n_unique": 43,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          52,
-          55,
-          80,
-          86,
-          78
-        ]
-      },
-      "Flag_leaf_length": {
-        "n": 346,
-        "mean": 30.66599043708092,
-        "sd": 5.724866284300791,
-        "skew": 0.4000971814430814,
-        "n_unique": 329,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          50,
-          54,
-          80,
-          84,
-          78
-        ]
-      }
-    },
-    "std_relationship_offdiag": {
-      "mean": 0.0024571596572569,
-      "p99": 0.6748419183864084,
-      "max": 0.9634974025466088
-    }
-  },
-  {
-    "dataset": "bean",
-    "species": "Phaseolus vulgaris",
-    "common": "Common bean",
-    "n": 444,
-    "summary": {
-      "name": "bean",
-      "n": 444,
-      "m_total": 16708,
-      "m_polymorphic": 16707,
-      "m_thin": 10000,
-      "cluster_sizes": [
-        244,
-        24,
-        50,
-        40,
-        86
-      ],
-      "n_near_duplicate_pairs": 0,
-      "near_duplicate_pairs": [],
-      "mean_offdiag_G": -0.004236739303857883,
-      "mean_diag_G": 1.876861148034534
-    },
-    "traits_selected": [
-      "DF",
-      "DPM",
-      "PHI"
-    ],
-    "n_traits_available": 5,
-    "near_dup_pairs_gt095": 0,
-    "cluster_sizes": [
-      244,
-      24,
-      50,
-      40,
-      86
-    ],
-    "traits": {
-      "DF": {
-        "n": 444,
-        "mean": 35.3195045045045,
-        "sd": 2.354348330385825,
-        "skew": 0.574173718911537,
-        "n_unique": 331,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          244,
-          24,
-          50,
-          40,
-          86
-        ]
-      },
-      "DPM": {
-        "n": 444,
-        "mean": 62.13968468468469,
-        "sd": 2.0631453704223492,
-        "skew": 0.28093942001547995,
-        "n_unique": 328,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          244,
-          24,
-          50,
-          40,
-          86
-        ]
-      },
-      "PHI": {
-        "n": 444,
-        "mean": 72.32254504504505,
-        "sd": 4.401213956229745,
-        "skew": -1.4266102794382653,
-        "n_unique": 383,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          244,
-          24,
-          50,
-          40,
-          86
-        ]
-      }
-    },
-    "std_relationship_offdiag": {
-      "mean": -0.0022085225963438203,
-      "p99": 0.23917346372378664,
-      "max": 0.8711332984195553
-    }
-  },
-  {
-    "dataset": "soybean",
-    "species": "Glycine max",
-    "common": "Soybean",
-    "n": 346,
-    "summary": {
-      "name": "soybean",
-      "n": 346,
-      "m_total": 20526,
-      "m_polymorphic": 20526,
-      "m_thin": 10000,
-      "cluster_sizes": [
-        155,
-        10,
-        58,
-        59,
-        64
-      ],
-      "n_near_duplicate_pairs": 192,
-      "near_duplicate_pairs": [
-        [
-          9,
-          21
-        ],
-        [
-          15,
-          16
-        ],
-        [
-          15,
-          17
-        ],
-        [
-          16,
-          17
-        ],
-        [
-          26,
-          107
-        ],
-        [
-          28,
-          148
-        ],
-        [
-          33,
-          45
-        ],
-        [
-          48,
-          68
-        ],
-        [
-          48,
-          91
-        ],
-        [
-          48,
-          92
-        ],
-        [
-          48,
-          99
-        ],
-        [
-          48,
-          103
-        ],
-        [
-          48,
-          120
-        ],
-        [
-          48,
-          124
-        ],
-        [
-          48,
-          132
-        ],
-        [
-          48,
-          147
-        ],
-        [
-          48,
-          152
-        ],
-        [
-          48,
-          172
-        ],
-        [
-          48,
-          177
-        ],
-        [
-          48,
-          318
-        ],
-        [
-          48,
-          329
-        ],
-        [
-          54,
-          142
-        ],
-        [
-          54,
-          271
-        ],
-        [
-          60,
-          165
-        ],
-        [
-          65,
-          93
-        ],
-        [
-          67,
-          78
-        ],
-        [
-          68,
-          91
-        ],
-        [
-          68,
-          92
-        ],
-        [
-          68,
-          99
-        ],
-        [
-          68,
-          103
-        ],
-        [
-          68,
-          120
-        ],
-        [
-          68,
-          124
-        ],
-        [
-          68,
-          132
-        ],
-        [
-          68,
-          147
-        ],
-        [
-          68,
-          152
-        ],
-        [
-          68,
-          172
-        ],
-        [
-          68,
-          177
-        ],
-        [
-          68,
-          318
-        ],
-        [
-          68,
-          329
-        ],
-        [
-          74,
-          114
-        ],
-        [
-          74,
-          141
-        ],
-        [
-          74,
-          146
-        ],
-        [
-          74,
-          221
-        ],
-        [
-          86,
-          90
-        ],
-        [
-          86,
-          102
-        ],
-        [
-          86,
-          110
-        ],
-        [
-          86,
-          123
-        ],
-        [
-          86,
-          155
-        ],
-        [
-          86,
-          173
-        ],
-        [
-          86,
-          183
-        ],
-        [
-          90,
-          102
-        ],
-        [
-          90,
-          110
-        ],
-        [
-          90,
-          123
-        ],
-        [
-          90,
-          155
-        ],
-        [
-          90,
-          173
-        ],
-        [
-          90,
-          183
-        ],
-        [
-          91,
-          92
-        ],
-        [
-          91,
-          99
-        ],
-        [
-          91,
-          103
-        ],
-        [
-          91,
-          120
-        ],
-        [
-          91,
-          124
-        ],
-        [
-          91,
-          132
-        ],
-        [
-          91,
-          147
-        ],
-        [
-          91,
-          152
-        ],
-        [
-          91,
-          172
-        ],
-        [
-          91,
-          177
-        ],
-        [
-          91,
-          318
-        ],
-        [
-          91,
-          329
-        ],
-        [
-          92,
-          99
-        ],
-        [
-          92,
-          103
-        ],
-        [
-          92,
-          120
-        ],
-        [
-          92,
-          124
-        ],
-        [
-          92,
-          132
-        ],
-        [
-          92,
-          147
-        ],
-        [
-          92,
-          152
-        ],
-        [
-          92,
-          172
-        ],
-        [
-          92,
-          177
-        ],
-        [
-          92,
-          318
-        ],
-        [
-          92,
-          329
-        ],
-        [
-          99,
-          103
-        ],
-        [
-          99,
-          120
-        ],
-        [
-          99,
-          124
-        ],
-        [
-          99,
-          132
-        ],
-        [
-          99,
-          147
-        ],
-        [
-          99,
-          152
-        ],
-        [
-          99,
-          172
-        ],
-        [
-          99,
-          177
-        ],
-        [
-          99,
-          318
-        ],
-        [
-          99,
-          329
-        ],
-        [
-          102,
-          110
-        ],
-        [
-          102,
-          123
-        ],
-        [
-          102,
-          155
-        ],
-        [
-          102,
-          173
-        ],
-        [
-          102,
-          183
-        ],
-        [
-          103,
-          120
-        ],
-        [
-          103,
-          124
-        ],
-        [
-          103,
-          132
-        ],
-        [
-          103,
-          147
-        ],
-        [
-          103,
-          152
-        ],
-        [
-          103,
-          172
-        ],
-        [
-          103,
-          177
-        ],
-        [
-          103,
-          318
-        ],
-        [
-          103,
-          329
-        ],
-        [
-          110,
-          123
-        ],
-        [
-          110,
-          155
-        ],
-        [
-          110,
-          173
-        ],
-        [
-          110,
-          183
-        ],
-        [
-          114,
-          141
-        ],
-        [
-          114,
-          146
-        ],
-        [
-          114,
-          221
-        ],
-        [
-          119,
-          334
-        ],
-        [
-          120,
-          124
-        ],
-        [
-          120,
-          132
-        ],
-        [
-          120,
-          147
-        ],
-        [
-          120,
-          152
-        ],
-        [
-          120,
-          172
-        ],
-        [
-          120,
-          177
-        ],
-        [
-          120,
-          318
-        ],
-        [
-          120,
-          329
-        ],
-        [
-          123,
-          155
-        ],
-        [
-          123,
-          173
-        ],
-        [
-          123,
-          183
-        ],
-        [
-          124,
-          132
-        ],
-        [
-          124,
-          147
-        ],
-        [
-          124,
-          152
-        ],
-        [
-          124,
-          172
-        ],
-        [
-          124,
-          177
-        ],
-        [
-          124,
-          318
-        ],
-        [
-          124,
-          329
-        ],
-        [
-          127,
-          151
-        ],
-        [
-          127,
-          185
-        ],
-        [
-          127,
-          291
-        ],
-        [
-          131,
-          249
-        ],
-        [
-          132,
-          147
-        ],
-        [
-          132,
-          152
-        ],
-        [
-          132,
-          172
-        ],
-        [
-          132,
-          177
-        ],
-        [
-          132,
-          318
-        ],
-        [
-          132,
-          329
-        ],
-        [
-          134,
-          145
-        ],
-        [
-          141,
-          146
-        ],
-        [
-          141,
-          221
-        ],
-        [
-          142,
-          271
-        ],
-        [
-          146,
-          221
-        ],
-        [
-          147,
-          152
-        ],
-        [
-          147,
-          172
-        ],
-        [
-          147,
-          177
-        ],
-        [
-          147,
-          318
-        ],
-        [
-          147,
-          329
-        ],
-        [
-          151,
-          185
-        ],
-        [
-          151,
-          291
-        ],
-        [
-          152,
-          172
-        ],
-        [
-          152,
-          177
-        ],
-        [
-          152,
-          318
-        ],
-        [
-          152,
-          329
-        ],
-        [
-          154,
-          314
-        ],
-        [
-          155,
-          173
-        ],
-        [
-          155,
-          183
-        ],
-        [
-          157,
-          174
-        ],
-        [
-          161,
-          215
-        ],
-        [
-          161,
-          222
-        ],
-        [
-          161,
-          272
-        ],
-        [
-          161,
-          311
-        ],
-        [
-          168,
-          252
-        ],
-        [
-          168,
-          262
-        ],
-        [
-          168,
-          282
-        ],
-        [
-          169,
-          331
-        ],
-        [
-          171,
-          182
-        ],
-        [
-          171,
-          270
-        ],
-        [
-          171,
-          306
-        ],
-        [
-          172,
-          177
-        ],
-        [
-          172,
-          318
-        ],
-        [
-          172,
-          329
-        ],
-        [
-          173,
-          183
-        ],
-        [
-          177,
-          318
-        ],
-        [
-          177,
-          329
-        ],
-        [
-          182,
-          270
-        ],
-        [
-          182,
-          306
-        ],
-        [
-          185,
-          291
-        ],
-        [
-          213,
-          242
-        ],
-        [
-          215,
-          222
-        ],
-        [
-          215,
-          272
-        ],
-        [
-          215,
-          311
-        ],
-        [
-          222,
-          272
-        ],
-        [
-          222,
-          311
-        ],
-        [
-          243,
-          280
-        ],
-        [
-          252,
-          262
-        ],
-        [
-          252,
-          282
-        ],
-        [
-          262,
-          282
-        ],
-        [
-          270,
-          306
-        ],
-        [
-          272,
-          311
-        ],
-        [
-          318,
-          329
-        ]
-      ],
-      "mean_offdiag_G": -0.005797091010375137,
-      "mean_diag_G": 1.9999999143105556
-    },
-    "traits_selected": [
-      "C13",
-      "Wilt"
-    ],
-    "n_traits_available": 2,
-    "near_dup_pairs_gt095": 192,
-    "cluster_sizes": [
-      155,
-      10,
-      58,
-      59,
-      64
-    ],
-    "traits": {
-      "C13": {
-        "n": 346,
-        "mean": -29.062678887283234,
-        "sd": 0.27244576527958053,
-        "skew": -0.11867050930574878,
-        "n_unique": 346,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          155,
-          10,
-          58,
-          59,
-          64
-        ]
-      },
-      "Wilt": {
-        "n": 346,
-        "mean": 16.99349710982659,
-        "sd": 6.454994620043407,
-        "skew": 1.3864377609169782,
-        "n_unique": 49,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          155,
-          10,
-          58,
-          59,
-          64
-        ]
-      }
-    },
-    "std_relationship_offdiag": {
-      "mean": -0.0019666086493560523,
-      "p99": 0.5058935206153309,
-      "max": 1.0000000000000002
-    }
-  },
-  {
-    "dataset": "lentil",
-    "species": "Lens culinaris",
-    "common": "Lentil",
-    "n": 324,
-    "summary": {
-      "name": "lentil",
-      "n": 324,
-      "m_total": 23590,
-      "m_polymorphic": 23590,
-      "m_thin": 10000,
-      "cluster_sizes": [
-        44,
-        96,
-        52,
-        100,
-        32
-      ],
-      "n_near_duplicate_pairs": 37,
-      "near_duplicate_pairs": [
-        [
-          16,
-          56
-        ],
-        [
-          31,
-          38
-        ],
-        [
-          31,
-          94
-        ],
-        [
-          31,
-          143
-        ],
-        [
-          31,
-          144
-        ],
-        [
-          31,
-          168
-        ],
-        [
-          32,
-          157
-        ],
-        [
-          38,
-          94
-        ],
-        [
-          38,
-          143
-        ],
-        [
-          38,
-          144
-        ],
-        [
-          38,
-          168
-        ],
-        [
-          47,
-          49
-        ],
-        [
-          48,
-          50
-        ],
-        [
-          63,
-          292
-        ],
-        [
-          75,
-          227
-        ],
-        [
-          75,
-          228
-        ],
-        [
-          76,
-          106
-        ],
-        [
-          94,
-          143
-        ],
-        [
-          94,
-          144
-        ],
-        [
-          94,
-          168
-        ],
-        [
-          96,
-          217
-        ],
-        [
-          100,
-          321
-        ],
-        [
-          125,
-          206
-        ],
-        [
-          129,
-          198
-        ],
-        [
-          135,
-          138
-        ],
-        [
-          143,
-          144
-        ],
-        [
-          143,
-          168
-        ],
-        [
-          144,
-          168
-        ],
-        [
-          146,
-          159
-        ],
-        [
-          152,
-          155
-        ],
-        [
-          167,
-          197
-        ],
-        [
-          172,
-          307
-        ],
-        [
-          190,
-          191
-        ],
-        [
-          219,
-          221
-        ],
-        [
-          227,
-          228
-        ],
-        [
-          251,
-          254
-        ],
-        [
-          316,
-          317
-        ]
-      ],
-      "mean_offdiag_G": -0.006060023737517591,
-      "mean_diag_G": 1.9573828912916802
-    },
-    "traits_selected": [
-      "DTF",
-      "VEG",
-      "DTM"
-    ],
-    "n_traits_available": 5,
-    "near_dup_pairs_gt095": 37,
-    "cluster_sizes": [
-      44,
-      96,
-      52,
-      100,
-      32
-    ],
-    "traits": {
-      "DTF": {
-        "n": 324,
-        "mean": 47.03888888888889,
-        "sd": 3.3093908655875888,
-        "skew": 0.6047825545963561,
-        "n_unique": 115,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          44,
-          96,
-          52,
-          100,
-          32
-        ]
-      },
-      "VEG": {
-        "n": 324,
-        "mean": 35.60061728395062,
-        "sd": 3.4768812638144877,
-        "skew": 0.4428048580959156,
-        "n_unique": 124,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          44,
-          96,
-          52,
-          100,
-          32
-        ]
-      },
-      "DTM": {
-        "n": 324,
-        "mean": 88.9287037037037,
-        "sd": 3.414919632640524,
-        "skew": 0.24785511310891895,
-        "n_unique": 121,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          44,
-          96,
-          52,
-          100,
-          32
-        ]
-      }
-    },
-    "std_relationship_offdiag": {
-      "mean": -0.0025596011282002754,
-      "p99": 0.7971864256486576,
-      "max": 0.998726215679581
-    }
-  },
-  {
-    "dataset": "wheatG",
-    "species": "Triticum aestivum",
-    "common": "Wheat",
-    "n": 371,
-    "summary": {
-      "name": "wheatG",
-      "n": 371,
-      "m_total": 12546,
-      "m_polymorphic": 12546,
-      "m_thin": 10000,
-      "cluster_sizes": [
-        123,
-        30,
-        98,
-        29,
-        91
-      ],
-      "n_near_duplicate_pairs": 6,
-      "near_duplicate_pairs": [
-        [
-          4,
-          113
-        ],
-        [
-          47,
-          370
-        ],
-        [
-          49,
-          102
-        ],
-        [
-          84,
-          325
-        ],
-        [
-          85,
-          244
-        ],
-        [
-          103,
-          140
-        ]
-      ],
-      "mean_offdiag_G": -0.0013748261984019336,
-      "mean_diag_G": 0.5086871816380589
-    },
-    "traits_selected": [
-      "EW",
-      "GH",
-      "GPE"
-    ],
-    "n_traits_available": 16,
-    "near_dup_pairs_gt095": 6,
-    "cluster_sizes": [
-      123,
-      30,
-      98,
-      29,
-      91
-    ],
-    "traits": {
-      "EW": {
-        "n": 371,
-        "mean": 32.47992395791778,
-        "sd": 3.132741898644501,
-        "skew": 0.11705502847539662,
-        "n_unique": 371,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          123,
-          30,
-          98,
-          29,
-          91
-        ]
-      },
-      "GH": {
-        "n": 371,
-        "mean": 50.49226167915252,
-        "sd": 3.775687245409833,
-        "skew": -1.2084261686360434,
-        "n_unique": 363,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          123,
-          30,
-          98,
-          29,
-          91
-        ]
-      },
-      "GPE": {
-        "n": 371,
-        "mean": 50.1863545080133,
-        "sd": 6.3522412463524915,
-        "skew": 0.22686090380773272,
-        "n_unique": 371,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          123,
-          30,
-          98,
-          29,
-          91
-        ]
-      }
-    },
-    "std_relationship_offdiag": {
-      "mean": -0.0025074921492183886,
-      "p99": 0.3641243923045327,
-      "max": 1.0000000000000002
-    }
-  },
-  {
-    "dataset": "pig",
-    "species": "Sus scrofa",
-    "common": "Pig",
-    "n": 1709,
-    "summary": {
-      "name": "pig",
-      "n": 1709,
-      "m_total": 39308,
-      "m_polymorphic": 39308,
-      "m_thin": 10000,
-      "cluster_sizes": [
-        712,
-        239,
-        134,
-        494,
-        130
-      ],
-      "n_near_duplicate_pairs": 4,
-      "near_duplicate_pairs": [
-        [
-          808,
-          849
-        ],
-        [
-          842,
-          1354
-        ],
-        [
-          1028,
-          1144
-        ],
-        [
-          1159,
-          1625
-        ]
-      ],
-      "mean_offdiag_G": -0.0006037358329300754,
-      "mean_diag_G": 1.0311822284288574
-    },
-    "traits_selected": [
-      "PFAI"
-    ],
-    "n_traits_available": 2,
-    "near_dup_pairs_gt095": 4,
-    "cluster_sizes": [
-      712,
-      239,
-      134,
-      494,
-      130
-    ],
-    "traits": {
-      "PFAI": {
-        "n": 1709,
-        "mean": 2.284238346029257,
-        "sd": 1.510796963812901,
-        "skew": 1.9779336811402257,
-        "n_unique": 489,
-        "phenotyped_without_easygese_fold": [
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "cluster_sizes_phenotyped": [
-          712,
-          239,
-          134,
-          494,
-          130
-        ]
-      }
-    },
-    "std_relationship_offdiag": {
-      "mean": -0.0005783233949982752,
-      "p99": 0.21157454618536123,
-      "max": 0.9995118354096378
-    }
-  },
-  {
     "dataset": "barley",
     "species": "Hordeum vulgare",
     "common": "Barley",
@@ -2619,6 +887,552 @@
     }
   },
   {
+    "dataset": "bean",
+    "species": "Phaseolus vulgaris",
+    "common": "Common bean",
+    "n": 444,
+    "summary": {
+      "name": "bean",
+      "n": 444,
+      "m_total": 16708,
+      "m_polymorphic": 16707,
+      "m_thin": 10000,
+      "cluster_sizes": [
+        244,
+        24,
+        50,
+        40,
+        86
+      ],
+      "n_near_duplicate_pairs": 0,
+      "near_duplicate_pairs": [],
+      "mean_offdiag_G": -0.004236739303857883,
+      "mean_diag_G": 1.876861148034534
+    },
+    "traits_selected": [
+      "DF",
+      "DPM",
+      "PHI"
+    ],
+    "n_traits_available": 5,
+    "near_dup_pairs_gt095": 0,
+    "cluster_sizes": [
+      244,
+      24,
+      50,
+      40,
+      86
+    ],
+    "traits": {
+      "DF": {
+        "n": 444,
+        "mean": 35.3195045045045,
+        "sd": 2.354348330385825,
+        "skew": 0.574173718911537,
+        "n_unique": 331,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          244,
+          24,
+          50,
+          40,
+          86
+        ]
+      },
+      "DPM": {
+        "n": 444,
+        "mean": 62.13968468468469,
+        "sd": 2.0631453704223492,
+        "skew": 0.28093942001547995,
+        "n_unique": 328,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          244,
+          24,
+          50,
+          40,
+          86
+        ]
+      },
+      "PHI": {
+        "n": 444,
+        "mean": 72.32254504504505,
+        "sd": 4.401213956229745,
+        "skew": -1.4266102794382653,
+        "n_unique": 383,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          244,
+          24,
+          50,
+          40,
+          86
+        ]
+      }
+    },
+    "std_relationship_offdiag": {
+      "mean": -0.0022085225963438203,
+      "p99": 0.23917346372378664,
+      "max": 0.8711332984195553
+    }
+  },
+  {
+    "dataset": "lentil",
+    "species": "Lens culinaris",
+    "common": "Lentil",
+    "n": 324,
+    "summary": {
+      "name": "lentil",
+      "n": 324,
+      "m_total": 23590,
+      "m_polymorphic": 23590,
+      "m_thin": 10000,
+      "cluster_sizes": [
+        44,
+        96,
+        52,
+        100,
+        32
+      ],
+      "n_near_duplicate_pairs": 37,
+      "near_duplicate_pairs": [
+        [
+          16,
+          56
+        ],
+        [
+          31,
+          38
+        ],
+        [
+          31,
+          94
+        ],
+        [
+          31,
+          143
+        ],
+        [
+          31,
+          144
+        ],
+        [
+          31,
+          168
+        ],
+        [
+          32,
+          157
+        ],
+        [
+          38,
+          94
+        ],
+        [
+          38,
+          143
+        ],
+        [
+          38,
+          144
+        ],
+        [
+          38,
+          168
+        ],
+        [
+          47,
+          49
+        ],
+        [
+          48,
+          50
+        ],
+        [
+          63,
+          292
+        ],
+        [
+          75,
+          227
+        ],
+        [
+          75,
+          228
+        ],
+        [
+          76,
+          106
+        ],
+        [
+          94,
+          143
+        ],
+        [
+          94,
+          144
+        ],
+        [
+          94,
+          168
+        ],
+        [
+          96,
+          217
+        ],
+        [
+          100,
+          321
+        ],
+        [
+          125,
+          206
+        ],
+        [
+          129,
+          198
+        ],
+        [
+          135,
+          138
+        ],
+        [
+          143,
+          144
+        ],
+        [
+          143,
+          168
+        ],
+        [
+          144,
+          168
+        ],
+        [
+          146,
+          159
+        ],
+        [
+          152,
+          155
+        ],
+        [
+          167,
+          197
+        ],
+        [
+          172,
+          307
+        ],
+        [
+          190,
+          191
+        ],
+        [
+          219,
+          221
+        ],
+        [
+          227,
+          228
+        ],
+        [
+          251,
+          254
+        ],
+        [
+          316,
+          317
+        ]
+      ],
+      "mean_offdiag_G": -0.006060023737517591,
+      "mean_diag_G": 1.9573828912916802
+    },
+    "traits_selected": [
+      "DTF",
+      "VEG",
+      "DTM"
+    ],
+    "n_traits_available": 5,
+    "near_dup_pairs_gt095": 37,
+    "cluster_sizes": [
+      44,
+      96,
+      52,
+      100,
+      32
+    ],
+    "traits": {
+      "DTF": {
+        "n": 324,
+        "mean": 47.03888888888889,
+        "sd": 3.3093908655875888,
+        "skew": 0.6047825545963561,
+        "n_unique": 115,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          44,
+          96,
+          52,
+          100,
+          32
+        ]
+      },
+      "VEG": {
+        "n": 324,
+        "mean": 35.60061728395062,
+        "sd": 3.4768812638144877,
+        "skew": 0.4428048580959156,
+        "n_unique": 124,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          44,
+          96,
+          52,
+          100,
+          32
+        ]
+      },
+      "DTM": {
+        "n": 324,
+        "mean": 88.9287037037037,
+        "sd": 3.414919632640524,
+        "skew": 0.24785511310891895,
+        "n_unique": 121,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          44,
+          96,
+          52,
+          100,
+          32
+        ]
+      }
+    },
+    "std_relationship_offdiag": {
+      "mean": -0.0025596011282002754,
+      "p99": 0.7971864256486576,
+      "max": 0.998726215679581
+    }
+  },
+  {
+    "dataset": "pine",
+    "species": "Pinus taeda",
+    "common": "Loblolly pine",
+    "n": 926,
+    "summary": {
+      "name": "pine",
+      "n": 926,
+      "m_total": 4782,
+      "m_polymorphic": 4782,
+      "m_thin": 4782,
+      "cluster_sizes": [
+        175,
+        511,
+        222,
+        3,
+        15
+      ],
+      "n_near_duplicate_pairs": 0,
+      "near_duplicate_pairs": [],
+      "mean_offdiag_G": -0.001041527873378277,
+      "mean_diag_G": 0.9634141557957788
+    },
+    "traits_selected": [
+      "rootnum",
+      "rootnumbin",
+      "c5c6"
+    ],
+    "n_traits_available": 17,
+    "near_dup_pairs_gt095": 0,
+    "cluster_sizes": [
+      175,
+      511,
+      222,
+      3,
+      15
+    ],
+    "traits": {
+      "rootnum": {
+        "n": 925,
+        "mean": 0.06513944432432432,
+        "sd": 0.24437733499517153,
+        "skew": -0.27897076166839707,
+        "n_unique": 891,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          175,
+          510,
+          222,
+          3,
+          15
+        ]
+      },
+      "rootnumbin": {
+        "n": 925,
+        "mean": 0.027898378270270273,
+        "sd": 0.09320598962841885,
+        "skew": -0.5614855724712677,
+        "n_unique": 882,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          175,
+          510,
+          222,
+          3,
+          15
+        ]
+      },
+      "c5c6": {
+        "n": 910,
+        "mean": -0.028015713186813184,
+        "sd": 0.75222347612585,
+        "skew": 0.008508003818172977,
+        "n_unique": 838,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          172,
+          500,
+          220,
+          3,
+          15
+        ]
+      }
+    },
+    "std_relationship_offdiag": {
+      "mean": -0.0009947175819808311,
+      "p99": 0.44614306012492955,
+      "max": 0.7169704402519003
+    }
+  },
+  {
+    "dataset": "oyster",
+    "species": "Crassostrea virginica",
+    "common": "Eastern oyster",
+    "n": 372,
+    "summary": {
+      "name": "oyster",
+      "n": 372,
+      "m_total": 20745,
+      "m_polymorphic": 20745,
+      "m_thin": 10000,
+      "cluster_sizes": [
+        91,
+        45,
+        95,
+        76,
+        65
+      ],
+      "n_near_duplicate_pairs": 2,
+      "near_duplicate_pairs": [
+        [
+          67,
+          68
+        ],
+        [
+          175,
+          176
+        ]
+      ],
+      "mean_offdiag_G": -0.0031841369736890445,
+      "mean_diag_G": 1.1813110095225827
+    },
+    "traits_selected": [
+      "mm"
+    ],
+    "n_traits_available": 2,
+    "near_dup_pairs_gt095": 2,
+    "cluster_sizes": [
+      91,
+      45,
+      95,
+      76,
+      65
+    ],
+    "traits": {
+      "mm": {
+        "n": 372,
+        "mean": 96.37927419354838,
+        "sd": 11.061877563320486,
+        "skew": -0.1883158578573097,
+        "n_unique": 243,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          91,
+          45,
+          95,
+          76,
+          65
+        ]
+      }
+    },
+    "std_relationship_offdiag": {
+      "mean": -0.002422026104173969,
+      "p99": 0.701794050114714,
+      "max": 0.9930376611037564
+    }
+  },
+  {
     "dataset": "maize",
     "species": "Zea mays",
     "common": "Maize",
@@ -3189,6 +2003,1192 @@
       "mean": -6.4522932797066295e-06,
       "p99": 0.6432202601889732,
       "max": 0.9932098703084763
+    }
+  },
+  {
+    "dataset": "pig",
+    "species": "Sus scrofa",
+    "common": "Pig",
+    "n": 1709,
+    "summary": {
+      "name": "pig",
+      "n": 1709,
+      "m_total": 39308,
+      "m_polymorphic": 39308,
+      "m_thin": 10000,
+      "cluster_sizes": [
+        712,
+        239,
+        134,
+        494,
+        130
+      ],
+      "n_near_duplicate_pairs": 4,
+      "near_duplicate_pairs": [
+        [
+          808,
+          849
+        ],
+        [
+          842,
+          1354
+        ],
+        [
+          1028,
+          1144
+        ],
+        [
+          1159,
+          1625
+        ]
+      ],
+      "mean_offdiag_G": -0.0006037358329300754,
+      "mean_diag_G": 1.0311822284288574
+    },
+    "traits_selected": [
+      "PFAI"
+    ],
+    "n_traits_available": 2,
+    "near_dup_pairs_gt095": 4,
+    "cluster_sizes": [
+      712,
+      239,
+      134,
+      494,
+      130
+    ],
+    "traits": {
+      "PFAI": {
+        "n": 1709,
+        "mean": 2.284238346029257,
+        "sd": 1.510796963812901,
+        "skew": 1.9779336811402257,
+        "n_unique": 489,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          712,
+          239,
+          134,
+          494,
+          130
+        ]
+      }
+    },
+    "std_relationship_offdiag": {
+      "mean": -0.0005783233949982752,
+      "p99": 0.21157454618536123,
+      "max": 0.9995118354096378
+    }
+  },
+  {
+    "dataset": "rice",
+    "species": "Oryza sativa",
+    "common": "Rice",
+    "n": 352,
+    "summary": {
+      "name": "rice",
+      "n": 352,
+      "m_total": 27232,
+      "m_polymorphic": 27232,
+      "m_thin": 10000,
+      "cluster_sizes": [
+        52,
+        55,
+        81,
+        86,
+        78
+      ],
+      "n_near_duplicate_pairs": 2,
+      "near_duplicate_pairs": [
+        [
+          18,
+          318
+        ],
+        [
+          74,
+          150
+        ]
+      ],
+      "mean_offdiag_G": -0.005698055055386624,
+      "mean_diag_G": 2.0000000236702107
+    },
+    "traits_selected": [
+      "Plant_height",
+      "Culm_habit",
+      "Flag_leaf_length"
+    ],
+    "n_traits_available": 36,
+    "near_dup_pairs_gt095": 2,
+    "cluster_sizes": [
+      52,
+      55,
+      81,
+      86,
+      78
+    ],
+    "traits": {
+      "Plant_height": {
+        "n": 352,
+        "mean": 116.74231591423296,
+        "sd": 20.916129479441352,
+        "skew": 0.17873500340330012,
+        "n_unique": 305,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          52,
+          55,
+          81,
+          86,
+          78
+        ]
+      },
+      "Culm_habit": {
+        "n": 351,
+        "mean": 4.193126420900285,
+        "sd": 1.8287743744914524,
+        "skew": 0.44507651263217085,
+        "n_unique": 43,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          52,
+          55,
+          80,
+          86,
+          78
+        ]
+      },
+      "Flag_leaf_length": {
+        "n": 346,
+        "mean": 30.66599043708092,
+        "sd": 5.724866284300791,
+        "skew": 0.4000971814430814,
+        "n_unique": 329,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          50,
+          54,
+          80,
+          84,
+          78
+        ]
+      }
+    },
+    "std_relationship_offdiag": {
+      "mean": 0.0024571596572569,
+      "p99": 0.6748419183864084,
+      "max": 0.9634974025466088
+    }
+  },
+  {
+    "dataset": "soybean",
+    "species": "Glycine max",
+    "common": "Soybean",
+    "n": 346,
+    "summary": {
+      "name": "soybean",
+      "n": 346,
+      "m_total": 20526,
+      "m_polymorphic": 20526,
+      "m_thin": 10000,
+      "cluster_sizes": [
+        155,
+        10,
+        58,
+        59,
+        64
+      ],
+      "n_near_duplicate_pairs": 192,
+      "near_duplicate_pairs": [
+        [
+          9,
+          21
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          17
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          26,
+          107
+        ],
+        [
+          28,
+          148
+        ],
+        [
+          33,
+          45
+        ],
+        [
+          48,
+          68
+        ],
+        [
+          48,
+          91
+        ],
+        [
+          48,
+          92
+        ],
+        [
+          48,
+          99
+        ],
+        [
+          48,
+          103
+        ],
+        [
+          48,
+          120
+        ],
+        [
+          48,
+          124
+        ],
+        [
+          48,
+          132
+        ],
+        [
+          48,
+          147
+        ],
+        [
+          48,
+          152
+        ],
+        [
+          48,
+          172
+        ],
+        [
+          48,
+          177
+        ],
+        [
+          48,
+          318
+        ],
+        [
+          48,
+          329
+        ],
+        [
+          54,
+          142
+        ],
+        [
+          54,
+          271
+        ],
+        [
+          60,
+          165
+        ],
+        [
+          65,
+          93
+        ],
+        [
+          67,
+          78
+        ],
+        [
+          68,
+          91
+        ],
+        [
+          68,
+          92
+        ],
+        [
+          68,
+          99
+        ],
+        [
+          68,
+          103
+        ],
+        [
+          68,
+          120
+        ],
+        [
+          68,
+          124
+        ],
+        [
+          68,
+          132
+        ],
+        [
+          68,
+          147
+        ],
+        [
+          68,
+          152
+        ],
+        [
+          68,
+          172
+        ],
+        [
+          68,
+          177
+        ],
+        [
+          68,
+          318
+        ],
+        [
+          68,
+          329
+        ],
+        [
+          74,
+          114
+        ],
+        [
+          74,
+          141
+        ],
+        [
+          74,
+          146
+        ],
+        [
+          74,
+          221
+        ],
+        [
+          86,
+          90
+        ],
+        [
+          86,
+          102
+        ],
+        [
+          86,
+          110
+        ],
+        [
+          86,
+          123
+        ],
+        [
+          86,
+          155
+        ],
+        [
+          86,
+          173
+        ],
+        [
+          86,
+          183
+        ],
+        [
+          90,
+          102
+        ],
+        [
+          90,
+          110
+        ],
+        [
+          90,
+          123
+        ],
+        [
+          90,
+          155
+        ],
+        [
+          90,
+          173
+        ],
+        [
+          90,
+          183
+        ],
+        [
+          91,
+          92
+        ],
+        [
+          91,
+          99
+        ],
+        [
+          91,
+          103
+        ],
+        [
+          91,
+          120
+        ],
+        [
+          91,
+          124
+        ],
+        [
+          91,
+          132
+        ],
+        [
+          91,
+          147
+        ],
+        [
+          91,
+          152
+        ],
+        [
+          91,
+          172
+        ],
+        [
+          91,
+          177
+        ],
+        [
+          91,
+          318
+        ],
+        [
+          91,
+          329
+        ],
+        [
+          92,
+          99
+        ],
+        [
+          92,
+          103
+        ],
+        [
+          92,
+          120
+        ],
+        [
+          92,
+          124
+        ],
+        [
+          92,
+          132
+        ],
+        [
+          92,
+          147
+        ],
+        [
+          92,
+          152
+        ],
+        [
+          92,
+          172
+        ],
+        [
+          92,
+          177
+        ],
+        [
+          92,
+          318
+        ],
+        [
+          92,
+          329
+        ],
+        [
+          99,
+          103
+        ],
+        [
+          99,
+          120
+        ],
+        [
+          99,
+          124
+        ],
+        [
+          99,
+          132
+        ],
+        [
+          99,
+          147
+        ],
+        [
+          99,
+          152
+        ],
+        [
+          99,
+          172
+        ],
+        [
+          99,
+          177
+        ],
+        [
+          99,
+          318
+        ],
+        [
+          99,
+          329
+        ],
+        [
+          102,
+          110
+        ],
+        [
+          102,
+          123
+        ],
+        [
+          102,
+          155
+        ],
+        [
+          102,
+          173
+        ],
+        [
+          102,
+          183
+        ],
+        [
+          103,
+          120
+        ],
+        [
+          103,
+          124
+        ],
+        [
+          103,
+          132
+        ],
+        [
+          103,
+          147
+        ],
+        [
+          103,
+          152
+        ],
+        [
+          103,
+          172
+        ],
+        [
+          103,
+          177
+        ],
+        [
+          103,
+          318
+        ],
+        [
+          103,
+          329
+        ],
+        [
+          110,
+          123
+        ],
+        [
+          110,
+          155
+        ],
+        [
+          110,
+          173
+        ],
+        [
+          110,
+          183
+        ],
+        [
+          114,
+          141
+        ],
+        [
+          114,
+          146
+        ],
+        [
+          114,
+          221
+        ],
+        [
+          119,
+          334
+        ],
+        [
+          120,
+          124
+        ],
+        [
+          120,
+          132
+        ],
+        [
+          120,
+          147
+        ],
+        [
+          120,
+          152
+        ],
+        [
+          120,
+          172
+        ],
+        [
+          120,
+          177
+        ],
+        [
+          120,
+          318
+        ],
+        [
+          120,
+          329
+        ],
+        [
+          123,
+          155
+        ],
+        [
+          123,
+          173
+        ],
+        [
+          123,
+          183
+        ],
+        [
+          124,
+          132
+        ],
+        [
+          124,
+          147
+        ],
+        [
+          124,
+          152
+        ],
+        [
+          124,
+          172
+        ],
+        [
+          124,
+          177
+        ],
+        [
+          124,
+          318
+        ],
+        [
+          124,
+          329
+        ],
+        [
+          127,
+          151
+        ],
+        [
+          127,
+          185
+        ],
+        [
+          127,
+          291
+        ],
+        [
+          131,
+          249
+        ],
+        [
+          132,
+          147
+        ],
+        [
+          132,
+          152
+        ],
+        [
+          132,
+          172
+        ],
+        [
+          132,
+          177
+        ],
+        [
+          132,
+          318
+        ],
+        [
+          132,
+          329
+        ],
+        [
+          134,
+          145
+        ],
+        [
+          141,
+          146
+        ],
+        [
+          141,
+          221
+        ],
+        [
+          142,
+          271
+        ],
+        [
+          146,
+          221
+        ],
+        [
+          147,
+          152
+        ],
+        [
+          147,
+          172
+        ],
+        [
+          147,
+          177
+        ],
+        [
+          147,
+          318
+        ],
+        [
+          147,
+          329
+        ],
+        [
+          151,
+          185
+        ],
+        [
+          151,
+          291
+        ],
+        [
+          152,
+          172
+        ],
+        [
+          152,
+          177
+        ],
+        [
+          152,
+          318
+        ],
+        [
+          152,
+          329
+        ],
+        [
+          154,
+          314
+        ],
+        [
+          155,
+          173
+        ],
+        [
+          155,
+          183
+        ],
+        [
+          157,
+          174
+        ],
+        [
+          161,
+          215
+        ],
+        [
+          161,
+          222
+        ],
+        [
+          161,
+          272
+        ],
+        [
+          161,
+          311
+        ],
+        [
+          168,
+          252
+        ],
+        [
+          168,
+          262
+        ],
+        [
+          168,
+          282
+        ],
+        [
+          169,
+          331
+        ],
+        [
+          171,
+          182
+        ],
+        [
+          171,
+          270
+        ],
+        [
+          171,
+          306
+        ],
+        [
+          172,
+          177
+        ],
+        [
+          172,
+          318
+        ],
+        [
+          172,
+          329
+        ],
+        [
+          173,
+          183
+        ],
+        [
+          177,
+          318
+        ],
+        [
+          177,
+          329
+        ],
+        [
+          182,
+          270
+        ],
+        [
+          182,
+          306
+        ],
+        [
+          185,
+          291
+        ],
+        [
+          213,
+          242
+        ],
+        [
+          215,
+          222
+        ],
+        [
+          215,
+          272
+        ],
+        [
+          215,
+          311
+        ],
+        [
+          222,
+          272
+        ],
+        [
+          222,
+          311
+        ],
+        [
+          243,
+          280
+        ],
+        [
+          252,
+          262
+        ],
+        [
+          252,
+          282
+        ],
+        [
+          262,
+          282
+        ],
+        [
+          270,
+          306
+        ],
+        [
+          272,
+          311
+        ],
+        [
+          318,
+          329
+        ]
+      ],
+      "mean_offdiag_G": -0.005797091010375137,
+      "mean_diag_G": 1.9999999143105556
+    },
+    "traits_selected": [
+      "C13",
+      "Wilt"
+    ],
+    "n_traits_available": 2,
+    "near_dup_pairs_gt095": 192,
+    "cluster_sizes": [
+      155,
+      10,
+      58,
+      59,
+      64
+    ],
+    "traits": {
+      "C13": {
+        "n": 346,
+        "mean": -29.062678887283234,
+        "sd": 0.27244576527958053,
+        "skew": -0.11867050930574878,
+        "n_unique": 346,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          155,
+          10,
+          58,
+          59,
+          64
+        ]
+      },
+      "Wilt": {
+        "n": 346,
+        "mean": 16.99349710982659,
+        "sd": 6.454994620043407,
+        "skew": 1.3864377609169782,
+        "n_unique": 49,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          155,
+          10,
+          58,
+          59,
+          64
+        ]
+      }
+    },
+    "std_relationship_offdiag": {
+      "mean": -0.0019666086493560523,
+      "p99": 0.5058935206153309,
+      "max": 1.0000000000000002
+    }
+  },
+  {
+    "dataset": "wheatG",
+    "species": "Triticum aestivum",
+    "common": "Wheat",
+    "n": 371,
+    "summary": {
+      "name": "wheatG",
+      "n": 371,
+      "m_total": 12546,
+      "m_polymorphic": 12546,
+      "m_thin": 10000,
+      "cluster_sizes": [
+        123,
+        30,
+        98,
+        29,
+        91
+      ],
+      "n_near_duplicate_pairs": 6,
+      "near_duplicate_pairs": [
+        [
+          4,
+          113
+        ],
+        [
+          47,
+          370
+        ],
+        [
+          49,
+          102
+        ],
+        [
+          84,
+          325
+        ],
+        [
+          85,
+          244
+        ],
+        [
+          103,
+          140
+        ]
+      ],
+      "mean_offdiag_G": -0.0013748261984019336,
+      "mean_diag_G": 0.5086871816380589
+    },
+    "traits_selected": [
+      "EW",
+      "GH",
+      "GPE"
+    ],
+    "n_traits_available": 16,
+    "near_dup_pairs_gt095": 6,
+    "cluster_sizes": [
+      123,
+      30,
+      98,
+      29,
+      91
+    ],
+    "traits": {
+      "EW": {
+        "n": 371,
+        "mean": 32.47992395791778,
+        "sd": 3.132741898644501,
+        "skew": 0.11705502847539662,
+        "n_unique": 371,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          123,
+          30,
+          98,
+          29,
+          91
+        ]
+      },
+      "GH": {
+        "n": 371,
+        "mean": 50.49226167915252,
+        "sd": 3.775687245409833,
+        "skew": -1.2084261686360434,
+        "n_unique": 363,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          123,
+          30,
+          98,
+          29,
+          91
+        ]
+      },
+      "GPE": {
+        "n": 371,
+        "mean": 50.1863545080133,
+        "sd": 6.3522412463524915,
+        "skew": 0.22686090380773272,
+        "n_unique": 371,
+        "phenotyped_without_easygese_fold": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cluster_sizes_phenotyped": [
+          123,
+          30,
+          98,
+          29,
+          91
+        ]
+      }
+    },
+    "std_relationship_offdiag": {
+      "mean": -0.0025074921492183886,
+      "p99": 0.3641243923045327,
+      "max": 1.0000000000000002
     }
   }
 ]

@@ -54,7 +54,7 @@ We evaluate KinCP against seven alternatives across ten plant and animal species
 
 The design, endpoints and statistical tests were fixed before any model was fitted (File S1).
 
-## Materials and methods
+## Materials and Methods
 
 ### Data
 

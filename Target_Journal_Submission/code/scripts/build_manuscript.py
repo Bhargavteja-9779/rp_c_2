@@ -64,7 +64,17 @@ def line_numbering(section):
     ln.set(qn("w:countBy"), "1")
     ln.set(qn("w:restart"), "continuous")
     ln.set(qn("w:distance"), "360")
-    section._sectPr.append(ln)
+    sp = section._sectPr
+    # schema order (CT_SectPr): ... pgMar, paperSrc, pgBorders, lnNumType, pgNumType, cols, ... docGrid
+    anchor = sp.find(qn("w:pgNumType"))
+    if anchor is None:
+        anchor = sp.find(qn("w:cols"))
+    if anchor is None:
+        anchor = sp.find(qn("w:docGrid"))
+    if anchor is not None:
+        anchor.addprevious(ln)
+    else:
+        sp.append(ln)
 
 
 def page_numbers(section):
@@ -258,6 +268,38 @@ def main():
     out = MS / "Final_Manuscript.docx"
     doc.save(out)
     print("wrote", out, "and", MS / "Final_Manuscript.md")
+    build_cover_letter(nums)
+
+
+def build_cover_letter(nums: dict):
+    """Cover letter (single-spaced business letter) from manuscript/src/cover_letter.md."""
+    text = fill((MS / "src" / "cover_letter.md").read_text(), nums)
+    (MS / "cover_letter.md").write_text(text)
+    doc = Document()
+    st = doc.styles["Normal"]
+    st.font.name = "Times New Roman"
+    st.font.size = Pt(11)
+    st.paragraph_format.space_after = Pt(6)
+    sec = doc.sections[0]
+    sec.page_width, sec.page_height = Inches(8.5), Inches(11)
+    for side in ("left_margin", "right_margin", "top_margin", "bottom_margin"):
+        setattr(sec, side, Inches(1))
+    for block in text.split("\n\n"):
+        p = None
+        for ln in block.split("\n"):
+            if not ln.strip():
+                continue
+            if ln.startswith("* "):
+                add_runs(doc.add_paragraph(style="List Bullet"), ln[2:])
+                p = None
+            else:
+                if p is None:
+                    p = doc.add_paragraph()
+                else:
+                    p.add_run().add_break()
+                add_runs(p, ln)
+    doc.save(MS / "cover_letter.docx")
+    print("wrote", MS / "cover_letter.docx")
 
 
 if __name__ == "__main__":
