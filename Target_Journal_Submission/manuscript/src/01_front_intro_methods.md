@@ -8,7 +8,7 @@
 
 **Corresponding author:** [Name, address, e-mail to be inserted]
 
-**Keywords:** genomic prediction; genomic selection; prediction interval; conformal prediction; prediction error variance; genomic relationship; uncertainty quantification; GBLUP
+**Keywords:** genomic prediction; genomic selection; prediction interval; conformal prediction; prediction error variance; genomic relationship; uncertainty quantification; GBLUP; Plantae; Animalia
 
 ## Abstract
 
