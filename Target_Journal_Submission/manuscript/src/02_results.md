@@ -37,7 +37,7 @@ Coverage fell below 0.85 for {{scp_R2_nbelow85}} of {{n_units}} units with SCP a
 * NormCP: *P* {{st_normcp_R2_cond_p}};
 * CalPred-style calibration fitted to a random pool: *P* {{st_calpr_R2_cond_p}}.
 
-**Species-level analysis.** Treating species rather than traits as the unit (10 units; traits averaged within species) gave the same direction. Under R2, KinCP had a lower conditional error than CV+ in {{sp_cvp_R2_cond_wins}} species (unadjusted *P* {{sp_cvp_R2_cond_praw}}, Holm *P* {{sp_cvp_R2_cond_p}}) and than Gauss-PEV in {{sp_pev_R2_cond_wins}} species (unadjusted *P* {{sp_pev_R2_cond_praw}}, Holm *P* {{sp_pev_R2_cond_p}}). With 10 units and Holm adjustment over 21 comparisons, these species-level tests have limited power (Supplementary file statistics_species.csv).
+**Species-level analysis.** Treating species rather than traits as the unit (10 units; traits averaged within species) gave the same direction. Under R2, KinCP had a lower conditional error than CV+ in {{sp_cvp_R2_cond_wins}} species (unadjusted *P* {{sp_cvp_R2_cond_praw}}, Holm *P* {{sp_cvp_R2_cond_p}}) and than Gauss-PEV in {{sp_pev_R2_cond_wins}} species (unadjusted *P* {{sp_pev_R2_cond_praw}}, Holm *P* {{sp_pev_R2_cond_p}}). With 10 units and Holm adjustment over 21 comparisons, these species-level tests have limited power (S2 File, sheet S4_stats_species).
 
 **Pool A versus conformalisation.** KinCP did **not** differ from a CalPred-style heteroscedastic Gaussian calibration fitted to the *same* relatedness-diverse pool (pool A): difference {{st_calp_R2_cond_d}}, 95% CI {{st_calp_R2_cond_ci}}, *P* {{st_calp_R2_cond_p}}. The same parametric calibration fitted to a random pool did significantly worse. The main benefit therefore comes from the calibration pool, not from conformalisation as such. Under R1 the differences between methods were small in absolute terms, although KinCP remained significantly better than CV+ (*P* {{st_cvp_R1_cond_p}}) and SCP (*P* {{st_scp_R1_cond_p}}).
 
@@ -81,7 +81,7 @@ KinCP's advantage under random cross-validation is therefore specific to calibra
 
 Group CV+ is thus a reasonable choice when deployment is known to be to new clusters. KinCP, by conditioning on each candidate's relatedness, was calibrated in both regimes without knowing which regime applied.
 
-**Near-duplicate genotypes.** Removing near-duplicates did not change the conclusions (File S2, Table S_dedup). Under R2 KinCP covered {{dd_kincp_R2_cov}} and CV+ {{dd_cvp_R2_cov}}; under R1 the figures were {{dd_kincp_R1_cov}} and {{dd_cvp_R1_cov}}.
+**Near-duplicate genotypes.** Removing near-duplicates did not change the conclusions (S2 File, sheet S7_dedup). Under R2 KinCP covered {{dd_kincp_R2_cov}} and CV+ {{dd_cvp_R2_cov}}; under R1 the figures were {{dd_kincp_R1_cov}} and {{dd_cvp_R1_cov}}.
 
 ### RQ4: computational cost and sensitivity
 

@@ -63,7 +63,7 @@ Relatedness to the training population is the variable along which genomic-predi
 
 ## Data availability
 
-All genotype and phenotype data are publicly available from EasyGeSe (Quesada-Traver *et al.* 2025; Zenodo record 15348871, https://zenodo.org/records/15348871, CC-BY 4.0). The complete code, configuration, per-job results and the scripts that regenerate every table, figure and number in this article are provided as File S3. They will be deposited on Zenodo with a DOI upon acceptance [DOI to be inserted]. File S1 contains the pre-specified study design and the log of deviations. File S2 contains supplementary tables, including the per-unit results for every method, base predictor and regime.
+All genotype and phenotype data are publicly available from EasyGeSe (Quesada-Traver *et al.* 2025; Zenodo record 15348871, https://zenodo.org/records/15348871, CC-BY 4.0). The complete code, configuration, per-job results and the scripts that regenerate every table, figure and number in this article are provided as S3 File. They will be deposited on Zenodo with a DOI upon acceptance [DOI to be inserted]. S1 File contains the pre-specified study design and the log of deviations. S2 File contains supplementary tables, including the per-unit results for every method, base predictor and regime.
 
 ## Acknowledgments
 

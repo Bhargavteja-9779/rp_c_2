@@ -1,4 +1,4 @@
-# Relatedness-aware calibration of genomic prediction intervals: kinship-aware conformal prediction across ten plant and animal species
+# Prediction intervals for genomic selection must account for relatedness: kinship-aware calibration across ten plant and animal species
 
 **Running title:** Relatedness-aware genomic prediction intervals
 
@@ -52,7 +52,7 @@ We evaluate KinCP against seven alternatives across ten plant and animal species
 * RQ4: what does it cost, and how sensitive is it to its tuning choices?
 * RQ5: where does it fail, and how does calibration affect selection?
 
-The design, endpoints and statistical tests were fixed before any model was fitted (File S1).
+The design, endpoints and statistical tests were fixed before any model was fitted (S1 File).
 
 ## Materials and Methods
 
@@ -123,7 +123,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 
 *q̂*ⱼ = inf{*s* : Σᵢ *w*ᵢ(*j*) 1[*s*ᵢ ≤ *s*] / (Σᵢ *w*ᵢ(*j*) + 1) ≥ 1 − α},     (2)
 
-and the interval is *ŷ*ⱼ ± *q̂*ⱼ σ(*d*ⱼ). The default bandwidth is *h* = 0.5 × SD(log *d*ᵢ). It is widened multiplicatively (×1.25, at most 60 times) for each candidate until Σᵢ *w*ᵢ(*j*) ≥ 50. This floor prevents uninformative infinite intervals for candidates outside the pool's range of *d* (File S1, deviation D1). The floor depends only on genotype-derived covariates, never on outcomes.
+and the interval is *ŷ*ⱼ ± *q̂*ⱼ σ(*d*ⱼ). The default bandwidth is *h* = 0.5 × SD(log *d*ᵢ). It is widened multiplicatively (×1.25, at most 60 times) for each candidate until Σᵢ *w*ᵢ(*j*) ≥ 50. This floor prevents uninformative infinite intervals for candidates outside the pool's range of *d* (S1 File, deviation D1). The floor depends only on genotype-derived covariates, never on outcomes.
 
 Ablations removed every non-empty subset of A, B and C:
 * without A, the random-fold pool only;
@@ -196,7 +196,7 @@ Within each outer fold, the top 10% of candidates were selected by *ŷ*. We reco
 
 ### Exploratory analyses (not pre-specified)
 
-Two variants were added after the main results had been seen, and are reported separately as exploratory (File S1, deviation D6). Both were run with GBLUP for R1 (first repeat) and R2 (first seed) on all units.
+Two variants were added after the main results had been seen, and are reported separately as exploratory (S1 File, deviation D6). Both were run with GBLUP for R1 (first repeat) and R2 (first seed) on all units.
 
 1. **KinCP-G.** The cluster folds of pool A are the *global* genomic clusters present in the training set rather than a re-clustering of it. This matches the granularity of the calibration shifts to cluster-out deployment.
 2. **Mondrian-d.** This is a group-conditional alternative to localisation C (Vovk 2013). It uses pool A and normalised scores, with separate conformal quantiles within quintile bins of log *d*.
@@ -215,4 +215,4 @@ The following analyses were added after the main results had been seen (deviatio
 
 ### Software, reproducibility and pre-specification
 
-The analysis uses Python 3.11, NumPy, SciPy, scikit-learn and LightGBM. All computations ran on a 4-core CPU without a GPU. A single command (`python run_all.py --mode full`) regenerates every result, table and figure from the public data, and every number in this article is inserted automatically from the generated result files. The study design was committed to version control before any model was fitted. File S1 lists all seven deviations from the pre-specified design: five made for compute reasons or found in a pipeline smoke test, and two (the exploratory variants and the robustness analyses requested by internal review) added after the main results had been seen.
+The analysis uses Python 3.11, NumPy, SciPy, scikit-learn and LightGBM. All computations ran on a 4-core CPU without a GPU. A single command (`python run_all.py --mode full`) regenerates every result, table and figure from the public data, and every number in this article is inserted automatically from the generated result files. The study design was committed to version control before any model was fitted. S1 File lists all seven deviations from the pre-specified design: five made for compute reasons or found in a pipeline smoke test, and two (the exploratory variants and the robustness analyses requested by internal review) added after the main results had been seen.

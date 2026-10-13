@@ -1,4 +1,4 @@
-# Relatedness-aware calibration of genomic prediction intervals: kinship-aware conformal prediction across ten plant and animal species
+# Prediction intervals for genomic selection must account for relatedness: kinship-aware calibration across ten plant and animal species
 
 **Running title:** Relatedness-aware genomic prediction intervals
 
@@ -52,7 +52,7 @@ We evaluate KinCP against seven alternatives across ten plant and animal species
 * RQ4: what does it cost, and how sensitive is it to its tuning choices?
 * RQ5: where does it fail, and how does calibration affect selection?
 
-The design, endpoints and statistical tests were fixed before any model was fitted (File S1).
+The design, endpoints and statistical tests were fixed before any model was fitted (S1 File).
 
 ## Materials and Methods
 
@@ -123,7 +123,7 @@ Let *ŷ*ⱼ be the base prediction for candidate *j* from the model fitted on th
 
 *q̂*ⱼ = inf{*s* : Σᵢ *w*ᵢ(*j*) 1[*s*ᵢ ≤ *s*] / (Σᵢ *w*ᵢ(*j*) + 1) ≥ 1 − α},     (2)
 
-and the interval is *ŷ*ⱼ ± *q̂*ⱼ σ(*d*ⱼ). The default bandwidth is *h* = 0.5 × SD(log *d*ᵢ). It is widened multiplicatively (×1.25, at most 60 times) for each candidate until Σᵢ *w*ᵢ(*j*) ≥ 50. This floor prevents uninformative infinite intervals for candidates outside the pool's range of *d* (File S1, deviation D1). The floor depends only on genotype-derived covariates, never on outcomes.
+and the interval is *ŷ*ⱼ ± *q̂*ⱼ σ(*d*ⱼ). The default bandwidth is *h* = 0.5 × SD(log *d*ᵢ). It is widened multiplicatively (×1.25, at most 60 times) for each candidate until Σᵢ *w*ᵢ(*j*) ≥ 50. This floor prevents uninformative infinite intervals for candidates outside the pool's range of *d* (S1 File, deviation D1). The floor depends only on genotype-derived covariates, never on outcomes.
 
 Ablations removed every non-empty subset of A, B and C:
 * without A, the random-fold pool only;
@@ -196,7 +196,7 @@ Within each outer fold, the top 10% of candidates were selected by *ŷ*. We reco
 
 ### Exploratory analyses (not pre-specified)
 
-Two variants were added after the main results had been seen, and are reported separately as exploratory (File S1, deviation D6). Both were run with GBLUP for R1 (first repeat) and R2 (first seed) on all units.
+Two variants were added after the main results had been seen, and are reported separately as exploratory (S1 File, deviation D6). Both were run with GBLUP for R1 (first repeat) and R2 (first seed) on all units.
 
 1. **KinCP-G.** The cluster folds of pool A are the *global* genomic clusters present in the training set rather than a re-clustering of it. This matches the granularity of the calibration shifts to cluster-out deployment.
 2. **Mondrian-d.** This is a group-conditional alternative to localisation C (Vovk 2013). It uses pool A and normalised scores, with separate conformal quantiles within quintile bins of log *d*.
@@ -215,7 +215,7 @@ The following analyses were added after the main results had been seen (deviatio
 
 ### Software, reproducibility and pre-specification
 
-The analysis uses Python 3.11, NumPy, SciPy, scikit-learn and LightGBM. All computations ran on a 4-core CPU without a GPU. A single command (`python run_all.py --mode full`) regenerates every result, table and figure from the public data, and every number in this article is inserted automatically from the generated result files. The study design was committed to version control before any model was fitted. File S1 lists all seven deviations from the pre-specified design: five made for compute reasons or found in a pipeline smoke test, and two (the exploratory variants and the robustness analyses requested by internal review) added after the main results had been seen.
+The analysis uses Python 3.11, NumPy, SciPy, scikit-learn and LightGBM. All computations ran on a 4-core CPU without a GPU. A single command (`python run_all.py --mode full`) regenerates every result, table and figure from the public data, and every number in this article is inserted automatically from the generated result files. The study design was committed to version control before any model was fitted. S1 File lists all seven deviations from the pre-specified design: five made for compute reasons or found in a pipeline smoke test, and two (the exploratory variants and the robustness analyses requested by internal review) added after the main results had been seen.
 
 
 ## Results
@@ -257,7 +257,7 @@ Coverage fell below 0.85 for 11 of 24 units with SCP and for 11 with CV+ (Figure
 * NormCP: *P* = 0.033;
 * CalPred-style calibration fitted to a random pool: *P* = 0.003.
 
-**Species-level analysis.** Treating species rather than traits as the unit (10 units; traits averaged within species) gave the same direction. Under R2, KinCP had a lower conditional error than CV+ in 9/10 species (unadjusted *P* = 0.004, Holm *P* = 0.070) and than Gauss-PEV in 9/10 species (unadjusted *P* = 0.004, Holm *P* = 0.070). With 10 units and Holm adjustment over 21 comparisons, these species-level tests have limited power (Supplementary file statistics_species.csv).
+**Species-level analysis.** Treating species rather than traits as the unit (10 units; traits averaged within species) gave the same direction. Under R2, KinCP had a lower conditional error than CV+ in 9/10 species (unadjusted *P* = 0.004, Holm *P* = 0.070) and than Gauss-PEV in 9/10 species (unadjusted *P* = 0.004, Holm *P* = 0.070). With 10 units and Holm adjustment over 21 comparisons, these species-level tests have limited power (S2 File, sheet S4_stats_species).
 
 **Pool A versus conformalisation.** KinCP did **not** differ from a CalPred-style heteroscedastic Gaussian calibration fitted to the *same* relatedness-diverse pool (pool A): difference -0.001, 95% CI -0.006 to 0.006, *P* = 0.900. The same parametric calibration fitted to a random pool did significantly worse. The main benefit therefore comes from the calibration pool, not from conformalisation as such. Under R1 the differences between methods were small in absolute terms, although KinCP remained significantly better than CV+ (*P* = 0.003) and SCP (*P* = 0.033).
 
@@ -301,7 +301,7 @@ KinCP's advantage under random cross-validation is therefore specific to calibra
 
 Group CV+ is thus a reasonable choice when deployment is known to be to new clusters. KinCP, by conditioning on each candidate's relatedness, was calibrated in both regimes without knowing which regime applied.
 
-**Near-duplicate genotypes.** Removing near-duplicates did not change the conclusions (File S2, Table S_dedup). Under R2 KinCP covered 0.892 and CV+ 0.845; under R1 the figures were 0.902 and 0.904.
+**Near-duplicate genotypes.** Removing near-duplicates did not change the conclusions (S2 File, sheet S7_dedup). Under R2 KinCP covered 0.892 and CV+ 0.845; under R1 the figures were 0.902 and 0.904.
 
 ### RQ4: computational cost and sensitivity
 
@@ -398,7 +398,7 @@ Relatedness to the training population is the variable along which genomic-predi
 
 ## Data availability
 
-All genotype and phenotype data are publicly available from EasyGeSe (Quesada-Traver *et al.* 2025; Zenodo record 15348871, https://zenodo.org/records/15348871, CC-BY 4.0). The complete code, configuration, per-job results and the scripts that regenerate every table, figure and number in this article are provided as File S3. They will be deposited on Zenodo with a DOI upon acceptance [DOI to be inserted]. File S1 contains the pre-specified study design and the log of deviations. File S2 contains supplementary tables, including the per-unit results for every method, base predictor and regime.
+All genotype and phenotype data are publicly available from EasyGeSe (Quesada-Traver *et al.* 2025; Zenodo record 15348871, https://zenodo.org/records/15348871, CC-BY 4.0). The complete code, configuration, per-job results and the scripts that regenerate every table, figure and number in this article are provided as S3 File. They will be deposited on Zenodo with a DOI upon acceptance [DOI to be inserted]. S1 File contains the pre-specified study design and the log of deviations. S2 File contains supplementary tables, including the per-unit results for every method, base predictor and regime.
 
 ## Acknowledgments
 
@@ -510,6 +510,15 @@ Xu C, Ganesh SK, Zhou X. 2025. Statistical construction of calibrated prediction
 Zhao K, Tung CW, Eizenga GC, Wright MH, Ali ML, Price AH, Norton GJ, Islam MR, Reynolds A, Mezey J, et al. 2011. Genome-wide association mapping reveals a rich genetic architecture of complex traits in Oryza sativa. Nature Communications. 2(1):467. doi:10.1038/ncomms1467
 
 
+## Supporting information
+
+**S1 File. Pre-specified study design and log of deviations.** The design, endpoints and statistical tests fixed before any model was fitted, followed by deviations D1–D7 from that design (PDF).
+
+**S2 File. Supplementary tables.** Excel workbook with a README sheet and 15 machine-generated tables. Sheets include S1_all_units (per-unit results for every method, base predictor and regime), S2–S3 (paired tests for each base predictor), S4_stats_species (species-level paired tests), S5_maxkin_endpoint (conditional coverage on maximum genomic relationship), S6_oracle_rescaling, S7_dedup (near-duplicate removal), S8_simulation, S9_pev_calibration, S10_sensitivity, S11_runtime, S12_scaling, S13_selection, S14_error_units and S15_robustness_units (XLSX).
+
+**S3 File. Source code.** Complete analysis code: package, experiment runner, scripts, tests and configuration (ZIP).
+
+
 [Date]
 
 The Editor-in-Chief
@@ -611,7 +620,7 @@ on behalf of all authors
 | R3       | CalPred-style       |      24 | 0.897 ± 0.016 | 0.013 ± 0.009         | 0.021 ± 0.011 | 0.866 ± 0.032         | 2.510 ± 0.538      | 3.394 ± 0.777    |
 | R3       | KinCP               |      24 | 0.902 ± 0.009 | 0.007 ± 0.005         | 0.014 ± 0.005 | 0.883 ± 0.013         | 2.530 ± 0.565      | 3.364 ± 0.753    |
 
-**Table 3** Paired comparisons of KinCP with each alternative (GBLUP) on the relatedness-conditional coverage error (Cond. error) and the marginal coverage deviation (Abs. cov. deviation). Median diff. is the median paired difference (competitor − KinCP; positive favours KinCP), with its 95% bootstrap confidence interval (CI low, CI high). P is from a two-sided Wilcoxon signed-rank test; P (Holm) is adjusted within each endpoint family (all regimes × baseline competitors). Interval-score comparisons and all ablation comparisons are in File S2.
+**Table 3** Paired comparisons of KinCP with each alternative (GBLUP) on the relatedness-conditional coverage error (Cond. error) and the marginal coverage deviation (Abs. cov. deviation). Median diff. is the median paired difference (competitor − KinCP; positive favours KinCP), with its 95% bootstrap confidence interval (CI low, CI high). P is from a two-sided Wilcoxon signed-rank test; P (Holm) is adjusted within each endpoint family (all regimes × baseline competitors). Interval-score comparisons and all ablation comparisons are in S2 File.
 
 | Regime   | Endpoint            | Competitor          |   Units |   KinCP median |   Competitor median |   Median diff. |   CI low |   CI high |   Rank-biserial r |     P |   P (Holm) |
 |:---------|:--------------------|:--------------------|--------:|---------------:|--------------------:|---------------:|---------:|----------:|------------------:|------:|-----------:|

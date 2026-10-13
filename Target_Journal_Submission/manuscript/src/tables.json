@@ -30,7 +30,7 @@
    "P",
    "P (Holm)"
   ],
-  "caption": "Paired comparisons of KinCP with each alternative (GBLUP) on the relatedness-conditional coverage error (Cond. error) and the marginal coverage deviation (Abs. cov. deviation). Median diff. is the median paired difference (competitor − KinCP; positive favours KinCP), with its 95% bootstrap confidence interval (CI low, CI high). P is from a two-sided Wilcoxon signed-rank test; P (Holm) is adjusted within each endpoint family (all regimes × baseline competitors). Interval-score comparisons and all ablation comparisons are in File S2."
+  "caption": "Paired comparisons of KinCP with each alternative (GBLUP) on the relatedness-conditional coverage error (Cond. error) and the marginal coverage deviation (Abs. cov. deviation). Median diff. is the median paired difference (competitor − KinCP; positive favours KinCP), with its 95% bootstrap confidence interval (CI low, CI high). P is from a two-sided Wilcoxon signed-rank test; P (Holm) is adjusted within each endpoint family (all regimes × baseline competitors). Interval-score comparisons and all ablation comparisons are in S2 File."
  },
  {
   "label": "Table 4",
